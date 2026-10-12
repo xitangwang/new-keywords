@@ -1,424 +1,712 @@
 {
  "date": "2026-10-12",
- "title": "新词候选清单 · 2026-10-12（北京时间）",
- "collected_at": "2026-10-12 10:50–11:20（北京时间）",
- "generated_at": "2026-10-12T11:05:23+08:00",
+ "title": "新词候选（深挖版）— 2026-10-12",
+ "collected_at": "2026-10-12 北京时间（UTC+8）。这是第二轮，比第一轮（新词候选_2026-10-12.md）挖得深：每个决赛词都按哥飞的方法走完 A–H（信号 → 词族 → 需求验证 → SERP 结构 → 竞品拆解 → 成本与变现 → 域名 → 评分和 7 天计划）",
+ "generated_at": "2026-10-12T11:55:03+08:00",
  "trends_unverified": true,
- "preface": "方法：按「哥飞的朋友们」群的新词链路找词（源头 → 小圈子 → 社媒 → Google Trends → 大站内页 → 新站首页）。依据是笔记第一节第 1 条和第七节。\n数据采集时间：2026-10-12 10:50–11:20（北京时间）。\n用到的数据源：X API（帖子搜索、X 新闻、7 天发帖量统计 `get_posts_counts_recent`），GitHub 公开搜索 API，Hugging Face 的 Trending Models 和 Trending Spaces，Product Hunt 周榜（2026 年第 41 周），HN Show，WebSearch（用来看谁在排名），Verisign RDAP（查 .com 是否已注册）。\n**Google Trends 没拿到数据**：pytrends 和 trends.google.com/explore 都返回 429，间隔 1 分钟和约 10 分钟各重试一次，仍是 429。下表「热度信号」一栏里，凡是没写 Trends 的都表示 **Trends 未验证**，填的是 X 上的每日发帖量（UTC 自然日）。社媒热度不等于搜索量，上站前请自己在浏览器里打开 Trends，用 GPTs 做参照再看一眼。\nSERP 一栏来自 WebSearch 返回的前 5 条结果，近似于 Google 第一页，**不等于真实的 Google 排名**。intitle 数量未验证。\n域名一栏查的是 Verisign RDAP：404 表示「未注册，大概率可注册」，200 表示「已被注册」。溢价域名和保留域名查不出来，以注册商页面为准。",
+ "preface": "数据采集时间：2026-10-12 北京时间（UTC+8）。这是第二轮，比第一轮（`新词候选_2026-10-12.md`）挖得深：每个决赛词都按哥飞的方法走完 A–H（信号 → 词族 → 需求验证 → SERP 结构 → 竞品拆解 → 成本与变现 → 域名 → 评分和 7 天计划）。\n\n**数据来源情况（如实说明）**\n- **可用**：X（x MCP 的 search_news / 账号发帖 / 7 天发帖量）、GitHub 搜索 API（只读）、Hugging Face API、HN Algolia API、Product Hunt（WebFetch）、Steam featuredcategories API、Apple 新版 RSS（rss.marketingtools.apple.com）、Google / Bing / DDG 自动补全、WebSearch（每个查询只返回前 5 个结果，不是真正的 Google 第一页）、IANA RDAP（.com / .net / .ai / .org 等）、new.web.cafe 公开统计。\n- **被挡或拿不到**：\n  - **Google Trends 未验证（全部 429）**：pytrends 试了两次，中间各等 180 秒，都返回 429。curl 和 WebFetch 直接请求 `trends/api/explore` 也是 429，`dailytrends` 返回 404。只有 Trending RSS 能打开，但上面全是体育和娱乐，没有可用的词。所以本期**没有一条**做过「和 GPTs 对比」的验证，热度一律用 X 发帖量、自动补全和媒体报道代替。\n  - **Reddit 被挡**：.json、old.reddit 和 RSS 都返回 network security 拦截页。\n  - **DDG 搜索页被挡**：返回 202 anomaly。Bing 网页结果失真（不管搜什么都返回同一批无关结果），所以 SERP 只能用 WebSearch 的前 5 条。\n  - **intitle 数量未验证**：拿不到 Google 原生结果页。\n  - **web.cafe 词表要付费**：公开页只看得到批次统计，例如 10-12 11:23 那一批是「新词 45 / 二次爆火 34 / 小游戏 61」。\n  - **.io 域名状态未验证**：.io 没有 RDAP，`whois` 也没有输出。\n- **更正第一轮的数据错误**：第一轮写的「Kling 4.0」X 发帖量（10-08 2,128 / 10-09 4,770 / 10-10 881 / 10-11 200）今天没能复现。今天查 `\"kling 4.0\" OR \"kling 4\"` 的 7 天数字是 128/161/175/168/99/73/64，而第一轮那组数字和今天 `\"claude motion\"` 的结果完全一样。第一轮的 Kling 结论作废。\n\n**筛选漏斗**\n- 原始信号约 **110** 条（X 新闻和账号约 50，HN 16，GitHub 约 15，HF 约 12，PH 10，Steam 和 App Store 约 15，还有第一轮带过来的词）。\n- 第一层（能做成工具、英文、不是纯新闻、不是只有大品牌能做、没有 NSFW / 版权 / 商标风险）剩 **40** 个种子，全部跑了自动补全。\n- 第二层（自动补全出现真实需求变体，或者 X 在涨）加 WebSearch SERP 抽查，剩 **6** 个决赛词。\n- 最后选出 **Top 3**。\n\n关于 X 发帖量：以下都是 UTC 自然日，从 10-05（只统计了半天）到 10-11，最后一个数是 10-12 截至采集时的部分数据。",
  "candidates": [
   {
    "rank": 1,
-   "keyword": "how pinterest sees me",
-   "keyword_note": "（generator / collage maker）",
-   "description": "2024 年的老梗，最近在 X 和 TikTok 上又火了：在 Pinterest 里搜 character、nails、quote 等词，截首图拼成四宫格，配文 \"how Pinterest sees me\"",
+   "keyword": "AI school picture generator",
+   "keyword_note": "（school photo AI / AI school pictures）",
+   "description": "家长用 AI 把孩子的日常照片做成「学校证件照 / 年鉴照」风格，用来代替 $25–60 一套的学校摄影套餐",
    "sources": [
-    "https://x.com/i/trending/2103876093157445860",
-    "https://x.com/i/trending/2109474110237475054"
+    "https://x.com/Polymarket/status/2107470217026609238",
+    "https://www.fastcompany.com/91615016/parents-using-ai-chatgpt-to-skip-kids-school-picture-day",
+    "https://www.usatoday.com/story/tech/2026/09/28/chatgpt-school-pictures-copyright/91940947007/",
+    "https://news.ycombinator.com/item?id=49981860"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2103876093157445860 ；https://x.com/i/trending/2109474110237475054（10-12 仍在热点里）",
-   "first_seen": "这一轮从 09-28 开始",
-   "trend_signal": "10-05: 1,885 / 10-06: 1,642 / **10-07: 3,401** / 10-08: 623 / 10-11: 303。这一轮在回落，但每天还有几百条",
+   "sources_text": "https://x.com/Polymarket/status/2107470217026609238 · https://www.fastcompany.com/91615016/parents-using-ai-chatgpt-to-skip-kids-school-picture-day · https://www.usatoday.com/story/tech/2026/09/28/chatgpt-school-pictures-copyright/91940947007/ · https://news.ycombinator.com/item?id=49981860",
+   "first_seen": "USA Today 2026-09-28；Polymarket 帖子 10-06（北京时间 21:57）",
+   "trend_signal": "Polymarket 帖子 1,110,889 次浏览、15,570 赞。X \"AI school photo\" 7 天：3/573/155/17/57/7/4/1。Google 和 Bing 自动补全都有多个变体。Trends 未验证（429）",
    "trends_verified": false,
-   "serp": "前 5 条全是 Lemon8 的 UGC 内页和教程博客（aurascience.blog、antwort.net），**没有一个专门的工具站**。WebSearch 自己的总结也是 \"There isn't an official generator\"",
-   "domain": "howpinterestseesme.com 404，pinterestseesme.com 404，howpinterestseesyou.com 404（⚠️域名里带 Pinterest 商标，有风险）",
-   "idea": "上传截图，自动出 4 宫格或 9 宫格拼图和竖版短视频，套 TikTok 模板。加一项 AI「审美人格解读」：读拼图后给出 vibe / aesthetic 报告。免费出拼图；高清无水印、视频导出、AI 解读用单次付费",
+   "serp": "WebSearch 前 5 全是大站或老站的内页：familyphotographer.ai/school-photos、omniphoto.ai、pose.ai、aragon.ai、magichour.ai、facewow.ai 等。**没有完全匹配的首页，也没有 EMD**",
+   "domain": "schoolpictureai.com、aischoolpictures.com、schoolphotoai.com、schoolpicture.ai 的 RDAP 都是 404（可能可注册）。aischoolphotos.com 已在 2026-08-04 被注册",
+   "idea": "上传 1–3 张照片 → 选背景（经典蓝、激光、书架等）→ 一次出 4–8 张；兄弟姐妹批量；按 8×10、钱包照等打印尺寸裁切。按次 $9.9 / $19.9 / $29.9",
    "rating": 4.0,
    "rating_stars": "★★★★",
-   "reason": "搜索意图明确，第一页只有内页，AI 能做；商标风险要规避（域名建议用中性词，Pinterest 只放在标题里）",
-   "healing": true,
-   "healing_note": "审美 / 能量拼图解读",
-   "extra": {}
+   "reason": "刚需会每年重复（秋季拍照日、补拍、年鉴）；AI 完全能交付；SERP 没有首页；风险是未成年人隐私和「去水印」版权问题",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "AI school picture generator",
+    "intro": "决赛第 1 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源（词是怎么传开的）",
+      "markdown": "- **传播链**：\n  - USA Today 2026-09-28 报道家长用 ChatGPT 做学校照，同时指出有人拿 Lifetouch 的带水印样片去「去水印」，这有版权问题：https://www.usatoday.com/story/tech/2026/09/28/chatgpt-school-pictures-copyright/91940947007/\n  - 10-06 Polymarket 发帖：https://x.com/Polymarket/status/2107470217026609238 （1,110,889 次浏览 / 15,570 赞）\n  - 同一天 InternetH0F 转发：https://x.com/InternetH0F/status/2107542656553542128 （129,158 次浏览 / 2,410 赞）\n  - Fast Company：https://www.fastcompany.com/91615016/parents-using-ai-chatgpt-to-skip-kids-school-picture-day\n  - HN 两次上榜：Dexerto 那篇（10-06）https://news.ycombinator.com/item?id=49981860 ，芬兰 Yle 那篇（10-08）https://news.ycombinator.com/item?id=50004866\n- 这是「媒体报道 → 大号转发 → 家长去搜工具」的典型传播链。热搜过后，每年拍照日还会再来一次。"
+     },
+     {
+      "title": "B. 词族（Google / Bing 自动补全）",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| school picture ai | Google | 工具 |\n| school picture ai prompt | Google | 教程（ChatGPT 用户） |\n| school photo ai generator | Google | 工具 |\n| school photo ai free | Google | 免费工具 |\n| school photo ai trend | Google | 资讯 |\n| ai school pictures generator | Google | 工具 |\n| ai school pics | Google | 工具 |\n| ai school picture trend | Google | 资讯 |\n| ai school photo online | Google | 工具 |\n| yearbook picture ai / yearbook photo ai（prompt / free / generator） | Google + Bing | 工具（2023 年起就有的老需求） |\n| class photo ai | Google | 集体照（难度高） |\n| school photos ai / ai school pictures / picture ai for school | Bing | 工具 |\n\n结论：主词用 **school picture ai / ai school pictures**，yearbook photo ai 做第二个落地页，prompt 类词做博客页去接 ChatGPT 用户。"
+     },
+     {
+      "title": "C. 需求验证（哪些证据是真的）",
+      "markdown": "- **真实拿到的**：\n  - Polymarket 和 InternetH0F 两个帖子的浏览数（x MCP 返回的数据）\n  - 3 家媒体报道加 2 次 HN 上榜\n  - Google 和 Bing 两边自动补全都有多个变体（这比单边补全更可信）\n- **X 发帖量偏小**：\"AI school photo\" 7 天：3/573/155/17/57/7/4/1。讨论集中在 10-06 那一天；家长不怎么发推，所以发帖量会低估搜索需求。\n- **未验证**：Google Trends（429），没能和 GPTs 对比；intitle 数量（拿不到 Google 原生结果页）。\n- **上站前要补**：自己在 Trends 里对比 GPTs、school picture ai、yearbook ai 三个词，看最近 30 天是不是阶梯式上涨。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5，三个查询）",
+      "markdown": "| 查询 | 位置 | 结果 | 类型 | 域名注册时间（RDAP） |\n|---|---|---|---|---|\n| school picture ai generator | 1 | familyphotographer.ai/school-photos | 新站内页 | 2025-06-03 |\n| school picture ai generator | 2 | omniphoto.ai/tools/kids-photos | 新站内页 | 2026-05-20 |\n| school picture ai generator | 3 | pose.ai/styles/ai-yearbook-photos | 老站内页 | 2017 |\n| school picture ai generator | 4 | aragon.ai/photo-generator/yearbook-photos | 大站内页 | 2022 |\n| school picture ai generator | 5 | familyphotographer.ai/yearbook-photos | 新站内页 | 同上 |\n| ai school pictures generator free | 1–5 | magichour.ai/tools/yearbook-generator、facewow.ai、pixnova.ai、image2.im/styles、free.ai/image/yearbook | 全是大站内页 | image2.im 没有 RDAP，未验证 |\n| ai school photo chatgpt prompt | 1–5 | Fast Company、academy.techpresso.co、image2.im、USA Today、imaginewithrashid | 媒体和教程 | — |\n\n判断：\n- 前 5 里**没有一个首页**完整匹配 school picture，也没有 EMD。大多数结果其实是 yearbook 页面在顺带覆盖这个词，不是专门为它做的。\n- 按「首页胜内页、EMD 依然有效」的经验，一个专门做 school picture 的 EMD 首页**有机会进前 5**。\n- 最难打的是 aragon.ai 和 pose.ai 这类权重高的老站。\n- intitle 数量未验证。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| familyphotographer.ai/school-photos | 2025-06-03 | 上传孩子照片，生成学校照风格 | 免费出带水印的预览，相册 $19 起；没有订阅 | 只是站内一个功能页；没有按打印尺寸裁切，也没有兄弟姐妹批量 |\n| aragon.ai/photo-generator/yearbook-photos | 2022 | 职业头像大站的 yearbook 风格页 | 付费套餐或订阅（具体价格未打开核对，未验证） | 目标是成人头像，不是儿童学校照 |\n| pose.ai/styles/ai-yearbook-photos | 2017 | 风格模板页 | 未验证 | 偏复古年鉴照的娱乐风格 |\n| omniphoto.ai/tools/kids-photos | 2026-05-20 | 儿童写真工具页 | 未验证 | 不是专门做学校照 |\n| magichour.ai / facewow.ai / pixnova.ai | — | 通用 yearbook 生成器 | 订阅或积分（未逐个核对） | 都是工具矩阵里的一个页面 |\n\n是否投广告：没有逐站抓取，未验证。"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：\n  - 上传 1–3 张清晰照片，选背景（经典蓝、灰、激光、书架、户外）。\n  - 选衣着整理（保持原衣服 / 换成纯色上衣）和表情微调（不改五官）。\n  - 一次出 4 张，可以下载高清图和打印尺寸裁切（8×10、5×7、钱包照）。\n- **模型**：fal 上的 Nano Banana 2.1 edit。已用 WebFetch 打开 https://fal.ai/models/google/nano-banana-2.1/edit 核对价格：两张 1K 输入图的编辑每张 $0.044（1K）/ $0.063（2K）/ $0.138（4K）。有 safety_tolerance 参数，可以调审核强度。\n- **单单成本**：一套 4 张 2K 图约 $0.25，加上失败重试按 $0.4 算。**收 $9.9 的毛利率在 90% 以上**（Stripe 手续费另算）。\n- **开发工时**：Next.js 加 fal 加 Stripe 一次性付款，估计 16–24 小时（我的估算，没有实测）。\n- **变现**：按哥飞说的热词用一次性付费：\n  - $9.9 = 1 个孩子 × 4 张\n  - $19.9 = 3 个孩子或 12 张\n  - $29.9 = 5 个孩子\n  - 免费额度只给 1 张带水印的预览，不送太多。\n- **ChatGPT 流量**：搜「AI school picture」的人很多本来就在用 ChatGPT。首页标题写成 \"AI School Picture Generator – Picture Day Photos from Home\"，最符合 ChatGPT 推荐「最匹配页面」的习惯。ChatGPT 实际会不会推荐我们未验证，可以用这几个问题测：\n  - \"best AI school picture generator\"\n  - \"how to make school pictures with AI instead of picture day\"\n  - \"AI yearbook photo for my kid\"\n- **寿命**：至少 1 年以上。秋季拍照日（9–10 月）、春季拍照日、补拍日和年鉴截稿都是高峰。\n- **风险**：\n  1. **未成年人照片**：写清隐私条款，照片 24 小时自动删除，不拿来训练；要求由家长上传；遵守 COPPA 和 GDPR。\n  2. **版权**：绝不提供「去 Lifetouch 水印」或「用样片生成」的功能，页面不出现 Lifetouch 等品牌名。\n  3. **被 ChatGPT 替代**：差异化做在预设背景、批量、打印尺寸、一致性和不改脸上。\n  4. 内容审核要开启，不做 NSFW。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） | 备注 |\n|---|---|---|\n| schoolpictureai.com | 404，可能可注册 | **首选**，完全匹配主词 |\n| aischoolpictures.com | 404，可能可注册 | 匹配 Bing 的补全 |\n| schoolphotoai.com | 404，可能可注册 | 备选 |\n| schoolpicture.ai | 404，可能可注册 | .ai 贵一些 |\n| aischoolphotos.com | 已注册 2026-08-04，页面空白 | 有人囤了 |\n| schoolphoto.ai | 已注册 2026-06-21 | 是一个真实的 K-12 摄影项目 |\n| .io 系列 | 未验证 | .io 没有 RDAP |\n\n这些名字都只用通用词，不含任何商标。"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 百万级浏览、主流媒体报道、两边自动补全都有；Trends 未验证，所以不给 5 |\n| 竞争 | 3 | 前排没有首页和 EMD，但 aragon 和 pose 等老站权重高 |\n| 可行性 | 5 | 现成的编辑模型，每单成本约 $0.25–0.4 |\n| 变现 | 4 | 家长原本就要付 $25–60，$9.9 的一次性付费很好接受 |\n| 寿命 | 4 | 每年都会重复的季节性需求，加上年鉴 |\n| 总分 | 20/25 | |\n\n**7 天计划**\n- **第 1 天**：\n  - 先在 Trends 里对比 GPTs、school picture ai 和 yearbook ai，确认有上涨（这是上站前的门槛）。\n  - 注册 schoolpictureai.com。\n  - 按哥飞「先在老站加内页测」的思路，如果手上有图像类老站，当天先上一个 /school-picture-ai 内页。\n- **第 2 天**：\n  - 做 MVP：上传、预设背景、调 fal 生成、加水印预览。\n  - 首页 H1 写 \"AI School Picture Generator\"。\n- **第 3 天**：\n  - 接 Stripe 三档付费（$9.9 / $19.9 / $29.9），做打印尺寸裁切。\n  - 写隐私条款，照片 24 小时自动删除。\n- **第 4 天**：\n  - 上 /yearbook-photo-ai 和 /school-picture-ai-prompt 两个子页。prompt 页直接给 ChatGPT 提示词，接住 ChatGPT 用户。\n  - 提交 Search Console 和 Bing Webmaster。\n- **第 5 天**：\n  - 用 C 部分列的问题测 ChatGPT 推荐。\n  - 去 HN、Reddit 讨论帖里自然回复做外链（Reddit 本期被挡，需要人工）。\n  - 提交 AI 工具目录站。\n- **第 6 天**：\n  - 看 GSC 曝光词，补「picture day retake」「class photo ai」等长尾页。\n  - 调整免费额度。\n- **第 7 天**：\n  - 复盘：如果付费转化在 1% 以上，就加做「秋季和春季拍照日」两个季节落地页。\n  - 如果 GSC 没有曝光，就停止投入，只留内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "百万级浏览、主流媒体报道、两边自动补全都有；Trends 未验证，所以不给 5"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "前排没有首页和 EMD，但 aragon 和 pose 等老站权重高"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "现成的编辑模型，每单成本约 $0.25–0.4"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "家长原本就要付 $25–60，$9.9 的一次性付费很好接受"
+     },
+     {
+      "dim": "寿命",
+      "score": 4.0,
+      "note": "每年都会重复的季节性需求，加上年鉴"
+     }
+    ],
+    "total": 20.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 2,
-   "keyword": "voice avatar match",
-   "keyword_note": "（声音匹配 VRChat 头像 / \"what does my voice look like\"）",
-   "description": "日本开发者做的浏览器工具：录 10 秒语音，分析音高、语调和语速，匹配一个 VRChat 头像，再给出「声音人格」标签（mature、androgynous、gentle…）",
+   "keyword": "AI video relight",
+   "keyword_note": "（relight video AI）",
+   "description": "上传一段视频，改变它的光照和氛围（黄金时刻、霓虹、影棚光等）。MiniMax H3 Max Relight 10-08 在 fal 上线了 API",
    "sources": [
-    "https://x.com/i/trending/2108278820696637655",
-    "https://x.com/MidoriVRDJ/status/2108406458555707631"
+    "https://x.com/fal/status/2107942680470737049",
+    "https://fal.ai/models/minimax/h3-max/relight",
+    "https://www.runway.com/apps/relight-scene"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2108278820696637655 ；用户帖 https://x.com/MidoriVRDJ/status/2108406458555707631 （标签 #VoiceAvatarMatch #声からアバター診断）",
-   "first_seen": "约 10-05（日语圈先火，10-07 后扩散到英语圈）",
-   "trend_signal": "带这些标签的帖子：**10-05: 4,209** / 10-06: 1,200 / 10-07: 483 / 10-09: 240 / 10-11: 137",
+   "sources_text": "https://x.com/fal/status/2107942680470737049 · https://fal.ai/models/minimax/h3-max/relight · https://www.runway.com/apps/relight-scene",
+   "first_seen": "fal 上线 10-08（北京时间 05:14）",
+   "trend_signal": "\"h3 max\" relight 的 X 发帖很少（最多 30/天）；但 \"relight video ai\"、\"ai relight video\" 在 Google 和 Bing 自动补全里都有，还有 free / online / higgsfield 等变体。Trends 未验证",
    "trends_verified": false,
-   "serp": "WebSearch **连原站都没搜到**，结果是变声器（voicechanger.live、getvoices.ai）、一个日本声优诊断 App 和论文，没有专门的英文工具站",
-   "domain": "voiceavatarmatch.com 404（可注册），voicetoavatar.com 已注册",
-   "idea": "英文版「声音人格测试」：What does your voice say about you / which anime character matches your voice。录音在本地分析，LLM 生成可分享的结果卡。免费测；付费出详细报告和「适合你声音的角色 / 职业 / 治愈系声线练习」",
-   "rating": 4.0,
-   "rating_stars": "★★★★",
-   "reason": "小圈子已经验证会传播（典型的测试类社交货币），英文 SERP 是空的，AI 能做；〔疗愈相关〕",
-   "healing": true,
-   "healing_note": "声音人格 / 治愈声线测试",
-   "extra": {}
+   "serp": "全是内页：nanobananavideo.com/video-relight、veltake.ai、runway、beeble.ai、wavespeed.ai。relightvideo.com 已注册（2026-02-23，页面没有标题）",
+   "domain": "relightvideo.net、videorelight.com、relightvideoai.com、aivideorelight.com、relight.video RDAP 404",
+   "idea": "单功能首页：上传 → 选光照预设 → 出片。按秒计积分，订阅加积分包",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "功能词长期有效，API 新上线；但内页竞品多，单次成本高（480p $0.05/秒）",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "AI video relight",
+    "intro": "决赛第 2 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- fal 10-08 发帖上线 MiniMax H3 Max Relight：https://x.com/fal/status/2107942680470737049\n- HF 上 MiniMax-H3 系列很火：6,044 赞，360 万次下载。\n- 「relight」本身是视频创作者早就在用的功能词（Runway、Beeble、Higgsfield 都有）。这次新模型把门槛降成了一次 API 调用。\n- 属于「新 API 激活老需求」，不是纯新词。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| relight video ai | Google + Bing |\n| relight video ai free | Google |\n| relight video online | Google |\n| relight video higgsfield | Google（说明用户在找 Higgsfield 的替代品） |\n| ai relight video | Google + Bing |\n| ai relighting tool | Google |\n| h3 max relight / h3 max fal / h3 max api / h3 max pricing / h3 max open source | Google + Bing |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：\n  - 两边自动补全都有，\"relight video ai\" 在 Bing 也有。\n  - fal 官方的上线帖。\n- **X 很冷**：\"h3 max\" relight 7 天是 0/0/12/30/4/4/3/0。说明这不是社交热点，而是功能需求。\n- **未验证**：Trends（429）、intitle。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：\"relight video ai online\"）",
+      "markdown": "| 位置 | 结果 | 类型 | 注册时间（RDAP） |\n|---|---|---|---|\n| 1 | nanobananavideo.com/video-relight | 新站内页 | 2025-08-31 |\n| 2 | veltake.ai/en/tools/video-relight | 新站内页 | 2026-09-17 |\n| 3 | runway.com/apps/relight-scene | 大品牌内页 | — |\n| 4 | beeble.ai/features/3d-relight | 品牌功能页 | 2022 |\n| 5 | wavespeed.ai/tools/video-relighter | 新站内页 | 2025-01 |\n\n- 前 5 **全是内页**，没有首页和 EMD。\n- relightvideo.com 在 2026-02-23 被注册，但页面没有标题，没有进前 5。\n- 一个功能匹配的首页有机会进前 5，但 Runway 和 Beeble 的权重很高。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| runway.com relight-scene | — | Runway 应用里的一个功能 | Runway 订阅（具体档位未核对，未验证） | 要先懂 Runway 那一整套 |\n| beeble.ai | 2022 | 专业 3D 重打光 | 未验证 | 偏专业后期，门槛高 |\n| nanobananavideo.com | 2025-08-31 | 工具矩阵里的一页 | 未验证 | 不是专门做 relight 的站 |\n| veltake.ai | 2026-09-17 | 新工具站的一页 | 未验证 | 同上 |\n| wavespeed.ai | 2025-01 | API 平台的工具页 | 按次计费（未核对） | 面向开发者 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：\n  - 上传 ≤10 秒的视频，选光照预设（黄金时刻、霓虹、影棚、烛光、阴天），或者用一句话描述想要的光。\n  - 生成后可以和原片拖动对比。\n- **模型**：fal 的 MiniMax H3 Max Relight。价格（来自 WebSearch 对 https://fal.ai/models/minimax/h3-max/relight 的摘要，**没有直接打开页面核对**）：\n  - 480p $0.05/秒\n  - 768p $0.08/秒\n  - 1080p $0.16/秒\n  - 2K $0.32/秒\n- **单单成本**：10 秒 768p 约 $0.8，10 秒 1080p 约 $1.6。\n- **变现**：\n  - 一次性档位定 $9.9 = 10 段 480p 或 5 段 768p，毛利约 50–60%。\n  - 订阅 $19.9/月起，适合留住创作者。\n  - 不能送免费额度，最多送一段 3 秒的 480p。\n- **开发工时**：约 20–28 小时（视频上传、队列、预览）。估算，未实测。\n- **ChatGPT 流量**：ChatGPT 本身不能改视频光照，这一点比图片类工具好。首页标题写 \"AI Video Relight – Change Lighting in Any Video Online\"。\n- **寿命**：长期功能词，不依赖某个模型版本，可以随时换更好的模型。\n- **风险**：\n  - 成本高，要防止被刷免费额度。\n  - 上传内容要审核，防止深伪和 NSFW。\n  - 不要把 MiniMax 或 Runway 写进域名。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| relightvideo.net | 404，可能可注册 |\n| videorelight.com | 404，可能可注册（**首选**） |\n| relightvideoai.com | 404，可能可注册 |\n| aivideorelight.com | 404，可能可注册 |\n| relight.video | 404，可能可注册 |\n| relightvideo.com | 已注册 2026-02-23 |\n| airelight.com | 已注册 2015 |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 两边自动补全都有，但没有社交热度证据，Trends 未验证 |\n| 竞争 | 3 | 全是内页，但有 Runway 和 Beeble 两个强品牌 |\n| 可行性 | 4 | 一次 API 调用就能做；视频处理比图片复杂 |\n| 变现 | 4 | 创作者愿意付费，订阅加积分包都适用 |\n| 寿命 | 4 | 功能词，可以换模型 |\n| 总分 | 18/25 | |\n\n**7 天计划**\n- **第 1 天**：\n  - 直接打开 fal 定价页核对价格（这次只看了 WebSearch 摘要）。\n  - 用 3 段样片实测效果和耗时。\n  - 在 Trends 里对比 relight video ai 和 GPTs。\n- **第 2 天**：\n  - 注册 videorelight.com。\n  - 做 MVP：上传 → 预设 → fal 队列 → 前后对比。\n- **第 3 天**：\n  - 接 Stripe（$9.9 一次性 / $19.9 月订阅）。\n  - 加内容审核和时长限制。\n- **第 4 天**：\n  - 每个光照预设做一个子页（golden hour video、neon lighting video 等）。\n  - 再做一个 /higgsfield-relight-alternative 对比页。\n- **第 5 天**：\n  - 在 YouTube Shorts 和 X 发前后对比视频。\n  - 提交 AI 工具目录。\n  - 测 ChatGPT 推荐（\"how to relight a video with AI\"）。\n- **第 6 天**：\n  - 看 GSC 曝光，补 \"relight video online free\" 页面（免费只给预览）。\n- **第 7 天**：\n  - 复盘单单毛利。\n  - 如果 768p 毛利不到 40%，就调整积分定价或者默认 480p。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "两边自动补全都有，但没有社交热度证据，Trends 未验证"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "全是内页，但有 Runway 和 Beeble 两个强品牌"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "一次 API 调用就能做；视频处理比图片复杂"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "创作者愿意付费，订阅加积分包都适用"
+     },
+     {
+      "dim": "寿命",
+      "score": 4.0,
+      "note": "功能词，可以换模型"
+     }
+    ],
+    "total": 18.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 3,
-   "keyword": "H3 Max Relight / AI video relight",
+   "keyword": "Vidu Q4",
    "keyword_note": "",
-   "description": "MiniMax H3 Max 的视频重打光功能：上传视频，在灯光工作室里调光，逐帧重新打光（日光变黄金时刻、霓虹等）",
+   "description": "生数科技 Vidu 第四代视频模型，10-07 发布",
    "sources": [
-    "https://x.com/fal/status/2107942680470737049"
+    "https://x.com/fal/status/2107930326139867264",
+    "https://www.vidu.com/vidu-q4",
+    "https://x.com/i/status/2108299031051165730"
    ],
-   "sources_text": "fal 官方帖 https://x.com/fal/status/2107942680470737049",
-   "first_seen": "10-07",
-   "trend_signal": "带 \"h3 max\" 的帖子：10-05~10-08 每天 352–411 条，**10-09: 1,201 / 10-10: 1,495** / 10-11: 878",
+   "sources_text": "https://x.com/fal/status/2107930326139867264 · https://www.vidu.com/vidu-q4 · https://x.com/i/status/2108299031051165730",
+   "first_seen": "发布 10-07；fal 上线 10-08",
+   "trend_signal": "X 7 天：35/15/116/2370/860/4960/3011/115，非常热。自动补全有 vidu q4 preview / release date（Bing 只补到 q3）",
    "trends_verified": false,
-   "serp": "前 5 条：fal 的 2 个模型页和 API 页，twiscan 转载，tryonlabs 文档，artrealmai 的一篇文章内页。**还没有新站首页**",
-   "domain": "h3maxrelight.com 404；relightvideo.com 已注册",
-   "idea": "「AI Video Relight」在线工具：接 fal 的 `minimax/h3-max/relight` API，按秒或按条卖积分。品牌词（H3 Max Relight）先吃早期流量，功能词（relight video AI）流量更持久",
+   "serp": "官方文档和落地页占前排。新站 viduq4.app（2026-10-08）已进前 5。另外还有 viduq4.org、viduq4.net（都是 10-08 注册）和 vidu-q4.com（10-09 注册）",
+   "domain": "viduq4.ai、viduq4ai.com、viduq4video.com RDAP 404；.com、.net、.org 已被注册",
+   "idea": "模型词站：在线生成 + 和 Kling、Seedance 的对比 + 提示词库，一次性档位定价",
    "rating": 3.0,
    "rating_stars": "★★★",
-   "reason": "群里 09-03 播报过 H3 Max，这是它的新功能；有 API 可接，功能词寿命更长",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
+   "reason": "已证明有人付费，但 2 天内冒出 4 个新站，寿命只有几周",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Vidu Q4",
+    "intro": "决赛第 3 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 生数科技 10-07 发布 Vidu Q4。PR Newswire 写的上线价是 $0.014/秒。\n- 10-08 fal 上线：https://x.com/fal/status/2107930326139867264\n- X 新闻聚合：https://x.com/i/status/2108299031051165730\n- GitHub 上已经有对比仓库 nurbeks-hub/vidu-q4-compare。\n- 典型的「大模型发版 → API 平台上线 → 新词站一拥而上」链条。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| vidu q4 | Google |\n| vidu q4 preview | Google |\n| vidu q4 release date | Google |\n| vidu q3 / vidu q2 | Bing（Bing 还没收录 q4） |\n| vidu q4 pricing / api | 各个新站的标题都在打，自动补全里没有稳定出现，证据弱 |\n\n自动补全里很多 \"Q4\" 是「第四季度」的噪音，已经剔除。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：X 7 天 35/15/116/2370/860/4960/3011/115，量级明显，Q4 发布后连续 4 天都在高位。\n- **未验证**：Trends（429）。\n- **竞品已在收费**：viduq4.app 收 $15.9/月，vidu-q4.com 收 $10/月。这说明有人觉得值得做，但不能证明它们真的有收入。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：\"vidu q4\"）",
+      "markdown": "| 位置 | 结果 | 类型 | 注册时间（RDAP） |\n|---|---|---|---|\n| 1 | platform.vidu.com 文档 | 官方 | — |\n| 2 | platform.vidu.com 文档（第二页） | 官方 | — |\n| 3 | vidu.com/vidu-q4 | 官方落地页 | — |\n| 4 | viduq4.app/vidu-q4-api | **新站内页（EMD）** | 2026-10-08T00:21Z（北京时间 10-08 08:21） |\n| 5 | PR Newswire 转载 | 新闻 | — |\n\n前 5 里已经有一个两天的新 EMD，说明新站能快速进前排。但还有 viduq4.org、viduq4.net（都是 10-08 注册）和 vidu-q4.com（10-09 注册）在抢，我们现在进场是第 5 个以后。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 定价 | 备注 |\n|---|---|---|---|\n| viduq4.app | 2026-10-08 | Starter $15.90/月，Pro $39.90/月；100 积分 = $10 | 已进 WebSearch 前 5 |\n| vidu-q4.com | 2026-10-09 | Basic $10/月，1,000 积分 | |\n| viduq4.org | 2026-10-08 | 未验证 | |\n| viduq4.net | 2026-10-08 | 未验证 | |\n| viduq4.com | 2026-03-19 | 页面没有标题 | 早就被囤了 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：文生视频和图生视频，调 fal 或官方 API；加一个「Vidu Q4 vs Kling vs Seedance」同提示词对比页和提示词库。\n- **单单成本**：官方上线价 $0.014/秒（来自 PR）；第一轮记录的 fal 540p 是 $0.0315/秒。按这个算 8 秒视频成本约 $0.11–0.25。\n- **变现**：按哥飞 09-28 那个视频热词站的做法：\n  - $9.9 = 1 次高质量生成套餐（或若干条）\n  - $19.9 = 3 份\n  - $29.9 = 5 份\n  - 他那个站的成绩是第一天 $221、7 天超过 $4,000，付款来自 ChatGPT 流量。这是群聊笔记里的数字，不是本站的数据。\n- **开发工时**：有模板约 8–12 小时，没有模板约 20 小时。\n- **ChatGPT 流量**：用户会问 \"what is vidu q4\" 和 \"how to use vidu q4\"，可以测 ChatGPT 推荐的是官方还是新站（未验证）。\n- **寿命**：短。下一版（Q5）或竞品发版后热度就转移，预计只有 2–6 周。\n- **风险**：\n  - 「Vidu」是生数科技的商标，EMD 存在商标投诉风险。页面要写清楚「非官方」。\n  - 输出要做审核。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| viduq4.ai | 404，可能可注册（但 .ai 年费高，寿命短不划算） |\n| viduq4ai.com | 404，可能可注册 |\n| viduq4video.com | 404，可能可注册 |\n| viduq4.video | 404，可能可注册 |\n| viduq4.com / .net / .org / vidu-q4.com | 已注册 |\n\n更建议做法：**不注册新域名**，在已有的 AI 视频老站上开 /vidu-q4 内页测试（哥飞的「老站内页先测」）。"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | X 单日 4,960，热度连续 4 天在高位 |\n| 竞争 | 2 | 官方占前 3，两天内冒出 4 个 EMD |\n| 可行性 | 4 | API 现成，成本低 |\n| 变现 | 4 | 竞品已经在收订阅，一次性档位也适用 |\n| 寿命 | 2 | 模型版本词，几周就过去 |\n| 总分 | 16/25 | |\n\n**7 天计划**（以老站内页为主）\n- **第 1 天**：\n  - 在已有的 AI 视频站上开 /vidu-q4 内页：H1 是 \"Vidu Q4 AI Video Generator\"，能直接试用，附上规格和价格对照。\n  - 提交索引。\n- **第 2 天**：\n  - 接 fal 的 Vidu Q4 接口，做 $9.9 / $19.9 / $29.9 一次性档位。\n- **第 3 天**：\n  - 做「Vidu Q4 vs Kling vs Seedance 2.5」同提示词对比页。注意 Seedance 2.5 的 X 量每天稳定在 5,000 左右，可以顺带接住。\n- **第 4 天**：\n  - 做提示词库页、/vidu-q4-api 文档摘要页。\n- **第 5 天**：\n  - 测 ChatGPT 推荐，在 X 用生成样片回复相关讨论。\n- **第 6 天**：\n  - 看 GSC。如果内页有点击、有付费，就考虑注册 viduq4ai.com 做独立站。\n- **第 7 天**：\n  - 复盘。如果 X 量跌到峰值的 10% 以下，就停止追加，只留内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "X 单日 4,960，热度连续 4 天在高位"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "官方占前 3，两天内冒出 4 个 EMD"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "API 现成，成本低"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "竞品已经在收订阅，一次性档位也适用"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "模型版本词，几周就过去"
+     }
+    ],
+    "total": 16.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 4,
-   "keyword": "Vidu Q4",
-   "keyword_note": "",
-   "description": "生数科技的视频模型 Vidu Q4 Preview：4K、原生音频、最多 15 张参考图加 3 段声音参考",
+   "keyword": "Qwen4-27B",
+   "keyword_note": "（VRAM / 本地运行）",
+   "description": "阿里 Qwen4 系列里的 27B 尺寸；用户关心要多少显存、怎么本地跑",
    "sources": [
-    "https://x.com/fal/status/2107930326139867264",
-    "https://x.com/i/trending/2108299031051165730"
+    "https://x.com/i/status/2108949111592624240"
    ],
-   "sources_text": "fal 上线帖 https://x.com/fal/status/2107930326139867264 ；X 热点 https://x.com/i/trending/2108299031051165730",
-   "first_seen": "10-07",
-   "trend_signal": "10-05: 37 / 10-07: 116 / **10-08: 2,370** / 10-09: 860 / **10-10: 4,960** / 10-11: 3,011。本表 AI 模型里**热度最高、仍在高位**",
+   "sources_text": "https://x.com/i/status/2108949111592624240",
+   "first_seen": "X 新闻 10-10（北京时间 23:53）",
+   "trend_signal": "X \"qwen4\" 7 天：269/274/153/107/85/841/525/54。自动补全：qwen4 release date、qwen4 27b、qwen4-coder，Bing 也有 qwen4 27b",
    "trends_verified": false,
-   "serp": "前 5 条：vidu.com 官方页、2 个官方 API 文档、instantvid.ai 的新闻内页，以及 **viduq4.app（小新站首页已出现）**",
-   "domain": "viduq4.com 已注册；viduq4ai.com 404",
-   "idea": "Vidu Q4 在线生成站（图生视频、参考生视频），fal 促销价 $0.0315/秒（540p）。卖积分，单次付费阶梯价（群里共识：热点短期需求不推订阅）",
-   "rating": 3.0,
-   "rating_stars": "★★★",
-   "reason": "热度最高，但已经进入「新站首页」阶段，晚了 3–4 天，要拼速度",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
+   "serp": "博客内页：yottalabs.ai、modemguides.com、museaicode.bid（2026-09-28 注册，程序化 SEO）",
+   "domain": "qwen427b.com、qwen4vram.com、runqwen4.com RDAP 404；qwen4.ai、qwen4.net 已注册",
+   "idea": "显存计算器 + 本地部署教程 + 量化版本对照",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "有搜索但只能做信息站，只能靠广告或联盟变现，赚得少",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Qwen4-27B",
+    "intro": "",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- X 新闻 10-10 报道 Qwen4-27B 和 Max：https://x.com/i/status/2108949111592624240\n- 本地运行的需求来自开发者圈（r/LocalLLaMA 被挡，未验证）。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| qwen4 release date | Google |\n| qwen4 27b | Google + Bing |\n| qwen4 release | Google |\n| qwen4-coder | Google |\n| qwen4b | Bing |\n| qwen4 27b vram / qwen4 vram limit 等 | Google 长尾（可能是按模板批量生成的补全，证据弱） |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- X \"qwen4\" 7 天：269/274/153/107/85/841/525/54。有一次跳升，但量不大。\n- Trends 未验证。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：\"qwen4 27b vram\"）",
+      "markdown": "| 位置 | 结果 | 类型 | 注册时间（RDAP） |\n|---|---|---|---|\n| 1 | yottalabs.ai 文章 | 老站内页 | 2024 |\n| 2 | modemguides.com 博客 | 老站内页 | 2014 |\n| 3–5 | museaicode.bid 的 3 个内页 | 新站程序化 SEO | 2026-09-28 |\n\n全是内页，首页有机会。但这类词适合做信息站，没有可以收费的工具。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 形式 | 变现 |\n|---|---|---|---|\n| museaicode.bid | 2026-09-28 | 程序化 SEO 批量页面 | 广告（未核对） |\n| yottalabs.ai | 2024 | GPU 云厂商博客 | 导流到自家 GPU 产品 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：显存计算器（参数量 × 量化位数 × 上下文长度）、本地部署教程、量化版本下载导航。工时约 6–10 小时。\n- **变现**：只能靠 AdSense 或 GPU 云联盟。按群里的经验，订阅比广告高约 30 倍，所以这里天花板低。\n- **ChatGPT 流量**：适合被 ChatGPT 引用，但用户不付费。\n- **寿命**：2–8 周，Qwen4.5 或 Qwen5 一出就会被替代。\n- **风险**：「Qwen」是阿里的商标。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| qwen427b.com | 404，可能可注册 |\n| qwen4vram.com | 404，可能可注册 |\n| runqwen4.com | 404，可能可注册 |\n| qwen4.ai | 已注册 2026-03（另一个不相关的项目） |\n| qwen4.net | 已注册 2025-07 |"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 有自动补全和 X 跳升 |\n| 竞争 | 3 | 全是内页 |\n| 可行性 | 3 | 只能做信息或计算器 |\n| 变现 | 1 | 只有广告或联盟 |\n| 寿命 | 2 | 版本词 |\n| 总分 | 12/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "有自动补全和 X 跳升"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "全是内页"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "只能做信息或计算器"
+     },
+     {
+      "dim": "变现",
+      "score": 1.0,
+      "note": "只有广告或联盟"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "版本词"
+     }
+    ],
+    "total": 12.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 5,
-   "keyword": "Qwen4-27B",
-   "keyword_note": "（release date / VRAM / run locally）",
-   "description": "阿里预告 Qwen4-27B 和 Qwen4-Max 会同时以开放权重发布，\"very soon\"，**还没发**",
+   "keyword": "how pinterest sees me generator",
+   "keyword_note": "",
+   "description": "Pinterest 上「Pinterest 眼中的我」拼图潮流：用自己的 Pin 拼一张氛围图",
    "sources": [
-    "https://x.com/i/trending/2108949111592624240",
-    "https://x.com/Alibaba_Qwen"
+    "https://x.com/i/status/2107175423402807382",
+    "https://x.com/i/status/2108574378577559994"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2108949111592624240 ；Qwen 官号 https://x.com/Alibaba_Qwen",
-   "first_seen": "预告时间 10-10",
-   "trend_signal": "带 \"qwen4 / qwen 4\" 的帖子：10-05: 283 / 10-09: 85 / **10-10: 841** / 10-11: 525",
+   "sources_text": "https://x.com/i/status/2107175423402807382 · https://x.com/i/status/2108574378577559994",
+   "first_seen": "10-06",
+   "trend_signal": "X 7 天：1835/1642/3401/623/349/297/303/29，已经在回落。自动补全：template / trend / quiz / generator free",
    "trends_verified": false,
-   "serp": "前 5 条：museaicode.bid 两个发布前占位页，yottalabs 博客，HF 上的 Qwen3.8-27B，iamag.it 新闻。还没有专门的工具站",
-   "domain": "qwen427b.com 404；qwen4.com、qwen4ai.com 已注册",
-   "idea": "发布前先上站：Qwen4-27B 显存计算器（按量化、上下文长度、显卡给出能不能跑）+ 本地运行教程 + 发布倒计时。发布当天接在线试用（OpenRouter / 供应商 API）。变现靠广告和 GPU 云联盟",
-   "rating": 3.0,
-   "rating_stars": "★★★",
-   "reason": "和群里的 Strata Qwen 一个套路（本地跑大模型），提前卡位，赌发布日的流量",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
+   "serp": "pippit.ai（CapCut 旗下）的模板页和 capcut.com 占了前排",
+   "domain": "howpinterestseesme.com RDAP 404，但含 Pinterest 商标",
+   "idea": "拼图生成器（上传图 → 出模板）",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "热度在退，大厂模板已经占位，还有商标风险",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "how pinterest sees me generator",
+    "intro": "",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Pinterest 上的「how Pinterest sees me」拼图潮流：https://x.com/i/status/2107175423402807382 、https://x.com/i/status/2108574378577559994 、https://x.com/i/status/2109474110237475054"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| how pinterest sees me template / trend / challenge / quiz / how to do | Google |\n| how pinterest sees me generator free / ai / online | Google |\n| pinterest collage maker（+ free / online / ai / website） | Google |\n| how pinterest sees me trend / template | Bing |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "X 7 天：1835/1642/3401/623/349/297/303/29，10-07 达到峰值后已经跌了 90%。Trends 未验证。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：\"how pinterest sees me template / generator\"）",
+      "markdown": "| 位置 | 结果 | 类型 | 注册时间（RDAP） |\n|---|---|---|---|\n| 1–3 | pippit.ai 模板页 | 大厂（CapCut 系）程序化 SEO 内页 | 2025-02-25 |\n| 4 | capcut.com 模板 | 大品牌内页 | — |\n| 5 | pinterest.com ideas | 平台自己 | — |"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "pippit.ai 和 CapCut 都是免费模板，引导用户下载 App。新站很难在免费模板之上再收钱。"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 拿不到用户的 Pinterest 数据，只能做「上传图片 → 拼图模板」。\n- 技术上简单，但简单工具容易被 Google 和大厂直接吃掉。\n- 付费意愿低，只能靠广告。寿命已经接近尾声。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "howpinterestseesme.com、pinterestseesme.com 的 RDAP 是 404，但含 Pinterest 商标，**不建议注册**。aestheticgrid.com、moodgrid.app、vibegrid.app 已注册。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 峰值高但已回落 |\n| 竞争 | 2 | CapCut 系模板占位 |\n| 可行性 | 3 | 只能做通用拼图 |\n| 变现 | 2 | 付费意愿低 |\n| 寿命 | 2 | 潮流已过峰值 |\n| 总分 | 12/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "峰值高但已回落"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "CapCut 系模板占位"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "只能做通用拼图"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "付费意愿低"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "潮流已过峰值"
+     }
+    ],
+    "total": 12.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 6,
-   "keyword": "oomfmap",
-   "keyword_note": "（powerplay / make your own map）",
-   "description": "输入 X 用户名，AI 读你的推文，把你放到一张二维人格图上（oomf、dominance、powerplay 等），给出百分比和稀有度",
+   "keyword": "Claude Anatomy skill → isometric explainer",
+   "keyword_note": "",
+   "description": "一个 Claude 技能：把任何东西画成可交互的等轴测「解剖图」",
    "sources": [
-    "https://x.com/i/trending/2109420331274539284",
-    "https://x.com/qq198870/status/2109190512607449205"
+    "https://x.com/i/status/2109286534524330050",
+    "https://github.com/wheresryan22/anatomy"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2109420331274539284 ；用户帖 https://x.com/qq198870/status/2109190512607449205（\"search up oomfmap powerplay\"，说明大家在搜）",
-   "first_seen": "2024-11 上线，**这一轮 10-09 起复火**",
-   "trend_signal": "10-08: 1 / 10-09: 13 / **10-10: 114 / 10-11: 278**，10-12 前 3 小时 64。**本表里上升最陡的词**",
+   "sources_text": "https://x.com/i/status/2109286534524330050 · https://github.com/wheresryan22/anatomy",
+   "first_seen": "GitHub 仓库 2026-10-08 创建；X 爆发在 10-11",
+   "trend_signal": "X 7 天：94/52/22/57/16/263/1371/257，涨得最陡。仓库 3,697★、292 fork",
    "trends_verified": false,
-   "serp": "第一页是原站 oomfmap.com、jai.vin，PH 页面，345tool 的测评，竞品 mootmap.com",
-   "domain": "oomfmap.com 已注册（原站）；oomfmapgenerator.com 404；xprofilemap.com 404",
-   "idea": "做「自定义 AI 人格坐标图 / alignment chart 生成器」，可以输入 X 或 Threads 账号，也可以直接答题，结果卡可分享。原站把完整结果锁在付费墙后，我们可以给更多免费结果。也可以先在老站上开一个 \"oomfmap alternative\" 内页测试",
-   "rating": 2.5,
-   "rating_stars": "★★☆",
-   "reason": "涨得最快，但它是品牌词、原站在第一；圈内对「用了生成式 AI」有反感；部分图（dominance / seme）擦边，要避开",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
+   "serp": "skills.wheresryan.sh/anatomy（官方）、three.ws/anatomy（已经有托管网页版）、repoburst.com（2026-10-03 注册）",
+   "domain": "isometricexplainer.com、howitworksai.com、machineexplainer.com RDAP 404",
+   "idea": "网页版：输入一个物体名 → 生成等轴测拆解图并导出 SVG",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "开发者圈的热词，搜索需求还没形成；\"Claude\" 是 Anthropic 的商标",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Claude Anatomy skill → isometric explainer",
+    "intro": "",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- GitHub 仓库 https://github.com/wheresryan22/anatomy ：2026-10-08 创建，3,697★、292 fork。\n- X 爆发帖：https://x.com/i/status/2109286534524330050\n- NousResearch 已经提了 PR 适配。\n- 第三方托管的网页版 three.ws/anatomy 已经出现。\n- 典型的「开发者圈 → 网页版工具」传播链，现在还停在开发者圈。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- 原词 \"claude anatomy skill\" 只有品牌词补全。\n- 往通用词扩：isometric diagram generator、isometric drawing generator ai、interactive diagram ai generator（Google）。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- X 7 天：94/52/22/57/16/263/1371/257，涨得最陡。\n- 但普通用户的搜索词（通用词）还没出现明显的新变体。Trends 未验证。"
+     },
+     {
+      "title": "D. SERP 结构",
+      "markdown": "| 查询 | 结果 | 类型 | 注册时间（RDAP） |\n|---|---|---|---|\n| claude anatomy skill | skills.wheresryan.sh/anatomy | 作者官方 | — |\n| claude anatomy skill | three.ws/anatomy | 第三方网页版 | .ws 没有 RDAP，未验证 |\n| claude anatomy skill | repoburst.com | 新站 | 2026-10-03 |\n| claude anatomy skill | NousResearch PR、skillstore.io | 开发者平台 | — |\n| isometric diagram generator ai interactive explainer | isoglow.dev、learnscape（GitHub）、claudepluginhub、isostate、diagram-generator.com/style/3d-isometric | 小站首页和内页混在一起 | 未逐个查 |"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "- three.ws 已经做了网页版。\n- diagram-generator.com 做了一个等轴测风格的内页。\n- 这些竞品的定价都没核对，未验证。"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 用 LLM 生成 HTML/SVG，每次成本是几美分级别，技术上可行。\n- 但用户主要是开发者，直接装这个技能就能用，付费意愿低。\n- 寿命取决于它会不会变成普通人的需求。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "isometricexplainer.com、howitworksai.com、machineexplainer.com、anatomyskill.com RDAP 404。不要用含 \"claude\" 的域名（商标）。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 2 | 只在开发者圈热 |\n| 竞争 | 2 | 官方和第三方网页版都已经有了 |\n| 可行性 | 4 | 技术简单 |\n| 变现 | 2 | 付费意愿低 |\n| 寿命 | 2 | 技能热点 |\n| 总分 | 12/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 2.0,
+      "note": "只在开发者圈热"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "官方和第三方网页版都已经有了"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "技术简单"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "付费意愿低"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "技能热点"
+     }
+    ],
+    "total": 12.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 7,
-   "keyword": "Kling 4.0",
+   "keyword": "StepFun Step 5",
    "keyword_note": "",
-   "description": "快手可灵 4.0：原生 30 秒、4K HDR、10 个关键帧。Flash 版只给 Ultra 年费会员，**完整版和 API 计划 10 月上线**",
+   "description": "阶跃星辰 Step 5，10-15 开放权重",
    "sources": [
-    "https://x.com/i/trending/2104249305200795684"
+    "https://x.com/i/status/2108342266288886215"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2104249305200795684",
-   "first_seen": "09-29 预告",
-   "trend_signal": "10-05: 4 / **10-08: 2,128 / 10-09: 4,770** / 10-10: 881 / 10-11: 200",
+   "sources_text": "https://x.com/i/status/2108342266288886215",
+   "first_seen": "10-09",
+   "trend_signal": "X 7 天：7/10/3/462/852/414/148/20",
    "trends_verified": false,
-   "serp": "前 5 条：官方 kling.ai 两页，klingai.com 博客，getstepsnap 和 imgo.ai 的内页（第三方新站已经开始写）",
-   "domain": "kling4.com、kling40.com、kling4ai.com **都已注册**",
-   "idea": "等 API 开放当天上线 Kling 4.0 生成站，或在已有 AI 视频站里加一个内页",
-   "rating": 2.5,
-   "rating_stars": "★★☆",
-   "reason": "大品牌、精确匹配域名都没了；只有 API 上线那几天还有窗口",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP（没进决赛）",
+   "domain": "未查",
+   "idea": "等 10-15 开放权重后再看下载和部署需求",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "先挂监控，10-15 复查",
    "extra": {}
   },
   {
    "rank": 8,
-   "keyword": "Lagos Life",
-   "keyword_note": "（careers / salary / money guide）",
-   "description": "尼日利亚开发者做的浏览器版「模拟人生」，10-01 上线，几天内玩家过 100 万，Vanguard 报道已超 200 万",
+   "keyword": "Vivix W1",
+   "keyword_note": "",
+   "description": "新视频模型",
    "sources": [
-    "https://x.com/i/trending/2106444582691000570",
-    "https://www.vanguardngr.com/2026/10/lagos-life-game-crosses-2-million-users-heres-how-to-play/"
+    "https://x.com/i/status/2108906527201415526"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2106444582691000570 ；Vanguard https://www.vanguardngr.com/2026/10/lagos-life-game-crosses-2-million-users-heres-how-to-play/",
-   "first_seen": "10-01",
-   "trend_signal": "**10-05: 56,861** / 10-06: 57,338 / 10-08: 21,979 / 10-11: 12,628（在降，但量很大）",
+   "sources_text": "https://x.com/i/status/2108906527201415526",
+   "first_seen": "10-10",
+   "trend_signal": "X 7 天：426/776/238/200/150/1463/382/83",
    "trends_verified": false,
-   "serp": "官方 lagoslife.com.ng、新闻站，**lagoslifeguide.com（粉丝 wiki 新站已经上来了）**",
-   "domain": "lagoslifeguide.com、lagoslifewiki.com、lagoslifegame.com 都已注册",
-   "idea": "游戏辅助：职业工资计算器、赚钱路线、房子对比、每周州长选举 tracker。可以做成老游戏站的内页",
-   "rating": 2.5,
-   "rating_stars": "★★☆",
-   "reason": "量大，但 wiki 新站已经抢先；受众 ARPU 低，以广告为主",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "模型词站（和 Vidu Q4 的打法一样）",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "热度一天就过，没有自动补全",
    "extra": {}
   },
   {
    "rank": 9,
-   "keyword": "Rate yourself out of 10 card",
-   "keyword_note": "（flirting / cooking / ghosting / overthinking）",
-   "description": "X 上的模板梗：给自己的调情、做饭、已读不回、内耗、早起、存钱打 0–10 分，出一张卡",
+   "keyword": "soulmate country quiz",
+   "keyword_note": "（swifey）",
+   "description": "「你的灵魂伴侣来自哪个国家」小测验",
    "sources": [
-    "https://x.com/i/trending/2103865072078729485",
-    "https://x.com/i/trending/2104585543434559998",
-    "https://x.com/i/trending/2107641219216196072"
+    "https://x.com/i/status/2109479955642159269",
+    "https://swifey.vercel.app"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2103865072078729485 、https://x.com/i/trending/2104585543434559998 、https://x.com/i/trending/2107641219216196072",
-   "first_seen": "09-28",
-   "trend_signal": "发帖量**未验证**（用 4 个词一起搜只搜到 0–1 条，说明大家的写法不统一）；09-28 到 10-07 至少进了 4 次 X 热点",
+   "sources_text": "https://x.com/i/status/2109479955642159269 · https://swifey.vercel.app",
+   "first_seen": "10-12（北京时间 11:03）",
+   "trend_signal": "X 7 天：1/0/0/2/3/12/7/1",
    "trends_verified": false,
-   "serp": "前 5 条：totrx 博客、radarchart.io 模板页、dateclue、BuzzFeed 测验、calcmora 的计算器内页。没有专门的工具站",
-   "domain": "rateyourselfoutof10.com 404；selfratingcard.com 404",
-   "idea": "自评卡生成器：滑杆打分，出雷达图卡片，支持朋友帮你打分、对比。也可以叫 AI 看你的回答「毒舌点评」",
-   "rating": 2.5,
-   "rating_stars": "★★☆",
-   "reason": "社交货币型；搜索量未验证，可能大家只在 X 里玩、不去搜索；〔疗愈相关〕：可以改成「情绪 / 自我关怀自评卡」",
-   "healing": true,
-   "healing_note": "自我关怀自评卡",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "测验加分享卡片",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "声量太小，只观察",
    "extra": {}
   },
   {
    "rank": 10,
-   "keyword": "Deadlock Solomon",
-   "keyword_note": "（build / guide）",
-   "description": "Valve《Deadlock》新英雄 Solomon（国际象棋主题），10-09 进封闭测试，Steam 在线人数创新高",
+   "keyword": "birth month horror villain",
+   "keyword_note": "",
+   "description": "「你的出生月份对应哪个恐怖片反派」，万圣节梗",
    "sources": [
-    "https://x.com/i/trending/2108669506419888258"
+    "https://x.com/i/status/2108422391982350471"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2108669506419888258",
+   "sources_text": "https://x.com/i/status/2108422391982350471",
    "first_seen": "10-09",
-   "trend_signal": "10-08: 374 / **10-09: 2,467 / 10-10: 11,083** / 10-11: 7,691",
+   "trend_signal": "未拿到 X 计数；自动补全只看了基础词",
    "trends_verified": false,
-   "serp": "mobalytics、blitz.gg、handstery、deadlocklab，**全是大站和老站的内页**",
-   "domain": "deadlocksolomon.com 404；solomondeadlock.com 404",
-   "idea": "单个英雄做站太窄。可以在游戏站做 Solomon 出装模拟器内页；或者做「Which Deadlock hero are you」测验（已有 uquiz 等 5 个站，偏拥挤）",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "涨得很猛，但第一页被游戏大站内页占了",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "万圣节测验生成器",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "季节性梗，反派形象有版权问题",
    "extra": {}
   },
   {
    "rank": 11,
-   "keyword": "Kandinsky 6.0",
+   "keyword": "Google Playground game maker",
    "keyword_note": "",
-   "description": "Kandinsky Lab 的开源视频模型（Lite 3B / Pro 29B），带同步音频，10-06 上 fal",
+   "description": "Google 推出的「一句话做小游戏」工具",
    "sources": [
-    "https://x.com/fal/status/2107350357361770548",
-    "https://github.com/kandinskylab/kandinsky-6"
+    "https://x.com/i/status/2107810133203959863"
    ],
-   "sources_text": "fal 帖 https://x.com/fal/status/2107350357361770548 ；GitHub https://github.com/kandinskylab/kandinsky-6",
-   "first_seen": "10-06",
-   "trend_signal": "10-06: 12 / 10-07: 25 / 10-11: 1。**社媒热度很低**",
+   "sources_text": "https://x.com/i/status/2107810133203959863",
+   "first_seen": "10-07",
+   "trend_signal": "X 7 天：0/0/312/437/97/72/37/10",
    "trends_verified": false,
-   "serp": "第一页只有官方站、GitHub、HF，**没有第三方站**",
-   "domain": "kandinsky6.com 404；kandinsky6ai.com 404",
-   "idea": "Kandinsky 6.0 在线生成站（接 fal 的 Lite 和 Pro）。竞争是空的，但需求可能也小",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "竞争为零、热度也低，适合当练手的低成本测试",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "收录作品的画廊站",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "主体是 Google 的产品，热度在退",
    "extra": {}
   },
   {
    "rank": 12,
-   "keyword": "Spira Maxima",
+   "keyword": "Omurice simulator",
    "keyword_note": "",
-   "description": "文本直接生成带口播、B-roll、字幕、音乐的竖版社媒视频。PH 第 41 周第 1 名，承诺帖子到 200 万浏览就开源",
+   "description": "在蛋包饭上挤番茄酱画画的模拟游戏",
    "sources": [
-    "https://www.producthunt.com/leaderboard/weekly/2026/41",
-    "https://x.com/i/trending/2107536055691862426"
+    "https://x.com/i/status/2108885152957116567"
    ],
-   "sources_text": "PH 周榜 https://www.producthunt.com/leaderboard/weekly/2026/41 ；X 热点 https://x.com/i/trending/2107536055691862426",
-   "first_seen": "10-06",
-   "trend_signal": "10-06: 689 / **10-07: 1,263** / 10-08: 212 / 10-11: 12（热度已经退了）",
+   "sources_text": "https://x.com/i/status/2108885152957116567",
+   "first_seen": "10-10",
+   "trend_signal": "X 7 天：2/1/1/27/2811/2058/3048/375；自动补全全部指向 Roblox（codes / wiki）",
    "trends_verified": false,
-   "serp": "官方 spira.ai（含多语言页）、aiagentslist、nitter 转载、hunted.space",
-   "domain": "spiramaxima.com 404",
-   "idea": "现在做意义不大。**一旦开源**，马上做 \"Spira Maxima online / free\" 站",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "押注开源事件；先设个提醒",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "游戏攻略或网页版模拟器",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "自动补全显示是 Roblox 内的游戏，做第三方站没有优势",
    "extra": {}
   },
   {
    "rank": 13,
-   "keyword": "Vivix W1",
+   "keyword": "oomfmap",
    "keyword_note": "",
-   "description": "VivixLabs 的实时、流式视频世界模型，约 $0.003/秒，API 已开放异步任务",
-   "sources": [
-    "https://x.com/i/trending/2108906527201415526"
-   ],
-   "sources_text": "X 热点 https://x.com/i/trending/2108906527201415526",
-   "first_seen": "10-11",
-   "trend_signal": "未统计",
+   "description": "互关好友地图",
+   "sources": [],
+   "sources_text": "第一轮报告",
+   "first_seen": "10-09",
+   "trend_signal": "X 7 天：0/2/1/1/13/114/278/83",
    "trends_verified": false,
-   "serp": "第一页只有官方站、技术报告、API 文档",
-   "domain": "vivixw1.com 404",
-   "idea": "互动故事、游戏场景生成的 demo 站，按次收费",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "非常早，热度未验证",
-   "healing": false,
-   "healing_note": "",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "社交关系地图",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "第一轮带过来的词，在涨但量还小",
    "extra": {}
   },
   {
    "rank": 14,
-   "keyword": "IQuest-Q1",
+   "keyword": "ArtCraft / photocraft",
    "keyword_note": "",
-   "description": "320B 开放权重的编程模型，一句话生成可玩的 3D 赛车或 FPS 游戏",
+   "description": "storytold/photocraft 开源 AI 图像套件（GitHub 48,486★）",
    "sources": [
-    "https://x.com/i/trending/2104926261017710750",
-    "https://huggingface.co/IQuestLab/IQuest-Q1"
+    "https://github.com/storytold/photocraft",
+    "https://x.com/i/status/2109034766490272109"
    ],
-   "sources_text": "X 热点 https://x.com/i/trending/2104926261017710750 ；HF https://huggingface.co/IQuestLab/IQuest-Q1",
-   "first_seen": "09-29",
-   "trend_signal": "未统计",
+   "sources_text": "https://github.com/storytold/photocraft · https://x.com/i/status/2109034766490272109",
+   "first_seen": "仓库创建在近 30 天内",
+   "trend_signal": "X 7 天：958/478/824/3688/1134/971/1089/189",
    "trends_verified": false,
-   "serp": "HF、PRNewswire、IQuest 官方，twirank 和 aifrontierpost 的内页",
-   "domain": "iquestq1.com 404",
-   "idea": "\"AI 3D game generator\"：一句话出 HTML5 小游戏，可试玩、可分享。不过 \"ai game generator\" 这个功能词竞争大",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "卖点是「一句话出游戏」，但主要是开发者在关注",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
-  },
-  {
-   "rank": 15,
-   "keyword": "dere type quiz",
-   "keyword_note": "",
-   "description": "动漫「dere」人格测试（tsundere / yandere / kuudere…），12 道题",
-   "sources": [
-    "https://x.com/i/trending/2104736023569666359"
-   ],
-   "sources_text": "X 热点 https://x.com/i/trending/2104736023569666359 ；原站 youareatsundere.com",
-   "first_seen": "09-30",
-   "trend_signal": "10-05~10-11 每天只有 3–19 条（**没有上升**）",
-   "trends_verified": false,
-   "serp": "原站，加 japaneserituals、animequiz.net、wikiHow、teasa.ai 的内页。**已经比较挤**",
-   "domain": "deretypequiz.com 404",
-   "idea": "换个角度做 \"dere type compatibility\"（两人配对）或 \"which dere is your partner\"",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "SBTI 那一类测试，但已经有 4 个以上竞品，热度也平",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
-  },
-  {
-   "rank": 16,
-   "keyword": "Mistral Large 4 / \"Le Chonk\"",
-   "keyword_note": "",
-   "description": "Mistral 的 1T 参数多模态模型，**10-27 发布开放权重**",
-   "sources": [
-    "https://x.com/i/trending/2107458894960418926",
-    "https://huggingface.co/mistralai/Mistral-Large-4.0-1T05-A52B"
-   ],
-   "sources_text": "X 热点 https://x.com/i/trending/2107458894960418926 ；HF https://huggingface.co/mistralai/Mistral-Large-4.0-1T05-A52B",
-   "first_seen": "10-06",
-   "trend_signal": "**10-06: 9,736** / 10-07: 3,876 / 10-09: 587 / 10-11: 302",
-   "trends_verified": false,
-   "serp": "第一页是官方、HF、VentureBeat、The Register 等大站",
-   "domain": "lechonk.com、lechonkai.com、mistrallarge4.com 都已注册",
-   "idea": "10-27 前后可以做「Le Chonk 显存 / 硬件计算器」内页（和 #5 合成一个「开源大模型显存计算器」站）",
+   "serp": "未查 SERP",
+   "domain": "未查",
+   "idea": "在线版或教程站",
    "rating": 1.5,
    "rating_stars": "★☆",
-   "reason": "1T 参数，普通人跑不动，主要是开发者在关注",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
-  },
-  {
-   "rank": 17,
-   "keyword": "Nano Banana 2.1",
-   "keyword_note": "",
-   "description": "Google 的新图像模型，10-06 发布",
-   "sources": [
-    "https://x.com/fal/status/2107502772392267817"
-   ],
-   "sources_text": "fal 帖 https://x.com/fal/status/2107502772392267817",
-   "first_seen": "10-06",
-   "trend_signal": "10-06: 3,050 / **10-07: 3,854** / 10-08: 1,409 / 10-11: 450",
-   "trends_verified": false,
-   "serp": "Google 官方 2 页、replicate、两篇定价内页",
-   "domain": "nanobanana21.com 已注册",
-   "idea": "不建议单独做站",
-   "rating": 1.5,
-   "rating_stars": "★☆",
-   "reason": "大厂品牌词，被抢得很快",
-   "healing": false,
-   "healing_note": "",
-   "extra": {}
-  },
-  {
-   "rank": 18,
-   "keyword": "Jean Phil AI character",
-   "keyword_note": "",
-   "description": "Instagram / TikTok 上爆火的 AI 虚拟角色（八字胡、面无表情），引出「怎么做同款 AI 角色」的需求",
-   "sources": [
-    "https://x.com/i/trending/2108879395955810336"
-   ],
-   "sources_text": "X 热点 https://x.com/i/trending/2108879395955810336",
-   "first_seen": "约 10-06",
-   "trend_signal": "10-05: 469 / **10-09: 1,770 / 10-10: 1,905** / 10-11: 1,026",
-   "trends_verified": false,
-   "serp": "getstarrd、kapwing、astorie、**jeanphilai.com（精确匹配站已经上了）**、character.app",
-   "domain": "jeanphilai.com 已注册",
-   "idea": "不建议做，而且有肖像和 IP 风险",
-   "rating": 1.0,
-   "rating_stars": "★",
-   "reason": "晚了，而且有版权 / 肖像风险",
-   "healing": false,
-   "healing_note": "",
+   "reason": "品牌词，官方迟早占位",
    "extra": {}
   }
  ],
- "supplement": "**补充（不进排名，供参考）**：\n- levelsio 的 Windows XP 模拟器 pieter.com，两天 10 万+用户（https://x.com/levelsio/status/2109250436754788432）。但 \"windows xp emulator\" 是老词。\n- LTX-2.5（HF 下载 173 万）和 Qwen-Image-2.1（已经有 qwenimage21.app/.org 等新站）都已经卷起来了。\n- GitHub 上冒出大批 \"Big Walk Trainer 2026\"、\"RNGdle Alternative 2026\" 之类的垃圾 SEO 仓库，说明有人在用 GitHub 抢游戏长尾词（Big Walk 是 House House 08-04 发售的游戏）。",
- "top_picks": "1. **how pinterest sees me 拼图生成器**：这一轮每天几百到几千条帖子，第一页只有 Lemon8 内页和教程，没有工具站。工具很简单、AI 也能做，但域名别放 Pinterest 商标。\n2. **Voice Avatar Match（英文版声音人格测试）**：日语圈先爆，再扩散到英语圈，正是「小圈子 → 社媒」这一段。英文 SERP 是空的，测试类结果天然可分享，和疗愈也贴边。\n3. **AI Video Relight（H3 Max Relight）**：fal 10-07 上线，H3 Max 的讨论量 10-09 到 10-10 翻了 3 倍。第一页只有 fal 自己和一篇文章，API 现成，功能词寿命长。\n4. **Vidu Q4**：本周 AI 视频模型里 X 讨论量最高（10-10 一天 4,960 条），有 API 可接，但已经出现 viduq4.app 这样的新站首页，要快。\n5. **Qwen4-27B 显存计算器 / 本地运行页**：模型还没发，正是「越早介入越大」的阶段。复用群里 Strata Qwen 的思路，qwen427b.com 还没被注册。",
- "healing_section": "> 你是做疗愈内容的博主，下面这些可以和你的内容、粉丝结合。按群里的打法：先在自己的圈子里收钱验证，再单独建站。\n\n1. **声音人格 / 治愈声线测试**（来自 #2 Voice Avatar Match）：录 10 秒语音，出「你的声音给人什么感觉」的标签和卡片，再推荐适合你的冥想引导语速、助眠朗读风格。付费解锁「声音疗愈练习」音频包。英文 SERP 是空的，中文版也能拿到小红书和视频号上测。\n2. **审美 / 能量拼图解读**（来自 #1 how pinterest sees me）：用户上传自己的 Pinterest 或相册拼图，AI 给一段「你的能量色彩 / 当下情绪状态」的温和解读。属于「视觉版星盘」，结果卡适合分享。\n3. **自我关怀自评卡**（来自 #9 rate yourself out of 10）：把调情、做饭这些项目换成睡眠、情绪稳定、边界感、自我关怀、内耗程度，出雷达图卡片，配上改善建议。⚠️ 不要写成心理诊断，避免医疗宣称。\n4. **睡眠相关**：X 上几乎每天都有「失眠 / 作息乱 / Sunday scaries / 分段睡眠」的热点（例：https://x.com/i/trending/2106743291484250375 （Sunday scaries）、https://x.com/i/trending/2107152887348424912 （分段睡眠））。热门 App 是 Sleepagotchi（https://x.com/i/trending/2108116753469563249 ，号称 200 万用户），但它是品牌词，抢不了。可以做的是「Sunday scaries 测试」「biphasic / segmented sleep 作息计算器」这类内容和工具内页。这些是老需求，**不算新词**，只适合放进内容矩阵。\n5. **星盘 / 依恋类型**：X 上 AI 星盘 App 很多（例：https://x.com/W3_Btc/status/2108336105497964579 ），attachment style 测试也有人在做（例：https://x.com/patrickgotit/status/2107546864958488783 ），都是**老词、红海**，新手不建议做。",
- "monitoring": "**X 账号**（通过 x MCP 的 get_users_posts 拉取；括号里是已查到的 user id）：\n- 模型和工具发布：@fal (39622874)，每天都发「XX 已上 fal」，是最快的 AI 视频 / 图像模型源头；@_akhaliq (2465283662)；@huggingface (778764142412984320)；@Alibaba_Qwen (1753339277386342400)；@OpenAI (4398626122)；@GoogleDeepMind (4783690002)；@AnthropicAI (1353836358901501952)；@deepseek_ai (1714580962569588736)；@kimmonismus (1573399256836309009，AI 新闻汇总)\n- 独立开发和产品：@levelsio (1577241403)，@ProductHunt (2208027565)。（@marc_louvion 查不到，可能改名了）\n- **X 新闻 / 热点**：每天用 `search_news` 搜 \"AI model launch\"、\"AI video generator\"、\"viral personality quiz\"、\"new game launch\"、\"viral AI filter\" 各一次。本次找到的大部分好词都来自这里。\n- **发帖量曲线**：对候选词跑 `get_posts_counts_recent`（按天），**连续上升**的才进下一步。今天 oomfmap 的 1 → 13 → 114 → 278 就是典型形态。\n\n**GitHub**（cursor-github MCP 未连接，本次用的是公开 API）：\n- `created:>{30 天前} stars:>200 sort:stars`，`topic:ai-video`，`topic:tts`，`topic:mcp`\n- 重点盯这几类组织和作者：storytold（ArtCraft 系列），kandinskylab，nv-tlabs，IQuestLab，Lightricks，meituan-longcat\n- 反向信号：垃圾 SEO 仓库（\"XXX Trainer 2026\"、\"XXX Alternative 2026\"）说明有人在抢这个游戏词\n\n**网站**：\n- Hugging Face Trending Models 和 Spaces：https://huggingface.co/models?sort=trending ，https://huggingface.co/spaces?sort=trending\n- Product Hunt 周榜：https://www.producthunt.com/leaderboard/weekly/2026/41（每周把周数加 1）\n- HN Show：https://news.ycombinator.com/show\n- Google Trends Trending Now：https://trends.google.com/trending?geo=US&hours=48 （WebFetch 能打开，但几乎全是体育和娱乐）\n- 群里的数据服务：https://new.web.cafe/data/updates ，HN 新站：https://new.web.cafe/launches\n\n**验证步骤（每个候选词约 5 分钟）**：\n1. 看 X 发帖量是否在上升\n2. 在**你自己的浏览器**里打开 Google Trends，和 GPTs 对比，看过去 7 天\n3. 在 Google 搜 `关键词` 和 `intitle:关键词`，数第一页有几个大站内页、几个新站首页\n4. 查 .com：`curl -s -o /dev/null -w \"%{http_code}\" https://rdap.verisign.com/com/v1/domain/xxx.com`，返回 404 就是没注册\n5. 确认 AI 或 API 能做出来，没有 NSFW 和版权问题",
- "other_sections": [],
+ "supplement": "",
+ "top_picks": "1. **AI school picture generator**（20/25）\n   - **需求真实且会重复**：Polymarket 帖子 111 万次浏览；Fast Company、USA Today 和 HN 讨论了两轮。家长有明确的替代动机，学校摄影套餐一套 $25–60。拍照日每年秋季和春季都有，还有补拍和年鉴。\n   - **SERP 只有内页，没有首页和 EMD**，符合「首页胜内页」。\n   - **AI 能完全交付**：Nano Banana 2.1 edit 每张 $0.044（1K）。\n   - **变现**：按次付费 $9.9 一套正好卡在家长的心理价位。\n2. **AI video relight**（18/25）\n   - 功能词，Google 和 Bing 两边自动补全都有，寿命长。\n   - fal 刚上线 H3 Max Relight API。\n   - SERP 也全是内页，但竞品多，单次成本高，所以要按秒定价。\n3. **Vidu Q4**（16/25）\n   - 最热（X 单日 4,960），已经有人在收 $15.9/月，证明付费路径走得通。\n   - 但 10-08 到 10-09 两天里冒出 4 个 EMD，竞争最激烈、寿命最短。\n   - 适合按哥飞说的，**先在老站加一个内页测试**，不建议专门新开站。\n\n不推荐但继续盯：Qwen4-27B（只能做信息站）、StepFun Step 5（10-15 放权重后复查）、Claude Anatomy（等普通用户的搜索词形成）。",
+ "monitoring": "- **X**：fal、levelsio 等账号的发帖；search_news；对候选词每天查 7 天发帖量（限额每分钟 30 次、每天 1,000 次）。\n- **GitHub**：近 7 天和 30 天新建的高星仓库（只读 API）。\n- **Hugging Face**：trending 模型和空间。\n- **HN**：Show HN 和近 7 天的高分帖（Algolia API）。\n- **Product Hunt**：每周榜单。\n- **Steam**：featuredcategories；**App Store**：rss.marketingtools.apple.com。\n- **web.cafe**：新词批次统计（详细词表要付费）。\n- **自动补全**：Google、Bing、DDG。\n- **域名**：RDAP。\n- **待恢复**：Google Trends（今天全部 429，换个 IP 或时段再试）、Reddit（被挡）、Google 原生结果页和 intitle。\n- **复查日程**：\n  - 10-15：StepFun Step 5 开放权重后复查。\n  - 每天：Vidu Q4 的 X 量是否跌破峰值的 10%。\n  - 每周：school picture ai 在秋季拍照日期间的热度。",
+ "other_sections": [
+  {
+   "title": "排除清单（第一、二层筛掉的词和原因）",
+   "markdown": "- **JPEG XL converter**：Chrome 支持 JPEG XL 让它上了 HN（574 分），但格式转换的需求早就被大站和 EMD 占了。\n- **12ft.io 替代 / WallHop**（HN 271，\"12ft.io is gone\"）：绕过付费墙有法律风险。\n- **BO1 僵尸网页版、playgta5、Naruto Mobile、all22pokemon**：版权或商标风险（Activision、Rockstar、集英社、宝可梦、NFL）。\n- **HF 上的换脸和无审查空间**（BFS face swap、H3 Character-Swap LoRA 等）：NSFW 或深伪风险。\n- **Seedance 2.5**：7 月就有了，X 每天稳定在 5,000 左右，但早就挤满了。可以在 Vidu Q4 的对比页里顺带覆盖。\n- **traditional dress / costume AI**：myaiart.io、pixeldojo.ai、4fashionai.com 的内页占满了前排；X 峰值 476 后已经回落。\n- **Lagos Life**：X 量很大（每天约 1.3–5.7 万），但这是游戏和社区话题，ARPU 低，已经有 wiki。\n- **1960s AI movie poster**：太小，X 峰值才每天 24 条。\n- **Kling 4.0**：第一轮数据有误（见开头），实际 X 每天只有约 100–170 条。\n- **Claude Motion**：X 量来自 10-08 的一次发布，属于 Anthropic 品牌功能，不适合做第三方站。\n- **Straw.page**：X 每天稳定在 7,000–8,000，但这是一个现成的建站平台，不是新需求。\n- **ai humanizer**（HF 上 jialinyyzz/humanizer 很火）：老词，竞争非常激烈。\n- **Whistle STT / BetterWispr / Bigwords / Carrier-Explode**：HN 上的项目，品牌词，没有形成通用搜索词。\n- **Steam 和 App Store 榜单上的游戏和 App**（STAR WARS Galactic Racer、Gears E-Day、Hellraiser Revival、Muse from Meta 等）：大品牌产品，只能做攻略站，有版权问题，变现弱。"
+  }
+ ],
+ "deep_dive_count": 6,
  "parse_ok": true
 }
