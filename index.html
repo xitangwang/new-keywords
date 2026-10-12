@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>每日新词监控看板</title>
+<meta name="description" content="每天的海外 SEO 新词候选：热度信号、SERP 竞争、域名、产品思路和评级。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <span class="logo">★</span>
+      <div>
+        <h1>每日新词监控看板</h1>
+        <p class="sub" id="subtitle">海外 SEO 新词候选 · 每天北京时间 9 点左右更新</p>
+      </div>
+    </div>
+    <div class="date-box">
+      <label for="dateSelect">日期</label>
+      <select id="dateSelect" aria-label="选择日期"></select>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="date-chips" id="dateChips" aria-label="最近日期"></nav>
+
+  <section class="meta" id="meta"></section>
+  <div class="notice" id="trendsNotice" hidden></div>
+
+  <section class="toolbar" aria-label="筛选">
+    <input type="search" id="search" placeholder="搜索关键词、说明、思路、域名…" autocomplete="off">
+    <label class="toggle"><input type="checkbox" id="healingOnly"><span>只看疗愈相关</span></label>
+    <select id="sortBy" aria-label="排序">
+      <option value="rating">按评级排序</option>
+      <option value="rank">按报告原排名</option>
+    </select>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section id="cards" class="cards" aria-live="polite"></section>
+
+  <section id="extraSections" class="extra"></section>
+</main>
+
+<footer class="wrap foot">
+  <p>数据来自每日新词报告（X 发帖量、WebSearch、RDAP 等），仅供选词参考。热度≠搜索量，上站前请自己打开 Google Trends 复核。</p>
+  <p id="footUpdated"></p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
