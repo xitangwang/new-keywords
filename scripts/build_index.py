@@ -12,7 +12,7 @@ for fn in os.listdir(root):
     cs = d.get("candidates", [])
     top = sorted(cs, key=lambda c: (-(c.get("rating") or 0), c.get("rank") or 999))
     days.append({"date": m.group(1), "count": len(cs),
-                 "healing": sum(1 for c in cs if c.get("healing")),
+                 "deep_dives": sum(1 for c in cs if c.get("deep_dive")),
                  "top": [c["keyword"] for c in top[:3]],
                  "generated_at": d.get("generated_at")})
 days.sort(key=lambda x: x["date"], reverse=True)

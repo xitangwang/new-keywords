@@ -62,12 +62,13 @@ if not d["candidates"]:
 PY
 python3 scripts/build_index.py
 
-git add -A data
+# 数据 + 页面/脚本一起提交（页面改版也随发布上线）
+git add -A data assets index.html scripts README.md .nojekyll 2>/dev/null || git add -A data
 if git diff --cached --quiet; then
   echo "==> 数据没有变化，无需提交"
 else
   git -c user.name="xitangwang" -c user.email="xitangwang@users.noreply.github.com" \
-    commit -q -m "data: $DATE 新词候选"
+    commit -q -m "data: $DATE 新词候选（含深挖）"
   echo "==> 已提交：$(git log -1 --oneline)"
 fi
 

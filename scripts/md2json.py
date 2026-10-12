@@ -137,6 +137,57 @@ def parse_tables(lines):
     return tables
 
 
+DEEP_RE = re.compile(r"^(?:深挖|深度分析|deep\s*dive)\s*[：:·\-—]?\s*(.+)$", re.I)
+SCORE_DIMS = ["需求", "竞争", "可行", "变现", "寿命"]
+
+
+def parse_deep_dive(keyword, body_lines):
+    """把一个「## 深挖：xxx」章节拆成 ### 小节；从评分表里取出 1–5 分。"""
+    sections, cur = [], None
+    intro = []
+    for ln in body_lines:
+        m = re.match(r"^###\s+(.*)", ln)
+        if m:
+            cur = {"title": m.group(1).strip(), "lines": []}
+            sections.append(cur)
+        elif cur is None:
+            intro.append(ln)
+        else:
+            cur["lines"].append(ln)
+    out = {"keyword": strip_md(keyword), "intro": clean_block(intro), "sections": [],
+           "scores": [], "total": None, "max": None}
+    for sec in sections:
+        out["sections"].append({"title": sec["title"], "markdown": clean_block(sec["lines"])})
+    # 评分表：表头含「维度」和「分」
+    for header, rows, _s, _e in parse_tables(body_lines):
+        h = [strip_md(x) for x in header]
+        if not any("维度" in x for x in h) or not any("分" in x for x in h):
+            continue
+        di = next(i for i, x in enumerate(h) if "维度" in x)
+        si = next(i for i, x in enumerate(h) if "分" in x and i != di)
+        ni = next((i for i, x in enumerate(h) if re.search(r"理由|依据|说明", x)), None)
+        for r in rows:
+            if len(r) <= max(di, si):
+                continue
+            dim = strip_md(r[di])
+            m = re.search(r"(\d+(?:\.\d+)?)\s*(?:/\s*(\d+))?", strip_md(r[si]))
+            if not m:
+                continue
+            val = float(m.group(1))
+            if "总" in dim:
+                out["total"] = val
+                out["max"] = float(m.group(2)) if m.group(2) else None
+            else:
+                out["scores"].append({"dim": dim, "score": val,
+                                      "note": strip_md(r[ni]) if ni is not None and ni < len(r) else ""})
+        break
+    if out["scores"] and out["total"] is None:
+        out["total"] = sum(x["score"] for x in out["scores"])
+    if out["scores"] and out["max"] is None:
+        out["max"] = 5.0 * len(out["scores"])
+    return out
+
+
 def parse_report(md_text, date_hint=None):
     lines = md_text.splitlines()
     title = ""
@@ -194,7 +245,6 @@ def parse_report(md_text, date_hint=None):
                 keyword = (m2.group(1) if m2 else strip_md(kw_raw)).strip()
                 kw_note = (m2.group(2) or "").strip() if m2 else ""
             rating, stars, reason = parse_rating(item.get("rating_text", ""))
-            whole = " ".join(r)
             trend = item.get("trend_signal", "")
             cell_has_trends = bool(re.search(r"Trends", trend, re.I)) and not re.search(r"未验证", trend)
             trends_verified = cell_has_trends and not header_says_unverified
@@ -222,40 +272,48 @@ def parse_report(md_text, date_hint=None):
                 "rating": rating,
                 "rating_stars": stars,
                 "reason": reason,
-                "healing": "疗愈" in whole,
-                "healing_note": "",
                 "extra": item["extra"],
             })
 
     # 各章节
-    supplement, top_picks, healing_section, monitoring, other_sections = "", "", "", "", []
+    supplement, top_picks, monitoring, other_sections, deep_dives = "", "", "", [], []
     for title_s, body in sections[1:]:
         text = clean_block(body)
-        if "候选" in title_s and ("表" in title_s or "排名" in title_s):
+        if "疗愈" in title_s:
+            continue  # 不再展示疗愈相关内容
+        m_dd = DEEP_RE.match(title_s)
+        if m_dd:
+            deep_dives.append(parse_deep_dive(m_dd.group(1).strip(), body))
+        elif "候选" in title_s and ("表" in title_s or "排名" in title_s):
             # 去掉表格本身，剩下的作为补充
             rest = [ln for ln in body if not ln.lstrip().startswith("|")]
             supplement = clean_block(rest)
         elif re.search(r"推荐|top", title_s, re.I):
             top_picks = text
-        elif "疗愈" in title_s:
-            healing_section = text
         elif re.search(r"监控|信号源|monitor", title_s, re.I):
             monitoring = text
         else:
             other_sections.append({"title": title_s, "markdown": text})
 
-    # 疗愈章节里 "来自 #N" 引用的候选也标为疗愈相关
-    if healing_section:
-        by_rank = {c["rank"]: c for c in candidates if c["rank"]}
-        for block in re.split(r"\n(?=\d+\.\s)", healing_section):
-            head = strip_md(block.split("\n")[0])
-            for n in re.findall(r"来自\s*#\s*(\d+)", block):
-                c = by_rank.get(int(n))
-                if c:
-                    c["healing"] = True
-                    m = re.match(r"\d+\.\s*(.+?)[：:（(]", head)
-                    note = m.group(1).strip() if m else head[:40]
-                    c["healing_note"] = (c["healing_note"] + "；" if c["healing_note"] else "") + note
+    # 深挖章节挂到对应候选词上（按关键词匹配，忽略大小写和标点）
+    def norm(x):
+        return re.sub(r"[^0-9a-z\u4e00-\u9fff]+", "", strip_md(x).lower())
+    unmatched = []
+    for dd in deep_dives:
+        key = norm(dd["keyword"])
+        hit = None
+        for c in candidates:
+            ck = norm(c["keyword"])
+            if ck and (ck == key or ck in key or key in ck):
+                hit = c
+                break
+        if hit is not None and "deep_dive" not in hit:
+            hit["deep_dive"] = dd
+        else:
+            unmatched.append(dd)
+    for dd in unmatched:
+        other_sections.append({"title": "深挖：" + dd["keyword"],
+                               "markdown": "\n\n".join("### " + s["title"] + "\n" + s["markdown"] for s in dd["sections"])})
 
     candidates.sort(key=lambda c: (-(c["rating"] or 0), c["rank"] or 999))
     return {
@@ -268,9 +326,9 @@ def parse_report(md_text, date_hint=None):
         "candidates": candidates,
         "supplement": supplement,
         "top_picks": top_picks,
-        "healing_section": healing_section,
         "monitoring": monitoring,
         "other_sections": other_sections,
+        "deep_dive_count": sum(1 for c in candidates if c.get("deep_dive")),
         "parse_ok": bool(candidates),
     }
 
