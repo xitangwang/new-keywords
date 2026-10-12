@@ -1,6 +1,8 @@
 # 每日新词监控看板
 
-在线地址：**https://xitangwang.github.io/new-keywords/**
+在线地址：**https://wenming.space/new-keywords/**（你的 GitHub 账号绑定了自定义域名 wenming.space，所以 https://xitangwang.github.io/new-keywords/ 会自动跳转到这里）
+
+仓库：https://github.com/xitangwang/new-keywords
 
 这是一个纯静态网站（HTML + CSS + 原生 JS，没有构建步骤，不引用任何外部字体或 CDN，国内可直接打开），用来展示每天的「海外 SEO 新词候选」报告。
 

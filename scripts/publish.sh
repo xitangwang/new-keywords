@@ -76,4 +76,4 @@ if git_auth push -q "$REMOTE_URL" "HEAD:$BRANCH" 2>&1 | sed "s|$AUTH_B64|***|g";
 git_auth ls-remote "$REMOTE_URL" "refs/heads/$BRANCH" | grep -q "$(git rev-parse HEAD)" \
   && echo "==> 已推送到 $BRANCH：$(git rev-parse --short HEAD)" \
   || { echo "推送失败" >&2; exit 1; }
-echo "==> 页面（1–2 分钟后生效）：https://xitangwang.github.io/new-keywords/#$DATE"
+echo "==> 页面（1–2 分钟后生效）：https://wenming.space/new-keywords/#$DATE（xitangwang.github.io/new-keywords 会自动跳转过去）"

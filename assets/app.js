@@ -43,8 +43,8 @@
     if (c.rating == null) return '<span class="stars"><span class="num">未评级</span></span>';
     var full = Math.floor(c.rating), half = c.rating - full >= 0.5, s = "";
     for (var i = 0; i < full; i++) s += "★";
-    if (half) s += "⯪";
-    return '<span class="stars" title="' + esc(c.rating_stars || "") + '">' + (c.rating_stars ? esc(c.rating_stars) : s) +
+    if (half) s += "☆";
+    return '<span class="stars" title="' + esc(c.rating_stars || "") + '">' + (/[★☆]/.test(c.rating_stars || "") ? esc(c.rating_stars) : s) +
       '<span class="num">' + c.rating + "/5</span></span>";
   }
   function getJSON(url) {
