@@ -1,10 +1,10 @@
 {
  "date": "2026-10-13",
  "title": "新词候选（深挖版）— 2026-10-13",
- "collected_at": "2026-10-13 北京时间（UTC+8）约 09:13–10:00。第三轮每日新词监控，深度对齐 2026-10-12.md 的 A–H 结构",
- "generated_at": "2026-10-13T09:22:48+08:00",
+ "collected_at": "2026-10-13 北京时间（UTC+8）约 09:13–09:40。第三轮每日新词监控，深度对齐 2026-10-12.md 的 A–H 结构",
+ "generated_at": "2026-10-13T09:28:19+08:00",
  "trends_unverified": true,
- "preface": "数据采集时间：2026-10-13 北京时间（UTC+8）约 09:13–10:00。第三轮每日新词监控，深度对齐 `2026-10-12.md` 的 A–H 结构。\n\n**数据来源情况（如实说明）**\n- **可用**：GitHub Search API（只读）、Hugging Face API、HN Algolia（front / show）、Product Hunt leaderboard（WebFetch，10-12 / 10-11）、Steam featuredcategories API、Apple iTunes RSS（top free/paid JSON）、Google / Bing / DDG 自动补全（`ac.py`）、WebSearch（每个查询约前 5，不是 Google 原生第一页）、IANA / Verisign RDAP（.com 等）、new.web.cafe 公开首页（仅社区帖与教程列表，词表仍付费）、Decrypt / Odyssey / REA / Demosmith / ShaderTools / MagicPattern / ShaderKit 等官网 WebFetch。\n- **被挡或拿不到**：\n  - **X（Twitter）MCP 整轮不可用**：本回合 `search_news` / `get_users_by_usernames` 等均返回「无法检查 X read limit」，**未做任何 X 读取**。因此本期**没有** X 发帖量时间序列；涉及社交热度一律写「X 发帖量未验证」，改用媒体报道、GitHub stars、PH 分数、自动补全替代。\n  - **Google Trends 未验证**：本机无 `pytrends`；Trending RSS 可打开（`rss:200`），但内容偏娱乐未用于词验证。未做「和 GPTs 对比」。\n  - **Reddit 被挡**：`reddit.com/.../new.json` 返回 403。\n  - **Apple marketingtools RSS**：504 / 空响应；改用 `itunes.apple.com/.../rss/.../json` 成功。\n  - **intitle 数量未验证**：拿不到 Google 原生结果页。\n  - **web.cafe 词表要付费**：公开页可见 10-13 08:05 日报标题「视频站换脸红线讨论与GPT新词流量成焦点」等，看不到具体新词列表。\n  - **.io 域名状态未验证**：无可靠 RDAP。\n- **相对昨日的纠正 / 状态**：昨日「StepFun Step 5 计划 10-15 开放权重」今天复查——官方页仍写 October 15 开放权重；Forkast / CVJ 指出截至约 10-11 官方许可证与官方 HF 仓库仍缺失；HF 上可见第三方镜像（如 `SHSLab/Step-5-Preview-BF16` likes=11），**权重正式开放尚未发生（距 10-15 还有 2 天）**。\n\n**筛选漏斗**\n- 原始信号约 **62** 条（写入 `raw/2026-10-13/seeds.txt`：GitHub ~13、HF ~5、HN ~8、PH 10-11/10-12 ~13、Web 新发布 ~12、Steam/App ~5、昨日跟进 ~6；另有自动补全与 SERP 抽查未计入种子条数）。\n- 第一层（能做成英文工具站、非纯大厂新闻、非 NSFW/明显商标侵权主业）剩约 **28** 个种子，对其中 **28** 个跑了 Google/Bing/DDG 自动补全（`ac_batch1.jsonl` + `ac_batch2.jsonl`）。\n- 第二层（补全出现真实需求变体，或有明确新产品/新 API，且非昨日已完整深挖且无新变化的词）加 WebSearch SERP / RDAP，剩 **7** 个决赛词。\n- 最后选出 **Top 3**（优先**新**机会；昨日 Top 词只在跟进节处理）。",
+ "preface": "数据采集时间：2026-10-13 北京时间（UTC+8）约 09:13–09:40。第三轮每日新词监控，深度对齐 `2026-10-12.md` 的 A–H 结构。\n\n**数据来源情况（如实说明）**\n- **可用**：**X 计数 API（`get_posts_counts_recent`，近 7 天按日，13 个查询）+ X 帖子搜索（oomfmap 20 条）**、GitHub Search API（只读）、Hugging Face API、HN Algolia（front / show）、Product Hunt leaderboard（WebFetch，10-12 / 10-11）、Steam featuredcategories API、Apple iTunes RSS（top free/paid JSON）、Google / Bing / DDG 自动补全（`ac.py`）、WebSearch（每个查询约前 5，不是 Google 原生第一页）、IANA / Verisign RDAP（.com 等）、new.web.cafe 公开首页（仅社区帖与教程列表，词表仍付费）、Decrypt / Odyssey / REA / Demosmith / ShaderTools / MagicPattern / ShaderKit 等官网 WebFetch。\n- **被挡或拿不到**：\n  - **X（Twitter）**：采集前半段（约 09:13–09:20）X MCP 返回「无法检查 X read limit」；**09:24 起恢复可用**，补采了 13 个关键词的 7 天日发帖量（原始数据 `raw/2026-10-13/x_counts.tsv`，UTC 日界）和 oomfmap 的 20 条帖子。注意：计数是**关键词匹配量**，含噪音（如 \"Odyssey 3\"），只看趋势方向，不当绝对热度。\n  - **Google Trends 未验证**：本机无 `pytrends`；Trending RSS 可打开（`rss:200`），但内容偏娱乐未用于词验证。未做「和 GPTs 对比」。\n  - **Reddit 被挡**：`reddit.com/.../new.json` 返回 403。\n  - **Apple marketingtools RSS**：504 / 空响应；改用 `itunes.apple.com/.../rss/.../json` 成功。\n  - **intitle 数量未验证**：拿不到 Google 原生结果页。\n  - **web.cafe 词表要付费**：公开页可见 10-13 08:05 日报标题「视频站换脸红线讨论与GPT新词流量成焦点」等，看不到具体新词列表。\n  - **.io 域名状态未验证**：无可靠 RDAP。\n- **相对昨日的纠正 / 状态**：昨日「StepFun Step 5 计划 10-15 开放权重」今天复查——官方页仍写 October 15 开放权重；Forkast / CVJ 指出截至约 10-11 官方许可证与官方 HF 仓库仍缺失；HF 上可见第三方镜像（如 `SHSLab/Step-5-Preview-BF16` likes=11），**权重正式开放尚未发生（距 10-15 还有 2 天）**。\n\n**筛选漏斗**\n- 原始信号约 **65** 条种子（写入 `raw/2026-10-13/seeds.txt`：GitHub ~13、HF ~5、HN ~8、PH 10-11/10-12 ~13、Web 新发布 ~13、Steam/App ~5、昨日跟进 ~6、X 补采 2 组）；另有 **13 条 X 7 天发帖量序列**、20 条 oomfmap X 帖、**58 个种子词的三引擎自动补全**（`ac_batch1–3.jsonl`）、多轮 SERP 抽查与 ~40 个域名 RDAP，未计入种子条数。\n- 第一层（能做成英文工具站、非纯大厂新闻、非 NSFW/明显商标侵权主业）剩约 **28** 个种子，对其中 **28** 个种子（展开为 48 个查询）跑了 Google/Bing/DDG 自动补全（`ac_batch1.jsonl` + `ac_batch2.jsonl`）；X 恢复后对 oomfmap 词族再补 10 个查询（`ac_batch3.jsonl`）。\n- 第二层（补全出现真实需求变体，或有明确新产品/新 API，且非昨日已完整深挖且无新变化的词）加 WebSearch SERP / RDAP，剩 **7** 个决赛词 + 1 个「旧词升级」（oomfmap，昨日 ★☆，今天 X 继续上升，单独深挖但不当新词计入 Top 3）。\n- 最后选出 **Top 3**（优先**新**机会；昨日 Top 词只在跟进节处理）。",
  "candidates": [
   {
    "rank": 1,
@@ -20,7 +20,7 @@
    ],
    "sources_text": "https://www.inspoai.io/blogs/introducing-shades-animated-shader-backgrounds · https://www.shadertools.com/ · https://shaderkit.com/ai-shader-generator · https://www.magicpattern.design/tools/shader-background-generator · https://21st.dev/blog/introducing-shader-builder",
    "first_seen": "InspoAI Shades 文称 2026-10-11；ShaderTools RDAP 2026-05-13；本期补全验证 10-13",
-   "trend_signal": "Google+Bing+DDG 对 \"ai shader generator\" 均有补全；Google 还有 free / from image / blender / 3d / minecraft 等变体。\"shader background generator\" Google 有 free。Trends 未验证；X 发帖量未验证",
+   "trend_signal": "Google+Bing+DDG 对 \"ai shader generator\" 均有补全；Google 还有 free / from image / blender / 3d / minecraft 等变体。\"shader background generator\" Google 有 free。Trends 未验证；**X 7 天**「shader (AI OR generator)」日量 25/35/35/37/26/23/40（平，偏搜索驱动而非社交爆发）",
    "trends_verified": false,
    "serp": "WebSearch「ai shader generator」前排：shadertools.com 首页、shaderkit.com/ai-shader-generator 内页、shaderstudio.ai 首页。背景向查询还有 MagicPattern 工具内页、GradientLab、Plasma、Brandstack",
    "domain": "aishadergenerator.com、shaderbackgroundgenerator.com、shadergeneratorai.com RDAP 404；aishader.com 已注册 2026-06-26",
@@ -43,7 +43,7 @@
      },
      {
       "title": "C. 需求验证（哪些证据是真的）",
-      "markdown": "- **真实拿到的**：\n  - 三端自动补全对主词一致（比单边强）。\n  - 多个已上线产品与老站工具页（上表链接）。\n  - 竞品付费锚点：ShaderKit Creator **$7.99/月 / 50,000 credits**（来自 WebSearch 对 shaderkit / scry.art 的综合；**未在支付页逐字段截图核对**）。\n- **未验证**：Google Trends vs GPTs；X 发帖量；intitle；InspoAI 博客正文（路由 404）。\n- **上站前要补**：Trends 对比 `ai shader generator`、`shader background generator`、`GPTs`；抽查 GSC 可投词。"
+      "markdown": "- **真实拿到的**：\n  - 三端自动补全对主词一致（比单边强）。\n  - 多个已上线产品与老站工具页（上表链接）。\n  - 竞品付费锚点：ShaderKit 官方 AI 页写明 Vibe Mode「included in paid plans (Creator, $7.99/mo, 7-day free trial)」（https://shaderkit.com/ai-shader-generator ；credits 数量来自第三方，未核）；Shader Studio 免费给 300 次一次性 AI credits，最高档 Max 每月 25,000 credits（官网文案，价格未核）。\n  - X 7 天：「shader (AI OR generator)」日 23–40 条，平稳；「InspoAI / shadertools / shaderkit / shader background」7 天合计仅 4 条——竞品们**没靠 X 获客**，大概率靠搜索与设计社区。\n- **未验证**：Google Trends vs GPTs；intitle；InspoAI 博客正文（路由 404）。\n- **上站前要补**：Trends 对比 `ai shader generator`、`shader background generator`、`GPTs`；抽查 GSC 可投词。"
      },
      {
       "title": "D. SERP 结构（WebSearch 前 5）",
@@ -51,7 +51,7 @@
      },
      {
       "title": "E. 竞品拆解",
-      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| shadertools.com | 2026-05-13 | 自然语言生成 GLSL + 实时预览 + 框架导出 | 宣称免注册；付费档未在本期打开核对（未验证） | 偏「写 shader」，弱化品牌背景一键模板 |\n| shaderkit.com | 2025-11-07 | 专业编辑器 + 云渲染 + Vibe Mode（Claude） | 编辑器免费；Creator 约 $7.99/月（第三方文） | AI 是附加；面向懂 GLSL 的人 |\n| magicpattern.design/.../shader-background-generator | 2020-07-21 | 无代码渐变 shader 背景，导出图/视频 | 工具页免费层（完整定价未核） | 只是大站一个工具 URL，不是独立主题站 |\n| shaderstudio.ai | 2025-10-17 | 可视化 / 节点向 WebGL | 有免费额度（站点文案）；具体价未核 | 偏编辑器 |\n| 21st.dev Shader Builder | 2024-10-10 | 旋钮调参 + 导出 React 组件 | 未验证 | 社区组件生态，不是纯 SEO 工具站 |\n\n是否投广告：未逐站抓取，未验证。"
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| shadertools.com | 2026-05-13 | 自然语言生成 GLSL + 实时预览 + 框架导出（WebGL2；首页标「Open Source」「No signup required」） | 宣称免注册；付费档未在本期打开核对（未验证） | 偏「写 shader」，弱化品牌背景一键模板 |\n| shaderkit.com | 2025-11-07 | 专业编辑器 + 云渲染（最高 8K）+ Vibe Mode（Claude） | 编辑器有免费层；Creator **$7.99/月**、7 天试用（官网 AI 页） | AI 是附加；面向懂 GLSL 的人 |\n| magicpattern.design/.../shader-background-generator | 2020-07-21 | 无代码渐变 shader 背景，导出图/视频 | 工具页免费层（完整定价未核） | 只是大站一个工具 URL，不是独立主题站 |\n| shaderstudio.ai | 2025-10-17 | 可视化 / 节点向 WebGL | 有免费额度（站点文案）；具体价未核 | 偏编辑器 |\n| 21st.dev Shader Builder | 2024-10-10 | 旋钮调参 + 导出 React 组件 | 未验证 | 社区组件生态，不是纯 SEO 工具站 |\n\n是否投广告：未逐站抓取，未验证。"
      },
      {
       "title": "F. 可行性与经济账",
@@ -63,14 +63,14 @@
      },
      {
       "title": "H. 评分与 7 天计划",
-      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 三端补全 + 多产品验证；缺 Trends/X |\n| 竞争 | 3 | 已有首页竞品，但背景向仍多内页，EMD 空 |\n| 可行性 | 5 | 纯浏览器 + 小 LLM，成本极低 |\n| 变现 | 4 | 已有 $7.99/月锚点；导出次数好卖 |\n| 寿命 | 4 | 功能词 |\n| 总分 | 20/25 | |\n\n**7 天计划**\n- **第 1 天**：Trends 对比三词；注册 aishadergenerator.com；若有设计类老站，先上 `/ai-shader-generator` 内页测。\n- **第 2 天**：MVP 预览闭环（提示词→GLSL→WebGL）。\n- **第 3 天**：导出 PNG + 客户端 MP4；Stripe $9.9/$19.9。\n- **第 4 天**：子页 `/shader-background-generator`、`/animated-shader-background`；提交 GSC/Bing。\n- **第 5 天**：ChatGPT 测问；提交 AI 目录；发 3 条前后对比短视频。\n- **第 6 天**：按 GSC 补 blender/from-image 博客（外链向，不改首页主题）。\n- **第 7 天**：复盘付费转化；若无曝光则停独立站预算，只留内页。"
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 三端补全 + 多产品验证；X 平稳（非爆点）；缺 Trends |\n| 竞争 | 3 | 已有首页竞品，但背景向仍多内页，EMD 空 |\n| 可行性 | 5 | 纯浏览器 + 小 LLM，成本极低 |\n| 变现 | 4 | 已有 $7.99/月锚点；导出次数好卖 |\n| 寿命 | 4 | 功能词 |\n| 总分 | 20/25 | |\n\n**7 天计划**\n- **第 1 天**：Trends 对比三词；注册 aishadergenerator.com；若有设计类老站，先上 `/ai-shader-generator` 内页测。\n- **第 2 天**：MVP 预览闭环（提示词→GLSL→WebGL）。\n- **第 3 天**：导出 PNG + 客户端 MP4；Stripe $9.9/$19.9。\n- **第 4 天**：子页 `/shader-background-generator`、`/animated-shader-background`；提交 GSC/Bing。\n- **第 5 天**：ChatGPT 测问；提交 AI 目录；发 3 条前后对比短视频。\n- **第 6 天**：按 GSC 补 blender/from-image 博客（外链向，不改首页主题）。\n- **第 7 天**：复盘付费转化；若无曝光则停独立站预算，只留内页。"
      }
     ],
     "scores": [
      {
       "dim": "需求",
       "score": 4.0,
-      "note": "三端补全 + 多产品验证；缺 Trends/X"
+      "note": "三端补全 + 多产品验证；X 平稳（非爆点）；缺 Trends"
      },
      {
       "dim": "竞争",
@@ -110,7 +110,7 @@
    ],
    "sources_text": "https://demosmith.ai/ · https://www.producthunt.com/leaderboard/daily/2026/10/12 （ngram 2.0 #2）· https://getopenscreen.com/ · https://www.producthunt.com/leaderboard/daily/2026/10/11 （OpenScreen 2）",
    "first_seen": "ngram 2.0 PH 10-12；OpenScreen 2 PH 10-11；Demosmith 站已在营",
-   "trend_signal": "Google+Bing+DDG：「ai demo video generator/maker」「ai product demo video maker」变体很多；\"screen studio alternative\" 三端都有。Trends / X 未验证",
+   "trend_signal": "Google+Bing+DDG：「ai demo video generator/maker」「ai product demo video maker」变体很多；\"screen studio alternative\" 三端都有。Trends 未验证；X「demo video AI」日量仅 0–6（B2B 词，社交声量小，属正常）",
    "trends_verified": false,
    "serp": "前排大量**专用首页**：demosmith.ai、demofy.io、storyship.app、makemydemo.com、getdemobot.com、urltodemo.com 等（多为 2026 注册的新站）",
    "domain": "aidemovideogenerator.com、productdemovideoai.com RDAP 404；demovideoai.com 已注册 2026-04-11",
@@ -133,7 +133,7 @@
      },
      {
       "title": "C. 需求验证",
-      "markdown": "- **真实拿到的**：三端补全极强；多个付费产品与 PH 上榜；Demosmith 官网写明 Business **$250/月**；第三方文转述 Starter **$40/月**、Pro **$99/月**（https://omidsaffari.com/blog/demosmith-pricing ——二次来源，上站前以官网为准）。\n- **未验证**：Trends、X、各站真实 MRR。"
+      "markdown": "- **真实拿到的**：三端补全极强；多个付费产品与 PH 上榜；**Demosmith 官网定价页（09:30 curl）**：Free trial 3 天、Starter $40/月、Pro $99/月、Business $250/月、Enterprise 定制，年付 $33/$83/$208（https://demosmith.ai/pricing ）。Demosmith 首页展示「4.2k users」「$12k MRR」字样，**像是产品演示画面里的示例数字，不当作其真实营收**。\n- X「demo video AI」7 天仅 29 条（社交小，B2B 搜索词正常现象）。\n- **未验证**：Trends、各站真实 MRR。"
      },
      {
       "title": "D. SERP 结构（WebSearch：「ai product demo video maker」「ai demo video generator」）",
@@ -141,7 +141,7 @@
      },
      {
       "title": "E. 竞品拆解",
-      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| demosmith.ai | 2026-02-10 | URL agent 自动演示 + 文档 + 交互 demo | Trial；Starter/Pro 约 $40/$99（第三方）；Business $250（官网可见） | 偏 SaaS 团队，偏贵；对「只想剪一段录屏」过重 |\n| ngram.com | — | 文档/录屏→讲解与数字人视频 | 未在本期打开核对 | PH 新版本曝光，SEO 占位未验证 |\n| OpenScreen | openscreen.app 2025-10-04 | 本地免费录屏+自动缩放+可选 AI 剪辑 | 免费 MIT | 桌面端，不是「URL 出片」；可做云托管差异化 |\n| storyship / demofy / demobot | 2026 上半年 | URL/录屏出 demo | 未逐个核对 | 同质化 |"
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| demosmith.ai | 2026-02-10 | URL agent 自动演示 + 文档 + 交互 demo | 3 天试用；$40 / $99 / $250 每月（官网定价页已核） | 偏 SaaS 团队，偏贵；对「只想剪一段录屏」过重 |\n| ngram.com | — | 文档/录屏→讲解与数字人视频 | 未在本期打开核对 | PH 新版本曝光，SEO 占位未验证 |\n| OpenScreen | openscreen.app 2025-10-04 | 本地免费录屏+自动缩放+可选 AI 剪辑 | 免费 MIT | 桌面端，不是「URL 出片」；可做云托管差异化 |\n| storyship / demofy / demobot | 2026 上半年 | URL/录屏出 demo | 未逐个核对 | 同质化 |"
      },
      {
       "title": "F. 可行性与经济账",
@@ -153,7 +153,7 @@
      },
      {
       "title": "H. 评分与 7 天计划",
-      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 补全与付费产品充分 |\n| 竞争 | 2 | 多个专用首页已在 |\n| 可行性 | 3 | 轻量剪辑可行；URL agent 不可行作首周目标 |\n| 变现 | 5 | 客单价高 |\n| 寿命 | 3 | 功能长，但垂直竞争会迅速变红海 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- **第 1 天**：打开 Demosmith 定价页核对 $40/$99；Trends 查 ai product demo video；决定切口（changelog video vs 录屏 AI 剪辑）。\n- **第 2–3 天**：只做选定切口 MVP，不上 agent。\n- **第 4 天**：对比页（vs Loom / vs Screen Studio / vs Demosmith）收搜索与 ChatGPT。\n- **第 5–7 天**：目录站提交 + 复盘；若无付费意向则转内容/联盟，停工具投入。"
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 补全与付费产品充分 |\n| 竞争 | 2 | 多个专用首页已在 |\n| 可行性 | 3 | 轻量剪辑可行；URL agent 不可行作首周目标 |\n| 变现 | 5 | 客单价高 |\n| 寿命 | 3 | 功能长，但垂直竞争会迅速变红海 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- **第 1 天**：（Demosmith 价格已核）Trends 查 ai product demo video；决定切口（changelog video vs 录屏 AI 剪辑）。\n- **第 2–3 天**：只做选定切口 MVP，不上 agent。\n- **第 4 天**：对比页（vs Loom / vs Screen Studio / vs Demosmith）收搜索与 ChatGPT。\n- **第 5–7 天**：目录站提交 + 复盘；若无付费意向则转内容/联盟，停工具投入。"
      }
     ],
     "scores": [
@@ -198,7 +198,7 @@
    ],
    "sources_text": "https://odyssey.systems/meet-odyssey-3 · https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free/",
    "first_seen": "官方文 2026-10-08；公开试玩报道约 10-11",
-   "trend_signal": "Google「odyssey-3」补到 world model / model / ai；无连字符的「odyssey 3」噪音极大（高尔夫/胶片）。Trends / X 未验证",
+   "trend_signal": "Google「odyssey-3」补到 world model / model / ai；无连字符的「odyssey 3」噪音极大（高尔夫/胶片）。Trends 未验证；**X 日量 10-08 峰值 1,212 → 866 → 291 → 210 → 103（已回落约 92%）**",
    "trends_verified": false,
    "serp": "WebSearch 前排：官方 odyssey.systems、媒体解读、第三方评测。尚无明显第三方 EMD 工具站进前 5（本期 WebSearch 未见）",
    "domain": "odyssey3.ai、worldmodelplayground.com RDAP 404；odyssey3.com 已注册 2022-01-02",
@@ -221,7 +221,7 @@
      },
      {
       "title": "C. 需求验证",
-      "markdown": "- **真实拿到的**：官方发布页 + 多家科技媒体；自动补全已出现 `odyssey-3 world model`。\n- **未验证**：Trends、X 量、第三方站是否已有付费。\n- 物理基准 66.1 为官方自报且媒体指出 best-of-8 口径——**做站时不要夸大抄基准数字**，链到官方与 Physics-IQ 即可。"
+      "markdown": "- **真实拿到的**：官方发布页 + 多家科技媒体；自动补全已出现 `odyssey-3 world model`。\n- **X 日量（关键词匹配，含少量噪音）**：10-07 15 → **10-08 1,212** → 10-09 866 → 10-10 291 → 10-11 210 → 10-12 103。典型「发布日尖峰 + 一周衰减」。\n- **未验证**：Trends、第三方站是否已有付费。\n- 物理基准 66.1 为官方自报且媒体指出 best-of-8 口径——**做站时不要夸大抄基准数字**，链到官方与 Physics-IQ 即可。"
      },
      {
       "title": "D. SERP 结构（WebSearch：「odyssey-3 world model」）",
@@ -241,14 +241,14 @@
      },
      {
       "title": "H. 评分与 7 天计划",
-      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 有媒体与补全，但量级未用 X/Trends 证实 |\n| 竞争 | 3 | 官方强，第三方 EMD 尚未挤爆（表象） |\n| 可行性 | 3 | 无稳定第三方 API 时只能做信息站 |\n| 变现 | 2 | 信息站变现弱 |\n| 寿命 | 2 | 模型版本词 |\n| 总分 | 13/25 | |\n\n说明：表内总分 13，但作为「本周可赌的新模型词」仍列入 Top3 观察位；**实操优先级低于 shader，且默认走老站内页**。若只投一个新独立站，选 shader 而不是 Odyssey-3。\n\n**7 天计划（内页模式）**\n- 第 1 天：老站加 `/odyssey-3`；写清非官方；链到官方 Try。\n- 第 2–3 天：对比页 vs Genie 3；提示词库。\n- 第 4–5 天：观察 GSC；若有曝光再考虑 worldmodelplayground.com。\n- 第 6–7 天：热度下滑则停更。"
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 有媒体与补全；X 峰值后已回落约 92% |\n| 竞争 | 3 | 官方强，第三方 EMD 尚未挤爆（表象） |\n| 可行性 | 3 | 无稳定第三方 API 时只能做信息站 |\n| 变现 | 2 | 信息站变现弱 |\n| 寿命 | 2 | 模型版本词 |\n| 总分 | 13/25 | |\n\n说明：表内总分 13，但作为「本周可赌的新模型词」仍列入 Top3 观察位；**实操优先级低于 shader，且默认走老站内页**。若只投一个新独立站，选 shader 而不是 Odyssey-3。\n\n**7 天计划（内页模式）**\n- 第 1 天：老站加 `/odyssey-3`；写清非官方；链到官方 Try。\n- 第 2–3 天：对比页 vs Genie 3；提示词库。\n- 第 4–5 天：观察 GSC；若有曝光再考虑 worldmodelplayground.com。\n- 第 6–7 天：热度下滑则停更。"
      }
     ],
     "scores": [
      {
       "dim": "需求",
       "score": 3.0,
-      "note": "有媒体与补全，但量级未用 X/Trends 证实"
+      "note": "有媒体与补全；X 峰值后已回落约 92%"
      },
      {
       "dim": "竞争",
@@ -287,7 +287,7 @@
    ],
    "sources_text": "https://getopenscreen.com/ · https://github.com/siddharthvaddem/openscreen （约 39,923★）· https://www.producthunt.com/leaderboard/daily/2026/10/11",
    "first_seen": "OpenScreen 社区续作；PH OpenScreen 2 于 10-11",
-   "trend_signal": "「screen studio alternative / free」三端补全强",
+   "trend_signal": "「screen studio alternative / free」三端补全强；X「screen studio alternative OR openscreen」日量 3–21，10-11 起小升",
    "trends_verified": false,
    "serp": "对比文与 GitHub/官网占位；cursorclip.com 等博客",
    "domain": "screenstudioalternative.com RDAP 404",
@@ -307,9 +307,9 @@
     "https://rea.tools/",
     "https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software"
    ],
-   "sources_text": "https://github.com/morluto/rea （约 158,630★，创建 2026-04-14）· https://rea.tools/ · https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software",
+   "sources_text": "https://github.com/morluto/rea （约 158,794★（09:25 API），创建 2026-04-14）· https://rea.tools/ · https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software",
    "first_seen": "Decrypt 2026-10-12；rea.tools RDAP 2026-10-08",
-   "trend_signal": "Google「rea reverse engineer anything」及 github/reddit 变体清晰；Bing/DDG 较弱",
+   "trend_signal": "Google「rea reverse engineer anything」及 github/reddit 变体清晰；Bing/DDG 较弱；**X 日量 60 → 63 → 119 → 218 → 259 → 379 → 604，连续 7 天上升**",
    "trends_verified": false,
    "serp": "官方 GitHub + rea.tools + Decrypt 报道",
    "domain": "reareverse.com RDAP 404；rea.tools 已注册",
@@ -318,6 +318,96 @@
    "rating_stars": "★★☆",
    "reason": "热度极高但版权/安全风险大，只适合合规教育向信息站",
    "extra": {}
+  },
+  {
+   "rank": 8,
+   "keyword": "oomfmap",
+   "keyword_note": "（旧词跟进·仍在上升；oomf map）",
+   "description": "输入 X 用户名，AI 把你放到某张两轴梗图「地图」上（如 top/bottom、power play），可 reroll、看 AI roast、付费解锁完整结果",
+   "sources": [
+    "https://jai.vin/oomfmap",
+    "https://www.producthunt.com/products/oomfmap-com",
+    "https://x.com/earthmov3rrr/status/2109784039691608338",
+    "https://x.com/imgoingmadsmode/status/2109745624937800185"
+   ],
+   "sources_text": "https://jai.vin/oomfmap · https://www.producthunt.com/products/oomfmap-com · https://x.com/earthmov3rrr/status/2109784039691608338 · https://x.com/imgoingmadsmode/status/2109745624937800185",
+   "first_seen": "产品 PH 上线 2024-11-28；本轮再走红始于 X 10-09/10-10；昨日报告 ★☆",
+   "trend_signal": "**X 日量 1/13/112/269/310（10-08→10-12 UTC），仍在上升**；Google 补全 oomf map top bottom / power play / dominance / desirable / generator free 等",
+   "trends_verified": false,
+   "serp": "WebSearch「oomfmap」前 5 全是原站（PH 页 + jai.vin 各子页）；通用词「alignment chart generator」有老牌工具 + 开源 x-alignment-chart",
+   "domain": "oomfmap.com 注册 2024-11-05（原作者）；oomfmaps.com 已注册 2026-02-16；oomfmapgenerator.com、alignmentchartmaker.com、oomfchart.com RDAP 404",
+   "idea": "不抢品牌词；做「自定义两轴梗图 / alignment chart maker」+ 多模板、X/Bluesky 用户名可选；原站宕机时承接需求",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "社交在涨、补全有长尾，但品牌词被原站垄断、病毒周期短，且帖子里已有「它是 AI 做的」反感声",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "oomfmap",
+    "intro": "旧词升级（昨日 ★☆「在涨但量还小」），今天 X 继续上升，单独深挖；**不当新词计入 Top 3**。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 原站：oomfmap.com 302 跳转到 https://jai.vin/oomfmap/ （页面文案：「enter your username and you'll be placed somewhere on this map」「make your own map」「trending maps」「follow @jaivinwylde on x」）。\n- Product Hunt 产品页：https://www.producthunt.com/products/oomfmap-com （PH 显示 2024-11-28 上线，12 条评论 4.92/5，253 followers）——**产品不新，是老产品在 X 上二次走红**。\n- 结果页结构（WebSearch 抓到的 http://oomfmap.com/oomf/__r17x ）：reroll、AI roast / analysis / insight / potential、**「unlock full results」付费墙**、「post on x and attach your link to view your stats」（发帖换解锁，靠 X 裂变）。\n- X 帖子样本（09:25 搜索，最相关 20 条）：\n  - 宕机/不可用：https://x.com/imgoingmadsmode/status/2109745624937800185 （「oomfmap is down」）、https://x.com/acknant/status/2109680869417902178 （「just like broke for me」）、https://x.com/quaternionslime/status/2109398812330488191 （「doesnt work for my url」）\n  - 反 AI 情绪：https://x.com/earthmov3rrr/status/2109784039691608338 、https://x.com/diasomniabard/status/2108888776365781225 、https://x.com/RuikasaMizuena/status/2109578599062007912\n  - 多语种使用：波兰语、西班牙语帖子都有（如 https://x.com/toroboxd/status/2109486836980814058 ）\n  - 有用户质疑「it just places you randomly for engagement bait」：https://x.com/ScammingMoth/status/2109433522318684327"
+     },
+     {
+      "title": "B. 词族（2026-10-13 实测，`ac_batch3.jsonl`）",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| oomfmap / oomfmap .com / oomfmap twitter | Google + Bing + DDG | 品牌导航 |\n| oomf map top bottom / power play / dominance / omega / desirable / mind map 3 | Google | **具体地图模板**（梗分类） |\n| oomf map powerplay | Bing + DDG | 同上 |\n| oomf map generator free / github / python | Google | 想自己做 / 找替代 |\n| oomfmap alternatives | Google | 替代 |\n| alignment chart generator / maker 2x2·3x3·5x5 / text / online / free | Google；Bing+DDG 有 oc / meme generator | **通用常青词** |\n| twitter alignment chart（2023 / 2024） | Google | 历年周期性梗 |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真数据**：X 日量（UTC）10-08 1 → 10-09 13 → 10-10 112 → 10-11 269 → **10-12 310**（昨日报告给的 10-11 前序列是 0/2/1/1/13/114/278，今天 10-12 继续创新高）；三引擎都有品牌补全；Google 出现「generator free / alternatives」。\n- **注意**：增速在放缓（112→269 为 +140%，269→310 为 +15%），可能接近顶点。\n- **未验证**：Google Trends；原站付费转化。"
+     },
+     {
+      "title": "D. SERP 结构",
+      "markdown": "| 查询 | 前 5 | 判断 |\n|---|---|---|\n| oomfmap | PH 产品页、jai.vin/oomfmap、oomfmap.com/oomf/<user>、jai.vin 子页 ×2 | 品牌词**完全被原站占满**，不可抢 |\n| alignment chart generator from twitter username AI | dev.to 教程、GitHub f1shy-dev/x-alignment-chart（72★，2025-03 创建）、magic-x-alignment-chart.vercel.app、bisks.net（Bluesky 版） | 通用意图只有开源小项目与子域名，**没有强 EMD 首页**（WebSearch 前 5，非 Google 原生） |"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册/创建 | 形式 | 变现 | 短板 |\n|---|---|---|---|---|\n| oomfmap.com / jai.vin | oomfmap.com 2024-11-05 | X 用户名 → 地图定位 + AI roast；多张地图 | 「unlock full results」付费墙 + 发帖换解锁（价格未验证） | 宕机/URL 不识别抱怨；被质疑随机定位；反 AI 情绪 |\n| magic-x-alignment-chart（开源） | 仓库 2025-03-13 | 3×3 D&D 阵营图，GPT-4o-mini 分析推文 | 无 | vercel 子域名，SEO 弱 |\n| alignment-chart.bisks.net | 未验证 | Bluesky 版，浏览器内关键词打分 | 无 | 小众 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP（估算 12–20 小时，未实测）**：自定义两轴 / 3×3 图生成器（用户填轴标签、拖拽头像），可选「AI 根据公开简介或粘贴的几条帖子打分」。\n- **数据成本**：真读 X 推文要 X API（按量计费，价格未在本轮核对）；省钱做法是**让用户自己粘贴文本**或只用公开头像/简介，LLM 每次几百 token（成本估算 <$0.002/次，未实测）。\n- **变现**：病毒型免费工具 → 广告 + 「高清无水印导出 / 批量放好友」小额一次性付费（$2.99–4.99 量级，估算）。\n- **ChatGPT 适配**：用户会问「oomfmap alternative」「make an alignment chart of my mutuals」，通用名站更容易被推荐。\n- **寿命**：oomfmap 品牌词 1–3 周；「alignment chart maker」常青。\n- **风险**：①品牌词「oomfmap」不能进域名、不能冒充；②以真实用户名做性/性别等分类（帖子里有 top/bottom、horny/asexual 类地图）有骚扰与平台政策风险，**模板要避开性取向/性别类**；③X 用户数据使用条款。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| alignmentchartmaker.com | 404，可能可注册（**首选**，通用常青） |\n| alignmentchartgenerator.com | 404，可能可注册 |\n| mutualsmap.com | 404，可能可注册（社交向） |\n| oomfchart.com | 404（含梗词，不建议主站） |\n| oomfmaps.com | 已注册 2026-02-16 |\n| oomfmap.com | 已注册 2024-11-05（原作者） |"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | X 连涨 + 三端补全 + generator/alternative 长尾 |\n| 竞争 | 2 | 品牌词被原站垄断；通用词有空位但流量不等于 oomfmap |\n| 可行性 | 4 | 纯前端 + 小 LLM；不读 X 数据就很便宜 |\n| 变现 | 2 | 病毒工具付费弱，主靠广告 |\n| 寿命 | 2 | 梗周期短（通用词除外） |\n| 总分 | 14/25 | |\n\n结论：**不建议追 oomfmap 品牌词**；若有老站，可加一个 `/alignment-chart-maker` 内页承接通用需求（1 天内可上），观察 GSC 再定是否注册 alignmentchartmaker.com。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "X 连涨 + 三端补全 + generator/alternative 长尾"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "品牌词被原站垄断；通用词有空位但流量不等于 oomfmap"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "纯前端 + 小 LLM；不读 X 数据就很便宜"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "病毒工具付费弱，主靠广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "梗周期短（通用词除外）"
+     }
+    ],
+    "total": 14.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 6,
@@ -350,9 +440,9 @@
    ],
    "sources_text": "https://www.stepfun.com/step-5-preview · https://forkast.news/step-5-ships-in-four-days-and-its-license-is-still-missing/",
    "first_seen": "昨日挂监控；今日复查",
-   "trend_signal": "Google「step 5 preview」「stepfun step 5 preview」；Bing 仍多指向更早 Step 3.x",
+   "trend_signal": "Google「step 5 preview」「stepfun step 5 preview」；Bing 仍多指向更早 Step 3.x；X 日量 72 → 113 → 40 → 28 → 21（回落中）",
    "trends_verified": false,
-   "serp": "官方与分析文；第三方 HF 镜像 likes 很低（个位数到十几）",
+   "serp": "官方与分析文；第三方 HF 镜像 likes 很低（个位数到十几）；**HF `stepfun-ai` 官方账号 09:30 查询仍无 Step-5 仓库**（最新为 Step-3.7-Flash 系列）",
    "domain": "step5.ai、stepfunstep5.com RDAP 404",
    "idea": "等 10-15 官方权重+许可证后再做 VRAM/部署站",
    "rating": 2.0,
@@ -362,14 +452,14 @@
   }
  ],
  "supplement": "",
- "top_picks": "- **Screen Studio alternative**：适合做对比内容，不适合再做第四个录屏客户端。\n- **REA（158k★）**：只做合规「如何用 agent 做安全研究/互操作」教育内容；禁止「破解/一键仿 Adobe」产品定位。\n- **EmbeddingGemma 2 / Muse Wonder / GPT-6 Intelligent UI / Magnific One / Syren / Vixel**：大厂或重产品，SEO 工具站空间有限。\n- **AI influencer generator**：补全很强但 SERP 已被 FaceAI/Fotor/Kapwing 等矩阵占满，且易滑向 NSFW，本期不进决赛。\n- **HTML explainer generator**：等出现更明确的非开发者搜索词再做网页版。",
+ "top_picks": "- **Screen Studio alternative**：适合做对比内容，不适合再做第四个录屏客户端。\n- **REA（158k★，X 连涨 7 天到 604/天）**：只做合规「如何用 agent 做安全研究/互操作」教育内容；禁止「破解/一键仿 Adobe」产品定位。\n- **EmbeddingGemma 2 / Muse Wonder / GPT-6 Intelligent UI / Magnific One / Syren / Vixel**：大厂或重产品，SEO 工具站空间有限。\n- **AI influencer generator**：补全很强但 SERP 已被 FaceAI/Fotor/Kapwing 等矩阵占满，且易滑向 NSFW，本期不进决赛。\n- **HTML explainer generator**：等出现更明确的非开发者搜索词再做网页版。",
  "monitoring": "",
  "other_sections": [
   {
    "title": "旧词跟进（昨日报告）",
-   "markdown": "| 词 | 今日信号 | 判断 |\n|---|---|---|\n| AI school picture generator | Google/Bing 补全仍在（school picture ai / ai school pictures generator 等）；familyphotographer.ai 等内页仍在；**schoolpictureai.com / aischoolpictures.com RDAP 仍 404** | **仍值得做**，季节窗口还在；不是「新词」但继续执行昨日 7 天计划 |\n| AI video relight | Google/Bing 仍有 relight video ai / free / online | 功能词仍在；维持观察或按昨日计划推进 |\n| Vidu Q4 | 补全仍有；官方与文档仍在 | 热度未用 X 复核；模型词继续衰减预期，不新开站 |\n| how pinterest sees me | 补全仍在（template/trend） | 昨日判断回落，继续不推荐 |\n| Claude Anatomy / isometric | anatomy 仓库升至约 **6,285★**（昨约 3.7k）；补全有 claude anatomy explorer | 开发者热，搜索需求仍弱；继续盯 isometric explainer |\n| StepFun Step 5 | 官方仍称 **10-15** 开放权重；许可证争议报道仍在；HF 第三方镜像低赞 | **10-15 再查**；今日不建站 |\n| Vivix W1 | 补全仅弱品牌串 | 不跟 |\n| soulmate country quiz | Google 有补全，Bing/DDG 空 | 声量未知，不推 |\n| Google Playground game maker | 未复测 | 维持不推 |\n| Omurice simulator | 未复测 | 维持不推 |\n| oomfmap | 补全出现 oomfmap.com / twitter | 仍小，盯 |\n| ArtCraft/photocraft | photocraft 仍在 GH 高星列表；Decrypt 将 ArtCraft 与 REA 浪潮并提 | 品牌/官方仓，不做山寨站 |"
+   "markdown": "> X 列为 `get_posts_counts_recent` 7 天日量（UTC 日界，10-06 为部分日），原始数据见 `raw/2026-10-13/x_counts.tsv`；关键词匹配，含噪音，只看方向。\n\n| 词 | 今日信号 | 判断 |\n|---|---|---|\n| AI school picture generator | Google/Bing 补全仍在（school picture ai / ai school pictures generator 等）；familyphotographer.ai 等内页仍在；**schoolpictureai.com / aischoolpictures.com RDAP 仍 404**；**X「\"school picture\" AI」7 天仅 10 条** | 搜索驱动的季节词，X 几乎无声量——昨日判断的需求来自补全与 SERP，不是社交；**仍可按昨日 7 天计划推进**，但上站前务必补 Trends |\n| AI video relight | Google/Bing 仍有 relight video ai / free / online；X「relight video AI」日 2–8 条，平 | 功能词，平稳无新增；维持昨日计划，不加码 |\n| Vidu Q4 | 补全仍有；**X 日量 525 → 211 → 956（10-10 峰）→ 652 → 207**，10-12 较峰值回落约 78% | **回落中**；不新开站，已有内页可留 |\n| how pinterest sees me | 补全仍在（template/trend）；**X 日量 1,287 → 652 → 505 → 318 → 256 → 273 → 142**，持续下滑 | 回落，继续不推荐 |\n| Claude Anatomy / isometric | anatomy 仓库 **6,291★**（09:25 API；昨约 3.7k）；补全有 claude anatomy explorer；X「isometric (anatomy OR explainer) claude」0 → 6 → 23 → 30，小幅上升 | 开发者圈在涨，但搜索需求仍弱；继续盯 isometric explainer |\n| StepFun Step 5 | 官方仍称 **10-15** 开放权重；许可证争议报道仍在；HF `stepfun-ai` 无 Step-5 仓库；X 日量 113（10-09 峰）→ 21 | 声量回落；**10-15 再查**，今日不建站 |\n| Vivix W1 | 补全仅弱品牌串 | 不跟 |\n| soulmate country quiz | Google 有补全，Bing/DDG 空 | 声量未知，不推 |\n| Google Playground game maker | 本轮未复测 | 维持不推 |\n| Omurice simulator | 本轮未复测 | 维持不推 |\n| oomfmap | **X 日量 13 → 112 → 269 → 310，仍在上升**；补全出现 generator / alternatives 长尾 | **仍在上升 → 已升级单独深挖（见上，14/25）**；建议只做通用 alignment chart maker 内页 |\n| ArtCraft/photocraft | photocraft 仍在 GH 30 天高星（53,550★）；Decrypt 将 ArtCraft 与 REA 浪潮并提 | 品牌/官方仓，不做山寨站 |\n| （新）REA | X 日量 60 → 604，**连涨 7 天**；仓库 158,794★ | 上升最快的开发者词，但版权/安全风险高，只做合规教育内容 |"
   }
  ],
- "deep_dive_count": 3,
+ "deep_dive_count": 4,
  "parse_ok": true
 }
