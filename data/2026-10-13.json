@@ -1,0 +1,375 @@
+{
+ "date": "2026-10-13",
+ "title": "新词候选（深挖版）— 2026-10-13",
+ "collected_at": "2026-10-13 北京时间（UTC+8）约 09:13–10:00。第三轮每日新词监控，深度对齐 2026-10-12.md 的 A–H 结构",
+ "generated_at": "2026-10-13T09:22:48+08:00",
+ "trends_unverified": true,
+ "preface": "数据采集时间：2026-10-13 北京时间（UTC+8）约 09:13–10:00。第三轮每日新词监控，深度对齐 `2026-10-12.md` 的 A–H 结构。\n\n**数据来源情况（如实说明）**\n- **可用**：GitHub Search API（只读）、Hugging Face API、HN Algolia（front / show）、Product Hunt leaderboard（WebFetch，10-12 / 10-11）、Steam featuredcategories API、Apple iTunes RSS（top free/paid JSON）、Google / Bing / DDG 自动补全（`ac.py`）、WebSearch（每个查询约前 5，不是 Google 原生第一页）、IANA / Verisign RDAP（.com 等）、new.web.cafe 公开首页（仅社区帖与教程列表，词表仍付费）、Decrypt / Odyssey / REA / Demosmith / ShaderTools / MagicPattern / ShaderKit 等官网 WebFetch。\n- **被挡或拿不到**：\n  - **X（Twitter）MCP 整轮不可用**：本回合 `search_news` / `get_users_by_usernames` 等均返回「无法检查 X read limit」，**未做任何 X 读取**。因此本期**没有** X 发帖量时间序列；涉及社交热度一律写「X 发帖量未验证」，改用媒体报道、GitHub stars、PH 分数、自动补全替代。\n  - **Google Trends 未验证**：本机无 `pytrends`；Trending RSS 可打开（`rss:200`），但内容偏娱乐未用于词验证。未做「和 GPTs 对比」。\n  - **Reddit 被挡**：`reddit.com/.../new.json` 返回 403。\n  - **Apple marketingtools RSS**：504 / 空响应；改用 `itunes.apple.com/.../rss/.../json` 成功。\n  - **intitle 数量未验证**：拿不到 Google 原生结果页。\n  - **web.cafe 词表要付费**：公开页可见 10-13 08:05 日报标题「视频站换脸红线讨论与GPT新词流量成焦点」等，看不到具体新词列表。\n  - **.io 域名状态未验证**：无可靠 RDAP。\n- **相对昨日的纠正 / 状态**：昨日「StepFun Step 5 计划 10-15 开放权重」今天复查——官方页仍写 October 15 开放权重；Forkast / CVJ 指出截至约 10-11 官方许可证与官方 HF 仓库仍缺失；HF 上可见第三方镜像（如 `SHSLab/Step-5-Preview-BF16` likes=11），**权重正式开放尚未发生（距 10-15 还有 2 天）**。\n\n**筛选漏斗**\n- 原始信号约 **62** 条（写入 `raw/2026-10-13/seeds.txt`：GitHub ~13、HF ~5、HN ~8、PH 10-11/10-12 ~13、Web 新发布 ~12、Steam/App ~5、昨日跟进 ~6；另有自动补全与 SERP 抽查未计入种子条数）。\n- 第一层（能做成英文工具站、非纯大厂新闻、非 NSFW/明显商标侵权主业）剩约 **28** 个种子，对其中 **28** 个跑了 Google/Bing/DDG 自动补全（`ac_batch1.jsonl` + `ac_batch2.jsonl`）。\n- 第二层（补全出现真实需求变体，或有明确新产品/新 API，且非昨日已完整深挖且无新变化的词）加 WebSearch SERP / RDAP，剩 **7** 个决赛词。\n- 最后选出 **Top 3**（优先**新**机会；昨日 Top 词只在跟进节处理）。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "AI shader generator",
+   "keyword_note": "（shader background generator / animated shader）",
+   "description": "用自然语言生成 / 编辑 WebGL·GLSL shader，做网站动态背景或特效，导出图、视频或 React/Vue 组件",
+   "sources": [
+    "https://www.inspoai.io/blogs/introducing-shades-animated-shader-backgrounds",
+    "https://www.shadertools.com/",
+    "https://shaderkit.com/ai-shader-generator",
+    "https://www.magicpattern.design/tools/shader-background-generator",
+    "https://21st.dev/blog/introducing-shader-builder"
+   ],
+   "sources_text": "https://www.inspoai.io/blogs/introducing-shades-animated-shader-backgrounds · https://www.shadertools.com/ · https://shaderkit.com/ai-shader-generator · https://www.magicpattern.design/tools/shader-background-generator · https://21st.dev/blog/introducing-shader-builder",
+   "first_seen": "InspoAI Shades 文称 2026-10-11；ShaderTools RDAP 2026-05-13；本期补全验证 10-13",
+   "trend_signal": "Google+Bing+DDG 对 \"ai shader generator\" 均有补全；Google 还有 free / from image / blender / 3d / minecraft 等变体。\"shader background generator\" Google 有 free。Trends 未验证；X 发帖量未验证",
+   "trends_verified": false,
+   "serp": "WebSearch「ai shader generator」前排：shadertools.com 首页、shaderkit.com/ai-shader-generator 内页、shaderstudio.ai 首页。背景向查询还有 MagicPattern 工具内页、GradientLab、Plasma、Brandstack",
+   "domain": "aishadergenerator.com、shaderbackgroundgenerator.com、shadergeneratorai.com RDAP 404；aishader.com 已注册 2026-06-26",
+   "idea": "提示词 → 实时预览 → 调参 → 导出 PNG/MP4/React；免费预览 + 按次导出或 $7.9–19.9/月（对标 ShaderKit Creator $7.99/月）",
+   "rating": 4.0,
+   "rating_stars": "★★★★",
+   "reason": "功能词寿命长；三端补全；EMD 仍空；竞品多但是可差异化「背景 + 代码导出」首页",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "AI shader generator",
+    "intro": "决赛第 1 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源（词是怎么传开的）",
+      "markdown": "- **产品与内容链（本期核验到的链接）**：\n  - InspoAI 介绍 Shades（文内日期 October 11, 2026；WebFetch 该 blog 路径曾返回 not found，主站信号以 WebSearch 摘要与第三方引用为准，**完整正文未二次抓到**）：https://www.inspoai.io/blogs/introducing-shades-animated-shader-backgrounds\n  - ShaderTools 首页（自然语言 → WebGL2，导出 React/Svelte/JS，号称免注册）：https://www.shadertools.com/ （RDAP：shadertools.com 注册 2026-05-13）\n  - ShaderKit AI 页：https://shaderkit.com/ai-shader-generator （shaderkit.com 注册 2025-11-07）\n  - MagicPattern 工具内页「Shader Gradient Background Generator」：https://www.magicpattern.design/tools/shader-background-generator （magicpattern.design 注册 2020-07-21）\n  - 21st.dev Shader Builder 介绍：https://21st.dev/blog/introducing-shader-builder （21st.dev 注册 2024-10-10）\n  - Shader Studio：https://shaderstudio.ai/ （注册 2025-10-17）\n- 传播形态接近「设计站工具矩阵内页 + 独立 AI shader 编辑器首页」并行，而不是单一病毒帖（**X 发帖量未验证**）。"
+     },
+     {
+      "title": "B. 词族（Google / Bing / DDG 自动补全，2026-10-13 实测）",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| ai shader generator | Google + Bing + DDG | 工具 |\n| ai shader generator free | Google | 免费工具 |\n| ai shader generator from image | Google | 图生 shader |\n| ai shader generator for blender / 3d | Google | DCC 插件向 |\n| ai minecraft shader generator | Google | 游戏模组（可另页，勿做主词） |\n| ai shader creator | Google | 工具同义 |\n| shader background generator | Google | 背景向 |\n| shader background generator free | Google | 免费背景 |\n| shader gradient generator / maker | Google | 渐变 shader |\n| animated shader background | Google | 动画背景 |\n| webgl background generator | Google | 技术同义 |\n| shadergpt | Bing + DDG（Google 空） | 品牌/产品名 |\n\n结论：主词用 **AI shader generator**；第二页做 **shader background generator** / **animated shader background**；Minecraft / Blender 做长尾博客，避免主站主题漂移。"
+     },
+     {
+      "title": "C. 需求验证（哪些证据是真的）",
+      "markdown": "- **真实拿到的**：\n  - 三端自动补全对主词一致（比单边强）。\n  - 多个已上线产品与老站工具页（上表链接）。\n  - 竞品付费锚点：ShaderKit Creator **$7.99/月 / 50,000 credits**（来自 WebSearch 对 shaderkit / scry.art 的综合；**未在支付页逐字段截图核对**）。\n- **未验证**：Google Trends vs GPTs；X 发帖量；intitle；InspoAI 博客正文（路由 404）。\n- **上站前要补**：Trends 对比 `ai shader generator`、`shader background generator`、`GPTs`；抽查 GSC 可投词。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5）",
+      "markdown": "| 查询 | 位置 | 结果 | 类型 | 域名注册时间（RDAP） |\n|---|---|---|---|---|\n| ai shader generator | 1 | shadertools.com | 新站首页 | 2026-05-13 |\n| ai shader generator | 2 | shaderkit.com/ai-shader-generator | 站内功能页 | 2025-11-07 |\n| ai shader generator | 3–5 | shaderkit 首页、GitHub shaderforge、shaderstudio.ai | 首页/仓库/首页 | shaderstudio.ai 2025-10-17 |\n| shader background generator | 1–5 | gradientlab.co/shaders、magicpattern.design/tools/...、brandstack、plasma.nusaiba.dev、shaderstudio.ai | 多为工具内页或小品首页 | magicpattern.design 2020-07-21；instantgradient.com 2025-07-03；inspoai.io RDAP 未解析（404/未验证） |\n\n判断：\n- 「ai shader generator」前排**已有专用首页**（ShaderTools、Shader Studio），不是蓝海；但仍可用更贴「background + export code/video」的 EMD 首页打 MagicPattern 类**内页**。\n- 「shader background generator」更偏内页格局，**首页胜内页**机会更大。\n- intitle 未验证。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| shadertools.com | 2026-05-13 | 自然语言生成 GLSL + 实时预览 + 框架导出 | 宣称免注册；付费档未在本期打开核对（未验证） | 偏「写 shader」，弱化品牌背景一键模板 |\n| shaderkit.com | 2025-11-07 | 专业编辑器 + 云渲染 + Vibe Mode（Claude） | 编辑器免费；Creator 约 $7.99/月（第三方文） | AI 是附加；面向懂 GLSL 的人 |\n| magicpattern.design/.../shader-background-generator | 2020-07-21 | 无代码渐变 shader 背景，导出图/视频 | 工具页免费层（完整定价未核） | 只是大站一个工具 URL，不是独立主题站 |\n| shaderstudio.ai | 2025-10-17 | 可视化 / 节点向 WebGL | 有免费额度（站点文案）；具体价未核 | 偏编辑器 |\n| 21st.dev Shader Builder | 2024-10-10 | 旋钮调参 + 导出 React 组件 | 未验证 | 社区组件生态，不是纯 SEO 工具站 |\n\n是否投广告：未逐站抓取，未验证。"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：\n  - 首页 H1：`AI Shader Generator`；副标题强调 website background / export React & MP4。\n  - 输入提示词或上传参考图 → LLM 生成 fragment shader → WebGL 预览 → 暴露 3–6 个 uniform 滑杆。\n  - 导出：PNG、5–15s MP4/WebM（浏览器录制优先，降低服务器成本）、React 组件字符串。\n- **模型**：任意便宜 chat 模型生成 GLSL；预览全在用户 GPU。无视频大模型成本。\n- **单单成本（估算）**：一次生成约 $0.01–0.05 量级（视模型而定，**未实测**）；导出 MP4 若只用客户端录制则边际成本≈0。\n- **开发工时**：Next.js + regl/three + 一个 LLM 路由，估计 **20–32 小时**（估算，未实测）。\n- **变现**（热词一次性 + 轻订阅）：\n  - 免费：带水印预览或低分辨率；\n  - $9.9 = 20 次高清导出；\n  - $19.9 = 60 次 + 去水印；\n  - $7.9–9.9/月订阅对标 ShaderKit。\n- **ChatGPT 适配**：用户会问 “AI shader generator free”“how to make animated website background without code”。标题写成 closest match：`AI Shader Generator – Animated WebGL Backgrounds from Text`。是否真被推荐未验证。\n- **寿命**：功能词，可跟模型升级，预计 ≥12 个月。\n- **风险**：\n  1. ShaderTools 等首页已占位，需靠背景场景 + 导出体验差异化；\n  2. 用户生成代码可能侵权/滥用——加 ToS，不做「复制商业游戏 shader」卖点；\n  3. Minecraft 长尾别做成主站，避免模组版权纠纷。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） | 备注 |\n|---|---|---|\n| aishadergenerator.com | 404，可能可注册 | **首选**，匹配主词 |\n| shaderbackgroundgenerator.com | 404，可能可注册 | 匹配背景向 |\n| shadergeneratorai.com | 404，可能可注册 | 备选 |\n| animatedshader.com | 404，可能可注册 | 品牌向 |\n| aishader.com | 已注册 2026-06-26 | 有人囤 |\n| .io 系列 | 未验证 | 无 RDAP |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 三端补全 + 多产品验证；缺 Trends/X |\n| 竞争 | 3 | 已有首页竞品，但背景向仍多内页，EMD 空 |\n| 可行性 | 5 | 纯浏览器 + 小 LLM，成本极低 |\n| 变现 | 4 | 已有 $7.99/月锚点；导出次数好卖 |\n| 寿命 | 4 | 功能词 |\n| 总分 | 20/25 | |\n\n**7 天计划**\n- **第 1 天**：Trends 对比三词；注册 aishadergenerator.com；若有设计类老站，先上 `/ai-shader-generator` 内页测。\n- **第 2 天**：MVP 预览闭环（提示词→GLSL→WebGL）。\n- **第 3 天**：导出 PNG + 客户端 MP4；Stripe $9.9/$19.9。\n- **第 4 天**：子页 `/shader-background-generator`、`/animated-shader-background`；提交 GSC/Bing。\n- **第 5 天**：ChatGPT 测问；提交 AI 目录；发 3 条前后对比短视频。\n- **第 6 天**：按 GSC 补 blender/from-image 博客（外链向，不改首页主题）。\n- **第 7 天**：复盘付费转化；若无曝光则停独立站预算，只留内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "三端补全 + 多产品验证；缺 Trends/X"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "已有首页竞品，但背景向仍多内页，EMD 空"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "纯浏览器 + 小 LLM，成本极低"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "已有 $7.99/月锚点；导出次数好卖"
+     },
+     {
+      "dim": "寿命",
+      "score": 4.0,
+      "note": "功能词"
+     }
+    ],
+    "total": 20.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "AI product demo video",
+   "keyword_note": "（ai demo video generator / maker）",
+   "description": "给产品 URL 或录屏，自动生成带旁白/字幕的 SaaS 演示视频（及可点击 demo）",
+   "sources": [
+    "https://demosmith.ai/",
+    "https://www.producthunt.com/leaderboard/daily/2026/10/12",
+    "https://getopenscreen.com/",
+    "https://www.producthunt.com/leaderboard/daily/2026/10/11"
+   ],
+   "sources_text": "https://demosmith.ai/ · https://www.producthunt.com/leaderboard/daily/2026/10/12 （ngram 2.0 #2）· https://getopenscreen.com/ · https://www.producthunt.com/leaderboard/daily/2026/10/11 （OpenScreen 2）",
+   "first_seen": "ngram 2.0 PH 10-12；OpenScreen 2 PH 10-11；Demosmith 站已在营",
+   "trend_signal": "Google+Bing+DDG：「ai demo video generator/maker」「ai product demo video maker」变体很多；\"screen studio alternative\" 三端都有。Trends / X 未验证",
+   "trends_verified": false,
+   "serp": "前排大量**专用首页**：demosmith.ai、demofy.io、storyship.app、makemydemo.com、getdemobot.com、urltodemo.com 等（多为 2026 注册的新站）",
+   "domain": "aidemovideogenerator.com、productdemovideoai.com RDAP 404；demovideoai.com 已注册 2026-04-11",
+   "idea": "轻量路径：录屏上传 → 自动剪辑/字幕（对接本地或云 Whisper）；重路径：URL 浏览器 agent（成本高）。一次性档位或订阅",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "需求与付费意愿强（Demosmith Starter 约 $40/月、Pro 约 $99/月、Business $250/月，第三方博客转述）；但 SERP 已被多个首页占满，自研 agent 成本高",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "AI product demo video",
+    "intro": "决赛第 2 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Demosmith 产品站（URL→演示视频/交互 demo/文档）：https://demosmith.ai/\n- Product Hunt 2026-10-12：ngram 2.0「Create explainers, screencasts, and AI avatar videos」日榜约第 2（224–227 分）：https://www.producthunt.com/leaderboard/daily/2026/10/12\n- Product Hunt 2026-10-11：OpenScreen 2「Record your demo and let your AI agent do the edits」（166 分）：https://www.producthunt.com/leaderboard/daily/2026/10/11\n- OpenScreen 官网与 GitHub：https://getopenscreen.com/ · https://github.com/siddharthvaddem/openscreen（Search API 约 **39,923★**）\n- 同类站（WebSearch）：demofy.io、storyship.app、makemydemo.com、getdemobot.com、urltodemo.com 等"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| ai demo video generator / maker | Google + Bing + DDG |\n| ai demo video generator free | Google |\n| ai product demo video maker / generator | Google + Bing + DDG |\n| ai saas product demo video maker | Google |\n| demo video ai generator | Google + Bing + DDG |\n| product update video ai generator | Google |\n| screen studio alternative / free | Google + Bing + DDG |\n| ai screencast editor free/online | Google（Bing/DDG 空） |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：三端补全极强；多个付费产品与 PH 上榜；Demosmith 官网写明 Business **$250/月**；第三方文转述 Starter **$40/月**、Pro **$99/月**（https://omidsaffari.com/blog/demosmith-pricing ——二次来源，上站前以官网为准）。\n- **未验证**：Trends、X、各站真实 MRR。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：「ai product demo video maker」「ai demo video generator」）",
+      "markdown": "| 位置（综合） | 结果 | 类型 | RDAP |\n|---|---|---|---|\n| 前排 | demosmith.ai 及子页 | 专用首页 | demosmith.ai 2026-02-10 |\n| 前排 | demofy.io、storyship.app、makemydemo.com、getdemobot.com、urltodemo.com | 专用首页 | storyship.app 2026-02-02；makemydemo.com 2026-02-21；getdemobot.com 2026-05-27；demofy.io RDAP 404/未解析 |\n| 相关 | OpenArt / Synthesia 等大站功能页 | 大站内页 | — |\n\n判断：**不像 school picture 那种「全是内页」**；新站首页已经很多。硬刚 Demosmith 胜率低。更符合哥飞方法的是：**窄词首页**（如 founder product update video、changelog video maker）或老站内页。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| demosmith.ai | 2026-02-10 | URL agent 自动演示 + 文档 + 交互 demo | Trial；Starter/Pro 约 $40/$99（第三方）；Business $250（官网可见） | 偏 SaaS 团队，偏贵；对「只想剪一段录屏」过重 |\n| ngram.com | — | 文档/录屏→讲解与数字人视频 | 未在本期打开核对 | PH 新版本曝光，SEO 占位未验证 |\n| OpenScreen | openscreen.app 2025-10-04 | 本地免费录屏+自动缩放+可选 AI 剪辑 | 免费 MIT | 桌面端，不是「URL 出片」；可做云托管差异化 |\n| storyship / demofy / demobot | 2026 上半年 | URL/录屏出 demo | 未逐个核对 | 同质化 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **不建议的 MVP**：完整云浏览器 agent（账号池、2FA、反爬、时长 GPU）——工时与成本都高。\n- **建议的 MVP（估算 24–40 小时）**：\n  - 上传 Screen Studio/OpenScreen/Loom 录屏 → Whisper 字幕 → 按点击/静音自动切 → 导出；或\n  - 「粘贴 changelog / PR 说明 → 模板化产品更新视频」（文生镜+库存 UI 动画，不爬客户后台）。\n- **变现**：一次性 $19.9 / $39.9（对标「省掉一次雇人剪辑」）；订阅留给团队。\n- **ChatGPT**：用户问 “best AI product demo video generator”“create demo video from URL”。若官方都是重产品，可用窄标题抢 closest match。\n- **寿命**：功能词长；但获客要靠差异化切口。\n- **风险**：品牌词 Screen Studio / Loom 勿进域名；客户产品素材版权；agent 路径的安全与 ToS。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| aidemovideogenerator.com | 404，可能可注册 |\n| productdemovideoai.com | 404，可能可注册 |\n| demovideoai.com | 已注册 2026-04-11 |\n| screenstudioalternative.com | 404，可能可注册（适合**对比内容站**，不是工具品牌） |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 补全与付费产品充分 |\n| 竞争 | 2 | 多个专用首页已在 |\n| 可行性 | 3 | 轻量剪辑可行；URL agent 不可行作首周目标 |\n| 变现 | 5 | 客单价高 |\n| 寿命 | 3 | 功能长，但垂直竞争会迅速变红海 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- **第 1 天**：打开 Demosmith 定价页核对 $40/$99；Trends 查 ai product demo video；决定切口（changelog video vs 录屏 AI 剪辑）。\n- **第 2–3 天**：只做选定切口 MVP，不上 agent。\n- **第 4 天**：对比页（vs Loom / vs Screen Studio / vs Demosmith）收搜索与 ChatGPT。\n- **第 5–7 天**：目录站提交 + 复盘；若无付费意向则转内容/联盟，停工具投入。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "补全与付费产品充分"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "多个专用首页已在"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "轻量剪辑可行；URL agent 不可行作首周目标"
+     },
+     {
+      "dim": "变现",
+      "score": 5.0,
+      "note": "客单价高"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "功能长，但垂直竞争会迅速变红海"
+     }
+    ],
+    "total": 17.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "Odyssey-3",
+   "keyword_note": "（odyssey-3 world model）",
+   "description": "Odyssey 公司公开研究预览的交互式世界模型：文生可探索环境，可实时操控视角",
+   "sources": [
+    "https://odyssey.systems/meet-odyssey-3",
+    "https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free/"
+   ],
+   "sources_text": "https://odyssey.systems/meet-odyssey-3 · https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free/",
+   "first_seen": "官方文 2026-10-08；公开试玩报道约 10-11",
+   "trend_signal": "Google「odyssey-3」补到 world model / model / ai；无连字符的「odyssey 3」噪音极大（高尔夫/胶片）。Trends / X 未验证",
+   "trends_verified": false,
+   "serp": "WebSearch 前排：官方 odyssey.systems、媒体解读、第三方评测。尚无明显第三方 EMD 工具站进前 5（本期 WebSearch 未见）",
+   "domain": "odyssey3.ai、worldmodelplayground.com RDAP 404；odyssey3.com 已注册 2022-01-02",
+   "idea": "模型词站：在线试玩入口聚合 + vs Genie 3 / World Labs 对比 + 提示词库；一次性积分",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "新模型词窗口短；商标与官方站权重高；适合老站内页测，慎独立重投入",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Odyssey-3",
+    "intro": "决赛第 3 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官方发布：https://odyssey.systems/meet-odyssey-3 （October 8th, 2026；可试 Odyssey-3 Flash）\n- 媒体：https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free/（Oct 11, 2026）\n- 公司站：https://odyssey.systems/（HTTP 200）\n- 同类语境：Google Genie 3、World Labs（媒体提及 AMD 收购传闻——**未独立核实交易细节**）"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 |\n|---|---|\n| odyssey-3 world model / model / ai | Google |\n| odyssey 3 | 多引擎噪音（推杆、胶片、3D 打印） |\n| ai world models / explained / open source | Google + Bing + DDG（类目词，偏资讯） |\n| world model playground | Google（弱） |\n\n主词必须带连字符或 “world model”，避免光杆 “odyssey 3”。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：官方发布页 + 多家科技媒体；自动补全已出现 `odyssey-3 world model`。\n- **未验证**：Trends、X 量、第三方站是否已有付费。\n- 物理基准 66.1 为官方自报且媒体指出 best-of-8 口径——**做站时不要夸大抄基准数字**，链到官方与 Physics-IQ 即可。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch：「odyssey-3 world model」）",
+      "markdown": "| 位置 | 结果 | 类型 |\n|---|---|---|\n| 1 | odyssey.systems/meet-odyssey-3 | 官方 |\n| 2–5 | 评测/解读博客（orcarouter、the-decoder、roboticaguide、xenospectrum 等） | 资讯内页 |\n\n本期未见像 Vidu Q4 那样「两天冒出四个 EMD」的密集现象（**可能只是 WebSearch 截断，不代表 Google 前十没有**）。窗口可能比 Vidu 略宽一点，但仍短。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 形式 | 备注 |\n|---|---|---|\n| odyssey.systems | 官方试玩 + 文档 | 权重与品牌绝对优势 |\n| 科技媒体评测 | 资讯 | 占 “what is” 意图 |\n| 尚未核验到的镜像工具站 | — | 上站前再搜一遍 EMD |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：信息+导流站——试玩链接、提示词例子、与 Genie 3 对比表、API 申请说明；若官方无开放可嵌的生成 API，则**不要假称可在线生成**。\n- **变现**：广告/联盟弱；若无 API，付费点不足 → 更适合老站流量试验而非独立订阅站。\n- **寿命**：2–6 周量级（模型词）。\n- **风险**：商标 “Odyssey”；虚假“官方”表述；夸大物理分数。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| odyssey3.ai | 404，可能可注册（贵且有商标风险） |\n| worldmodelplayground.com | 404，可能可注册（更安全的通配品牌） |\n| odyssey3.com | 已注册 2022-01-02 |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 有媒体与补全，但量级未用 X/Trends 证实 |\n| 竞争 | 3 | 官方强，第三方 EMD 尚未挤爆（表象） |\n| 可行性 | 3 | 无稳定第三方 API 时只能做信息站 |\n| 变现 | 2 | 信息站变现弱 |\n| 寿命 | 2 | 模型版本词 |\n| 总分 | 13/25 | |\n\n说明：表内总分 13，但作为「本周可赌的新模型词」仍列入 Top3 观察位；**实操优先级低于 shader，且默认走老站内页**。若只投一个新独立站，选 shader 而不是 Odyssey-3。\n\n**7 天计划（内页模式）**\n- 第 1 天：老站加 `/odyssey-3`；写清非官方；链到官方 Try。\n- 第 2–3 天：对比页 vs Genie 3；提示词库。\n- 第 4–5 天：观察 GSC；若有曝光再考虑 worldmodelplayground.com。\n- 第 6–7 天：热度下滑则停更。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "有媒体与补全，但量级未用 X/Trends 证实"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "官方强，第三方 EMD 尚未挤爆（表象）"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "无稳定第三方 API 时只能做信息站"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "信息站变现弱"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "模型版本词"
+     }
+    ],
+    "total": 13.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 4,
+   "keyword": "Screen Studio alternative",
+   "keyword_note": "",
+   "description": "找 Screen Studio 平价/免费替代（自动缩放录屏）",
+   "sources": [
+    "https://getopenscreen.com/",
+    "https://github.com/siddharthvaddem/openscreen",
+    "https://www.producthunt.com/leaderboard/daily/2026/10/11"
+   ],
+   "sources_text": "https://getopenscreen.com/ · https://github.com/siddharthvaddem/openscreen （约 39,923★）· https://www.producthunt.com/leaderboard/daily/2026/10/11",
+   "first_seen": "OpenScreen 社区续作；PH OpenScreen 2 于 10-11",
+   "trend_signal": "「screen studio alternative / free」三端补全强",
+   "trends_verified": false,
+   "serp": "对比文与 GitHub/官网占位；cursorclip.com 等博客",
+   "domain": "screenstudioalternative.com RDAP 404",
+   "idea": "对比目录站 / 评测站 + 外链；或基于开源做云托管增值",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "搜索真实，但免费开源已很强，工具站难收费；更适合内容/联盟",
+   "extra": {}
+  },
+  {
+   "rank": 5,
+   "keyword": "REA",
+   "keyword_note": "（reverse engineer anything）",
+   "description": "把 Ghidra 等接到 coding agent 的 MCP 工具，逆向分析应用",
+   "sources": [
+    "https://github.com/morluto/rea",
+    "https://rea.tools/",
+    "https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software"
+   ],
+   "sources_text": "https://github.com/morluto/rea （约 158,630★，创建 2026-04-14）· https://rea.tools/ · https://decrypt.co/380741/gta-v-iphone-free-photoshop-ai-tool-rea-upending-software",
+   "first_seen": "Decrypt 2026-10-12；rea.tools RDAP 2026-10-08",
+   "trend_signal": "Google「rea reverse engineer anything」及 github/reddit 变体清晰；Bing/DDG 较弱",
+   "trends_verified": false,
+   "serp": "官方 GitHub + rea.tools + Decrypt 报道",
+   "domain": "reareverse.com RDAP 404；rea.tools 已注册",
+   "idea": "安装教程 / 用例库信息站；**不要**做「一键克隆商业软件」产品",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "热度极高但版权/安全风险大，只适合合规教育向信息站",
+   "extra": {}
+  },
+  {
+   "rank": 6,
+   "keyword": "HTML explainer generator",
+   "keyword_note": "（answer me with HTML）",
+   "description": "Agent skill：把复杂回答生成单页交互 HTML 说明",
+   "sources": [
+    "https://github.com/QingYunA/answer-me-with-html"
+   ],
+   "sources_text": "https://github.com/QingYunA/answer-me-with-html （3,135★，创建 2026-10-02）",
+   "first_seen": "近 11 天仓库",
+   "trend_signal": "Google 有 free/online/github；Bing/DDG 空",
+   "trends_verified": false,
+   "serp": "教程与仓库页为主",
+   "domain": "htmlexplainer.com RDAP 404",
+   "idea": "网页版：输入主题 → 出单页 HTML/SVG",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "开发者圈词，搜索意图还弱",
+   "extra": {}
+  },
+  {
+   "rank": 7,
+   "keyword": "StepFun Step 5",
+   "keyword_note": "（step 5 preview）",
+   "description": "阶跃星辰 Step-5，官方称 10-15 开放权重",
+   "sources": [
+    "https://www.stepfun.com/step-5-preview",
+    "https://forkast.news/step-5-ships-in-four-days-and-its-license-is-still-missing/"
+   ],
+   "sources_text": "https://www.stepfun.com/step-5-preview · https://forkast.news/step-5-ships-in-four-days-and-its-license-is-still-missing/",
+   "first_seen": "昨日挂监控；今日复查",
+   "trend_signal": "Google「step 5 preview」「stepfun step 5 preview」；Bing 仍多指向更早 Step 3.x",
+   "trends_verified": false,
+   "serp": "官方与分析文；第三方 HF 镜像 likes 很低（个位数到十几）",
+   "domain": "step5.ai、stepfunstep5.com RDAP 404",
+   "idea": "等 10-15 官方权重+许可证后再做 VRAM/部署站",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "再等 2 天；许可证不确定性是硬门槛",
+   "extra": {}
+  }
+ ],
+ "supplement": "",
+ "top_picks": "- **Screen Studio alternative**：适合做对比内容，不适合再做第四个录屏客户端。\n- **REA（158k★）**：只做合规「如何用 agent 做安全研究/互操作」教育内容；禁止「破解/一键仿 Adobe」产品定位。\n- **EmbeddingGemma 2 / Muse Wonder / GPT-6 Intelligent UI / Magnific One / Syren / Vixel**：大厂或重产品，SEO 工具站空间有限。\n- **AI influencer generator**：补全很强但 SERP 已被 FaceAI/Fotor/Kapwing 等矩阵占满，且易滑向 NSFW，本期不进决赛。\n- **HTML explainer generator**：等出现更明确的非开发者搜索词再做网页版。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "旧词跟进（昨日报告）",
+   "markdown": "| 词 | 今日信号 | 判断 |\n|---|---|---|\n| AI school picture generator | Google/Bing 补全仍在（school picture ai / ai school pictures generator 等）；familyphotographer.ai 等内页仍在；**schoolpictureai.com / aischoolpictures.com RDAP 仍 404** | **仍值得做**，季节窗口还在；不是「新词」但继续执行昨日 7 天计划 |\n| AI video relight | Google/Bing 仍有 relight video ai / free / online | 功能词仍在；维持观察或按昨日计划推进 |\n| Vidu Q4 | 补全仍有；官方与文档仍在 | 热度未用 X 复核；模型词继续衰减预期，不新开站 |\n| how pinterest sees me | 补全仍在（template/trend） | 昨日判断回落，继续不推荐 |\n| Claude Anatomy / isometric | anatomy 仓库升至约 **6,285★**（昨约 3.7k）；补全有 claude anatomy explorer | 开发者热，搜索需求仍弱；继续盯 isometric explainer |\n| StepFun Step 5 | 官方仍称 **10-15** 开放权重；许可证争议报道仍在；HF 第三方镜像低赞 | **10-15 再查**；今日不建站 |\n| Vivix W1 | 补全仅弱品牌串 | 不跟 |\n| soulmate country quiz | Google 有补全，Bing/DDG 空 | 声量未知，不推 |\n| Google Playground game maker | 未复测 | 维持不推 |\n| Omurice simulator | 未复测 | 维持不推 |\n| oomfmap | 补全出现 oomfmap.com / twitter | 仍小，盯 |\n| ArtCraft/photocraft | photocraft 仍在 GH 高星列表；Decrypt 将 ArtCraft 与 REA 浪潮并提 | 品牌/官方仓，不做山寨站 |"
+  }
+ ],
+ "deep_dive_count": 3,
+ "parse_ok": true
+}
