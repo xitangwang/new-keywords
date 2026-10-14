@@ -288,7 +288,7 @@ def parse_report(md_text, date_hint=None):
             # 去掉表格本身，剩下的作为补充
             rest = [ln for ln in body if not ln.lstrip().startswith("|")]
             supplement = clean_block(rest)
-        elif re.search(r"推荐|top", title_s, re.I):
+        elif re.search(r"推荐|top", title_s, re.I) and "不推荐" not in title_s and not top_picks:
             top_picks = text
         elif re.search(r"监控|信号源|monitor", title_s, re.I):
             monitoring = text

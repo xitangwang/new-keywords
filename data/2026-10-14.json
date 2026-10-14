@@ -1,0 +1,422 @@
+{
+ "date": "2026-10-14",
+ "title": "新词候选（深挖版）— 2026-10-14",
+ "collected_at": "2026-10-14 北京时间（UTC+8）约 09:07–09:40。第四轮每日新词监控，结构对齐 2026-10-12.md / 2026-10-13.md 的 A–H 深挖。全部原始数据在 raw/2026-10-14/",
+ "generated_at": "2026-10-14T09:22:31+08:00",
+ "trends_unverified": true,
+ "preface": "数据采集时间：2026-10-14 北京时间（UTC+8）约 09:07–09:40。第四轮每日新词监控，结构对齐 `2026-10-12.md` / `2026-10-13.md` 的 A–H 深挖。全部原始数据在 `raw/2026-10-14/`。\n\n**数据来源情况（如实说明）**\n- **可用**：X MCP（`get_posts_counts_recent` 26 组 7 天日量、`search_news` 3 次、`get_users_posts` 4 个账号 @fal @_akhaliq @levelsio @kimmonismus、`search_posts_all` 2 次）、GitHub Search/Repos API（30 天 / 7 天新建高星 + 10 个跟进仓库）、Hugging Face API（热门模型 / Spaces、stepfun-ai 组织、fishaudio/drama-3）、HN Algolia（front_page + 近 3 天 Show HN）、Product Hunt 10-13 日榜（WebFetch）、Steam featuredcategories、Apple iTunes 美区免费榜 RSS、Google / Bing / DDG 自动补全（`ac.py`，84 个查询）、cursor WebSearch（每查询约前 5，**不是 Google 原生第一页**）、WebFetch（官网 / 定价页 / 帮助页）、IANA→各注册局 RDAP（69 个域名）、new.web.cafe 公开首页。\n- **被挡或拿不到**：\n  - **Google Trends 未验证**：`trends/api/explore` 返回 **429**；Trending RSS 可开（200）但是娱乐/体育词，未用于验证；本机无 pytrends。下文所有「需求」均用 X 日量 + 三引擎补全 + SERP/新站注册替代，**没有任何 Trends 数字**。\n  - **Reddit 被挡**：`reddit.com/r/SideProject/new.json` 返回 403。\n  - **DDG 补全间歇失败**：约 1/3 查询报 SSL EOF，已在 jsonl 里保留 `ERR`，不当作「无补全」。\n  - **intitle 数量、Google 原生前十未验证**（拿不到 Google 结果页）。\n  - **web.cafe 词表付费**：公开页只看到标题「2026-10-13 国庆新词复盘大讨论：哥飞带队诊断没流量站点」「每日群聊总结 2026-10-12 视频站换脸红线讨论与GPT新词流量」，看不到具体新词。\n  - **.io 域名未验证**（无可靠 RDAP）。\n- **X 计数口径警告（重要）**：今天对同一查询、同一 UTC 日拉到的数，**一部分和昨天完全一致**（oomfmap、Odyssey-3、Step 5），**另一部分比昨天高 3–20 倍**（Vidu Q4、pinterest sees me、REA、isometric claude）。原因未知（可能是 X 回填或计数口径变化）。因此**跨日比较只在今天这一次拉取内部做**，不拿今天的数和昨天报告的数直接相减。\n- **相对昨日的纠正 / 状态**：\n  - StepFun Step 5：官方页今天仍写「The model will be released with open weights on October 15」；HF `stepfun-ai` 组织 09:2x 查询**仍没有 Step-5 仓库**（最新是 2026-05 的 Step-3.7-Flash 系列）。**距 10-15 还有 1 天，正式开放权重尚未发生**。\n  - 昨日 REA「158,794★」今天 API 为 **208,099★**（约 +4.9 万 / 24h），GitHub 侧仍在猛涨；但 X 侧见下方跟进表。\n\n**筛选漏斗**\n- 原始信号 **103 条**种子（`raw/2026-10-14/seeds.txt`：GitHub 26、HF 12、HN 21、PH 10-13 日榜 10、Steam/App 4、X 账号与 X 新闻 30、web.cafe 1、其余为跟进项），另有 **26 条 X 7 天日量序列**（`x_counts.tsv`）、**84 个三引擎补全查询**（`ac_batch1–3.jsonl`）、**17 组 SERP 抽查**（`serp_notes.md`）、**69 个域名 RDAP**（`rdap_cai.txt` / `rdap_cand.txt` / `rdap_extra.txt`），这些不计入种子条数。\n- 第一层（能做成英文工具站；剔除大厂/硬件新闻如 Gemini 4 Argon、Apple HomeView、Muse Wonder；剔除 NSFW/换脸、加密、金融、游戏移植版权类如 GTA V/D2R/PS2；按用户要求剔除健康向如 Sleepagotchi）剩约 **31** 个种子，展开为 84 个补全查询。\n- 第二层（补全出现真实需求变体 + 有新产品/新 API/新事件 + 非昨日已深挖且无变化）加 SERP / RDAP / 竞品官网核对，剩 **9** 个决赛词：Character.ai 导出/迁移、AI video reframe、prompt 抠图、fill this room、virtual guitar keyboard、Fish Audio Drama 3、AI game mod generator、SillyTavern card converter（并入第 1 名）、Gemini 4 Argon 资讯页。\n- 最后选 **Top 3**（全部是今天新出现的机会；昨日 Top 词只放跟进节）。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "Character.ai export / chat exporter",
+   "keyword_note": "（character ai shutting down、export character ai chats、import character ai to sillytavern）",
+   "description": "Character.ai 10-12 申请 Chapter 11 出售资产，「若无买家将关停」；用户急着导出聊天、把角色搬到别的平台",
+   "sources": [
+    "https://blog.character.ai/an-update-on-character-ai/",
+    "https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney",
+    "https://support.character.ai/hc/en-us/articles/56967715028891-How-do-I-download-my-data",
+    "https://www.yanmate.com/character-ai-export-viewer"
+   ],
+   "sources_text": "https://blog.character.ai/an-update-on-character-ai/ · https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney · https://support.character.ai/hc/en-us/articles/56967715028891-How-do-I-download-my-data · https://www.yanmate.com/character-ai-export-viewer",
+   "first_seen": "官方博客 2026-10-12；Verge 2026-10-13 10:32 UTC；HN 首页 284 分",
+   "trend_signal": "**X 日量（破产/导出/替代相关）10-07～10-12 每天 3–7 条 → 10-13 5,314 条**；Google 补全：character ai shutting down october 15 / export character ai chats to text / to chatgpt / character ai chat exporter extension / chat viewer / import character ai to sillytavern / character ai bankruptcy disney 等；Bing 也有 how to export / download character ai chats。Trends 未验证",
+   "trends_verified": false,
+   "serp": "前 5 是官方博客 + 一天内冒出的应急内容页（choosely.ai、fdaytalk、lonelytavern.ai、digitaladvisors）；工具意图有 YanMate 导出查看器（站 2026-08-21 注册）、CAI Tools 浏览器扩展、GitHub 小工具；角色卡编辑器已有 5+ 个新站",
+   "domain": "companionexport.com、characterexport.com/.net/.org、aichatexportviewer.com、chatbackup.ai RDAP 404；characteraiexport.com、caiexport.com 也 404 但含商标；chatexportviewer.com 已注册 2026-06-20",
+   "idea": "纯浏览器本地：拖入官方导出 ZIP → 可读 HTML/TXT/PDF/EPUB + SillyTavern 聊天 JSONL + V2/V3 角色卡 PNG + 「搬家到 ChatGPT/Claude 项目」指令包；配套「各替代平台怎么导入」页",
+   "rating": 4.0,
+   "rating_stars": "★★★★",
+   "reason": "社交量 1000 倍跳升 + 补全长尾密集 + 官方导出要 3–4 周才到（需求高峰在 11 月初）；但已有 YanMate 等先手、变现弱、事件词寿命到 12 月",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Character.ai export / chat exporter（迁移词族）",
+    "intro": "决赛第 1 名（与第 2 名同为 17–18 分档，因时间窗口更紧排第一）。",
+    "sections": [
+     {
+      "title": "A. 信号来源（词是怎么传开的）",
+      "markdown": "- 官方公告（Oct 12, 2026）：Chapter 11、法院监督下出售，「If such a bid is unavailable, however, the platform will be wound down」，预计 11 月底或 12 月初完成出售；平台和付费订阅照常——https://blog.character.ai/an-update-on-character-ai/\n- 媒体：The Verge（Oct 13, 2026 10:32 UTC，Disney 以 2,000 万美元为牵头竞买方、负债 5,000 万–1 亿美元）https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney ；CNBC、TechCrunch 同日报道（WebSearch 列表可见，正文未逐篇打开）。\n- HN 首页「Character.ai has initiated voluntary Chapter 11 bankruptcy」284 分（10-13）。\n- X 新闻故事「Character.ai Files for Bankruptcy with Disney as Lead Bidder」（更新于 2026-10-14 00:10 UTC）：https://x.com/i/trending/2109895750108983641\n- 案号 26-11603（特拉华）：来自 choosely.ai 与 X 帖转述，**未直接核对法院文件**。\n- X 用户帖样本：「request the export now, their own help page says it can take 3 to 4 weeks」https://x.com/NathanColeRR/status/2110054671905653147 ；「keep local backups」https://x.com/durantimi/status/2109901186883375176"
+     },
+     {
+      "title": "B. 词族（2026-10-14 实测，`ac_batch1.jsonl` / `ac_batch3.jsonl`）",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| character ai shutting down / october 15 / today / permanently / will character ai shut down | Google（Bing/DDG 有 shutting down） | 恐慌资讯（「october 15」无官方依据） |\n| character ai bankruptcy / reddit / disney / claims agent / filing | Google | 资讯 |\n| export character ai chats / to text / to chatgpt / save character ai chats / export character ai bot | Google | **工具：导出与转格式** |\n| how to export / download / save character ai chats | Bing + DDG | 教程 |\n| character ai chat exporter / extension / not working / chat viewer / extract chat | Google | **工具** |\n| character ai export data / not working / email / meaning / extension | Google；Bing 有 what does export data do on character ai | 帮助 |\n| character ai to sillytavern / import character ai to sillytavern | Google | **迁移工具** |\n| character ai backup / chat backup / backup data | Google | 工具 |\n| character ai alternative(s) / no filter / with personas / with voice / 2026 / with good memory | Google + Bing + DDG | 替代（老牌红海词，且易滑向 NSFW） |\n| c.ai alternatives / no sign up / for rp | 三端 | 同上 |\n| sillytavern character card creator / generator / editor / format | Google + Bing | 常青尾巴 |\n\n结论：主攻「**导出查看 + 转格式 + 搬家**」，不正面抢「alternative」大词（老站与大媒体占位、且 NSFW 风险高）。"
+     },
+     {
+      "title": "C. 需求验证（哪些证据是真的）",
+      "markdown": "- **真实拿到的**：\n  - X 7 天日量（UTC）：10-07～10-12 每天 3–7 条 → **10-13 5,314 条**，10-14 前 1 小时已 1,008 条（`x_counts.tsv`）。\n  - 但「export/backup」和「alternative」子查询 10-13 仅 23 条和 18 条——**社交上主要在聊新闻本身，导出需求更多体现在搜索补全里**。\n  - 官方帮助页（Updated October 08, 2026）：网页端 Profile → Profile Settings → Account → Manage Account & Data → Export Data；App 端 Profile → Settings → Legal & Privacy → Export Data；**3–4 周处理，链接 7 天有效**——https://support.character.ai/hc/en-us/articles/56967715028891-How-do-I-download-my-data\n  - 第三方说法互相矛盾：lonelytavern 说「有时一小时」，YanMate 说「最多一天」——**以官方 3–4 周为准**，也说明用户很困惑，内容页有价值。\n- **未验证**：Google Trends 量级；替代平台的联盟计划；导出 ZIP 的真实字段（YanMate 页面称「无 schema、无版本号、至少改过两次」，我们手上没有样本文件）。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5）",
+      "markdown": "| 查询 | 结果 | 类型 | 域名注册（RDAP） |\n|---|---|---|---|\n| character ai bankruptcy export chats alternative | blog.character.ai | 官方 | — |\n| 同上 | choosely.ai/ai-radar/is-character-ai-shutting-down | 应急资讯内页 | 2026-03-17 |\n| 同上 | fdaytalk.com/character-ai-alternatives | 资讯内页 | 未查 |\n| 同上 | lonelytavern.ai/character-ai-export | 竞品 App 的引流页 | 2026-06-27 |\n| 同上 | digitaladvisors.com.au/journal/... | 资讯内页 | 未查 |\n| character.ai export data zip json viewer | yanmate.com/character-ai-export-viewer | **工具内页** | yanmate.com 2026-08-21 |\n| 同上 | GitHub characterai-tools / cai-chat-exporter / characterai-scraper | 仓库 | — |\n| character ai chat exporter extension viewer | Chrome 商店 CAI Tools、GitHub ×3、Firefox 扩展 | 扩展/仓库 | — |\n| \"character ai\" shutting down october 15 | 官方博客、Verge、KFGO、CNBC、TechCrunch | 媒体 | — |\n\n判断：资讯意图被媒体和应急内容页占住；**工具意图只有 1 个专门的网页工具（YanMate 内页）+ 扩展/GitHub**——仍是「专用首页打内页/仓库」的格局，但窗口以天计。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 变现 | 短板 |\n|---|---|---|---|---|\n| YanMate 导出查看器 | 2026-08-21 | 浏览器本地解 ZIP/JSON（≤12MB），角色转 V3 卡（JSON/PNG），聊天导出 TXT；字段多别名兼容 | 是 YanMate 自家陪伴平台的引流页 | 只有 TXT；12MB 上限；无 PDF/EPUB/HTML 阅读版；不讲各平台导入 |\n| lonelytavern.ai | 2026-06-27 | 手机 App，导入 Tavern 聊天与角色卡，自带 key | 免费无广告（其文案） | 要用户自己用 AI 把消息文件转成 Tavern 格式 |\n| CAI Tools（Chrome 扩展） | — | 在网页内下载聊天为 HTML/Tavern/Oobabooga、角色卡 | Patreon 会员（导入为 premium） | 依赖页面结构，平台一关就失效 |\n| cai-chat-exporter（GitHub CLI） | — | 用内部 API + token 拉全量历史 | 无 | 需要 token，**有违反 ToS 风险**，我们不要学 |\n| CharacterVault / TavernForge / Chara Snap / TavernSprite | 2025-08～2026-08 | 角色卡编辑器 | 未逐个核 | 不处理 Character.ai 官方导出 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP（估算 16–24 小时，未实测）**：\n  - 首页 H1：`Character.AI Export Viewer & Converter`（品牌名放标题/路径，**不放进域名**）。\n  - 拖入 ZIP（JSZip 浏览器解压，不上传）→ 宽松字段映射（参考 YanMate 公布的别名表）→ 输出：可读 HTML、TXT/Markdown、打印友好 PDF、EPUB；SillyTavern 聊天 JSONL；V2/V3 角色卡 PNG（tEXt `chara` 块）。\n  - 「搬家包」：把一个角色的定义 + 最近 N 轮对话压成一段 ChatGPT/Claude 项目说明（纯模板，无需调模型）。\n  - 内容页：官方导出步骤（附帮助页链接）、为什么导出不全、Talkie/Nomi/Kindroid/SillyTavern 各自怎么导入（上线前逐个核实）。\n- **成本**：全前端，服务器≈静态托管费；不调用任何模型时边际成本为 0。\n- **变现**（弱，诚实估计）：展示广告；$4.99 一次性「纪念册 PDF/EPUB（封面+目录）」；替代平台联盟（**是否有联盟计划未验证**）。\n- **ChatGPT 适配**：用户会问 “how to export character ai chats”“how to move character ai bots to sillytavern”“is character ai shutting down”。答案页写清官方步骤 + 本工具，ChatGPT/Perplexity 容易引用。\n- **寿命**：事件词：至少到 11 月底/12 月初出售结束；若无买家关停会再来一波；之后靠「character card converter / sillytavern card」常青尾巴（但那边已挤）。\n- **风险**：\n  1. 商标：域名不用 “characterai”；页面写明非官方。\n  2. 隐私/未成年人：聊天可能含成人内容、用户多为青少年——**只做本地解析、不上传、不存储**，不提供任何「绕过过滤」内容。\n  3. 不做调用内部 API 的爬取（ToS）。\n  4. 导出格式未知：没有样本文件，第一版要做「识别不了就显示原 JSON」的兜底。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） | 备注 |\n|---|---|---|\n| companionexport.com | 404，可能可注册 | **首选**，不含商标，可扩到其他陪伴平台 |\n| characterexport.com | 404，可能可注册 | 通用词（.net/.org 也 404） |\n| aichatexportviewer.com | 404，可能可注册 | 精准但长 |\n| chatbackup.ai | 404，可能可注册 | 品牌向 |\n| characteraiexport.com / caiexport.com | 404 | **含商标或缩写，不建议** |\n| chatexportviewer.com | 已注册 2026-06-20 | — |\n| savemychats.com | 已注册 2026-07-13 | — |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 5 | X 1000 倍跳升 + 三端补全 + 官方 3–4 周导出制造后续需求 |\n| 竞争 | 3 | 资讯被媒体占；工具意图只有 YanMate 内页 + 扩展/仓库 |\n| 可行性 | 5 | 纯前端，无模型成本 |\n| 变现 | 2 | 免费工具为主，联盟未验证 |\n| 寿命 | 3 | 事件到 12 月 + 可能的关停二波 + 角色卡常青尾巴 |\n| 总分 | 18/25 | |\n\n**7 天计划**\n- **第 1 天**：注册 companionexport.com（或老站开 `/character-ai-export`）；上线「官方导出步骤 + 3–4 周说明 + 不会丢的检查清单」文章页，先吃资讯长尾。\n- **第 2 天**：ZIP 本地解析 + HTML/TXT 阅读版；无样本时用 YanMate 公布的字段别名表做容错，并开放「上传不识别就显示原始结构」的反馈入口（不收文件，只收字段名）。\n- **第 3 天**：SillyTavern JSONL + V2/V3 卡 PNG；`/import-character-ai-to-sillytavern` 子页。\n- **第 4 天**：PDF/EPUB 纪念册（$4.99 一次性，Stripe）；「搬到 ChatGPT/Claude 项目」模板。\n- **第 5 天**：逐个核实 Talkie / Nomi / Kindroid / Chai 的导入能力和联盟计划，写对比页（只写核实过的）。\n- **第 6 天**：提交 GSC/Bing；在 X 上回复「how to export」类帖子（用户本人账号、手动、不刷屏）。\n- **第 7 天**：看 GSC 曝光；若 11 月初导出邮件陆续到达前已收录，继续加功能，否则只保留文章页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 5.0,
+      "note": "X 1000 倍跳升 + 三端补全 + 官方 3–4 周导出制造后续需求"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "资讯被媒体占；工具意图只有 YanMate 内页 + 扩展/仓库"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "纯前端，无模型成本"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "免费工具为主，联盟未验证"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "事件到 12 月 + 可能的关停二波 + 角色卡常青尾巴"
+     }
+    ],
+    "total": 18.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "AI video reframe",
+   "keyword_note": "（video outpainting、expand video AI、convert vertical video to horizontal AI）",
+   "description": "用生成式外扩把视频改画幅（9:16↔16:9 等），不裁切、不加黑边",
+   "sources": [
+    "https://x.com/fal/status/2110053030028546499",
+    "https://fal.ai/models/minimax/h3-max/reframe-video",
+    "https://artrealmai.com/article/fal-reframe-h3-max-video-aspect-ratio-outpaint",
+    "https://lumalabs.ai/reframe"
+   ],
+   "sources_text": "https://x.com/fal/status/2110053030028546499 · https://fal.ai/models/minimax/h3-max/reframe-video · https://artrealmai.com/article/fal-reframe-h3-max-video-aspect-ratio-outpaint · https://lumalabs.ai/reframe",
+   "first_seen": "fal Reframe 2026-10-13 17:00 UTC（北京 10-14 01:00）；videooutpainting.com 2026-10-09 刚被注册",
+   "trend_signal": "Google+Bing+DDG 均有 ai video reframe / free / online；Google 还有 change video aspect ratio ai（free/online）、video outpainting（ai/free/online/comfyui）、expand video ai（free/capcut/runway/higgsfield）、convert landscape video to portrait ai free；Bing 有 convert vertical video to horizontal with ai。X「(reframe OR outpaint OR aspect ratio) video AI」日 14–31，平（搜索驱动）。Trends 未验证",
+   "trends_verified": false,
+   "serp": "前 5 已有专用页：Luma 两个 reframe 页、vidocu/buttercut/visustock（偏智能裁切）；外扩向有 videoexpander.ai（2026-05-11）、magichour.ai、vmake.ai、outpaint.com、extend.video",
+   "domain": "aivideoreframe.com/.net/.org、videoreframe.ai、reframevideo.ai、verticaltohorizontal.com/.ai、expandvideoai.com、aivideooutpaint.com RDAP 404；videooutpainting.com 已注册 2026-10-09",
+   "idea": "主打「竖屏转横屏」（裁切做不到、只能外扩）：上传 → 选比例 → 480p 预览 → 768p 成片；按秒积分",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "功能词、三端补全、新 API 更便宜（H3 Max $0.08/s@768p）；但专用站已多，且 Luma/Magic Hour 有免费额度",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "AI video reframe / video outpainting",
+    "intro": "决赛第 2 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- fal 官方帖（2026-10-13 17:00 UTC，采集时 180 赞、9,445 次曝光）：「Introducing fal Reframe. Change any video's aspect ratio without cropping or reshooting. Powered by H3 Max…」https://x.com/fal/status/2110053030028546499\n- fal 模型页（WebFetch 核对）：`minimax/h3-max/reframe-video`，480p / 768p 输出；**$0.05/秒（480p）、$0.08/秒（768p）**，5 秒 768p = $0.40；长视频分窗口处理、重叠秒数也计费——https://fal.ai/models/minimax/h3-max/reframe-video\n  - 注：artrealmai 文章写了 1080p 选项，**fal 页面只写 480p/768p，以官方页为准**。\n- 同类 API 早已存在：LTX-2.3 Reframe（$0.10/秒 720p、$0.20/秒 1080p）https://fal.ai/models/fal-ai/ltx-2.3/reframe ；Luma Ray 3.2 reframe（fal 上有 API 页）。\n- 同一周 fal 还发了 H3 Max Relight（10-07，我们 10-12 已报 relight）——**同一模型家族持续出「视频编辑功能 API」**，适合做「一个站多个功能页」。\n- **videooutpainting.com 于 2026-10-09 被注册**（RDAP），说明同行已经在占词。"
+     },
+     {
+      "title": "B. 词族（`ac_batch1.jsonl` / `ac_batch3.jsonl`）",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| ai video reframe / free / reframe video online ai | Google + Bing + DDG | 工具 |\n| ai reframe video online free / ai video auto reframe | Google | 工具（含智能裁切意图） |\n| luma ai video reframe / kling ai reframe video / topaz video ai reframe / pollo ai video reframe / reframe video ai higgsfield | Google | 品牌对比 |\n| change video aspect ratio ai / free / online / using ai | Google（Bing 有主词） | 工具 |\n| video outpainting / ai / ai free / online / comfyui / github / kling | Google（Bing 有前 3） | 工具 + 开发者 |\n| expand video ai / free / capcut / runway / higgsfield / online | Google（Bing/DDG 有前 3） | 工具 |\n| convert horizontal video to vertical ai / free；convert landscape video to portrait ai free | Google | 横转竖（智能裁切也能做） |\n| convert vertical video to horizontal with ai | Bing + DDG | **竖转横（只能外扩）** |\n| uncrop video ai online / ai video uncrop free | Google + Bing | 同义 |\n| ai video extender（free / unrestricted / no sign up） | 三端 | **注意：多数指「加长视频」，不是改画幅**，别混 |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：三端补全一致；多个付费/免费产品在营（说明有人买单）；fal 新 API 价格已核。\n- X「(reframe OR outpaint OR \"aspect ratio\") video AI」7 天日 14–31 条，发布当天也没有爆发——典型**搜索驱动功能词**。\n- **未验证**：Trends 对比、各竞品付费转化与定价（VideoExpander 只写 Free/Pro，未见价格）。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5）",
+      "markdown": "| 查询 | 结果 | 类型 | RDAP |\n|---|---|---|---|\n| AI video reframe change aspect ratio online tool | lumalabs.ai/reframe + 子页 | 大厂专用页 | lumalabs.ai 2021-06-19 |\n| 同上 | vidocu.ai/free-video-reframer、buttercut.ai/reframe、visustock.com/... | 新站内页（智能裁切） | 2025-12-22 / 2025-08-14 / 2025-08-22 |\n| convert vertical video to horizontal AI fill sides | videoexpander.ai/video-aspect-ratio-changer | 新站专用页 | 2026-05-11 |\n| 同上 | magichour.ai/products/ai-video-expander、vmake.ai/ai-video-extender | 老站工具内页 | 2023-01-22 / 2023-03-17 |\n| 同上 | outpaint.com/video-outpainting、extend.video/expand-video | 代做服务 / 专用站 | 2018-09-17 / 2024-05-01 |\n\n判断：不是蓝海。「reframe」大词有 Luma 专用页；「外扩」词有 videoexpander 等。**机会在细分：竖转横、给字幕/CTA 留空间、横版素材转竖版广告**这些长尾页。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册时间 | 产品 | 定价 | 缺口 |\n|---|---|---|---|---|\n| Luma Reframe | 2021-06-19 | 多比例输出 + 主体跟踪 | 「Try Luma Free」，具体价未核 | 大厂，页面偏营销 |\n| Magic Hour AI Video Expander | 2023-01-22 | 外扩改比例 | 免费每天 3 次、每次 ≤5 秒、可能带水印；付费去水印（官网 FAQ） | 只是其工具矩阵之一 |\n| VideoExpander | 2026-05-11 | 外扩改比例，Free/Pro，1–2 步外扩 | 价格未公开（未验证） | 新站，权重低 |\n| Outpaint.com | 2018-09-17 | 人工代做，最高 16K、IMAX/穹幕 | 按秒报价 | 不是自助工具 |\n| vidocu / buttercut / visustock | 2025 | 智能裁切 | 多为免费 | **做不了竖转横** |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP（估算 24–32 小时，未实测）**：上传（≤60 秒）→ 选比例与位置 → 480p 预览（5 秒 $0.25）→ 满意再出 768p → 下载；可选一句话描述外扩内容（API 支持 prompt）。\n- **单单成本**：768p 每秒 $0.08；30 秒视频 ≈ $2.40（长视频重叠秒数另计，实际略高）。\n- **定价建议（估算）**：$9.9 = 60 秒 768p（成本约 $4.8，毛利约一半，未含支付手续费）；$24.9 = 180 秒；新用户免费 1 段 5 秒 480p。\n- **ChatGPT 适配**：用户问「how to turn a vertical video into horizontal without black bars」，标题直接写这句。\n- **寿命**：功能词，长；但 CapCut/Canva 等剪辑软件加免费外扩会压价。\n- **风险**：生成外扩可能在人脸/文字边缘出伪影（需自测，未验证）；用户上传受版权或不当内容 → 要加审核与 ToS；不要用 Luma/CapCut 等品牌进域名。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） | 备注 |\n|---|---|---|\n| verticaltohorizontal.com | 404，可能可注册 | **首选**，切口清楚（.ai 也 404） |\n| aivideoreframe.com | 404，可能可注册 | 主词 EMD（.net/.org 也 404） |\n| expandvideoai.com | 404，可能可注册 | 备选 |\n| videoreframe.ai / reframevideo.ai | 404 | .ai 贵 |\n| videooutpainting.com | 已注册 2026-10-09 | 同行刚抢 |\n| reframeai.com | 已注册 2022-10-27 | — |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 三端补全 + 多家在营；缺 Trends |\n| 竞争 | 2 | 专用页已多，Luma 在前排 |\n| 可行性 | 4 | 一个 API 搞定，成本透明 |\n| 变现 | 4 | 按秒卖积分，毛利可算 |\n| 寿命 | 3 | 功能长，但会被剪辑软件免费化 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- **第 1 天**：Trends 对比 `ai video reframe` / `video outpainting` / `expand video ai`（今天 429，必须补）；注册 verticaltohorizontal.com。\n- **第 2 天**：接 fal H3 Max Reframe，跑 10 段测试视频记录伪影情况与实际计费秒数。\n- **第 3 天**：上线上传 → 预览 → 成片闭环 + Stripe 积分。\n- **第 4 天**：子页 `/9-16-to-16-9`、`/expand-video-for-youtube`、`/make-room-for-captions`。\n- **第 5 天**：对比页 vs Magic Hour / VideoExpander（只写核实过的免费额度）。\n- **第 6 天**：做 3 条前后对比短视频发 X / YouTube Shorts。\n- **第 7 天**：看付费转化；没有转化就降级为老站内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "三端补全 + 多家在营；缺 Trends"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "专用页已多，Luma 在前排"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "一个 API 搞定，成本透明"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "按秒卖积分，毛利可算"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "功能长，但会被剪辑软件免费化"
+     }
+    ],
+    "total": 17.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "Remove background with prompt",
+   "keyword_note": "（guided remove background、keep only X）",
+   "description": "用一句话指定保留/去掉哪些物体再抠图，只改 alpha 通道、原像素不重画",
+   "sources": [
+    "https://x.com/fal/status/2109662529341308964",
+    "https://fal.ai/models/bria/guided-remove-background",
+    "https://docs.bria.ai/image-editing/editing/background-remove-guided"
+   ],
+   "sources_text": "https://x.com/fal/status/2109662529341308964 · https://fal.ai/models/bria/guided-remove-background · https://docs.bria.ai/image-editing/editing/background-remove-guided",
+   "first_seen": "Bria Guided Remove Background 上 fal 2026-10-12 15:08 UTC",
+   "trend_signal": "Google 补全：remove background with prompt / ai remove background with prompt / remove background prompt gemini / chatgpt / photoshop / online / people prompt；guided remove background from image / photoshop；Bing 只有 remove background with prompts。X 相关日量 0–2 → 10-12 发布日 38 → 10-13 7（社交小）。Trends 未验证",
+   "trends_verified": false,
+   "serp": "「with prompt」查询前 5 全是 API 文档（Bria ×2、Segmind、deep-image ×2），**没有专门工具页**；泛查询前 5 是 Kling/creen/free.ai/lovart/foofoo 的通用抠图内页",
+   "domain": "removebackgroundwithprompt.com、promptbgremover.com、promptcutout.com/.ai、keeponly.ai/.app、removebgprompt.com RDAP 404",
+   "idea": "上传图 + 一句话（预设「只留人」「人不要狗」「只留商品」）→ 透明 PNG；批量；按张积分",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "「首页打内页」格局清楚、API $0.03/张；但需求量级未验证，大抠图站随时可加此功能",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Remove background with prompt",
+    "intro": "决赛第 3 名。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- fal 官方帖（2026-10-12 15:08 UTC，采集时 89 赞、6,906 次曝光）：「Guided Remove Background by @bria_ai_ is now live on fal… natural-language prompts… true alpha transparency… without redrawing」https://x.com/fal/status/2109662529341308964\n- fal 模型页（WebFetch 核对）：**$0.03/张**；不写提示词的普通版 Bria RMBG **$0.018/张**；只改 alpha、不重画；提示词里的物体不存在时退回默认抠图——https://fal.ai/models/bria/guided-remove-background\n- Bria 官方文档：https://docs.bria.ai/image-editing/editing/background-remove-guided ；Segmind 也托管了同一模型（WebSearch 可见）。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "| 词 | 来源 | 意图 |\n|---|---|---|\n| remove background with prompt / ai remove background with prompt | Google（Bing 有 with prompts） | 工具 |\n| remove background prompt gemini / chatgpt / photoshop | Google | **用户现在用大模型硬抠**（会重画图） |\n| remove background prompt online / image prompt | Google | 工具 |\n| remove background people prompt (gemini / chatgpt) | Google | 场景：只留人 |\n| guided remove background from image / photoshop / color | Google | 功能名 |"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **真实拿到的**：Google 补全 10 个变体；fal 定价已核。\n- X「\"remove background\" (prompt OR guided OR \"natural language\")」：平时 0–2 条/天，10-12 发布日 38，10-13 回到 7——社交几乎没声量。\n- **未验证**：搜索量级（无 Trends）；用户是否真在意「不重画原像素」（这是我们的差异点假设）。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5）",
+      "markdown": "| 查询 | 结果 | 类型 |\n|---|---|---|\n| AI remove background with prompt natural language keep only | docs.bria.ai ×2、segmind API 文档、deep-image.ai 文档 ×2 | **全是 API 文档，无工具页** |\n| ai remove background with prompt online free tool | kling.ai/feature/image-background-remover、creen.ai、free.ai、lovart.ai、foofoo.ai | 通用抠图工具内页 |\n\n判断：长尾「with prompt」完全没有专门首页；泛词红海（remove.bg、Photoroom 等未在本次前 5 出现，但众所周知很强——**未逐一验证**），不要碰主词。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 形式 | 备注 |\n|---|---|---|\n| Kling AI 抠图功能页 | 大站内页 | 是否支持按提示词选物体未核（未验证） |\n| creen.ai / free.ai / lovart.ai / foofoo.ai | 通用抠图内页 | 主打自动抠主体，不是按提示词选物体 |\n| Gemini / ChatGPT 直接抠 | 通用助手 | 会重画、细节可能变；这是可写进对比页的点 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP（估算 12–20 小时，未实测）**：上传 → 一句话或预设（Only the person / Person without the dog / Product only / Keep the table and vase）→ 透明 PNG；批量 10 张；可选白底/纯色导出（前端合成）。\n- **成本**：$0.03/张；无提示词时走 $0.018 的普通版。\n- **定价（估算）**：免费每天 3 张；$4.99 = 100 张（成本 $3，毛利偏薄）；$9.9/月 = 400 张（成本 $12，**亏**，需限量或改 300 张）→ 更建议一次性包而非包月。\n- **ChatGPT 适配**：「how to remove background but keep only one person」「remove background without changing the image」。\n- **寿命**：功能词，中长；风险是大抠图站随时上同功能。\n- **风险**：fal 页称该模型用授权数据训练（商用条款以 Bria/fal 协议为准，未逐条核）；用户上传他人照片 → ToS。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "| 域名 | 状态（RDAP） |\n|---|---|\n| promptcutout.com | 404，可能可注册（**首选**，短、可做品牌；.ai 也 404） |\n| removebackgroundwithprompt.com | 404，可能可注册（EMD，长） |\n| keeponly.ai / keeponly.app | 404，可能可注册（品牌向） |\n| promptbgremover.com / removebgprompt.com | 404（removebg 字样接近 remove.bg 商标，**慎用**） |"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 补全 10 个变体，但量级未知 |\n| 竞争 | 3 | 长尾无专门页；泛词红海 |\n| 可行性 | 5 | 一个 $0.03 API，前端简单 |\n| 变现 | 2 | 抠图免费替代太多、客单价低 |\n| 寿命 | 3 | 功能会被大站补齐 |\n| 总分 | 16/25 | |\n\n**7 天计划**\n- **第 1 天**：先在已有图片类老站加 `/remove-background-with-prompt` 内页测（最省）；没有老站再注册 promptcutout.com。\n- **第 2 天**：接 fal，跑 20 张样例图存档对比（vs 普通 RMBG）。\n- **第 3 天**：上线 + 预设按钮 + 一次性积分包。\n- **第 4 天**：长尾页 `/remove-background-keep-only-person`、`/remove-background-without-changing-image`。\n- **第 5 天**：对比页「vs ChatGPT/Gemini 抠图」——放同一张图的前后对比（自己实测，不编）。\n- **第 6–7 天**：看 GSC 曝光，没有就停。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "补全 10 个变体，但量级未知"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "长尾无专门页；泛词红海"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "一个 $0.03 API，前端简单"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "抠图免费替代太多、客单价低"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "功能会被大站补齐"
+     }
+    ],
+    "total": 16.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 4,
+   "keyword": "fill this room",
+   "keyword_note": "（what chatgpt knows about me image）",
+   "description": "ChatGPT 病毒提示词：上传空房间图，让它「用你知道的关于我的一切把房间填满」",
+   "sources": [
+    "https://x.com/i/trending/2109694090983907651",
+    "https://x.com/SouthernChick/status/2108357273622032457",
+    "https://geteditable.app/prompts/chatgpt-image-prompts-based-on-everything-you-know-about-me/"
+   ],
+   "sources_text": "https://x.com/i/trending/2109694090983907651 · https://x.com/SouthernChick/status/2108357273622032457 · https://geteditable.app/prompts/chatgpt-image-prompts-based-on-everything-you-know-about-me/",
+   "first_seen": "X 早期帖 2026-10-09；X 新闻故事 10-13",
+   "trend_signal": "X「\"fill this room\" (chatgpt OR know about me)」10-11 7 → 10-12 196 → 10-13 224（仍升，但有歌词噪音）；Google 补全 fill this room with everything you know about me（meme）/ fill this room prompt generator / what chatgpt knows about me image generator",
+   "trends_verified": false,
+   "serp": "前 5 无工具站：OpenAI 帮助页、Medium、Tom's Guide、Reddit、geteditable 提示词页",
+   "domain": "fillthisroom.com/.ai、whatchatgptknows.com、roomofme.com RDAP 404",
+   "idea": "无 ChatGPT 记忆的人：答 6 题或贴简介 → 图像编辑模型填房间；提示词生成器",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "搜索竞争最弱，但本体就在 ChatGPT 里、第三方价值弱、寿命 1–3 周（类比 how pinterest sees me 已回落）",
+   "extra": {}
+  },
+  {
+   "rank": 5,
+   "keyword": "virtual guitar keyboard",
+   "keyword_note": "（play guitar with keyboard online）",
+   "description": "浏览器里用电脑键盘弹吉他",
+   "sources": [
+    "https://guitoro.com/",
+    "https://news.ycombinator.com/"
+   ],
+   "sources_text": "https://guitoro.com/ · https://news.ycombinator.com/（Show HN: Guitoro，249 分）",
+   "first_seen": "guitoro.com RDAP 2026-09-30；Show HN 2026-10-13",
+   "trend_signal": "Google/Bing/DDG 补全很多（virtual guitar online / play guitar with keyboard online free / play electric guitar with keyboard）；X 极少（0–7）",
+   "trends_verified": false,
+   "serp": "Guitoro 已排第 1，其余 chordsequence（2026-05-13）、toolpad、wavespeed 内页",
+   "domain": "virtualguitarkeys.com RDAP 404",
+   "idea": "小游戏 + 和弦页矩阵 + 广告",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "常青词好，但 Guitoro 产品极完整（51 首歌、和弦表、调音器），正面难打；适合学习其 SEO 结构",
+   "extra": {}
+  },
+  {
+   "rank": 6,
+   "keyword": "Fish Audio Drama 3",
+   "keyword_note": "",
+   "description": "Fish Audio 10-13 发布的开放权重情绪 TTS（35B-A3B），可「像导演一样」指挥语气",
+   "sources": [
+    "https://fish.audio/blog/fish-audio-drama-3/",
+    "https://huggingface.co/fishaudio/drama-3",
+    "https://docs.fish.audio/features/text-to-speech/drama-3"
+   ],
+   "sources_text": "https://fish.audio/blog/fish-audio-drama-3/ · https://huggingface.co/fishaudio/drama-3 · https://docs.fish.audio/features/text-to-speech/drama-3",
+   "first_seen": "2026-10-13",
+   "trend_signal": "X「Drama 3 + Fish Audio/TTS/voice」10-12 10 → 10-13 721；Google 补全仅 fish audio drama 3 / open weights / tags；HF 100 likes（09:20）",
+   "trends_verified": false,
+   "serp": "官方 blog/docs/GitHub 占满",
+   "domain": "drama3tts.com RDAP 404（含品牌）",
+   "idea": "提示词/标签教程站，或调用官方 API 做「有声剧脚本」工具",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "许可证：营收 ≥$50 万或「把 Drama 3 作为 TTS/API 服务提供给他人」需单独授权；自部署要 ≥48GB 显存（FP8）——工具站自托管不可行",
+   "extra": {}
+  },
+  {
+   "rank": 7,
+   "keyword": "AI game mod generator",
+   "keyword_note": "",
+   "description": "让 Claude 等 agent 给游戏写 mod",
+   "sources": [
+    "https://github.com/rehan-remade/universal-modder"
+   ],
+   "sources_text": "https://github.com/rehan-remade/universal-modder （7,409★，2026-09-30 创建）",
+   "first_seen": "近 2 周",
+   "trend_signal": "Google/Bing 补全：ai game mod generator（free/online）/ ai game mod maker / ai minecraft mod generator free；claude code for game modding",
+   "trends_verified": false,
+   "serp": "未做 SERP 抽查（未验证）",
+   "domain": "未查",
+   "idea": "Minecraft 等允许 mod 的游戏做模板生成",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "有补全但游戏 EULA/版权灰区，且大多是开发者向",
+   "extra": {}
+  },
+  {
+   "rank": 9,
+   "keyword": "SillyTavern character card converter",
+   "keyword_note": "（并入 #1）",
+   "description": "角色卡 V2/V3 编辑/转换",
+   "sources": [
+    "https://charactervault.app/",
+    "https://www.charasnap.com/",
+    "https://www.tavernforge.top/editor"
+   ],
+   "sources_text": "https://charactervault.app/ · https://www.charasnap.com/ · https://www.tavernforge.top/editor",
+   "first_seen": "常青",
+   "trend_signal": "Google/Bing 补全：sillytavern character card creator / generator / editor / format；character card converter online free",
+   "trends_verified": false,
+   "serp": "已有 5+ 专用新站（charactervault 2026-08-24、tavernforge.top 2026-03-24、charasnap 2026-03-23、tavernsprite 2025-08-29）",
+   "domain": "tavernconverter.com RDAP 404；charactercardconverter.com 已注册 2025-07-06",
+   "idea": "作为 #1 的长尾承接页",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "单独做太挤，作为 #1 的常青尾巴",
+   "extra": {}
+  },
+  {
+   "rank": 8,
+   "keyword": "Gemini 4 Argon",
+   "keyword_note": "（vs Opus 5.5 / pricing / api）",
+   "description": "Google 新旗舰模型（9-30 公布，10-13 全量开放 API/App）",
+   "sources": [
+    "https://deepmind.google/models/gemini/",
+    "https://x.com/i/trending/2109608106015539311"
+   ],
+   "sources_text": "https://deepmind.google/models/gemini/ · https://x.com/i/trending/2109608106015539311",
+   "first_seen": "2026-09-30 公布；2026-10-13 全量",
+   "trend_signal": "X 10-13 20,973 条（查询含噪音）；Google 补全 benchmarks / pricing / vs opus 5.5 / api / reddit",
+   "trends_verified": false,
+   "serp": "官方 + 大媒体",
+   "domain": "未查",
+   "idea": "只适合老站做 pricing/对比内页",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "大厂品牌词，独立工具站无空间",
+   "extra": {}
+  }
+ ],
+ "supplement": "",
+ "top_picks": "1. **Character.ai export / 迁移词族**（18/25）\n   - 10-12 官方宣布 Chapter 11、「若无买家将关停」，X 相关发帖从每天个位数跳到 **10-13 的 5,314 条**；Google 补全一天内长出 `export character ai chats to text / to chatgpt`、`character ai chat exporter extension`、`import character ai to sillytavern`、`character ai shutting down october 15`（这是谣言，官方未给关停日期）。\n   - **官方帮助页（10-08 更新）写明：导出要 3–4 周，邮件链接 7 天失效**——现在申请的人约 11 月初才拿到 ZIP，「拿到 ZIP 后怎么打开/怎么搬」的搜索高峰会在 11 月，正好留出建站和收录时间。\n   - 竞争：YanMate 已有浏览器内导出查看器（≤12MB、出 V3 卡和 TXT），CAI Tools 扩展、若干 GitHub 工具；但还没人做「PDF/EPUB 纪念册 + 搬到 ChatGPT/Claude 项目 + 各平台导入教程」一站式。纯前端，边际成本≈0；变现弱（广告 + 小额一次性 + 替代平台联盟，联盟计划是否存在**未验证**）。\n2. **AI video reframe / video outpainting**（17/25）\n   - fal 10-13 上线 H3 Max Reframe，官方价 **$0.05/秒（480p）、$0.08/秒（768p）**，比同站 LTX-2.3 Reframe（$0.10/秒 720p）便宜；三引擎补全都有 `ai video reframe` 系列，Google 还有 `video outpainting`、`expand video ai free`、`convert landscape video to portrait ai free`。\n   - 竞争偏重：Luma 有专门 reframe 页，videoexpander.ai（2026-05 注册）、Magic Hour（免费每天 3 次、每次 ≤5 秒、带水印）等已占位；**有人 10-09 刚注册了 videooutpainting.com**，说明同行也在抢。\n   - 切口建议：主打「**竖屏转横屏**」（智能裁切做不到，只能生成外扩），域名 verticaltohorizontal.com RDAP 404。\n3. **Remove background with prompt**（16/25）\n   - Bria Guided Remove Background 10-12 上 fal，**$0.03/张**，只改透明通道、不重画原图（fal 页原文）。Google 补全有 10 个变体（含 `remove background prompt gemini / chatgpt`——说明用户现在是拿大模型硬抠，会改动原图像素，这正是差异点）。\n   - 「with prompt」查询的前 5 **全是 API 文档，没有一个工具页**，符合「首页打内页/文档」；泛抠图词是红海，不要碰主词。\n   - 需求量级没有 Trends 佐证，属于「小而确定的长尾工具」，适合老站内页先测或 1 周小站。\n\n其他值得留意：fill this room（X 仍在升，SERP 无工具站，但寿命短）、virtual guitar keyboard（常青，Guitoro 太强）、Fish Audio Drama 3（许可证限制自托管）。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "旧词跟进",
+   "markdown": "> X 列为今天这一次 `get_posts_counts_recent` 拉取（UTC 日界，`raw/2026-10-14/x_counts.tsv`）；**与昨日报告的同日数值不可直接相减**（见开头口径警告）。\n\n| 词 | 今日信号 | 判断 |\n|---|---|---|\n| **oomfmap**（昨日：仍上升） | X 日量 10-09 13 → 10-10 114 → 10-11 278 → **10-12 311（峰）→ 10-13 195**；X 10-13 21:32 UTC 仍有新闻故事「Oomf Maps Turn X Profiles into Fun Personality Grids」；oomfmap.com 200 可访问；Google 补全仍是 top bottom / power play / dominance 等模板 | **见顶回落（-37%）**。维持昨日结论：不抢品牌词；alignmentchartmaker.com 今天 RDAP 仍 404，只建议老站内页 |\n| **StepFun Step 5**（官方称 10-15 开放权重） | 官方页今天仍写 open weights on October 15；**HF `stepfun-ai` 无 Step-5 仓库**（09:2x 查询）；HF 上第三方仓库 rene98c/Step-5-Preview-BF16（20 likes，2026-09-20 创建）、SHSLab（11）、Blackfrost-AI NVFP4（11）；X 日量 72 → 113（峰）→ 40 → 28 → 21 → 13 | **还差 1 天**，声量持续下滑；明天（10-15）重点复查官方仓库 + 许可证。若当天放出且许可证宽松，可考虑「Step 5 显存/部署/量化」内页；否则不跟 |\n| **REA**（版权风险高） | GitHub **208,099★**（昨日报告 158,794★）；X 本次拉取 10-08 1,225 → 10-12 **2,038（峰）**→ 10-13 1,570；awesome-reverse-engineering（morluto）423★ | GitHub 仍在猛涨、X 已过峰。**维持只做合规信息/教育内容**，不做「破解/克隆软件」产品 |\n| AI shader generator（昨日 Top1） | X「shader (AI OR generator)」日 24–48，平；shader-effects-inc/shaders 4,763★ | 搜索驱动、平稳，按昨日 7 天计划推进即可，无新变化 |\n| AI product demo video（昨日 Top2） | X「demo video AI」日 3–9，平；PH 10-13 第 9 名 Takes for Mac（提词器 + Claude Code 自动剪口播视频）是相邻需求 | 无新变化；Takes 说明「AI 帮剪口播」赛道仍热，可作为窄切口参考 |\n| Odyssey-3（昨日 Top3） | X 1,212（10-08 峰）→ 101（10-12）→ **46（10-13）** | 继续衰减，窗口基本关闭，停止投入 |\n| AI school picture generator（前日 Top1） | 合并查询「school picture AI / relight video / AI shader」7 天总 19 条 | 社交无声量（本来就是搜索季节词），无新变化 |\n| AI video relight（前日 Top2） | 同上；fal 本周又出 H3 Max Reframe，同一家族 | 可与今天第 2 名合并成「AI 视频编辑工具站」的两个功能页 |\n| Vidu Q4（前日 Top3） | 本次拉取 10-10 4,960（峰）→ 10-12 763 → 10-13 672 | 回落中，不新开站 |\n| how pinterest sees me | 本次拉取 10-12 174 → 10-13 99 | 继续回落，不推荐 |\n| Claude Anatomy / isometric | anatomy 仓库 8,242★（昨日报告 6,291★）；X 本次拉取 10-11 676（峰）→ 10-12 468 → 10-13 77 | 开发者圈已过峰，搜索需求仍弱，不跟 |\n| HTML explainer | answer-me-with-html 3,303★（昨日 3,135★） | 小涨，仍是开发者词，不跟 |\n| Screen Studio alternative | OpenScreen 39,920★，持平 | 维持「对比内容站」结论 |\n| ArtCraft / photocraft | photocraft 57,992★；X 新闻 10-13「WordCraft、GridCraft、DeckCraft」（开源 Word/Excel/PPT 仿制）引发讨论 | 品牌/官方仓 + 微软商标，**不做山寨站** |"
+  },
+  {
+   "title": "不推荐但继续盯",
+   "markdown": "- **fill this room / what chatgpt knows about me image**（14/25）：X 10-12 196 → 10-13 224 仍在升，SERP 无工具站，fillthisroom.com/.ai RDAP 404；但用户真正要的是 ChatGPT 自己的记忆，第三方只能做「答题 → 生成房间图」，价值和寿命都弱。若有图片类老站，可 1 天内上一个 `/fill-this-room` 内页蹭 1–2 周。\n- **virtual guitar keyboard**（15/25）：常青词，三端补全多；但 Guitoro（2026-09-30 注册，HN 249）产品极完整并已排第一。适合**学习它的 SEO 结构**（和弦页、歌曲页、调音器页矩阵），不建议正面做。\n- **Fish Audio Drama 3**（12/25）：X 10-13 721 条；但许可证规定「作为 TTS/API 服务提供给他人」需授权、自托管要 ≥48GB 显存（FP8），工具站只能做教程/提示词标签站。\n- **AI game mod generator**：补全存在（ai game mod generator free / online），universal-modder 7,409★；游戏 EULA 灰区，SERP 未查，先观察。\n- **Gemini 4 Argon / Muse Wonder / Apple HomeView / Fable 5.5（传闻）**：大厂品牌词，独立站无空间，只适合老站 pricing / vs 内页。\n- **pdf to audiobook**（HN 159 的 pdftomp3）与 **ai mock interview**（PH Toby）：补全很强但都是老红海，本期不进决赛。\n- **SillyTavern character card converter**：已并入第 1 名，作为常青尾巴页。"
+  }
+ ],
+ "deep_dive_count": 3,
+ "parse_ok": true
+}

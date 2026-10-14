@@ -1,10 +1,22 @@
 {
- "updated_at": "2026-10-13T09:28:19+08:00",
+ "updated_at": "2026-10-14T09:22:31+08:00",
  "dates": [
+  "2026-10-14",
   "2026-10-13",
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-10-14",
+   "count": 9,
+   "deep_dives": 3,
+   "top": [
+    "Character.ai export / chat exporter",
+    "AI video reframe",
+    "Remove background with prompt"
+   ],
+   "generated_at": "2026-10-14T09:22:31+08:00"
+  },
   {
    "date": "2026-10-13",
    "count": 8,
@@ -14,7 +26,7 @@
     "AI product demo video",
     "Odyssey-3"
    ],
-   "generated_at": "2026-10-13T09:28:19+08:00"
+   "generated_at": "2026-10-14T09:22:30+08:00"
   },
   {
    "date": "2026-10-12",
