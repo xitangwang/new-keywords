@@ -1,0 +1,416 @@
+{
+ "date": "2026-10-15",
+ "title": "每日新词监控 · 2026-10-15",
+ "collected_at": "2026-10-15 北京时间（UTC+8）约 09:05–09:35。这是第五轮每日新词监控，结构和 2026-10-14.md 一样（A–H 深挖）。全部原始数据在 raw/2026-10-15/",
+ "generated_at": "2026-10-15T09:30:28+08:00",
+ "trends_unverified": false,
+ "preface": "数据采集时间：2026-10-15 北京时间（UTC+8）约 09:05–09:35。这是第五轮每日新词监控，结构和 `2026-10-14.md` 一样（A–H 深挖）。全部原始数据在 `raw/2026-10-15/`。\n\n**数据来源情况（如实说明）**\n- **用到了**：\n  - X MCP：`get_posts_counts_recent` 12 组 7 天日量（`x_counts.tsv`）；`search_news` 与 `get_trends_by_woeid`；`get_users_posts` 看了 9 个账号（@fal @_akhaliq @levelsio @kimmonismus @OpenAI @GoogleDeepMind @Alibaba_Qwen @StepFun_ai @deepseek_ai）；`search_posts_all` 3 次。\n  - GitHub Search/Repos API：30 天和 7 天内新建的高星仓库，加 9 个跟进仓库。\n  - Hugging Face API：热门模型和 Spaces，`stepfun-ai` 组织，fishaudio/drama-3。\n  - HN Algolia：front_page，加近 3 天的 Show HN。\n  - Product Hunt 10-14 日榜（WebFetch）。\n  - Steam：featuredcategories、appdetails、当前在线人数、评测汇总。\n  - Apple 美区免费榜 RSS。\n  - Google / Bing / DDG 自动补全：`ac.py` 跑了 111 个查询。\n  - Google 趋势：explore + multiline 接口，24 组对比，每组都带 GPTs 当参照，日界按 UTC+8；另有 6 次 related queries。\n  - cursor WebSearch：每个查询约看前 5 条，**不是 Google 原生第一页**。\n  - WebFetch 和 curl：官网、Steam 页、竞品页。\n  - RDAP（IANA 引导）：46 个域名。\n  - new.web.cafe 公开页。\n- **被挡、或只拿到一部分**：\n  - 谷歌趋势接口：首页请求被限流（HTTP 429），带 cookie 的 explore 能用。之后又有 4 次请求被 429 限流（`ai generator`、`generator` 的 related queries 等），靠间隔 9–12 秒和少发请求缓解。还有一个问题：部分对比组被大词压扁（例如 Seedance、Planet Zoo 2 主词超过 GPTs 的 30 倍），这些组里的小词读数记为 0，**不代表没有需求**，下文有标注。\n  - Reddit：`/r/SideProject`、`/r/StableDiffusion` 的 json 和 RSS 都返回 403，`/r/singularity` 返回 429。\n  - fal 上 Mirelo SFX 2.0 的模型页，WebFetch 和 curl 都渲染为空，**价格未验证**。\n  - Google 原生前十、intitle 数量：未验证（拿不到 Google 结果页）。\n  - .io 域名、mapmaster.io：没有 RDAP，未验证。\n  - web.cafe：词表是付费内容，公开页只看到当天抓到 34 个新站的计数，看不到明细。\n- **趋势数字的读法**：`X/GPTs` 指同一组里该词日均值除以 GPTs 日均值。群里的经验值是 GPTs ≈ 每天 5,000 次搜索，下文的「粗估次数」都按这个换算，只能看量级。两者相差超过 10 倍时读数会失真，这种情况下文会标注。\n- **X 计数口径**：按 UTC 自然日。10-08 是从 01:10 UTC 开始的不完整日，10-15 只有 00:00–01:20 UTC。今天拉到的 Character.ai 10-13 数值（5,309）和昨天报告里的（5,314）基本一致，口径稳定。\n- **相对昨天的纠正**：\n  - 昨天 Top 3（Character.ai 导出、AI video reframe、Remove background with prompt）是在**没有趋势数据**的情况下评的。今天趋势接口能用了，三者的搜索量都**接近 0**，统一降级，详见「旧词跟进」。\n  - StepFun Step 5：官方说 10-15 开放权重，但到 09:26 HF `stepfun-ai` 仍没有 Step-5 仓库。注意这时美国还是 10-14 晚上，当天还没结束。\n\n**筛选漏斗**\n- **原始信号**：88 条种子（`raw/2026-10-15/seeds.txt`），构成如下：\n  - GitHub 26\n  - HF 11\n  - HN 9\n  - PH 4\n  - Steam 和 App Store 10\n  - X 账号和 X 新闻 18\n  - Trends 上升词 4\n  - 其余是跟进项和被挡记录\n- **不计入种子数的辅助数据**：\n  - 12 条 X 7 天日量序列\n  - 111 个补全查询\n  - 24 组趋势对比\n  - 7 组 SERP 抽查（`serp_notes.md`）\n  - 46 个域名的 RDAP 结果\n- **第一层**：保留能做成英文工具站或内容站的，剔除以下几类，剩约 **28** 个种子：\n  - 大厂模型和硬件新闻：Gemini 4 Argon、Ling-3.1、Muse\n  - NSFW、换脸、越狱\n  - 版权移植：D2R mobile、反编译游戏、Macintosh 字体\n  - 按用户要求剔除健康向：fitbit 等\n- **第二层**：要求补全里出现真实需求变体，**且**趋势组里相对 GPTs 有读数或社交量明显跳升。再做 SERP、RDAP、竞品核对后，剩 **9** 个决赛词：\n  - YouTube GIF comments\n  - Scam With Your Friends\n  - Planet Zoo 2\n  - Mirelo SFX 2.0\n  - Castlevania: Belmont's Curse\n  - over the hill（游戏）\n  - Hood Warfare 2\n  - Google AI Studio 私有 Play Store 应用\n  - Unlimited OCR\n- **今日结论（如实）**：**没有找到「需求已起、竞争还空」的 AI 工具新词。**\n  - 今天唯一真正的「新词」是 YouTube GIF comments，但已有一个新站昨天抢注，而且变现弱。\n  - 其余有量的词都是游戏发售词：需求是真的，但每个都已有 3–8 个新站提前几周到几个月注册占位。按群里说的新词传播链，我们已经晚了一步。\n  - Top 3 按「能不能接住流量」排序，不按「赚钱上限」排序。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "YouTube GIF comments",
+   "keyword_note": "（gif in youtube comments、how to turn off gif comments youtube、youtube comment gif extension）",
+   "description": "YouTube 评论区开始支持发 GIF：只能从内置 Tenor 库选，暂时只有 App 能用，桌面端没有按钮，观众和创作者都没有关闭开关",
+   "sources": [
+    "https://9to5google.com/2026/10/14/youtube-begins-rolling-out-gif-support/",
+    "https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/",
+    "https://gifcomments.com/",
+    "https://github.com/rayytor/desktop_gifs"
+   ],
+   "sources_text": "https://9to5google.com/2026/10/14/youtube-begins-rolling-out-gif-support/ · https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/ · https://gifcomments.com/ · https://github.com/rayytor/desktop_gifs",
+   "first_seen": "2026-09-23 Made on YouTube 发布会公布（TechCrunch 北京 09-24 00:03）；9to5Google 报道开始灰度，时间是 10-14 3:06pm PT（北京 10-15 06:06）",
+   "trend_signal": "**X 日量 10-09 7 → 10-11 442 → 10-13 2,625 → 10-14 2,863**。Trends 读数：「youtube gif comments」10-12 0.6 → 10-13 14.7 → **10-14 59.6，是 GPTs 的 3.8 倍**（粗估约 1.9 万次/天），10-15 截至 10 点是 GPTs 的 2.7 倍；「gif in youtube comments」10-14 是 GPTs 的 1.5 倍；「gif comments」10-14 是 GPTs 的 4.3 倍。Google 补全：extension / not working / not showing / how to add / turn off（video、channel、app、live、tv）/ hide（studio、extension）/ desktop / generator / maker",
+   "trends_verified": true,
+   "serp": "前 5 是一个**昨天刚注册的专用站** gifcomments.com（RDAP 2026-10-14 03:45 UTC）、9to5Google、Engadget、TechCrunch、YouTube 帮助页；GitHub desktop_gifs 376★（10-11 创建，GPL-3.0）；其余是媒体",
+   "domain": "gifcomment.com、commentgif.com、gifsincomments.com、gifcommenter.com、gifreply.com 的 RDAP 都是 404；youtubegifcomments.com 也是 404，但含商标，避开",
+   "idea": "「GIF 评论问题全解」站：桌面端发 GIF 的扩展、**一键隐藏 GIF 评论**的扩展和 CSS、灰度状态和排错页、「把自己的 GIF 传到 Tenor 才能在 YouTube 用」教程，再加评论 GIF 制作器",
+   "rating": 4.0,
+   "rating_stars": "★★★★",
+   "reason": "今天唯一真正的新词：社交和搜索同时爆发，补全长尾密集，官方 11 月才全量，桌面端空白和无法关闭是持续痛点。但先手站已占位，变现主要靠广告，寿命 1–3 个月",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "YouTube GIF comments / gif in youtube comments",
+    "intro": "> 评分 16/25。一句话：这是真正的新功能词，需求和痛点都已实测到，但已经有人抢先一天，变现弱，适合做「流量和权重」用途，不适合当收入主力。",
+    "sections": [
+     {
+      "title": "A. 信号来源（词是怎么传开的）",
+      "markdown": "- **2026-09-23**：Made on YouTube 发布会公布评论支持 GIF、TV 端语音评论等功能。来源 TechCrunch，作者 Sarah Perez，9:03 AM PDT。\n- **10-11 起**：X 上开始有人晒「我能发 GIF 了」，日量 7 → 442。同一天 GitHub rayytor/desktop_gifs 创建，做的是桌面端发 GIF 的扩展，现在 376★。\n- **10-14 03:45 UTC**：gifcomments.com 注册，当天上线扩展和指南。\n- **10-14 3:06pm PT**：9to5Google 发文《YouTube begins rolling out GIF support》，写明是灰度推送、GIF 来自内置库。\n- X 日量（`x_counts.tsv`，查询 `youtube (gif OR gifs) (comment OR comments)`）：10-09 7 → 10-10 7 → 10-11 442 → 10-12 461 → 10-13 2,625 → 10-14 2,863。"
+     },
+     {
+      "title": "B. 词族（2026-10-15 实测，`ac_batch5.jsonl` / `ac_batch6.jsonl`）",
+      "markdown": "- **怎么用**：gif in youtube comments、how to add gif in youtube comments、can you post a gif in youtube comments、youtube gif comments desktop（app / site / mode / version / shortcut）\n- **排错**：gif in youtube comments not working / not showing / reddit、youtube comment gif update\n- **怎么关**（创作者和观众都在搜）：how to turn off gif comments youtube（video / channel / app / live / tv）、hide gif comments youtube（studio / channel / extension / app）\n- **工具**：gif in youtube comments extension、youtube comment gif extension / generator / maker\n- **上游**：tenor upload gif（not working / stuck at 0 / requirements / size / limit / how long）。只能用 Tenor 库，所以想用自己的 GIF 就得先传到 Tenor。\n- **Bing / DDG**：长尾很少，大多是「get in the comments gif」这类表情噪音，说明这个词目前主要是 Google 和 YouTube 用户在搜。"
+     },
+     {
+      "title": "C. 需求验证（哪些证据是真的）",
+      "markdown": "- **趋势读数**（`trends5.jsonl` / `trends6.jsonl`，按 UTC+8 日均）：\n  - 「youtube gif comments」：10-12 0.6、10-13 14.7（GPTs 15.5）、**10-14 59.6（GPTs 15.6，3.8 倍）**、10-15 截至 10 点 39.5（GPTs 14.4，2.7 倍）\n  - 「gif in youtube comments」：10-14 23.2（1.5 倍）\n  - 「gif comments」：10-14 27.0（GPTs 6.3，4.3 倍），10-15 18.7（3.2 倍）\n  - 「turn off gif comments youtube」：主词同组里几乎是 0。但补全有 7 个变体，说明有人搜、量还小。\n- **社交量**：X 两天都在 2,600 条以上（上面已列）。\n- **痛点是真的**：gifcomments.com 写明只有 Tenor 库、只有 G 级内容、不能上传、桌面端没有按钮、观众不能关闭。YouTube 帮助页没有关闭 GIF 的设置，WebSearch 综合结论也是「没有创作者开关，只能整体关评论或隐藏用户」（`serp_notes.md`）。\n- **粗估次数**：GPTs 按每天 5,000 次算，10-14 约 1.9 万次/天。灰度推进时还会有几波高峰，11 月全量后会回落。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5，非 Google 原生）",
+      "markdown": "- **youtube gif comments / gif in youtube comments**：gifcomments.com（10-14 注册）、9to5Google、Engadget、TechCrunch、news9live（2008 年注册的媒体）、YouTube 帮助页。\n- **how to turn off gif comments youtube channel**：gifcomments.com/hide-gif-comments-youtube，加 4 个 YouTube 帮助的通用评论设置页。**只有一个专用页。**\n- **判断**：除了 gifcomments.com，前 5 都是媒体新闻页和帮助页的「内页」，按「首页胜内页」，第二个专用站能进前 5（推断，Google 实际排名未验证）。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册/创建 | 做了什么 | 缺口 |\n|---|---|---|---|\n| gifcomments.com | 2026-10-14 | 免费扩展 v1.2.3（Chrome / Edge / Brave / Firefox），无广告；指南页：why can't I post gifs、hide gif comments、灰度说明 | 从页面看不出扩展有没有「屏蔽 GIF 评论」功能（未验证）；没有 Tenor 上传、GIF 制作器；单人项目，更新速度未知 |\n| rayytor/desktop_gifs | GitHub 2026-10-11，376★ | 桌面端用 Tenor 发 GIF 的扩展 | GPL-3.0：抄它的代码就必须开源；没有站点和 SEO |\n| 9to5Google / Engadget / TechCrunch | 老媒体 | 新闻 | 不做教程和工具 |\n| YouTube 帮助 | 官方 | 通用评论设置 | 没有 GIF 专属说明 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**（1–2 天）：\n  - 静态站（Next.js 或 Astro），8–12 个教程页，覆盖 how to add、desktop、not working、turn off / hide、tenor upload、channel settings\n  - 一个「**Hide GIF Comments**」浏览器扩展：用 MutationObserver 隐藏带 GIF 的评论节点，可选「只隐藏 GIF、保留文字」\n  - 可选：浏览器内的评论 GIF 制作器（ffmpeg.wasm 视频转 GIF，输出 Tenor 要求的尺寸），不需要服务器\n- **成本**：静态托管加扩展商店，Chrome 开发者账号一次性 $5（常识价，未现场核对）。API 成本为 0。\n- **变现**：广告，加扩展页导流到老工具站。没有付费点。也可以给 GIF 制作器加「去水印/高清」一次性付费，但需求未验证。\n- **ChatGPT 适配**：高。「can you post gifs in youtube comments」这类问题 ChatGPT 训练数据里没有，会去搜索引用，新站有机会被引用。\n- **寿命**：1–3 个月。灰度到全量期间是高峰；如果官方之后补上桌面端和关闭开关，大部分长尾会消失。「屏蔽」类需求可能更久。\n- **风险**：\n  - 扩展改动 YouTube 页面 DOM，YouTube 前端改版就要跟着修\n  - 域名和品牌不能出现 YouTube 商标\n  - 只抄 desktop_gifs 会被迫开源"
+     },
+     {
+      "title": "G. 域名（RDAP，`rdap_cand.txt`）",
+      "markdown": "- **gifcomment.com**：404，可能可注册（单数，和竞品复数 gifcomments.com 很接近，有混淆争议风险）\n- **commentgif.com**：404，推荐\n- **gifcommenter.com**：404，适合做扩展品牌\n- 避开 youtubegifcomments.com、ytgifcomments.com（404，但含商标）"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 4 | 趋势是 GPTs 的 3.8 倍（10-14），X 日均 2,600+，补全长出三类长尾 |\n| 竞争 | 3 | 有一个专用新站先到一天，其余是媒体和帮助页 |\n| 可行性 | 5 | 静态页加纯前端扩展，1–2 天能上线，零 API 成本 |\n| 变现 | 2 | 只有广告和导流，没有付费点 |\n| 寿命 | 2 | 灰度期 1–3 个月，官方补上桌面端和开关后就会衰减 |\n| 总分 | 16/25 | |\n\n**7 天计划**\n- **第 1 天**：注册 commentgif.com，上首页「YouTube GIF Comments: how to post, hide & fix」，加 4 个页面：desktop、not working、turn off / hide、tenor upload。提交 GSC 和 Bing。\n- **第 2 天**：做「Hide GIF Comments」扩展（Chrome 和 Firefox），写清楚只在本地运行、不收集数据。首页和扩展页互链。\n- **第 3 天**：Tenor 上传全流程页，涵盖 not working、stuck at 0、尺寸要求等。用浏览器 ffmpeg.wasm 做一个「视频转 Tenor 规格 GIF」小工具。\n- **第 4 天**：按国家和平台写灰度状态页，说明「为什么我没有 GIF 按钮」，引用 9to5Google 和官方信息，不编造时间表。\n- **第 5 天**：给创作者写「怎么管理 GIF 评论」页：Studio 里的隐藏用户、关键词过滤、整体关评论的替代方案。\n- **第 6 天**：去 X 上「我的 GIF 按钮去哪了」这类帖子下面，人工回复几条有用的答案（不要群发）。\n- **第 7 天**：看 GSC 曝光。没有曝光就把这些页并到老站当内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "趋势是 GPTs 的 3.8 倍（10-14），X 日均 2,600+，补全长出三类长尾"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "有一个专用新站先到一天，其余是媒体和帮助页"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "静态页加纯前端扩展，1–2 天能上线，零 API 成本"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "只有广告和导流，没有付费点"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "灰度期 1–3 个月，官方补上桌面端和开关后就会衰减"
+     }
+    ],
+    "total": 16.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "Scam With Your Friends",
+   "keyword_note": "（scam with your friends price、ai credits、mods、custom personalities）",
+   "description": "Steam 联机派对游戏：AI 扮演诈骗电话里的「骗子」或「受害者」，接入 OpenRouter 生成对话，支持用 JSON 自定义角色性格、用 WAV 克隆声音",
+   "sources": [
+    "https://store.steampowered.com/app/4954910/",
+    "https://scamwithyourfriends.wiki/personalities/json-files/",
+    "https://x.com/shadesofsilver/status/2110494705385685144",
+    "https://scam.gamefun.world/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/4954910/ · https://scamwithyourfriends.wiki/personalities/json-files/ · https://x.com/shadesofsilver/status/2110494705385685144 · https://scam.gamefun.world/",
+   "first_seen": "Steam 抢先体验发售日标为 2026-10-15，页面写「约 16 小时后解锁」，具体时刻未验证；10-10 前后有试玩",
+   "trend_signal": "Trends 读数：10-10（试玩高峰）是 GPTs 的 2.5 倍；10-14 是 1.2 倍；**10-15 截至 10 点是 2.1 倍**（两组独立对比都约 2 倍）。X 日量只有 2–16 条（低）。Google 补全：price / steam / release date / cost / **ai credits** / reddit / trailer；mods、custom personality 的长尾 Google 还不认识（返回的是 sims 4 / quiz 噪音）",
+   "trends_verified": true,
+   "serp": "已有 4 个新站：scamwithyourfriends.wiki（09-26，角色性格、JSON、WAV 系列页）、scamwithyourfriends.net/mods（10-01）、scamwithfriends.com（09-28）、scamwithyourfriends.com（09-13，空白）；还有非官方网页版 scam.gamefun.world（GitHub 228★）和一个 Roblox 仿作",
+   "domain": "swyf.wiki、swyfmods.com、swyfwiki.com、scamcallerpersonality.com 的 RDAP 都是 404；scamwithyourfriendswiki.com 也是 404，但含游戏名",
+   "idea": "发售后第一时间做「**角色性格 JSON 生成器 + 分享库**」：表单生成 JSON、校验、下载，用户上传后展示和投票；配套 AI credits 花费说明和价格页",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "今天正式发售，官方说「heavily moddable」，但 JSON 格式和安装路径至今**未公开**，谁先写出可用的生成器谁就占住 mod 子词。风险：诈骗题材、刻板印象、声音克隆可能引来平台和广告政策问题",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Scam With Your Friends（角色性格 JSON / mods / AI credits）",
+    "intro": "> 评分 15/25。一句话：今天发售，模组生态有官方背书但格式还没公开。这是一个「等解锁 → 抢工具位」的窗口，题材有风险。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam app 4954910，发售日标为 Oct 15, 2026（抢先体验），`coming_soon: true`。商店页写着「约 16 小时后解锁」，确切时刻未验证。售价未验证（appdetails 没有返回价格）。\n- 开发者 JakeHub / Metater，发行商 Jatater Worldwide。AI 来电者的内容走 OpenRouter，正式版目标 2026 年 12 月中。官方说可以用 JSON 文件写自定义性格、用 WAV 文件克隆声音，「heavily moddable」。\n- X 上的种子帖：https://x.com/shadesofsilver/status/2110494705385685144 。X 日量 2–16 条，很低。\n- 已有一个非官方网页版 scam.gamefun.world（GitHub mrzh7/scam-with-your-friends-web 228★，10-09 创建），Roblox 上也有仿作。说明玩法已经出圈。"
+     },
+     {
+      "title": "B. 词族（`ac_batch5.jsonl` / `ac_batch6.jsonl`）",
+      "markdown": "- **Google**：scam with your friends（game / price / steam / release date / cost / **ai credits** / reddit / trailer / xbox）\n- **噪音**：mods、wiki、custom personality 这几个长尾，Google 返回的是 sims 4 / minecraft、wikipedia、personality test 这类噪音，**说明这些长尾 Google 还没收录，需求要等解锁后才会长出来**。\n- **Bing**：基本被「friends and family scam」这类反诈词淹没，品牌词以外没有信号。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **趋势读数**（`trends5.jsonl`、`trends6.jsonl`）：\n  - 10-10 34.3 对 GPTs 13.5（2.5 倍，试玩期）\n  - 10-14 18.5 对 15.6（1.2 倍）\n  - 10-15 截至 10 点 30.2 对 14.4（2.1 倍）\n  - 另一组 10-15 12.4 对 5.8（2.1 倍）\n  - 两组一致，**发售日约 1 万次/天**（粗估）\n- 解锁后通常还会再冲一波，目前未发生、未验证。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5）",
+      "markdown": "- **scam with your friends custom personalities json**：前 4 条都是 scamwithyourfriends.wiki 的内页（custom personalities、voice cloning、json files、wav files），第 5 条是 scamwithyourfriends.net/mods。\n- **判断**：模组信息页已经被一个站系统性占位，但都写着「未公开、待确认」，没有任何**可用的工具**。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 缺口 |\n|---|---|---|---|\n| scamwithyourfriends.wiki | 2026-09-26 | 自称「most complete fan-made wiki」，系列页讲 mods、角色性格、JSON、WAV | 内容大多是「Confirmed facts & open questions」，没有工具 |\n| scamwithyourfriends.net | 2026-10-01 | mods 页 | 未深入看 |\n| scamwithfriends.com | 2026-09-28 | 指南 | 同上 |\n| scamwithyourfriends.com | 2026-09-13 | 空白（占位） | — |\n| scam.gamefun.world | gamefun.world 2026-09-22 | 非官方网页版 | 版权和商标灰区 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**：游戏解锁后 24–48 小时内，从游戏文件或官方文档拿到 JSON 格式（前提是能合法拿到），做三样东西：\n  - 「Personality Builder」：表单生成 JSON，实时校验，一键下载\n  - 「Personality Library」：用户上传，展示、投票、下载\n  - 「AI credits 说明」页：游戏到底收不收 AI 额度费、能不能填自己的 OpenRouter key，**均未验证，必须解锁后实测**\n- **成本**：静态页加一个小数据库（Supabase 或 Cloudflare D1）。不做声音克隆就没有 API 成本。\n- **变现**：广告，加角色包打赏或一次性「精选包」。需注意：诈骗主题的页面，AdSense 可能按「不诚实行为」政策限制投放（未验证）。\n- **ChatGPT 适配**：中。新游戏的模组问题 ChatGPT 答不了，会搜索引用。\n- **寿命**：抢先体验到 12 月正式版，可模组的游戏通常能撑 3–6 个月；如果官方自己做了创意工坊，第三方库的价值会下降。\n- **风险**：\n  - 题材（诈骗、呼叫中心口音刻板印象）\n  - 声音克隆：只允许本人或已授权的声音，否则不做 WAV 上传\n  - 格式拿不到或官方改格式"
+     },
+     {
+      "title": "G. 域名（RDAP）",
+      "markdown": "- **swyfmods.com**：404，推荐\n- **swyf.wiki**：404\n- **scamcallerpersonality.com**：404，偏长尾\n- scamwithyourfriendswiki.com 也是 404，但含游戏名，商标风险比缩写大"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 3 | 发售日趋势约是 GPTs 的 2 倍，X 很低，解锁后还没验证 |\n| 竞争 | 2 | 4 个新站在 9 月就占了品牌词和模组信息页 |\n| 可行性 | 4 | JSON 生成器加分享库，2–3 天；前提是能拿到格式 |\n| 变现 | 2 | 广告，题材可能受广告政策限制 |\n| 寿命 | 4 | 抢先体验到 12 月正式版，模组生态持续 |\n| 总分 | 15/25 | |\n\n**7 天计划**\n- **第 1 天（今天）**：注册 swyfmods.com，上首页占位，内容是「Custom Personality Builder（coming at launch）」加已确认的信息，注明引用来源。\n- **第 2 天**：游戏解锁后买一份实测，看清 JSON 和 WAV 的格式和路径，写「How to add custom personalities」实操页（带截图）。\n- **第 3 天**：上线 Personality Builder（表单 → JSON → 下载）和校验器。\n- **第 4 天**：做角色库（上传、投票），先放 10 个自己写的、无争议的角色，比如「老派推销员」「海盗」。\n- **第 5 天**：实测后写「AI credits / cost / OpenRouter」说明页。\n- **第 6 天**：去 Steam 社区和 Discord 发工具链接（遵守社区规则，不刷屏）。\n- **第 7 天**：看 GSC 和角色下载量，决定要不要接着做。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "发售日趋势约是 GPTs 的 2 倍，X 很低，解锁后还没验证"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "4 个新站在 9 月就占了品牌词和模组信息页"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "JSON 生成器加分享库，2–3 天；前提是能拿到格式"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "广告，题材可能受广告政策限制"
+     },
+     {
+      "dim": "寿命",
+      "score": 4.0,
+      "note": "抢先体验到 12 月正式版，模组生态持续"
+     }
+    ],
+    "total": 15.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "Planet Zoo 2",
+   "keyword_note": "（animals list、animal compatibility、animal appeal、habitat requirements）",
+   "description": "Frontier 动物园模拟经营续作，10-13 发售，售价 $49.99",
+   "sources": [
+    "https://store.steampowered.com/app/3219030/",
+    "https://www.planetzoogame.com/2/zoopedia",
+    "https://pz2tools.wiki/cohabitation/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/3219030/ · https://www.planetzoogame.com/2/zoopedia · https://pz2tools.wiki/cohabitation/",
+   "first_seen": "2026-10-13 发售",
+   "trend_signal": "Steam 当前在线 **19,564**（10-15 09:15）；2,016 篇评测，好评率 72%（Mostly Positive）。Trends 读数：「planet zoo 2 animals」10-14 是 GPTs 的 2.0 倍、**10-15 是 2.9 倍**；「planet zoo 2 habitat」0.5 倍 → 0.9 倍；主词超过 GPTs 30 倍（已失真）。X 10-13 1,656 → 10-14 1,046 条。Google 补全：animal list / compatibility / appeal / by continent / habitat requirements / blueprints / mods",
+   "trends_verified": true,
+   "serp": "**非常挤**：官方 Zoopedia 自带各物种要求；pz2tools.wiki（10-09，1,221 对共居表）、planetzoo2animals.com（10-11）、planetzoo2.wiki（06-23）、pz2planner.pages.dev、wikily.gg、afleurdenet（已有 appeal 排名 tier list）",
+   "domain": "pz2.wiki、planetzoo2db.com、planetzoo2tools.com、zoo2planner.com、pz2zoo.com 的 RDAP 都是 404",
+   "idea": "不做百科。做「**展区规划器**」：选物种 → 算面积、地形、水陆、共居冲突 → 生成清单，可分享链接；新站或游戏老站内页",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "需求确定，长尾持续 3–12 个月（还有 DLC 和 mod），但工具位已被 4 个以上新站占住，只能靠交互体验拉开差距",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Planet Zoo 2（展区规划器 / animal compatibility）",
+    "intro": "> 评分 15/25。一句话：需求最确定、寿命最长，但竞争最挤。只值得做「明显更好的交互」，或者作为老游戏站的内页。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam 3219030，**2026-10-13 发售**，$49.99。10-15 09:15 在线 **19,564**；评测 2,016 篇，1,451 好评 / 565 差评（Mostly Positive）。\n- X「\"Planet Zoo 2\"」日量：10-12 504 → **10-13 1,656** → 10-14 1,046。\n- 第三方站 6 月就开始抢注（planetzoo2.wiki 06-23），发售前一周集中又冒出一批（pz2tools.wiki 10-09、planetzoo2animals.com 10-11）。典型的「新词传播链后段」。"
+     },
+     {
+      "title": "B. 词族（`ac_batch1.jsonl` / `ac_batch2.jsonl`）",
+      "markdown": "- **planet zoo 2 animal**：list / compatibility / appeal / by continent / roster / at launch\n- **planet zoo 2 animals list**：confirmed / tier list / all / full / base game\n- **planet zoo 2 habitat**：requirements / map / design\n- **planet zoo 2 blueprints**：download / not showing up / not working\n- **planet zoo 2 mods**：not working / pc / nexus mods / multiplayer mod\n- **Bing**：planet zoo 2 zoopedia / wiki / animals"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- **趋势读数**（`trends3.jsonl`）：\n  - 「planet zoo 2 animals」：10-14 62.9 对 GPTs 31.0（2.0 倍），10-15 71.9 对 24.7（**2.9 倍**，还在涨）\n  - 「planet zoo 2 habitat」：16.6 → 21.6（0.54 倍 → 0.87 倍）\n  - 「zoopedia」：约 0.43 倍\n  - 主词「planet zoo 2」超过 GPTs 30 倍，已失真，不引用具体倍数\n- **粗估**：animals 类长尾约 1–1.5 万次/天。"
+     },
+     {
+      "title": "D. SERP 结构（WebSearch 前 5，`serp_notes.md`）",
+      "markdown": "- **animals / compatibility**：官方 Zoopedia 和官方 player-guides、pz2tools.wiki、planetzoo2animals.com、planetzoo2.wiki、planetzoo2wiki.vercel.app\n- **planner**：pz2planner.pages.dev、wikily.gg barrier planner\n- **appeal ranking**：afleurdenet 的 tier list（2026-08-13 注册），已经给出具体 appeal 数值（例如西部低地大猩猩 7,284，这是该站的数字）\n- **判断**：首页加内页都有人做，**新站首页想进前 5 很难**（推断）。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 缺口 |\n|---|---|---|---|\n| 官方 Zoopedia | planetzoogame.com 2017 | 每个物种的要求、关系 | 不能交互规划 |\n| pz2tools.wiki | 2026-10-09 | 计算器、1,221 对共居表、130 个物种 | 体验和准确性未逐项核对 |\n| planetzoo2animals.com | 2026-10-11 | 动物列表 | — |\n| pz2planner.pages.dev | 未知（pages.dev 子域） | 规划器 | 未深入试用 |\n| afleurdenet.com | 2026-08-13 | appeal tier list | 博客文章，不是工具 |\n| wikily.gg | — | barrier planner | 只管围栏 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP**（3–4 天）：「展区规划器」。选 1–3 个物种 → 根据官方 Zoopedia 数据算最小面积、地形占比、水深、温度、可共居性 → 输出清单，可以分享链接。物种数据要逐条录入并标注来源，不能编。\n- **成本**：静态加 JSON 数据，零 API 成本。数据录入是主要工作量，130 个物种。\n- **变现**：游戏攻略广告（RPM 一般），可以导流到 Nexus mods 或蓝图分享。没有订阅空间。\n- **ChatGPT 适配**：中低。官方 Zoopedia 和多家 wiki 会被优先引用。\n- **寿命**：长，3–12 个月（DLC、mod、主机版）。\n- **风险**：竞品太多；数据随补丁变化要持续维护；Frontier 的商标不能进域名主体。"
+     },
+     {
+      "title": "G. 域名（RDAP，`rdap_comp.txt` / `rdap_cand.txt`）",
+      "markdown": "- **zoo2planner.com**：404，推荐\n- **pz2.wiki**：404，短\n- **planetzoo2tools.com**：404，含游戏名"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分（1–5） | 理由 |\n|---|---|---|\n| 需求 | 5 | 1.9 万人在线；animals 长尾是 GPTs 的 2.9 倍，还在涨 |\n| 竞争 | 1 | 官方加 6 个以上第三方站，连 appeal 排名都有人做了 |\n| 可行性 | 3 | 工具不难，但 130 个物种的数据要逐条核对 |\n| 变现 | 2 | 只有攻略广告 |\n| 寿命 | 4 | 模拟经营加 DLC，长尾能撑几个月 |\n| 总分 | 15/25 | |\n\n**7 天计划**（只建议老游戏站做，或者当作一次「首页胜内页」实验）\n- **第 1 天**：在老站开 `/planet-zoo-2/` 目录（没有老站就注册 zoo2planner.com），先上「animal compatibility checker」单页。\n- **第 2–3 天**：按官方 Zoopedia 录入前 40 个高搜索量物种的数据，做出面积、地形、共居计算。\n- **第 4 天**：上 habitat requirements 的物种页矩阵，每个物种一页，内容由数据自动生成，并人工检查。\n- **第 5 天**：分享链接，加「我的展区清单」导出。\n- **第 6 天**：去 Steam 社区和 r/PlanetZoo 发工具（Reddit 今天抓取被 403，社区规则未验证，发之前先看版规）。\n- **第 7 天**：看 GSC，没有起色就停止投入，只保留页面。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 5.0,
+      "note": "1.9 万人在线；animals 长尾是 GPTs 的 2.9 倍，还在涨"
+     },
+     {
+      "dim": "竞争",
+      "score": 1.0,
+      "note": "官方加 6 个以上第三方站，连 appeal 排名都有人做了"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "工具不难，但 130 个物种的数据要逐条核对"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "只有攻略广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 4.0,
+      "note": "模拟经营加 DLC，长尾能撑几个月"
+     }
+    ],
+    "total": 15.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 4,
+   "keyword": "Mirelo SFX 2.0",
+   "keyword_note": "（ai sound effects from video、add sound effects to video ai）",
+   "description": "视频自动配音效的模型：给视频生成同步音效，最长 10 分钟，可保留人声；10-14 上 fal",
+   "sources": [
+    "https://x.com/fal/status/2110355391733240256",
+    "https://x.com/MireloAI/status/2110363284457357703",
+    "https://mirelo.ai/sfx"
+   ],
+   "sources_text": "https://x.com/fal/status/2110355391733240256 · https://x.com/MireloAI/status/2110363284457357703 · https://mirelo.ai/sfx",
+   "first_seen": "2026-10-14 13:01 UTC（北京 21:01）",
+   "trend_signal": "X 日量：平时 8–38 条，10-14 跳到 **3,101**（大量雷同帖，疑似推广）。Trends 读数：「mirelo」10-15 只有 GPTs 的 0.3 倍；泛词组被 Seedance 压扁，读数 0（不代表没有）。Google 补全：ai sound effects from video（free、online）、add sound effects to video ai（free）、add audio to video ai huggingface",
+   "trends_verified": true,
+   "serp": "泛词已有 Magic Hour、PrismAudio（$19/月）、SFXGen、ACE Studio，Mirelo 自己也有 /sfx 页（可免费开始）",
+   "domain": "未查",
+   "idea": "「上传视频自动配音效」按秒计费，主打长视频（10 分钟）和保留人声",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "可订阅、API 现成；但品牌词量小、泛词已有 4 个以上竞品，fal 价格未验证",
+   "extra": {}
+  },
+  {
+   "rank": 5,
+   "keyword": "Castlevania: Belmont's Curse",
+   "keyword_note": "（map、bosses、checklist、walkthrough）",
+   "description": "Konami 新恶魔城（类银河战士恶魔城）",
+   "sources": [
+    "https://store.steampowered.com/app/4231820/",
+    "https://capydb.com/castlevania-belmonts-curse/maps/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/4231820/ · https://capydb.com/castlevania-belmonts-curse/maps/",
+   "first_seen": "Steam 发售日标为 2026-10-14；10-15 09:15 查在线人数接口没有数据",
+   "trend_signal": "Trends 读数：「belmont's curse」10-15 约是 GPTs 的 13.7 倍（超过 10 倍，已失真）；长尾组目前是 0。X 10-13 4,582 → 10-14 3,880 条。Google 补全：release time / unlock time / map / bosses list / bosses in order / trophy guide / walkthrough",
+   "trends_verified": true,
+   "serp": "capydb.com（10-03，9 张地图、379 个房间、心之碎片位置）、mapmaster.io、IGN、belmontscurse.com（09-28）、castlevania-belmonts-curse.wiki（09-04，内容和官方区域对不上，疑似 AI 填充）",
+   "domain": "belmontscursemap.com、belmontscursechecklist.com 的 RDAP 都是 404",
+   "idea": "100% 收集清单（勾选后存本地）+ Boss 顺序",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "量大，但地图位已被 capydb 和 mapmaster 抢先；类银河恶魔城攻略热度一般 2–4 周就退",
+   "extra": {}
+  },
+  {
+   "rank": 6,
+   "keyword": "over the hill",
+   "keyword_note": "（游戏：map、vehicles list、vehicle locations）",
+   "description": "Funselektor（art of rally 的开发商）新作：越野四驱开放世界，10-14 发售，首发 8 折 $19.99（原价 $24.99）",
+   "sources": [
+    "https://store.steampowered.com/app/2929250/",
+    "https://overthehilldb.com/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/2929250/ · https://overthehilldb.com/",
+   "first_seen": "2026-10-14",
+   "trend_signal": "Steam 在线 **8,744**；432 篇评测，**好评率 93%**。Trends 读数：「over the hill game」10-15 是 GPTs 的 2.3 倍；「over the hill map」0.46 倍（从 0 起步）。X 10-14 260 条。名字和常见短语撞车，补全很杂（maple、生日）",
+   "trends_verified": true,
+   "serp": "overthehilldb.com（06-21，21 辆车、42 种野生动物、互动地图）、overthehillwiki.com、overthehillgame.wiki、overthehill.wiki、gameindex.wiki、overthehillguide.com（10-05）",
+   "domain": "overthehillmap.com 的 RDAP 是 404",
+   "idea": "互动地图和收集品追踪",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "口碑好，但 6 个站提前几个月占位，名字太泛，SEO 难",
+   "extra": {}
+  },
+  {
+   "rank": 7,
+   "keyword": "Hood Warfare 2",
+   "keyword_note": "",
+   "description": "Steam 帮派 PvP 射击游戏，10-08 发售",
+   "sources": [
+    "https://store.steampowered.com/app/5155360/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/5155360/",
+   "first_seen": "2026-10-08",
+   "trend_signal": "Steam 在线 12,827；1,817 篇评测。Trends 读数是 GPTs 的约 20 倍（已失真）；长尾未测",
+   "trends_verified": true,
+   "serp": "未做 SERP 抽查（未验证）",
+   "domain": "未查",
+   "idea": "武器配装和地图",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "量有，但未深挖、竞争未验证，PvP 射击游戏工具需求弱",
+   "extra": {}
+  },
+  {
+   "rank": 8,
+   "keyword": "Google AI Studio 私有 Play Store 应用",
+   "keyword_note": "",
+   "description": "AI Studio 里 vibe coding 做出的应用，可以发布到私有 Play 渠道",
+   "sources": [],
+   "sources_text": "X 新闻 2026-10-14（search_news）",
+   "first_seen": "2026-10-14",
+   "trend_signal": "Trends 读数：10-15 有个小尖峰，约 GPTs 的 0.14 倍",
+   "trends_verified": true,
+   "serp": "官方文档",
+   "domain": "未查",
+   "idea": "教程内页",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "大厂功能，教程只适合老站做",
+   "extra": {}
+  },
+  {
+   "rank": 9,
+   "keyword": "Unlimited OCR",
+   "keyword_note": "（unlimited ocr online、api）",
+   "description": "百度开源 OCR 模型（HF 4,638 likes，2026-06）",
+   "sources": [
+    "https://huggingface.co/baidu/Unlimited-OCR"
+   ],
+   "sources_text": "https://huggingface.co/baidu/Unlimited-OCR",
+   "first_seen": "2026-06（不是新词）",
+   "trend_signal": "Trends 读数：10-13 有个小尖峰，约 GPTs 的 0.24 倍，之后回到 0",
+   "trends_verified": true,
+   "serp": "未查",
+   "domain": "未查",
+   "idea": "在线 OCR",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "OCR 是老红海，模型也不新",
+   "extra": {}
+  }
+ ],
+ "supplement": "",
+ "top_picks": "1. **YouTube GIF comments**（16/25）\n   - **事件**：YouTube 9-23 在 Made on YouTube 公布评论区支持 GIF。10-14 起开始灰度（9to5Google 报道，北京 10-15 06:06），gifcomments.com 称官方 API 修订记录写着 11 月前覆盖全部账号（这是该站的说法，原始记录未直接核对）。\n   - **社交量**：X 日量从 10-09 的 7 条涨到 10-14 的 **2,863 条**。\n   - **搜索量**：Trends 里「youtube gif comments」10-14 是 GPTs 的 **3.8 倍**（粗估约 1.9 万次/天）。\n   - **补全**：一天内长出三类长尾。\n     - 怎么用：how to add、can you post、desktop\n     - 坏了怎么办：not working、not showing\n     - 怎么关：how to turn off gif comments youtube channel / video / app、hide gif comments youtube studio / extension\n   - **竞争**：gifcomments.com **10-14 刚注册**，已经上了桌面端发 GIF 扩展 v1.2.3 和十几个指南页（含隐藏 GIF 的教程页）。GitHub 上 desktop_gifs 是 GPL-3.0，抄它的代码必须开源。其余前 5 是媒体和 YouTube 帮助页，按「首页胜内页」，第二个专用站仍有机会进前 5（推断，Google 实际排名未验证）。\n   - **切口**：\n     - 「**屏蔽 GIF 评论**」扩展：官方没有开关，创作者和观众都在搜\n     - 「上传自己的 GIF 到 Tenor 才能在 YouTube 用」教程：tenor upload gif 的长尾很多，比如 not working、stuck at 0、requirements\n     - 评论 GIF 制作器\n   - **变现**：弱，靠广告和捐赠，可以为老的图片或 GIF 工具站导流。这个词最适合拿来**抢 ChatGPT 新词流量、给老站加权重**。\n2. **Scam With Your Friends**（15/25）\n   - **事件**：今天在 Steam 抢先体验发售，正式版目标是 12 月中。开发者 JakeHub/Metater，AI 内容走 OpenRouter。官方说「heavily moddable」，可以用 JSON 写角色性格、用 WAV 克隆声音。\n   - **需求**：Trends 两组独立对比，10-15 都约是 GPTs 的 **2 倍**，试玩高峰 10-10 是 2.5 倍。Google 补全有 price、cost、**ai credits**，说明玩家关心 AI 额度怎么收费；mod 和角色性格的长尾 Google 还没收录，**解锁后才会长出来**。\n   - **竞争**：4 个新站在 9 月中到 10 月初注册。最强的 scamwithyourfriends.wiki 自己写着「JSON schema、WAV 规格、安装路径尚未公开」。也就是说**工具位（生成器、校验器、分享库）还空着**，但要等游戏解锁、有人拆出格式之后才能做。\n   - **风险**：诈骗题材加呼叫中心口音刻板印象，AdSense 对「欺诈/不诚实行为」类内容可能限制投放（未验证）。声音克隆页面必须写清「只用自己或已授权的声音」。\n3. **Planet Zoo 2**（15/25）\n   - **需求**：10-13 发售，**19,564 人同时在线**。Trends 里「planet zoo 2 animals」10-15 是 GPTs 的 **2.9 倍**，还在涨。补全有 compatibility、appeal、habitat requirements、by continent。模拟经营游戏的长尾能吃 DLC 和 mod，寿命长。\n   - **竞争是今天最挤的**：\n     - 官方 Zoopedia 已经给出每个物种的要求和关系\n     - pz2tools.wiki（10-09）已有 1,221 对共居表和计算器\n     - planetzoo2animals.com（10-11）\n     - pz2planner.pages.dev\n     - afleurdenet 已有 appeal 排名（今天核对后纠正了「appeal 排名是空白」的初判）\n   - **结论**：只建议**已有游戏站的人做内页**，或者做一个交互明显更好的「展区规划器」，用来测试「首页胜内页」能不能在游戏词上成立。不建议为它单独投入一周。\n\n其他值得留意：Mirelo SFX 2.0（15/25，可订阅，但品牌词量小）、Castlevania: Belmont's Curse（14/25，量最大，但地图位已被抢）、over the hill（13/25，口碑最好，但 6 个站提前占位）。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "旧词跟进",
+   "markdown": "> X 列是今天这一次 `get_posts_counts_recent` 拉取的数（UTC 日界，`raw/2026-10-15/x_counts.tsv`）。趋势列是今天新拿到的读数（`trends2.jsonl` 等，都相对 GPTs）。前几天的结论是在**没有趋势数据**的情况下给的，今天用趋势数据统一复核了一遍。\n\n| 词 | 今日信号 | 判断 |\n|---|---|---|\n| **Character.ai export / 迁移**（昨日 Top1，18/25） | X 宽口径查询：10-13 5,309 → **10-14 22,945**（又涨 4.3 倍；以新闻和段子为主，60 Minutes 也报了）。但搜索端：「export character ai chats」**0**；「character ai alternative」7 天约 0，3 个月尺度约 0.08 倍 GPTs；「character ai shutting down」约 0.25 倍；只有品牌词「character ai」本身约 35–40 倍（失真，涨了约 35%） | **社交热、搜索冷，降级**。导出的需求要等 11 月初用户拿到官方 ZIP 才可能出现；现在不值得单独建站，可以先在老站留一个 `/character-ai-export-viewer` 内页等 11 月 |\n| AI video reframe（昨日 Top2） | Trends 约 0（7 天里只有一个小时出现过 7） | **降级**：搜索量极小，功能可以并进已有的视频工具站 |\n| Remove background with prompt（昨日 Top3） | Trends 0 | **降级**：长尾太小，只建议老站内页 |\n| fill this room | X 10-12 196 → 10-13 222 → 10-14 205，持平；Trends 10-14 约 0.08 倍、10-15 约 0.19 倍（有歌词噪音） | 社交平稳，搜索很小，不新开站 |\n| oomfmap | Trends 10-14 约 0.18 倍 → 10-15 约 0.12 倍 | 继续回落，不跟 |\n| **StepFun Step 5**（官方说 10-15 开放权重） | 09:26 HF `stepfun-ai` 仍没有 Step-5（最新是 2026-05 的 Step-3.7-Flash）；@StepFun_ai 10-12 起没有原创帖；X 日量 72 → 113 → 40 → 28 → 21 → 13 → 7 | 声量持续下滑。当天还没结束，明天再查一次；放出且许可证宽松才考虑做部署、量化内页 |\n| AI school picture generator（10-12 Top1） | Trends 约 0.05–0.09 倍 GPTs | 有小量季节需求，没变化 |\n| AI shader generator（10-13 Top1） | Trends 约 0.02 倍；shaders 仓库 4,847★（10-14 是 4,763） | 搜索很小，没变化 |\n| AI video relight（10-12 Top2） | Trends 0 | 没变化 |\n| Vidu Q4（10-12 Top3） | Trends 10-12 起是 0 | 窗口关闭 |\n| **REA**（版权风险高） | GitHub **242,948★**（10-14 是 208,099，24 小时约涨 3.5 万） | GitHub 还在猛涨。维持结论：只做合规的信息和教育内容 |\n| Claude Anatomy | anatomy 10,242★（10-14 是 8,242） | 开发者圈还在涨，搜索端未见需求，不跟 |\n| ArtCraft / photocraft | photocraft 61,166★（10-14 是 57,992） | 品牌和商标问题，不做 |\n| universal-modder | 7,654★（10-14 是 7,409） | 小涨，没变化 |\n| Fish Audio Drama 3 | HF 316 likes（10-14 09:20 是 100） | 社区在涨；许可证限制不变，只适合做教程 |"
+  },
+  {
+   "title": "不推荐但继续盯",
+   "markdown": "- **Mirelo SFX 2.0**（15/25）\n  - 现状：fal 10-14 上线；X 当天 3,101 条，大量雷同帖，疑似推广。\n  - 卖点：支持 10 分钟视频、保留人声。X 帖里引用的盲测数据是对 Veo 3.1 Fast 57% 比 21%、对 Sony Woosh 81% 比 9%（厂商口径，未独立验证）。\n  - 不推荐的原因：品牌词趋势只有 GPTs 的 0.3 倍；泛词「ai sound effects from video」补全很强，但 Magic Hour、PrismAudio、SFXGen 等已在做；fal 价格未拿到。\n  - 什么时候能做：如果你有视频工具站，可以把「长视频自动配音效」做成付费功能（这类可订阅产品变现好，按群里「广告收入比订阅低约 30 倍」的经验，它比上面几个词更赚钱）。\n- **Castlevania: Belmont's Curse**（14/25）：量最大（单词约是 GPTs 的 13.7 倍，已失真），但 capydb（10-03，379 个房间）和 mapmaster 已经有完整地图。可以考虑的切口是「100% checklist」，belmontscursechecklist.com 的 RDAP 是 404。类银河恶魔城攻略寿命短，不推荐单独建站。\n- **over the hill**（13/25）：好评率 93%、8,744 人在线，口碑最好；但 overthehilldb 6 月就上了互动地图，加上另外 5 个站，名字又太泛。不做。\n- **Hood Warfare 2**：在线 12,827，未深挖。PvP 射击游戏的工具需求一般偏弱，先观察。\n- **Seedance 2.5**：Trends 约是 GPTs 的 3.5 倍，但很平；7 月起就是老词，赛道很挤。不进决赛。\n- **celebrity look-alike collage**（X 新闻：自拍加三位明星的长相投票）：补全有 celebrity look alike collage maker / template，但 Trends 是 0、X 7 天只有 33 条。不跟。\n- **Google AI Studio 私有 Play Store 应用、Grok Imagine 音乐、Ultramarine 1 Flash、Ling-3.1-flash**：都是大厂或模型新闻，搜索读数接近 0，只适合老站做内页。\n- **Macintosh Skeleton 字体**（521★）：补全有 macintosh skeleton font download，Trends 约 0，而且是 Apple 字体版权。不做。"
+  }
+ ],
+ "deep_dive_count": 3,
+ "parse_ok": true
+}
