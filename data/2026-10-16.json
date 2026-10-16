@@ -1,0 +1,422 @@
+{
+ "date": "2026-10-16",
+ "title": "每日新词监控 · 2026-10-16",
+ "collected_at": "2026-10-16 北京时间（UTC+8）约 09:03–09:14。这是第六轮每日新词监控，结构和 2026-10-15.md 一样（A–H 深挖）。全部原始数据在 raw/2026-10-16/",
+ "generated_at": "2026-10-16T09:15:39+08:00",
+ "trends_unverified": false,
+ "preface": "数据采集时间：2026-10-16 北京时间（UTC+8）约 09:03–09:14。这是第六轮每日新词监控，结构和 `2026-10-15.md` 一样（A–H 深挖）。全部原始数据在 `raw/2026-10-16/`。\n\n**数据来源情况（如实说明）**\n- **用到了**：\n  - X MCP：`get_posts_counts_recent` 12 组 7 天日量（`x_counts.tsv`）；`search_news` 2 次（AI/工具相关共约 45 条）；`get_trends_by_woeid`（美国，体育/娱乐为主）；`get_users_posts` 看了 8 个账号（@fal @_akhaliq @levelsio @kimmonismus @OpenAI @GoogleDeepMind @Alibaba_Qwen @StepFun_ai）；用户 ID 解析 1 次。\n  - GitHub Search API：30 天和 7 天内新建高星仓库各 40 条（`gh30.json` / `gh7.json`）。\n  - Hugging Face API：热门模型与 Spaces。\n  - HN Algolia：front_page + 近 Show HN。\n  - Product Hunt 10-15 日榜页（HTML，产品名未从静态 HTML 解析出，JS 渲染）。\n  - Steam：featuredcategories、appdetails（Scam）、当前在线人数 5 款跟进游戏、评测汇总 3 款。\n  - Google Trends RSS（美区）；new.web.cafe 公开页。\n  - Google / Bing / DDG 自动补全：`ac.py` 跑了 40 个查询（`ac_batch1–3.jsonl`）。\n  - Google 趋势：explore + multiline，14 组对比，每组带 GPTs，日界按 UTC+8（`trends1–4.jsonl`）。\n  - cursor WebSearch：约 10 组查询前 5（**不是 Google 原生第一页**），见 `serp_notes.md`。\n  - WebFetch/curl：gifcomments.com、SWYF wiki、Steam Workshop 页。\n  - RDAP：候选约 30 个域名 + 10 个竞品域名。\n- **被挡、或只拿到一部分**：\n  - Reddit：未再请求（昨日 403/429）。\n  - App Store 免费榜 RSS：返回空/非 JSON。\n  - Product Hunt / Steam Workshop：页面依赖 JS，条目明细未验证。\n  - Google 原生前十、intitle：未验证。\n  - .ai 部分域名 RDAP 可用；个别 .com 一次 SSL 失败后重试为 404。\n  - fal OmniHuman / Mirelo 价格页：本日未重新抓取计费数字（OmniHuman 文档侧有 BytePlus $0.07/s、fal 旧版约 $0.14/s 的二手描述，**现场价以控制台为准，记未完全验证**）。\n- **趋势数字的读法**：`X/GPTs` = 同组日均值比。GPTs ≈ 每天 5,000 次（群经验值），粗估只能看量级。相差超过 10 倍会失真（今日 Belmont / DayZ / Hood Warfare 主词都超过 10 倍）。\n- **X 计数口径**：UTC 自然日。10-16 仅约 00:00–01:08 UTC（北京约 08:00–09:08），是不完整日。\n- **相对昨天的变化**：\n  - YouTube GIF comments：搜索从 10-14 的 3.7×GPTs 降到 10-15 的 1.8×、**10-16 上午约 0.75×**；X 从 2,860 降到 849。gifcomments.com 已加上 Hide，竞争变强。\n  - Scam With Your Friends：**已正式 EA 发售**（Steam 日期 Oct 15, 2026），在线 14,896；Trends 10-16 上午约 **10.6×GPTs**；Google 补全新出现 json file/data/code/error（昨天还是噪音）。JSON schema **仍未公开**。\n  - StepFun Step 5：权重已开放（昨日报「待开放」），X 10-15 跳到 431；适合跟进，不宜当新站主词。\n  - Character.ai export：X 几乎归零，维持降级。\n\n**筛选漏斗**\n- **原始信号**：81 条种子（`raw/2026-10-16/seeds.txt`），构成大致如下：\n  - X 账号 / X 新闻：约 30\n  - GitHub：约 20\n  - HN / Show HN：约 12\n  - Steam / 跟进：约 12\n  - HF / Trends RSS / PH/web.cafe / 被挡记录：其余\n- **不计入种子数的辅助数据**：12 条 X 日量、40 个补全查询、14 组趋势对比、SERP 笔记、约 40 个 RDAP。\n- **第一层**：保留能做成英文工具站或内容站的，剔除大厂纯模型新闻当主站、NSFW、版权移植游戏、健康向，剩约 **26** 个。\n- **第二层**：要求补全有真实需求变体，且 Trends 相对 GPTs 有读数或社交明显跳升；再做 SERP/RDAP 后，剩 **9** 个决赛词：\n  - Scam With Your Friends\n  - Castlevania: Belmont's Curse\n  - Muse Spark Open\n  - DayZ Badlands\n  - Planet Zoo 2\n  - YouTube GIF comments\n  - Krea 3\n  - Hood Warfare 2\n  - OmniHuman V2 / talking photo（降级观察）\n- **今日结论（如实）**：**仍没有找到「需求已起、竞争还空」的 AI 工具新词。**\n  - 今天真正的增量是：① SWYF 发售日搜索爆发 + JSON 长尾开始进补全（工具位仍等 schema）；② Muse Spark Open 开源日（本地运行指南有量，但 Meta/Unsloth/硬件博主已占位）；③ Belmont / DayZ Badlands 游戏搜索继续飙，地图位已被抢。\n  - OmniHuman V2、Krea 3、手绘讲解视频等「能做成工具」的方向，要么 Trends≈0，要么 SERP 已是红海。\n  - Top 3 按「今天能不能接住流量 / 有没有可执行切口」排序。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "Scam With Your Friends",
+   "keyword_note": "（ai credits、json、mods、workshop、personality）",
+   "description": "Steam EA 联机派对：AI 诈骗电话，OpenRouter/DeepSeek 对话；官方称可用 JSON+WAV 自定义角色；Steam Workshop 标签已出现",
+   "sources": [
+    "https://store.steampowered.com/app/4954910/",
+    "https://scamwithyourfriends.wiki/personalities/json-files/",
+    "https://scamwithyourfriends.net/mods/",
+    "https://jataterworldwide.com/scam-with-your-friends/unlimited"
+   ],
+   "sources_text": "https://store.steampowered.com/app/4954910/ · https://scamwithyourfriends.wiki/personalities/json-files/ · https://scamwithyourfriends.net/mods/ · https://jataterworldwide.com/scam-with-your-friends/unlimited",
+   "first_seen": "Steam 发售日 2026-10-15（EA，$8.99 / 原价 $9.99）",
+   "trend_signal": "**Trends 10-15≈2.2×GPTs → 10-16 上午≈10.6×**（粗估量级约 5 万次/天，>10× 略失真）。X：发售日 32，10-16 不完整日已 37。Steam 在线 **14,896**；评测 Mixed 582（+403/−179）。Google 补全：price/steam/discord；**json file/data/code/error 新出现**；workshop maps；ai credits（夹杂社媒噪音）",
+   "trends_verified": true,
+   "serp": "4+ 新站仍在：wiki（09-26）、.net/mods（10-01）、scamwithfriends.com 等；AI credits 澄清页已有官方差不多的 unlimited 说明。JSON **schema 仍未公开**（wiki 仍写 unpublished）",
+   "domain": "swyfjson.com、swyfgenerator.com、scamcallerjson.com、personalityjson.com、swyfmods.wiki、swyfcredits.com 的 RDAP 均为 404",
+   "idea": "立刻做「AI credits / Unlimited / 退款争议」澄清页接发售流量；schema 一公开就上 **JSON 生成器+校验+分享库**",
+   "rating": 4.0,
+   "rating_stars": "★★★★",
+   "reason": "今天搜索与在线同时爆发；JSON 长尾开始长出。风险：题材/AdSense、AI 成本舆论、格式未解锁",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Scam With Your Friends（JSON / mods / AI credits）",
+    "intro": "> 评分 17/25。一句话：发售日搜索已起来，JSON 长尾开始进补全，生成器窗口还在但取决于官方何时公开 schema；同时要警惕 AI 成本舆论和题材风险。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam `release_date.date` = Oct 15, 2026，`coming_soon=false`，价格 $8.99（10% off）。\n- categories 含 **Steam Workshop**（本日 API 实测）。\n- X 日量发售日抬升；wiki JSON 页仍写 schema unpublished。\n- Steam 评测 Mixed；社区帖提到 token 成本与退款（二手舆论，未核实 Discord 原文）。"
+     },
+     {
+      "title": "B. 词族（`ac_batch2/3.jsonl`）",
+      "markdown": "- 主词：game / release date / price / steam / discord / reddit / mobile / free\n- **新**：json file / json data / json code / json error\n- workshop maps / maps not loading\n- ai credits（含 facebook/instagram 等噪音，需人肉过滤）\n- character creator（大量 Roblox/Facebook 噪音）"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- Trends（`trends1.jsonl`）：10-15 日均 7.1 vs GPTs 3.3（≈2.2×）；**10-16 上午 37.2 vs 3.5（≈10.6×）**。\n- Steam 在线 14,896（09:06 量级）。\n- 粗估：按 GPTs=5k，10-16 上午量级约数万次/天（>10× 组别读数偏乐观）。"
+     },
+     {
+      "title": "D. SERP（WebSearch 前 5，非原生）",
+      "markdown": "- JSON/mods：wiki 与 .net 解释页占前；强调「格式未公开」。\n- AI credits：jataterworldwide unlimited 页澄清 playtest 商品；guide.wiki 也有 credits 页。\n- 判断：信息页已有，**交互式生成器仍空**。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 缺口 |\n|---|---|---|---|\n| scamwithyourfriends.wiki | 2026-09-26 | 人格/JSON/WAV 说明，明确 schema 未公开 | 无生成器 |\n| scamwithyourfriends.net/mods | 2026-10-01 | mods 说明、警告假站 | 无工具 |\n| jataterworldwide unlimited | 官方相关 | playtest Unlimited 说明 | 不做 SEO 长尾库 |\n| Steam Workshop | 标签已有 | 条目数未验证 | 官方分发可能分流第三方站 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **MVP 今天就能做（0.5–1 天）**：AI credits / Unlimited / 退款 FAQ 静态站 6–8 页。\n- **MVP 等 schema（+1–2 天）**：JSON 表单生成器、校验、示例库、Workshop 上传教程。\n- **成本**：静态托管；无 API。若做在线试玩仿站则有模型成本，不建议碰诈骗对话本身。\n- **变现**：广告为主；可卖「人格包」周边风险高，慎做。\n- **ChatGPT**：高——「swyf json schema」「do I need ai credits」类问题训练数据没有。\n- **寿命**：EA 前 2–6 周高峰；正式版与 Workshop 生态可拉长。\n- **风险**：AdSense 敏感类；NSFW/刻板印象；游戏停服。"
+     },
+     {
+      "title": "G. 域名（RDAP）",
+      "markdown": "- 推荐：swyfjson.com、swyfgenerator.com、swyfcredits.com、personalityjson.com（均 404）\n- swyfmods.wiki 404\n- 避开完整游戏名商标域做商业暗示过度的站名"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 5 | 发售日 Trends≈10×，在线 1.5 万，补全长尾出现 |\n| 竞争 | 3 | 信息站已在，工具站空；窗口窄 |\n| 可行性 | 4 | FAQ 立刻可做；生成器依赖官方文档 |\n| 变现 | 2 | 广告为主，题材限制 |\n| 寿命 | 3 | EA 周期 + Workshop 可能延长 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- 第 1 天：注册 swyfcredits.com 或 swyfjson.com；上 AI credits/Unlimited/退款 FAQ；提交 GSC。\n- 第 2 天：价格页、系统需求、联机人数说明；引用 Steam 官方表述。\n- 第 3 天：盯官方 Discord/补丁——schema 一出，当天上 JSON 生成器 MVP。\n- 第 4 天：WAV 规格页 + 安全提示（只用自有/授权声音）。\n- 第 5 天：Workshop 上传/订阅教程（若条目已出现）。\n- 第 6 天：人格包展示墙（用户投稿，人工审核）。\n- 第 7 天：看 GSC；无曝光则把 FAQ 并入老游戏站内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 5.0,
+      "note": "发售日 Trends≈10×，在线 1.5 万，补全长尾出现"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "信息站已在，工具站空；窗口窄"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "FAQ 立刻可做；生成器依赖官方文档"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "广告为主，题材限制"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "EA 周期 + Workshop 可能延长"
+     }
+    ],
+    "total": 17.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "Castlevania: Belmont's Curse",
+   "keyword_note": "（map、checklist、walkthrough、bosses）",
+   "description": "Konami 类银河恶魔城新作",
+   "sources": [
+    "https://store.steampowered.com/app/4231820/",
+    "https://capydb.com/castlevania-belmonts-curse/maps/",
+    "https://www.gamerguides.com/castlevania-belmonts-curse/maps",
+    "https://atma.gg/castlevania-belmonts-curse"
+   ],
+   "sources_text": "https://store.steampowered.com/app/4231820/ · https://capydb.com/castlevania-belmonts-curse/maps/ · https://www.gamerguides.com/castlevania-belmonts-curse/maps · https://atma.gg/castlevania-belmonts-curse",
+   "first_seen": "Steam 约 10-14 发售",
+   "trend_signal": "Trends「belmont's curse」10-15≈16×、**10-16≈24×GPTs**（已失真）。X 10-14 4,111 → **10-15 10,615**。Steam 在线 **17,855**；评测 Mixed 2,140（+1,409/−731）。补全：map、checklist printable/pdf、bosses",
+   "trends_verified": true,
+   "serp": "**极挤**：Gamer Guides 互动图+清单、CapyDB（10-03，9 图 379 房）、atma.gg、Neoseeker 全文攻略",
+   "domain": "belmontscursechecklist.com、belmontchecklist.com、castlevaniachecklist.com、bcchecklist.com 404",
+   "idea": "不做大地图。做 **100% printable checklist**（本地勾选）+ Boss 顺序短页",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "量最大之一，地图位已满；清单长尾仍可能有缝",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Castlevania: Belmont's Curse（checklist）",
+    "intro": "> 评分 15/25。一句话：量最大，地图战已结束，只剩清单/Boss 顺序等薄工具缝。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam 在线 17,855；X 10-15 破万；Trends 远超 GPTs。\n- 评测 Mixed（好评率约 66%），说明攻略/排错需求可能比「纯吹」更持久。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- map / map location / checklist printable|pdf / bosses / walkthrough（`ac_batch2`）"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- Trends（`trends2.jsonl`）：10-16 日均约 85.5 vs GPTs 3.5（≈24×，失真）。\n- 补全 checklist 变体真实存在。"
+     },
+     {
+      "title": "D. SERP",
+      "markdown": "- 地图：Gamer Guides、CapyDB、atma.gg。\n- 攻略：Neoseeker。\n- printable checklist 专用站：WebSearch 前 5 未见（推断有缝，**未验证 Google 排名**）。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 特点 | 缺口 |\n|---|---|---|\n| Gamer Guides | 互动图+登录同步清单 | 偏会员；品牌大站内页 |\n| CapyDB | 拆包地图极深 | 偏数据库，打印体验一般 |\n| atma.gg | databook | 内容完整度待观察 |\n| Neoseeker | 长文攻略 | 非清单工具 |"
+     },
+     {
+      "title": "F. 可行性",
+      "markdown": "- MVP 1 天：静态 checklist（localStorage）+ Boss 顺序 + 区域收集表。\n- 变现：广告；可导流到地图站联盟。\n- 寿命：2–4 周。\n- 风险：Konami 商标，域名避开 Castlevania 全称更稳。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- belmontscursechecklist.com、belmontchecklist.com、bcchecklist.com 404"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 5 | 社交+搜索+在线三重高 |\n| 竞争 | 2 | 地图战结束 |\n| 可行性 | 5 | 纯静态 |\n| 变现 | 2 | 广告 |\n| 寿命 | 1 | 短热点 |\n| 总分 | 15/25 | |\n\n**7 天计划**：D1 注册 checklist 域并上 100% 清单；D2 Boss 顺序与结局条件；D3 与 CapyDB/地图站差异化说明（不抄图）；D4–5 按区域拆页；D6 外链到 Reddit/Steam 讨论（人工有用回复）；D7 看数据决定是否停更。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 5.0,
+      "note": "社交+搜索+在线三重高"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "地图战结束"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "纯静态"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 1.0,
+      "note": "短热点"
+     }
+    ],
+    "total": 15.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "Muse Spark Open",
+   "keyword_note": "（download、gguf、huggingface、mac studio、run locally）",
+   "description": "Meta 816B/42B active 开源权重，10-15 发布；主打本地/代理长程任务",
+   "sources": [
+    "https://research.meta.ai/blog/muse-spark-open",
+    "https://huggingface.co/ggml-org/Muse-Spark-Open-816B-A42B-GGUF",
+    "https://unsloth.ai/docs/models/muse-spark-open",
+    "https://x.com/AIatMeta"
+   ],
+   "sources_text": "https://research.meta.ai/blog/muse-spark-open · https://huggingface.co/ggml-org/Muse-Spark-Open-816B-A42B-GGUF · https://unsloth.ai/docs/models/muse-spark-open · https://x.com/AIatMeta（新闻汇总）",
+   "first_seen": "2026-10-15",
+   "trend_signal": "X 10-15 **6,341**。Trends「muse spark」10-16≈7.8×GPTs；「muse spark open」≈**5.4×GPTs**。补全：open weights / huggingface / size / openrouter / comfyui plugin·tutorial",
+   "trends_verified": true,
+   "serp": "Meta 官方文档、Unsloth、modemguides.com 硬件文、HF GGUF；前 5 偏官方和大站",
+   "domain": "musesparkguide.com、musesparklocal.com、musesparkmac.com、musesparkgguf.com、musesparkvram.com 404；runmusespark.com 已注册（2026-04）",
+   "idea": "「能不能本地跑」决策页：VRAM/统一内存门槛表、GGUF 档位、双 Mac Studio MLX vs llama.cpp，再链到官方/Unsloth",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "今天最大模型新词；变现弱（广告），适合 ChatGPT 引用型指南站，寿命短",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Muse Spark Open（本地运行指南）",
+    "intro": "> 评分 15/25。一句话：今天最大的模型开源新词，搜索与社交都在，但「怎么跑」已被官方和 Unsloth 写掉；只适合做决策型 EMD 指南，不适合当产品主力。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Meta 10-15 发布；HN 599p；X 6,341；kimmonismus 等账号扩散。\n- HF GGUF、Unsloth 文档、Meta Mac cookbook 同日出现。"
+     },
+     {
+      "title": "B. 词族（`ac_batch1/3`）",
+      "markdown": "- muse spark open / open weights / huggingface / size / openrouter\n- muse spark comfyui plugin|tutorial|download|github\n- run locally / mac studio 相关由 SERP 侧证实存在"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- Trends「muse spark open」10-16≈5.4×GPTs；品牌词「muse spark」≈7.8×。\n- 粗估量级约 2–3 万次/天（仅开源首日，会快速回落）。"
+     },
+     {
+      "title": "D. SERP",
+      "markdown": "- 前排：HF、Unsloth、modemguides、Meta docs。\n- 按「首页胜内页」，垂直 EMD（如 musesparkgguf.com）仍可能进 ChatGPT 引用池（推断）。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 缺口 |\n|---|---|\n| Unsloth 文档 | 权威但偏开发者 |\n| modemguides | 硬件门槛说得清，SEO 覆盖未知 |\n| Meta 官方 | 不解决「我这台机器能不能跑」对比表 |"
+     },
+     {
+      "title": "F. 可行性",
+      "markdown": "- MVP 1 天：门槛表（统一内存 / 多机 MLX / GGUF 量化档）+ 常见报错。\n- 变现：广告、云 GPU 联盟。\n- 寿命：1–4 周。\n- 风险：型号名/商标；硬件数字必须引用可核对来源，禁止编造。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- musesparkguide.com、musesparklocal.com、musesparkmac.com、musesparkgguf.com、musesparkvram.com 404\n- 避开 runmusespark.com（已注册）"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 4 | 开源日 5×+GPTs，X 六千级 |\n| 竞争 | 2 | 官方+Unsloth 已在 |\n| 可行性 | 5 | 静态指南 |\n| 变现 | 2 | 广告/联盟 |\n| 寿命 | 2 | 模型热点衰减快 |\n| 总分 | 15/25 | |\n\n**7 天计划**：D1 上「Can you run Muse Spark Open?」计算器式门槛页；D2 GGUF 档位与质量对照；D3 Mac Studio / 双机 MLX 专页；D4 常见报错；D5 与 Kimi/DeepSeek 本地方案对比（不贬低）；D6 提交索引并在 X 技术帖下提供有用摘要；D7 若无曝光则停，保留跳转 Unsloth。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "开源日 5×+GPTs，X 六千级"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "官方+Unsloth 已在"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "静态指南"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "广告/联盟"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "模型热点衰减快"
+     }
+    ],
+    "total": 15.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 5,
+   "keyword": "Planet Zoo 2",
+   "keyword_note": "（animals、habitat、compatibility）",
+   "description": "Frontier 动物园续作，10-13 发售",
+   "sources": [
+    "https://store.steampowered.com/app/3219030/",
+    "https://pz2tools.wiki/cohabitation/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/3219030/ · https://pz2tools.wiki/cohabitation/",
+   "first_seen": "2026-10-13",
+   "trend_signal": "在线 17,662；评测 Mixed 2,767。Trends animals 仍约 **2.1×GPTs**，habitat≈0.8×。X 从发售峰回落到 646",
+   "trends_verified": true,
+   "serp": "官方 Zoopedia + pz2tools.wiki 等 4+ 工具站（同昨天）",
+   "domain": "同昨天，多个 404 仍在",
+   "idea": "展区规划器（交互优于表格）",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "长尾稳，但工具位已满；只适合老站内页",
+   "extra": {}
+  },
+  {
+   "rank": 6,
+   "keyword": "YouTube GIF comments",
+   "keyword_note": "（hide / turn off / desktop extension）",
+   "description": "YouTube 评论 GIF 灰度；桌面端仍弱",
+   "sources": [
+    "https://gifcomments.com/",
+    "https://9to5google.com/2026/10/14/youtube-begins-rolling-out-gif-support/"
+   ],
+   "sources_text": "https://gifcomments.com/ · https://9to5google.com/2026/10/14/youtube-begins-rolling-out-gif-support/",
+   "first_seen": "2026-09-23 公布 / 10-14 灰度",
+   "trend_signal": "Trends 主词 10-14 3.7× → 10-15 1.8× → **10-16 0.75×**。X 2,860→849。「gif comments」仍约 1×GPTs。补全 turn off/hide 仍密",
+   "trends_verified": true,
+   "serp": "gifcomments.com 已加 **Hide** 与 v1.2.5，先手更强",
+   "domain": "commentgif.com 等仍 404",
+   "idea": "差异化更难；可把页并进老站",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "仍有尾量，不再是「空位新词」",
+   "extra": {}
+  },
+  {
+   "rank": 7,
+   "keyword": "Krea 3",
+   "keyword_note": "",
+   "description": "Krea 新一代指令编辑图像模型；Comfy Partner Node（无本地权重）",
+   "sources": [
+    "https://www.krea.ai/krea-3"
+   ],
+   "sources_text": "https://www.krea.ai/krea-3 · HN 242p",
+   "first_seen": "约 10-13～10-15",
+   "trend_signal": "X 10-15 832。Trends 10-16≈**0.99×GPTs**。补全：open weights（易误解——3 不开源）、comfyui、edit",
+   "trends_verified": true,
+   "serp": "官方 + Comfy 文档；Krea 2 才是开源权重",
+   "domain": "未重点查",
+   "idea": "教程/对比页（Krea 3 API vs Krea 2 本地）适合老站",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "有社交热，搜索刚起，订阅位在官方",
+   "extra": {}
+  },
+  {
+   "rank": 8,
+   "keyword": "Hood Warfare 2",
+   "keyword_note": "",
+   "description": "Steam 帮派 PvP，10-08 发售",
+   "sources": [
+    "https://store.steampowered.com/app/5155360/"
+   ],
+   "sources_text": "https://store.steampowered.com/app/5155360/",
+   "first_seen": "2026-10-08",
+   "trend_signal": "在线 9,151。Trends 约 16×GPTs（失真）。工具长尾弱",
+   "trends_verified": true,
+   "serp": "未深挖 SERP",
+   "domain": "未查",
+   "idea": "配装/地图价值低",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "量有、可做性弱",
+   "extra": {}
+  },
+  {
+   "rank": 9,
+   "keyword": "OmniHuman V2 / talking photo ai",
+   "keyword_note": "",
+   "description": "字节说话人像视频，fal 上线；最长约 5 分钟",
+   "sources": [
+    "https://fal.ai/models/bytedance/omnihuman/v2/api",
+    "https://x.com/fal/status/2110853692010189001"
+   ],
+   "sources_text": "https://fal.ai/models/bytedance/omnihuman/v2/api · https://x.com/fal/status/2110853692010189001",
+   "first_seen": "fal 公告 2026-10-15 22:01 UTC",
+   "trend_signal": "X 相关查询 10-15 164。Trends talking photo / image to talking video / omnihuman 相对 GPTs **≈0–0.07×**",
+   "trends_verified": true,
+   "serp": "Magic Hour、Creen、ZSky 等大量免费站",
+   "domain": "talkingphotofree.com 404；omnihumanvideo.com 已注册",
+   "idea": "可订阅包装 OmniHuman，但需求词搜索冷、竞品密",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "模型新、搜索不新",
+   "extra": {}
+  },
+  {
+   "rank": 4,
+   "keyword": "DayZ Badlands",
+   "keyword_note": "（map、Nasdara）",
+   "description": "DayZ 新地图/资料片向内容，Steam 畅销榜出现",
+   "sources": [
+    "https://store.steampowered.com/app/3816030/",
+    "https://www.dayzbadlands.wiki/map/",
+    "https://nasdaramap.com/map"
+   ],
+   "sources_text": "https://store.steampowered.com/app/3816030/ · https://www.dayzbadlands.wiki/map/ · https://nasdaramap.com/map",
+   "first_seen": "近几日热度上升（具体全球发售时刻未逐条核对）",
+   "trend_signal": "Trends「dayz badlands」10-16≈**12.3×GPTs**；「dayz badlands map」≈3.5×。补全：map / price / release date xbox",
+   "trends_verified": true,
+   "serp": "ps5",
+   "domain": "survivalservers、dayzbadlands.wiki（10-08）、wobo、**nasdaramap.com（RDAP 2026-10-15）**",
+   "idea": "dayzbadlandsmap.com、badlandsdayz.com、dayzbadlandswiki.com 404",
+   "rating": null,
+   "rating_stars": "",
+   "reason": "互动地图/战利品层；但已晚一步",
+   "extra": {
+    "col10": "★★★ 有量，地图位已被至少 4 家占"
+   }
+  }
+ ],
+ "supplement": "",
+ "top_picks": "1. **Scam With Your Friends**（17/25）\n   - **事件**：10-15 EA 发售，$8.99；Steam 短描述与 Workshop 标签确认「可模组」；在线近 1.5 万。\n   - **搜索**：Trends 发售次日上午约 **10.6×GPTs**；补全出现 **json file/data/code/error**（相对昨天是实质变化）。\n   - **竞争**：wiki/.net 等仍在，但都承认 schema 未公开 → **生成器空位还在**，窗口是「文档落地后的 24–72 小时」。\n   - **立刻能做的**：AI credits / Unlimited 是否还要买、退款与 token 成本说明（Steam 社区争议中，需客观引用、不煽动）。\n   - **风险**：诈骗题材广告政策；声音克隆合规；游戏若因 API 成本关停则流量蒸发。\n2. **Castlevania: Belmont's Curse**（15/25）\n   - **需求**：X 单日破万、Trends 远超 GPTs、在线 1.78 万——今天量级最大的游戏词之一。\n   - **竞争**：地图被 Gamer Guides / CapyDB / atma 占满。\n   - **切口**：printable checklist + Boss 顺序；域名多枚仍 404。\n   - **寿命**：类银河攻略通常 2–4 周高峰。\n3. **Muse Spark Open**（15/25）\n   - **事件**：Meta 10-15 开源；HN 首页 599p；X 6,341。\n   - **搜索**：「muse spark open」约 5.4×GPTs；补全有 size / huggingface / comfyui tutorial。\n   - **竞争**：官方 + Unsloth + 硬件博主已写「怎么跑」；第二个 EMD 指南站仍可能吃 ChatGPT「closest match」。\n   - **变现**：弱（广告）；可给 GPU/云推理联盟导流。不适合当订阅主力。\n\n其他值得留意：DayZ Badlands（地图已挤但 map 长尾 3.5×）、Planet Zoo 2（animals 仍 2×）、YouTube GIF（降温中）、Krea 3（≈1×，官方收编）。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "旧词跟进",
+   "markdown": "| 词 | 状态 | 证据 | 动作 |\n|---|---|---|---|\n| **YouTube GIF comments** | 降温中 | Trends 3.7×→1.8×→0.75×；X 2860→849；gifcomments 已加 Hide v1.2.5 | 不再单开新站；有老站可留 hide/turn off 内页 |\n| **Scam With Your Friends** | **上升（发售）** | 见 Top1 | 列入今日 Top1 |\n| **Planet Zoo 2** | 高位横盘 | animals 仍≈2×；在线 1.77 万；工具站仍挤 | 只做老站内页/规划器差异化 |\n| **Character.ai export** | 继续冷 | X 导出相关≈0–4 | 维持降级，不投入 |\n| **Mirelo SFX 2.0** | 社交回落 | X 3041→1281；Trends mirelo≈0.07×GPTs | 品牌词弱，泛词红海；低优先级盯 |\n| **StepFun Step 5** | 权重已开放 | X 431；补全 huggingface/model | 作模型新闻跟进，不做新站 |\n| **AI video reframe / Remove BG with prompt** | 仍冷 | 本日未复测 Trends（昨已≈0） | 保持降级 |"
+  },
+  {
+   "title": "不推荐但继续盯",
+   "markdown": "- **OmniHuman V2 / talking photo**：模型强、搜索冷、SERP 红海。\n- **Krea 3**：社交热，搜索刚到 ≈1×，官方收编 API。\n- **DayZ Badlands map**：搜索猛，nasdaramap 等已抢先一天到数天。\n- **fal Worlds / Flux 3 Video / Kling 4**：平台功能/模型预告，适合媒体向，不适合新 SEO 站主词。\n- **hand drawn explainer / whiteboard video**：补全有、Trends≈0、竞品已在。\n- **Hood Warfare 2 / over the hill**：量或口碑在，工具需求弱或站已满。"
+  }
+ ],
+ "deep_dive_count": 3,
+ "parse_ok": true
+}

@@ -1,12 +1,24 @@
 {
- "updated_at": "2026-10-15T09:30:28+08:00",
+ "updated_at": "2026-10-16T09:15:39+08:00",
  "dates": [
+  "2026-10-16",
   "2026-10-15",
   "2026-10-14",
   "2026-10-13",
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-10-16",
+   "count": 9,
+   "deep_dives": 3,
+   "top": [
+    "Scam With Your Friends",
+    "Castlevania: Belmont's Curse",
+    "Muse Spark Open"
+   ],
+   "generated_at": "2026-10-16T09:15:39+08:00"
+  },
   {
    "date": "2026-10-15",
    "count": 9,
