@@ -213,9 +213,25 @@ def parse_report(md_text, date_hint=None):
     # 全局 Trends 状态
     doc_trends_unverified = bool(re.search(r"Trends[^\n]{0,20}(未验证|没拿到|429|unverified)", md_text, re.I))
 
+    # 候选池 / 观察名单 章节单独解析（大表），不参与候选表选择
+    POOL_RE = re.compile(r"候选池|candidate pool", re.I)
+    WATCH_RE = re.compile(r"观察名单|watchlist", re.I)
+    pool_tbl, watch_tbl, cand_lines = None, None, []
+    for title_s, body in sections:
+        if title_s and (POOL_RE.search(title_s) or WATCH_RE.search(title_s)):
+            tbls = parse_tables(body)
+            if tbls:
+                h, rws, _s, _e = tbls[0]
+                obj = {"title": title_s, "header": [strip_md(x) for x in h], "rows": rws,
+                       "note": clean_block([ln for ln in body if not ln.lstrip().startswith("|")])}
+                if POOL_RE.search(title_s) and pool_tbl is None: pool_tbl = obj
+                elif watch_tbl is None: watch_tbl = obj
+            cand_lines += [""] * (len(body) + 1)
+        else:
+            cand_lines += [""] + body
     # 候选表：选列识别最多、且含 keyword 列的表
     best = None
-    for header, rows, s, e in parse_tables(lines):
+    for header, rows, s, e in parse_tables(cand_lines):
         mp = map_columns(header)
         if "keyword" in mp.values():
             if best is None or len(mp) > len(best[1]):
@@ -279,6 +295,8 @@ def parse_report(md_text, date_hint=None):
     supplement, top_picks, monitoring, other_sections, deep_dives = "", "", "", [], []
     for title_s, body in sections[1:]:
         text = clean_block(body)
+        if POOL_RE.search(title_s) or WATCH_RE.search(title_s):
+            continue
         if "疗愈" in title_s:
             continue  # 不再展示疗愈相关内容
         m_dd = DEEP_RE.match(title_s)
@@ -329,6 +347,8 @@ def parse_report(md_text, date_hint=None):
         "monitoring": monitoring,
         "other_sections": other_sections,
         "deep_dive_count": sum(1 for c in candidates if c.get("deep_dive")),
+        "pool": pool_tbl,
+        "watchlist": watch_tbl,
         "parse_ok": bool(candidates),
     }
 

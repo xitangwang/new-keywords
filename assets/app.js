@@ -160,6 +160,7 @@
     }).catch(function (e) {
       $("cards").innerHTML = '<div class="empty">这一天的数据加载失败：' + esc(e.message) + "</div>";
       $("extraSections").innerHTML = "";
+      $("poolSection").hidden = true; $("watchSection").hidden = true;
     });
   }
 
@@ -169,6 +170,7 @@
     var n4 = cs.filter(function (c) { return (c.rating || 0) >= 4; }).length;
     $("meta").innerHTML = "<b>" + esc(d.date) + "</b> 共 <b>" + cs.length + "</b> 个候选，★★★★ 及以上 <b>" + n4 +
       "</b> 个，有深挖分析 <b>" + nDeep + "</b> 个" +
+      (d.pool && d.pool.rows ? "，候选池 <b>" + d.pool.rows.length + "</b> 个" : "") +
       (d.collected_at ? " · 数据采集：" + esc(d.collected_at) : "") +
       " · 页面数据更新：" + esc(fmtTime(d.generated_at));
     var tn = $("trendsNotice");
@@ -176,8 +178,77 @@
       tn.hidden = false;
       tn.innerHTML = "⚠️ <b>本期 Google Trends 未验证</b>：下面的「热度信号」主要是 X 上的发帖量，不等于搜索量。上站前请自己在浏览器打开 Trends 对比 GPTs 复核。";
     } else tn.hidden = true;
-    renderCards(); renderExtra();
+    renderCards(); renderTables(); renderExtra();
   }
+
+  // ---------- 候选池 / 观察名单：可排序表格 ----------
+  var tblState = { pool: { col: -1, dir: 1, q: "", cat: "" }, watch: { col: -1, dir: 1, q: "", cat: "" } };
+  function cellNum(v) {
+    var t = String(v || "").replace(/\*\*/g, "").trim();
+    if (!t || /^(—|-|未验证|未查|n\/a)/i.test(t)) return null;
+    var m = t.match(/-?\d+(?:\.\d+)?/);
+    return m ? parseFloat(m[0]) : null;
+  }
+  function tableHTML(which, tb) {
+    var st = tblState[which], h = tb.header, rows = tb.rows.slice();
+    var catIdx = h.findIndex(function (x) { return /类别|category/i.test(x); });
+    var cats = catIdx >= 0 ? Array.from(new Set(rows.map(function (r) { return r[catIdx] || ""; }))).filter(Boolean).sort() : [];
+    var q = st.q.trim().toLowerCase();
+    rows = rows.filter(function (r) {
+      if (st.cat && r[catIdx] !== st.cat) return false;
+      return !q || r.join(" ").toLowerCase().indexOf(q) >= 0;
+    });
+    if (st.col >= 0) {
+      var k = st.col;
+      rows.sort(function (a, b) {
+        var x = cellNum(a[k]), y = cellNum(b[k]);
+        if (x != null || y != null) {
+          if (x == null) return 1; if (y == null) return -1;
+          return (x - y) * st.dir;
+        }
+        return String(a[k] || "").localeCompare(String(b[k] || ""), "zh") * st.dir;
+      });
+    }
+    var tools = '<div class="pool-tools"><input type="search" class="pool-q" data-t="' + which + '" placeholder="筛选这张表…" value="' + esc(st.q) + '">' +
+      (cats.length ? '<select class="pool-cat" data-t="' + which + '"><option value="">全部类别</option>' + cats.map(function (c) {
+        return '<option' + (c === st.cat ? " selected" : "") + ">" + esc(c) + "</option>"; }).join("") + "</select>" : "") +
+      '<span class="count">' + rows.length + " / " + tb.rows.length + " 行 · 点表头排序</span></div>";
+    return tools + '<div class="tbl-wrap pool-wrap"><table class="sortable"><thead><tr>' + h.map(function (x, i) {
+      var arrow = st.col === i ? (st.dir > 0 ? " ▲" : " ▼") : "";
+      return '<th data-t="' + which + '" data-col="' + i + '">' + inline(x) + arrow + "</th>"; }).join("") +
+      "</tr></thead><tbody>" + rows.map(function (r) {
+        return "<tr>" + h.map(function (_, i) { return "<td>" + inline(r[i] || "") + "</td>"; }).join("") + "</tr>"; }).join("") +
+      "</tbody></table></div>";
+  }
+  function renderTables() {
+    var d = state.day;
+    [["pool", "poolSection", "🧺 候选池（自动初筛，全部候选）"], ["watch", "watchSection", "📈 观察名单 / 上升中"]].forEach(function (x) {
+      var tb = x[0] === "pool" ? d.pool : d.watchlist, el = $(x[1]);
+      if (!tb || !(tb.rows || []).length) { el.hidden = true; el.innerHTML = ""; return; }
+      el.hidden = false;
+      el.innerHTML = "<h2>" + esc(tb.title || x[2]) + "</h2>" + (tb.note ? '<div class="md">' + md(tb.note) + "</div>" : "") +
+        '<div class="tblbox" id="' + x[0] + 'Box">' + tableHTML(x[0], tb) + "</div>";
+    });
+  }
+  function rerenderTable(which) {
+    var tb = which === "pool" ? state.day.pool : state.day.watchlist;
+    var box = $(which + "Box"); if (box) box.innerHTML = tableHTML(which, tb);
+  }
+  document.addEventListener("click", function (e) {
+    var th = e.target.closest("table.sortable th"); if (!th) return;
+    var w = th.getAttribute("data-t"), c = +th.getAttribute("data-col"), st = tblState[w];
+    if (st.col === c) st.dir = -st.dir; else { st.col = c; st.dir = -1; }
+    rerenderTable(w);
+  });
+  document.addEventListener("input", function (e) {
+    if (!e.target.classList.contains("pool-q")) return;
+    var w = e.target.getAttribute("data-t"); tblState[w].q = e.target.value; rerenderTable(w);
+    var inp = document.querySelector('.pool-q[data-t="' + w + '"]'); if (inp) { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+  });
+  document.addEventListener("change", function (e) {
+    if (!e.target.classList.contains("pool-cat")) return;
+    var w = e.target.getAttribute("data-t"); tblState[w].cat = e.target.value; rerenderTable(w);
+  });
 
   function matches(c, q) {
     if (!q) return true;

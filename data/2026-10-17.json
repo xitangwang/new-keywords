@@ -1,94 +1,94 @@
 {
  "date": "2026-10-17",
- "title": "每日新词监控 · 2026-10-17",
- "collected_at": "2026-10-17 北京时间（UTC+8）约 09:09–09:20。这是第七轮每日新词监控，结构和 2026-10-16.md 一样（A–H 深挖）。全部原始数据在 raw/2026-10-17/",
- "generated_at": "2026-10-17T09:22:30+08:00",
+ "title": "每日新词监控 · 2026-10-17（v2：脚本化扩源版）",
+ "collected_at": "2026-10-17 北京时间（UTC+8）约 17:27–18:30。这是用新管线 /workspace/gefei/pipeline/run_daily.py 跑的第一份完整报告，替换当天早上的 v1（2026-10-17.md 保留不动）。原始数据全部在 raw/2026-10-17/pipeline/",
+ "generated_at": "2026-10-17T18:31:39+08:00",
  "trends_unverified": false,
- "preface": "数据采集时间：2026-10-17 北京时间（UTC+8）约 09:09–09:20。这是第七轮每日新词监控，结构和 `2026-10-16.md` 一样（A–H 深挖）。全部原始数据在 `raw/2026-10-17/`。\n\n**数据来源情况（如实说明）**\n- **用到了**：\n  - X MCP：`get_posts_counts_recent` 12 组 7 天日量（`x_counts.tsv`）；`search_news` 3 次（共 75 条，`x_news1–3.txt`）；`get_trends_by_woeid`（美国，体育/娱乐为主）；`get_users_posts` 看了 9 个账号（@fal @_akhaliq @kimmonismus @levelsio @OpenAI @GoogleDeepMind @Alibaba_Qwen @deepseek_ai @huggingface，@deepseek_ai 10-10 后无新帖）；`search_posts_all` 4 次（3x3 网格、I built、Kling 4.0、Deadlock Violet）。今日共用约 35 次 X 读取。\n  - GitHub Search API（未登录调用）：30 天、7 天内新建高星仓库各 40 条（`gh30.json` / `gh7.json`）。\n  - Hugging Face API：热门模型 40 + Spaces 30。\n  - HN Algolia：front_page + 近 Show HN（≥15 分）。\n  - Steam：featuredcategories、appdetails 6 款、当前在线人数 12 款、评测汇总、SWYF 官方新闻（`steam_swyf_news.json`）。\n  - Google Trends RSS（美区，今日全是体育/政治）；new.web.cafe 首页（10-16 群总结正文需登录，没读到）。\n  - Google / Bing / DDG 自动补全：`ac.py` 跑了 52 个查询（`ac_batch1–3.jsonl`）。\n  - Google 趋势：explore + multiline，17 组 7 天对比（每组带 GPTs，日界 UTC+8，`trends1–4.jsonl`）+ 1 组 3 个月 + 4 个词的相关查询（`trends_related.jsonl`）。\n  - cursor WebSearch：约 10 组查询前 5（**不是 Google 原生第一页**），见 `serp_notes.md`。\n  - curl：flux3klein.com、flux3klein.org、my9games.com 首页；SWYF wiki JSON 页。\n  - RDAP：候选约 45 个域名 + 12 个竞品域名（`rdap_my9.txt` `rdap_cand.txt` `rdap_cand2.txt` `rdap_comp.txt`）。\n- **被挡、或只拿到一部分**：\n  - Reddit：4 个请求都是 403。\n  - Product Hunt 10-16 日榜：Cloudflare「Just a moment」，没拿到。\n  - Steam Workshop（SWYF）：302 跳转，条目数未验证。Deadlock 是 playtest，app 在线人数接口不返回（300k+ CCU 仅来自 X 新闻摘要，未独立核实）。\n  - Google 原生前十、intitle：未验证（只用 WebSearch 前 5 代替）。\n  - Kling 4.0 第三方 API 价格、fal 端点能否用：只来自 quantslant 文章（二手），未独立核实。\n  - .io 域名（my9games.io、nisu.io、nereo.io）没有 RDAP 服务，注册时间未验证。\n- **趋势数字的读法**：`X/GPTs` = 同组当天均值比。GPTs ≈ 每天 5,000 次（群经验值），粗估只能看量级。相差超过 10 倍会失真（今日 Belmont / Deadlock Violet / Enshrouded / Planet Zoo 2 都超过 10 倍）。10-17 只有北京时间 00:00–09:00 共 10 个点，是不完整日。\n- **X 计数口径**：UTC 自然日。10-17 只有约 00:00–01:11 UTC（北京约 08:00–09:11），是不完整日。\n- **相对昨天的变化**：\n  - **Kling 4.0 正式上线**（快手 10-16 公告，称 10-15 上线；X 1,036 → 3,164）。昨天还只是「fal 即将上线」的预告，今天可以评估了。\n  - **FLUX 3 Image Klein** 是今天的新候选：Trends「flux 3 klein」10-16 **≈1.0×GPTs**；**10-16 当天已有 2 个 EMD 新站注册上线**（flux3klein.com / .org）。\n  - **My 9 Games** 是今天的新候选：「my 9 games」连续 5 天 **≈1.4–2.4×GPTs**，但英文工具站已经 10 家以上。\n  - Scam With Your Friends：X **29 → 266**（10-16），评测从昨天 Mixed 582 变成 **Mostly Positive 1,370**；JSON schema **仍未公开**。\n  - YouTube GIF comments：继续降温（0.64× → 10-17 上午 0.57×；X 847 → 238），GitHub 又多了开源扩展 `rayytor/desktop_gifs`（471★）。\n\n**筛选漏斗**\n- **原始信号**：102 条种子（`raw/2026-10-17/seeds.txt`），构成大致如下：\n  - X 账号 / X 新闻 / X 搜索：约 57\n  - GitHub：15\n  - Hugging Face：7\n  - HN / Show HN：9\n  - Steam：9\n  - Trends RSS / web.cafe / 被挡记录：5\n- **不计入种子数的辅助数据**：12 条 X 日量、52 个补全查询、18 组趋势对比、4 组相关查询、约 10 组 SERP、约 57 个 RDAP。\n- **第一层**：保留能做成英文工具站或内容站的，剔除大厂纯模型新闻、NSFW（HF 热门里多个 uncensored 模型）、破解/移植游戏（PS5 越狱、d2r-mobile 等）、健康向，剩约 **22** 个。\n- **第二层**：要求补全里有真实需求变体，而且 Trends 相对 GPTs 有读数或社交明显跳升；再做 SERP/RDAP 后，剩 **9** 个决赛词：\n  - FLUX 3 Image Klein\n  - Kling 4.0\n  - My 9 Games\n  - Deadlock Violet\n  - Enshrouded 1.0\n  - Reflection Beam 1.0\n  - Steam Frame verified games\n  - mecore（Pinterest 四图挑战）\n  - PS5 LLM（降级观察）\n- **今日结论（如实）**：**今天仍没有找到「需求已起、竞争还空」的词。**\n  - 需求最实的是 **My 9 Games**（5 天稳定在 GPTs 的 1.4–2.4 倍），但英文工具站 9 月底就挤满了，**新站晚了约 3 周**。\n  - **FLUX 3 Image Klein** 和 **Kling 4.0** 是能收费的 AI 模型词，但主词 EMD 已被占（Klein 是发布当天被抢，Kling 4 是几个月前就被囤）。\n  - 能执行的切口只剩「差异化小工具」：Klein 的**框选编辑（bounding box）可视化编辑器**、Kling 4.0 的 **30 秒分镜提示词规划器**。这两个长尾在 Trends 里都还是 0，属于「先占位、靠 ChatGPT 引用」的赌注，不是已验证的需求。\n  - Top 3 按「今天能不能接住流量 / 有没有可执行切口 / 能不能收钱」排序。",
+ "preface": "数据采集时间：2026-10-17 北京时间（UTC+8）约 17:27–18:30。这是用新管线 `/workspace/gefei/pipeline/run_daily.py` 跑的第一份完整报告，替换当天早上的 v1（`2026-10-17.md` 保留不动）。原始数据全部在 `raw/2026-10-17/pipeline/`。\n\n**数据来源情况（如实说明）**\n- **用到了（全部免登录，脚本自动采集，带缓存）**：\n  - 新闻 / 社区：Google Trends 每日热搜 RSS（13 个国家）、Google News RSS（12 组查询，近 2 天）、HN（首页 + Show + 最新）、Lobsters、dev.to、Product Hunt feed、Bluesky / Mastodon 热门标签、Wikipedia 英文和日文浏览量突增。\n  - AI：Hugging Face（热门模型 100 + Spaces 80）、fal（全部约 38 页，只留近 14 天）、Replicate explore、Together 模型列表、GitHub（API 7 天 / 2 天 / 30 天新仓库 + Trending 页）。\n  - 游戏 / 应用：Steam（新品、即将推出、热门新品、愿望单）、itch.io、CrazyGames / Poki 新游戏、App Store（美 / 英 / 日 / 韩，只留 120 天内上架）、Chrome 应用商店。\n  - 日韩：shindanmaker（hot / daily / pickup）、Yahoo! JAPAN 实时搜索、韩国实时检索词（signal.bz）。\n  - 新注册域名：whoisds 每日免费 NRD 包，分词后找相比前 3 天突增的词。\n  - 自动补全：「字母汤」——68 个前缀 × 27（空格 + a–z）走 Google，8 个前缀 × 27 走 YouTube，共 **2,106 次查询、26,948 条不重复建议**；另外对 750 个候选逐个查 Google / YouTube / Bing。\n  - Google 趋势：20 个宽种子词（generator / maker / tier list / quiz / extension……）的 1 天「上升」相关查询；前 100 个候选各自和 GPTs 对比（7 天，小时粒度）；8 个深挖词的词族对比。\n  - X MCP：`get_trends_by_woeid` 4 次（美 / 英 / 日 / 韩），`search_news` 5 次，`get_posts_counts_recent` 35 次（7 天日量，`x_counts.json`），`search_posts_all` 1 次（返回 0 条）。今天 X 共用约 50 次读取（每日额度 1,000）。\n  - RDAP（.com 注册日期）：pool 前 150 个 + 深挖词约 37 个域名。SERP 探针：Bing（DDG lite 失败时的备用），前 87 个候选 + 深挖 23 组查询。\n- **被挡、或没拿到**：\n  - Reddit：403。Product Hunt 榜单：Cloudflare（feed 可用）。Google Play：页面靠 JS 渲染。TikTok Creative Center：40101 无权限。Naver：404。crt.sh：超时。YouTube 趋势页：已失效。futurepedia：404。theresanaiforthat / toolify：403。Ecosia：403。html.duckduckgo：202。web.cafe：要付费。\n  - Google 原生 SERP：未验证（用 Bing 前 10 代替，**不是 Google 排名**）。\n  - 谷歌趋势偶尔会限流（HTTP 429），脚本会自动退避，今天没有被封。深挖时有 1 组被限流，那一组的数字标为「未验证」。\n- **数字读法**：\n  - `Trends 24h÷GPTs`：同一组里最近 24 小时的均值比。GPTs ≈ 每天 5,000 次（群里的经验值），所以这个数只能看量级；相差超过 10 倍就会失真。\n  - `斜率`：最近 48 小时均值 ÷ 之前 5 天均值。\n  - `X 昨日`：10-16（UTC 自然日）的帖子数；括号里是它相对前 3 天均值的倍数。10-17 只有约 00:00–10:15 UTC，是不完整日。",
  "candidates": [
   {
    "rank": 1,
-   "keyword": "FLUX 3 Image Klein",
-   "keyword_note": "（online、comfyui、bounding box、vs qwen image edit）",
-   "description": "Black Forest Labs 5.6B 开源权重图像模型：文生图、编辑、多参考图（最多 10 张）、框选；RTX 3090 能跑",
+   "keyword": "charisma style quiz",
+   "keyword_note": "（animals、dolphin、test、charisma quiz）",
+   "description": "「你是哪种魅力类型 / 魅力动物」性格测验，社交平台在传（具体起源帖未验证）",
    "sources": [
-    "https://bfl.ai/blog/flux-3-image-klein",
-    "https://docs.bfl.ml/flux_3/flux3_image_klein",
-    "https://huggingface.co/black-forest-labs/flux-3-image-klein"
+    "https://trends.google.com/trends/explore?date=now%201-d&q=quiz",
+    "https://animalpersonalityquiz.com/charisma-animal-quiz",
+    "https://charismastyles.com/"
    ],
-   "sources_text": "https://bfl.ai/blog/flux-3-image-klein · https://docs.bfl.ml/flux_3/flux3_image_klein · https://huggingface.co/black-forest-labs/flux-3-image-klein",
-   "first_seen": "HF 仓库 2026-10-13；HN 10-16 105p",
-   "trend_signal": "Trends「flux 3 klein」**10-16≈1.01×GPTs**，10-17 上午≈0.63×；「flux klein」10-16≈1.23×（混有 FLUX.2 klein）。X 10-15 9 → **10-16 715**。补全：reddit / comfyui / workflow / tools；flux klein 9b·4b / face swap / prompt guide / vs qwen image edit",
-   "trends_verified": true,
-   "serp": "官方 HF Space + bfl.ai 两页；**flux3klein.com（RDAP 10-16）**：每天 3 次免费；**flux3klein.org（10-16）**：500 张 $19.90；flux3-ai.com 老站内页。bbox 可视化编辑器前 5 未见",
-   "domain": "flux3klein.ai、flux3klein.net、kleinbbox.com、bboxprompt.com、bboxeditor.com RDAP 404",
-   "idea": "不做第 4 个 EMD 生图站；做 **bbox 可视化编辑器**（在图上画框 → 自动生成 0–1000 网格 JSON 提示词 → 可选直接调 API 出图）",
-   "rating": 3.5,
-   "rating_stars": "★★★☆",
-   "reason": "有量、API 便宜（1K $0.009/张）；主词已被 2 家新站当天抢；差异化切口明确",
+   "sources_text": "https://trends.google.com/trends/explore?date=now%201-d&q=quiz · https://animalpersonalityquiz.com/charisma-animal-quiz · https://charismastyles.com/",
+   "first_seen": "Trends 1 天上升：charisma style quiz **+950%**、…animals +600%（10-17）",
+   "trend_signal": "「charisma quiz」24h **0.72×GPTs、斜率 38×**；「charisma style quiz」0.53×、斜率 28×；「what is my charisma style」0.03×。补全：animals / dolphin / test / vanessa van edwards。X 每天 ≤6 条（不是 X 上的潮流）",
+   "trends_verified": null,
+   "serp": "Bing 前 10：scienceofpeople、idrlabs、psychologytoday、personalitycalculator.org（2026-05 注册，有 charisma-style-test 页）、buildyourcharisma.com（2026-08-12）；没有 EMD",
+   "domain": "charismastylequiz.com、charismaanimalquiz.com、mycharismastyle.com、charismastyletest.com、charismaanimal.com **均 404**；charismastyle.com 2026-05-05 已注册",
+   "idea": "20 题「魅力类型 + 魅力动物」测验 + 分享卡片；多语言",
+   "rating": 4.0,
+   "rating_stars": "★★★★",
+   "reason": "搜索刚起、EMD 空、2 天能上线；寿命短、只能靠广告",
    "extra": {},
    "deep_dive": {
-    "keyword": "FLUX 3 Image Klein（bounding box 可视化编辑器）",
-    "intro": "> 评分 17/25。一句话：需求真实（发布首日≈GPTs），API 便宜，主词 EMD 已被两家抢，但「框选编辑」这一层交互还没人做成工具。",
+    "keyword": "charisma style quiz（魅力类型 / 魅力动物测验）",
+    "intro": "> 评分 17/25。一句话：管线靠「Trends 宽词上升 + 字母汤」才发现它（以前的种子源完全看不到）；搜索刚起、EMD 全空，纯前端两天能上线，但寿命短。",
     "sections": [
      {
       "title": "A. 信号来源",
-      "markdown": "- HF：`black-forest-labs/flux-3-image-klein`（401 likes，2026-10-13 创建）+ `-comfy`（446）+ 官方 Space（2026-10-14）。\n- HN：「FLUX 3 Image Klein」10-16 105p（https://bfl.ai/blog/flux-3-image-klein）。\n- X：「flux 3 klein」日量 10-15 9 → 10-16 715 → 10-17 前 70 分钟 32。\n- BFL 文档：5.6B，蒸馏版 16 步 / Base 版 50 步，最高 4K，支持 bounding box，「Do not use it without its prompt upsampler」。"
+      "markdown": "- Trends 1 天上升（种子「quiz」）：charisma style quiz **+950%**；charisma style quiz animals **+600%**（`trends_rising.json`）。\n- 补全（`ac_probe.json` + `deepdive.json`）：charisma style quiz animals / dolphin、charisma style test、what is my charisma style animal、charisma test animal。\n- X：「charisma style」或「charisma quiz」7 天每天 1–6 条（`x_counts.json`）。在 X 上几乎没有，推断是 TikTok / Instagram 在传（未验证）。"
      },
      {
-      "title": "B. 词族（`ac_batch2.jsonl`）",
-      "markdown": "- flux 3 klein：reddit / comfyui / workflow / tools\n- flux klein：3 / 9b / 4b / 4b vs 9b / face swap / prompt guide / vs qwen image edit / gguf / tutorial / setup\n- 注意：「flux klein」相关查询 top 是「flux klein 9b」（FLUX.2 [klein] 时代的词），说明这个词族一部分是旧模型的长尾。"
+      "title": "B. 词族",
+      "markdown": "- 主词：charisma style quiz、charisma quiz、charisma test、charisma style test。\n- 动物向：charisma style quiz animals、charisma animal quiz、what is my charisma style animal、charisma test animal、charisma style quiz dolphin。\n- 老长尾（常青）：charisma quiz vanessa van edwards / science of people、charisma test idrlabs、charisma test dnd。"
      },
      {
-      "title": "C. 需求验证（`trends3–4.jsonl`）",
-      "markdown": "- 「flux 3 klein」：10-15 0.5 → **10-16 31.2 vs GPTs 31.0（≈1.01×）** → 10-17 上午 15.6 vs 24.8（≈0.63×）。\n- 「flux klein」：10-16 72.5 vs 58.9（≈1.23×）。\n- 「flux klein prompt」「flux 3 klein comfyui」≈0（长尾量太小）。\n- 粗估：主词首日约 5,000 次/天，回落中；比较像 Krea / Qwen-Image 这类「开源图像模型」词的正常衰减。"
+      "title": "C. 需求验证（Trends 7 天，小时粒度，和 GPTs 同组）",
+      "markdown": "- 「charisma quiz」：24h **0.72×**，7 天 0.09×，**斜率 38.1×**，峰值 100（这一组的最高点）。\n- 「charisma style quiz」：24h 0.53×，斜率 28.0×。\n- 「what is my charisma style」0.03×；「charisma test」0.07×；「charisma animal quiz」≈0。\n- 粗估：主词族最近一天约 2,500–3,600 次 / 天，并且是刚刚起跳（7 天均值只有 0.06–0.09×）。"
      },
      {
-      "title": "D. SERP（WebSearch 前 5，非原生）",
-      "markdown": "- 「flux 3 klein online free generator」：HF Space（官方）、bfl.ai 模型页、bfl.ai 博客、**flux3klein.com**、flux3-ai.com 内页。\n- 「bounding box / prompt guide / vs qwen」：前 5 全是 BFL 文档 + HF 博客；bbox 是 `[top, left, bottom, right]`、0–1000 网格、字段 `from / src_bbox / tgt_bbox / desc`。\n- 判断：主词按「首页胜内页」已有 2 个 EMD 首页；**交互式 bbox 编辑器还空着**（推断，Google 原生排名未验证）。"
+      "title": "D. SERP（Bing 前 10，非 Google 原生）",
+      "markdown": "- 「charisma style quiz」：scienceofpeople.com/charisma、mindpickers、idrlabs ×2、psychologytoday、personalitycalculator.org/charisma-test 和 /charisma-style-test、buildyourcharisma.com。\n- 「charisma animal quiz」：Bing 只返回 1 条无关结果。WebSearch 能看到 animalpersonalityquiz.com/charisma-animal-quiz（内页）。\n- 判断：**没有 EMD 首页**；动物向那一支几乎是空的（Google 原生排名未验证）。"
      },
      {
       "title": "E. 竞品拆解",
-      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| HF 官方 Space | — | 官方 demo | 免费（排队） | 无框选可视化、无历史 |\n| flux3klein.com | 2026-10-16 | 生图/编辑、最多 10 张参考、1K/2K/4K；还挂了视频/音频 | 每天 3 次免费 + 站内积分（具体价格未抓到） | 泛生图站；bbox 仍需手写 |\n| flux3klein.org | 2026-10-16 | 「Klein Studio」，1K/2K，3 张/天免费 | **500 张 $19.90 一次性**；1K=1 积分、2K=2 积分；4K coming soon | 没有框选工具；只有一次性包 |\n| flux3-ai.com | 2026-07-23 | 老 FLUX 站加 Klein 内页 | 未验证 | 内页弱于首页 |"
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| animalpersonalityquiz.com/charisma-animal-quiz | 2024-12-22（域名） | 31 种动物 × 6 种魅力风格，约 20 题 | 免费 | 是内页；不是 EMD |\n| personalitycalculator.org/charisma-style-test | 2026-05-14 | 魅力风格测试（页面里有 10 题字样） | 免费 | 内页；没有动物结果卡 |\n| buildyourcharisma.com | 2026-08-12 | 「Charisma Style Quiz — Find Your Celebrity Match」 | 未验证 | 明星匹配，不是动物 |\n| charismastyles.com（McCall Jones） | 2022-10-31 | 12 题、12 种风格，留邮箱换课程 | 免费引流课程 | 要留邮箱；不是动物 |\n| idrlabs / psychologytoday | 老站 | 通用魅力测试 | 免费 | 和这次潮流的形式不同 |"
      },
      {
       "title": "F. 可行性与经济账",
-      "markdown": "- **做什么**：上传图 → 在图上拖框、给每个框写描述/选「保留/移动/删除」→ 实时生成符合官方格式的 JSON 提示词 → 一键复制（免费）或直接调 API 出图（付费）。\n- **MVP（新手用 AI 编程约 2–3 天）**：Next.js + Canvas 框选组件；JSON 生成纯前端；生图走 BFL `api.bfl.ai/v1/flux-3-image-klein`（异步轮询）。\n- **成本**：1K $0.009 / 2K $0.014 / 4K $0.036 每张（BFL 文档）。若照搬 flux3klein.org 的 500 张 $19.90，1K 成本约 $4.5，毛利约 77%（未计支付手续费和免费额度）。\n- **变现**：免费 JSON 生成器拉流量 + 积分包（$9.9 / $19.9）+ 月订阅（$12–15/月）。\n- **ChatGPT 适配度**：高——「how to use bounding box in flux 3 klein」这类问题，训练数据里没有。\n- **寿命**：中。框选 JSON 是 FLUX 3 家族共用的格式（`flux3_image_layout` 文档同时适用于 FLUX 3 Image），换代后还能用。\n- **风险**：FLUX/BFL 商标（域名不要带 flux）；真人换脸/NSFW 要过滤（flux3klein.org 已经写了拒绝清单，可以参考）；长尾 Trends 目前是 0，需求是推断出来的。"
+      "markdown": "- **做什么**：20 题情景题 → 6 种魅力风格 × N 种动物 → 生成 9:16 结果卡（适合 TikTok / IG 分享）+ 每种结果一个说明页（长尾 SEO）。\n- **MVP（新手用 AI 编程约 1–2 天）**：纯前端（Next.js 静态导出），题库和结果写成 JSON；分享卡用 Canvas 生成。\n- **成本**：几乎是 0（静态托管）。\n- **变现**：AdSense / 展示广告；结果页可以挂「沟通 / 演讲」类图书的联盟链接。**不做心理诊断、不写健康说法。**\n- **ChatGPT 适配度**：中——「what is my charisma animal」这种问题，AI 会推荐测验站。\n- **寿命**：短。社交测验潮流一般 1–3 周（经验判断）；动物向结果页可以留作长尾。"
      },
      {
       "title": "G. 域名（RDAP）",
-      "markdown": "- 推荐：**kleinbbox.com**、**bboxprompt.com**、**bboxeditor.com**（均 404，不带 FLUX 商标）\n- 备用 EMD：flux3klein.ai、flux3klein.net（404，但带 FLUX 商标，不推荐当主站）"
+      "markdown": "- 推荐：**charismastylequiz.com**（404，完全匹配主词）\n- 备用：charismaanimalquiz.com、mycharismastyle.com、charismastyletest.com、charismaanimal.com（均 404）\n- 已被占：charismastyle.com（2026-05-05）、charismaquiz.com（2016）"
      },
      {
       "title": "H. 评分与 7 天计划",
-      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 4 | 首日≈1×GPTs，X 715，但已开始回落 |\n| 竞争 | 2 | 官方 + 2 个当天 EMD；bbox 工具位空 |\n| 可行性 | 5 | 前端 + 一个便宜 API |\n| 变现 | 4 | 积分/订阅已被竞品验证（$19.90/500 张） |\n| 寿命 | 2 | 经验判断：开源图像模型热度约 2–6 周；bbox 格式可延续到 FLUX 3 家族 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- 第 1 天：注册 bboxprompt.com 或 kleinbbox.com；上线纯前端「画框 → JSON」生成器（免费、不用登录）；提交 GSC。\n- 第 2 天：接 BFL API，1K 出图；加 Creem/PayPal 积分包。\n- 第 3 天：写 3 个说明页：bbox 字段解释、保留/移动/删除示例、和 Qwen Image Edit 对比（只用实测图）。\n- 第 4 天：多参考图（≤10）可视化排列；输出可复制到 ComfyUI 的版本。\n- 第 5 天：在 r/StableDiffusion、HF 讨论区、X 相关帖下发有用的回答（人工）。\n- 第 6 天：加历史记录 + 模板库（产品图换背景、移动物体等）。\n- 第 7 天：看 GSC 曝光；没有曝光就把工具并进老 AI 图片站当内页。"
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 4 | 0.53–0.72×GPTs，斜率 28–38 倍，刚起跳 |\n| 竞争 | 4 | 没有 EMD 首页；动物向只有一个内页 |\n| 可行性 | 5 | 纯前端，1–2 天 |\n| 变现 | 2 | 只有广告 |\n| 寿命 | 2 | 社交测验，短 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- 第 1 天：注册 charismastylequiz.com；上线 20 题测验 + 6 种风格结果页；提交 GSC 和 Bing Webmaster。\n- 第 2 天：加「魅力动物」结果卡（9:16 PNG 下载）；每种动物一个说明页。\n- 第 3 天：做 charisma test animal / what is my charisma style animal 的落地页（同一个测验，不同标题和介绍）。\n- 第 4 天：加西班牙语、葡萄牙语版本（hreflang）。\n- 第 5 天：自己录 2–3 条 TikTok / Reels 演示（人工发），评论区不要刷链接。\n- 第 6 天：看 GSC 曝光词，按真实查询补页。\n- 第 7 天：Trends 斜率掉到 1 以下就停止投入，站留着吃长尾。"
      }
     ],
     "scores": [
      {
       "dim": "需求",
       "score": 4.0,
-      "note": "首日≈1×GPTs，X 715，但已开始回落"
+      "note": "0.53–0.72×GPTs，斜率 28–38 倍，刚起跳"
      },
      {
       "dim": "竞争",
-      "score": 2.0,
-      "note": "官方 + 2 个当天 EMD；bbox 工具位空"
+      "score": 4.0,
+      "note": "没有 EMD 首页；动物向只有一个内页"
      },
      {
       "dim": "可行性",
       "score": 5.0,
-      "note": "前端 + 一个便宜 API"
+      "note": "纯前端，1–2 天"
      },
      {
       "dim": "变现",
-      "score": 4.0,
-      "note": "积分/订阅已被竞品验证（$19.90/500 张）"
+      "score": 2.0,
+      "note": "只有广告"
      },
      {
       "dim": "寿命",
       "score": 2.0,
-      "note": "经验判断：开源图像模型热度约 2–6 周；bbox 格式可延续到 FLUX 3 家族"
+      "note": "社交测验，短"
      }
     ],
     "total": 17.0,
@@ -97,87 +97,87 @@
   },
   {
    "rank": 2,
-   "keyword": "Kling 4.0",
-   "keyword_note": "（release date、vs seedance 2.5、price、prompt、api）",
-   "description": "快手可灵新一代视频模型：单次 3–30 秒，最多 10 个关键帧 + 15 个参考素材，提示词 8,000 tokens，720p/1080p/4K",
+   "keyword": "Nemotron 3.5",
+   "keyword_note": "（super vl、bolt 74b a9b 24gb、size、huggingface）",
+   "description": "NVIDIA 10-15 开源：Super VL 120B/12B 激活多模态；Bolt 74B-A9B 本地版（官方 24GB GGUF）；Bolt E4B **10-23** 发布",
    "sources": [
-    "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/",
-    "https://kling.ai/quickstart/kling-4-model-user-guide",
-    "https://x.com/fal/status/2111171366548369776"
+    "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF",
+    "https://unsloth.ai/docs/models/nemotron-3.5-bolt"
    ],
-   "sources_text": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/ · https://kling.ai/quickstart/kling-4-model-user-guide · https://x.com/fal/status/2111171366548369776",
-   "first_seen": "官方称 2026-10-15 上线，10-16 公告",
-   "trend_signal": "Trends「kling 4.0」**10-16≈0.70×GPTs**，10-17 上午≈0.61×；「kling 4」≈0.25×。X 10-15 1,036 → **10-16 3,164**。补全：release date / vs seedance 2.5 / reddit / rumors / beta；长尾 prompt / vs seedance / price 在 Trends 里≈0",
-   "trends_verified": true,
-   "serp": "主词前 5 全是官方（kling.ai ×3、快手 IR、runtimewire）；对比词有 seedance.tv、kie.ai、wavespeed；提示词有 kling.ai 博客 ×3、nereo.io。官方 API「coming soon」",
-   "domain": "kling4.com/.ai/.net/.app、kling40.com 等 **8 个 EMD 全部早已注册**（2025-11～2026-04）；videoshotplanner.com、aivideoshotplanner.com、30secondvideoprompt.com 404",
-   "idea": "先做**30 秒分镜提示词规划器**（按秒拆镜头 + 关键帧清单 + 积分估算），API 开放后再加生成。域名避开 Kling 商标",
-   "rating": 3.0,
-   "rating_stars": "★★★",
-   "reason": "变现最好的品类，但主词被官方占、EMD 被囤、API 还没开",
+   "sources_text": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/ · https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF · https://unsloth.ai/docs/models/nemotron-3.5-bolt",
+   "first_seen": "2026-10-15",
+   "trend_signal": "「nemotron 3.5」**1.69×GPTs、斜率 13×**；「nemotron 3.5 super vl」0.92×、斜率 62×；「nemotron 3.5 bolt」0.23×、斜率 7×。X：Super VL 10-15 1,227 / 10-16 1,008；Bolt 323 / 267",
+   "trends_verified": null,
+   "serp": "Bing 前 10 全是 blogs.nvidia.com / research.nvidia.com；第三方只有 Unsloth 文档、PacketNebula 一篇（24GB vs 28GB 显存）",
+   "domain": "nemotron35.com、nemotronsupervl.com、nemotronbolt.com、canirunnemotron.com、nemotronvram.com **均 404**（含 NVIDIA 商标）",
+   "idea": "「能不能跑 Nemotron 3.5」显存 / 量化计算器 + 本地部署指南；10-23 加 Bolt E4B",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "搜索真实、第三方空；商标风险 + 变现弱",
    "extra": {},
    "deep_dive": {
-    "keyword": "Kling 4.0（30 秒分镜提示词规划器）",
-    "intro": "> 评分 16/25。一句话：这是变现最好的品类（AI 视频），但主词被官方占、EMD 被囤、API 还没开；今天能做的只有不带商标的提示词/分镜工具，先占位等 API。",
+    "keyword": "Nemotron 3.5（Super VL / Bolt 本地运行计算器）",
+    "intro": "> 评分 16/25。一句话：10-15 新发布、主词 1.69×GPTs，前 10 结果全是 NVIDIA 自家页面，第三方「能不能跑」的工具还没有；10-23 Bolt E4B 发布还会再来一波。商标和变现是主要短板。",
     "sections": [
      {
       "title": "A. 信号来源",
-      "markdown": "- 快手 IR 新闻稿（2026-10-16）：Kling 4.0 已于 10-15 上线；30 秒单次生成、Omni Reference 最多 15 个素材 + 10 个关键帧、8,000 tokens 提示词、接入 Kling MCP 和 CLI；API「即将开放」。\n- @fal 10-16 19:04 UTC（北京 10-17 03:04）：「Coming soon to fal: Kling 4.0」，4,694 次曝光、86 赞（https://x.com/fal/status/2111171366548369776）。\n- X 搜索：Pollo AI、Higgsfield、HitPaw 等聚合站当天发 Kling 4.0 vs Seedance 2.5 对比视频（`x_search_kling4.txt`）。"
+      "markdown": "- Google News + Product Hunt（「NVIDIA Nemotron 3.5 Super VL」）；NVIDIA 博客 2026-10-15；HF 模型卡写着 Release Date 10/15/2026；vLLM 当天支持。\n- X：Super VL 10-13 58 → 10-14 79 → **10-15 1,227 → 10-16 1,008**；Bolt 10-15 323 → 10-16 267。\n- 规格：Super VL 120B 总参数 / 12B 激活，1M 上下文，Mamba-2 + MoE，BF16 部署要 4× H100；Bolt 74B-A9B 官方 24GB GGUF（Unsloth 文档建议至少 32GB 显存或统一内存）；**Bolt E4B 10-23 发布**（NVIDIA 博客）。许可证 OpenMDW-1.1。"
      },
      {
-      "title": "B. 词族（`ac_batch3.jsonl`）",
-      "markdown": "- kling 4.0：release date / vs seedance 2.5 / reddit / rumors / ai / beta / release date reddit / motion control 4.0\n- kling 4：4.0 vs seedance 2.5 / 4k\n- 没出现：kling 4.0 free / api / price（Bing 补全只给到 kling 3.0 free trial）"
+      "title": "B. 词族（补全）",
+      "markdown": "- nemotron 3.5：super vl / bolt / bolt 74b / bolt 74b a9b / **bolt 74b a9b 24gb** / super / lightning / vl。\n- nemotron 3.5 super vl：size / free / benchmark / huggingface。\n- 「nemotron 3.5 super vl gguf」0 条（还没人搜）。"
      },
      {
-      "title": "C. 需求验证（`trends3–4.jsonl`）",
-      "markdown": "- 「kling 4.0」：10-15 ≈0.07× → **10-16 ≈0.70×** → 10-17 上午≈0.61×GPTs。\n- 「kling 4」：10-16 ≈0.25×。\n- 「kling 4.0 prompt」「kling 4.0 vs seedance」「kling 4.0 price」≈0。\n- 粗估：主词约 3,000–3,500 次/天；长尾还没量。"
+      "title": "C. 需求验证（Trends 7 天）",
+      "markdown": "- 「nemotron 3.5」24h **1.69×GPTs**，斜率 13.4×。\n- 「nemotron super vl」0.98×，斜率 65×；「nemotron 3.5 super vl」0.92×，斜率 62×。\n- 「nemotron 3.5 bolt」0.23×，斜率 7.2×。\n- 第 2 组（含 gguf）遇到 429，**未验证**。"
      },
      {
-      "title": "D. SERP（WebSearch 前 5，非原生）",
-      "markdown": "- 主词：kling.ai 用户指南、快手 IR、runtimewire、kling.ai 功能页、kling.ai 博客——**前 5 全是官方/新闻**。\n- vs seedance 2.5：seedance.tv、crimsonsparkagency、kie.ai、seeddance.io、wavespeed.ai。\n- prompt：kling.ai 博客 3 篇（camera control / prompt guide / multiple keyframes）、nereo.io「30 Copy-Ready Examples」。\n- 判断：内容型页面已满；**交互式分镜规划器**前 5 未见。"
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- 「nemotron 3.5 super vl」：前 8 全是 blogs.nvidia.com。\n- 「nemotron 3.5 super vl requirements」：developer.nvidia.com、维基百科、research.nvidia.com（Bolt-24GB 页）、HF 博客、GitHub NVIDIA-NeMo。\n- 「nemotron 3.5 bolt」：Bing 返回的是不相关的 Reddit 帖子，说明索引还没跟上。\n- 判断：「首页胜内页」的第三方首页位置还空着。"
      },
      {
       "title": "E. 竞品拆解",
-      "markdown": "| 竞品 | 注册 | 做了什么 | 缺口 |\n|---|---|---|---|\n| kling.ai 官方 | — | 生成 + 3 篇提示词博客 | 教程不是工具；不按秒算积分 |\n| kling4.ai 等 8 个 EMD | 2025-11～2026-04 | 囤域名/包装站（内容未逐一核对） | 抢主词，API 未开前多半只能跳转或用旧模型 |\n| Pollo / Higgsfield / HitPaw | 老站 | 聚合多模型，Kling 4.0 coming soon | 大站内页；不做分镜规划 |\n| nereo.io | 未验证（.io 无 RDAP） | 30 条现成提示词 | 静态列表，不能按自己的故事生成 |"
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| NVIDIA 博客 / 模型卡 / NIM | 官方 | 发布说明、部署配方 | 免费 | 没有「我的硬件能不能跑」的交互 |\n| unsloth.ai/docs/models/nemotron-3.5-bolt | 老站内页 | 本地运行指南 | 免费 | 文档，不是计算器 |\n| packetnebula.com 文章 | 未查 | 「标签写 24GB，配方要 28GB」 | 免费 | 一篇文章 |\n| 通用「can I run LLM」计算器 | 未逐一核对 | 通用显存估算 | 免费 | 没有 Mamba-MoE / NVFP4 的专门参数（推断） |"
      },
      {
       "title": "F. 可行性与经济账",
-      "markdown": "- **做什么**：输入故事/产品 → 输出 30 秒分段表（0–5s、5–12s…）+ 每段镜头运动 + 关键帧清单 + 参考素材槽位 + 积分估算（官方 1080p 每秒 15 积分、30 秒 450 积分，来自 quantslant 二手资料）→ 一键复制到 Kling / Seedance。\n- **MVP（约 2 天）**：前端表单 + 一个便宜的 LLM（单次成本取决于所选模型，今天未测算）。\n- **API 开放后**：接 Kling 官方 API 或 fal，做积分制生成（官方 Kling 3.0 API 1080p $0.112–0.168/秒作参考，4.0 价格未公布）。\n- **变现**：前期广告 + 「专业提示词包」；API 开放后订阅（参考官方 Pro $32.56/月，二手）。\n- **ChatGPT 适配度**：中高——「how to write a 30 second kling 4.0 prompt」类问题；但官方博客权威性强。\n- **寿命**：中（分镜工具可以跨模型，同时支持 Seedance 2.5；Kling 换代节奏未核实）。\n- **风险**：Kling 是快手商标，域名和站名都不要带；长尾 Trends 为 0；API 价格和开放时间未知。"
+      "markdown": "- **做什么**：选硬件（RTX 4090 / 5090 / Mac M4 Max / DGX Spark……）+ 模型（Super VL / Bolt 74B / Bolt E4B）+ 量化 + 上下文 → 能不能跑、预计显存、llama.cpp / vLLM / Ollama 命令可以直接复制。\n- **MVP（约 2 天）**：纯前端；数据来自 HF 模型卡里的文件大小和 NVIDIA 官方配方（每次手工更新）。\n- **成本**：几乎是 0。\n- **变现**：广告 + GPU 云联盟（RunPod / Vast 等，佣金未验证）；之后扩成「本地大模型能不能跑」的通用站。\n- **ChatGPT 适配度**：高——「can I run nemotron 3.5 bolt on 4090」是典型的 AI 提问，训练数据里没有。\n- **寿命**：中。NVIDIA 每 1–2 个月就发一次 Nemotron 新版本；工具可以复用。"
      },
      {
       "title": "G. 域名（RDAP）",
-      "markdown": "- 推荐：**videoshotplanner.com**、**aivideoshotplanner.com**、**30secondvideoprompt.com**（均 404，不带商标）\n- 避开：kling4prompt.com / kling4prompts.com / klingpromptbuilder.com（虽然 404，但带商标）"
+      "markdown": "- 推荐（避开商标打头）：**canirunnemotron.com**（404）\n- 备用：nemotronvram.com、nemotron35.com、nemotronbolt.com、nemotronsupervl.com（均 404，但带商标）"
      },
      {
       "title": "H. 评分与 7 天计划",
-      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 主词≈0.7×GPTs；长尾还是 0 |\n| 竞争 | 2 | 主词被官方占，EMD 被囤，内容页已有 |\n| 可行性 | 4 | 规划器容易做；生成要等 API |\n| 变现 | 4 | AI 视频是群里验证过的赚钱品类 |\n| 寿命 | 3 | 跨模型分镜工具可延续 |\n| 总分 | 16/25 | |\n\n**7 天计划**：D1 注册 videoshotplanner.com，上「30 秒分镜规划器」（同时支持 Kling 4.0 / Seedance 2.5），提交 GSC；D2 加积分/成本计算器（只引用官方公开的数字，标注日期）；D3 写「10 个关键帧怎么排」「15 个参考素材怎么分配」两篇教程页；D4 盯 Kling 官方 API 和 fal 页面，开放当天接入生成；D5 做 Kling 4.0 vs Seedance 2.5 的同提示词实测页（自己生成，不搬运）；D6 X/Reddit 有用回复；D7 看 GSC，决定是否继续投积分制。"
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 主词 1.69×，但工具型长尾（gguf / requirements）还小 |\n| 竞争 | 4 | 前 10 全是官方；第三方只有文档 |\n| 可行性 | 4 | 纯前端；需要手工维护硬件参数 |\n| 变现 | 2 | 广告 / 联盟 |\n| 寿命 | 3 | 10-23 第二波；可以扩成通用「能不能跑」站 |\n| 总分 | 16/25 | |\n\n**7 天计划**\n- 第 1 天：注册 canirunnemotron.com；把 Super VL / Bolt 74B 三档量化的显存表、官方命令做成静态页上线。\n- 第 2 天：做交互计算器（硬件下拉 + 上下文滑块）。\n- 第 3 天：写「Nemotron 3.5 Bolt vs Qwen3.8 27B / GLM 5.3 Flash 本地」对比页（只引用公开数据，标注来源）。\n- 第 4 天：准备 Bolt E4B（10-23）页面占位。\n- 第 5 天：在 r/LocalLLaMA、HF 讨论区回答显存问题（人工）。\n- 第 6 天：10-23 发布当天更新数据 + 发 X 帖。\n- 第 7 天：看 GSC，决定是否扩成 canirun… 通用站。"
      }
     ],
     "scores": [
      {
       "dim": "需求",
       "score": 3.0,
-      "note": "主词≈0.7×GPTs；长尾还是 0"
+      "note": "主词 1.69×，但工具型长尾（gguf / requirements）还小"
      },
      {
       "dim": "竞争",
-      "score": 2.0,
-      "note": "主词被官方占，EMD 被囤，内容页已有"
+      "score": 4.0,
+      "note": "前 10 全是官方；第三方只有文档"
      },
      {
       "dim": "可行性",
       "score": 4.0,
-      "note": "规划器容易做；生成要等 API"
+      "note": "纯前端；需要手工维护硬件参数"
      },
      {
       "dim": "变现",
-      "score": 4.0,
-      "note": "AI 视频是群里验证过的赚钱品类"
+      "score": 2.0,
+      "note": "广告 / 联盟"
      },
      {
       "dim": "寿命",
       "score": 3.0,
-      "note": "跨模型分镜工具可延续"
+      "note": "10-23 第二波；可以扩成通用「能不能跑」站"
      }
     ],
     "total": 16.0,
@@ -186,87 +186,87 @@
   },
   {
    "rank": 3,
-   "keyword": "My 9 Games",
-   "keyword_note": "（template、that shaped who i am、english、list）",
-   "description": "「私を構成する9つのゲーム」英文化：选 9 款游戏拼成 3×3 卡片分享",
+   "keyword": "OpenCode free models",
+   "keyword_note": "（limits、comparison、ranking、glm 5.3 flash free、deepseek v4.1 flash free）",
+   "description": "OpenCode 10-16 起把 GLM 5.3 Flash、DeepSeek V4.1 Flash 设为限时免费（没有写结束日期）",
    "sources": [
-    "https://x.com/i/trending/2110770329765515326",
-    "https://my9games.com/en/about",
-    "https://my9maker.com/"
+    "https://apidog.com/blog/glm-5-3-flash-free-opencode/",
+    "https://habr.com/ru/companies/haulmont/news/1095202/",
+    "https://opencode.ai/docs/models/"
    ],
-   "sources_text": "https://x.com/i/trending/2110770329765515326 · https://my9games.com/en/about · https://my9maker.com/",
-   "first_seen": "日文站 my9games.net 注册于 2026-09-18；英文搜索 10-12 起跳",
-   "trend_signal": "Trends「my 9 games」10-13≈1.36× → 10-14 1.58× → 10-15 1.71× → 10-16 1.73× → **10-17 上午≈2.36×GPTs**；「9 games that shaped me」≈0.5×。相关查询上升：my 9 games template +300%、nintendo ds games +650%、my 9 animes +100%。X 每天 160–335（稳定）",
-   "trends_verified": true,
-   "serp": "**红海**：my9games.com（日文主站，显示 1,021,682 次使用）、my9gamestemplate.com（09-28）、my9maker.com（09-28）、my9games.pro（09-29）、sharegamegrid.com（09-30）、my9games.io、nisu.io 等 10+ 家；my 9 anime 也已 5 家",
-   "domain": "9gamesgrid.com、mynine.games、my9gamesgrid.com、nostalgiagrid.com 404",
-   "idea": "只做老站内页或「按平台筛选」的差异化（DS/Wii 怀旧格子），不建议新开站",
-   "rating": 3.0,
-   "rating_stars": "★★★",
-   "reason": "需求最实，但晚了约 3 周",
+   "sources_text": "https://apidog.com/blog/glm-5-3-flash-free-opencode/ · https://habr.com/ru/companies/haulmont/news/1095202/ · https://opencode.ai/docs/models/",
+   "first_seen": "2026-10-16",
+   "trend_signal": "「opencode free models」**0.64×GPTs、斜率 2.1×**；「glm 5.3 flash free」0.25×、斜率 4.7×；「deepseek v4.1 flash free」0.23×、斜率 4.5×。补全 15 个：limits / usage limits / comparison / ranking / best / api",
+   "trends_verified": null,
+   "serp": "opencode.ai 文档、GitHub vava-nessa/free-coding-models（CLI，2,821★）、几篇博客；**没有网页版实时榜**",
+   "domain": "freecodingmodels.com、opencodefree.com、freecodingllm.com、freemodelstracker.com、opencodemodels.com **均 404**",
+   "idea": "「免费编程模型」实时表：哪个平台（OpenCode / Kilo / Cline / OpenRouter）哪个模型免费、限额、上下文、到期",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "长尾会持续换新模型；需要每天维护",
    "extra": {},
    "deep_dive": {
-    "keyword": "My 9 Games（复盘型，不建议新开站）",
-    "intro": "> 评分 16/25。一句话：今天需求最实的新词，但英文工具站 9 月底就挤满了；最大的价值是当作「日文格式 → 英文搜索」的时间差案例。",
+    "keyword": "OpenCode free models（免费编程模型实时榜）",
+    "intro": "> 评分 16/25。一句话：由「GLM 5.3 Flash / DeepSeek V4.1 Flash 在 OpenCode 限时免费」这个新闻派生出来的工具词；补全变体多、有一个 2,821★ 的 CLI 证明需求，但还没有网页版。",
     "sections": [
      {
       "title": "A. 信号来源",
-      "markdown": "- X 新闻（10-15）：人们用 my9games.net 晒「9 款塑造我的游戏」3×3 拼图。\n- my9games.net 首页是日文「私を構成する9つのゲーム」，最后更新 2026-10-12；RDAP 注册 2026-09-18。\n- my9games.com 首页显示 **1,021,682 次使用 / 358,914 款收录游戏**（站方自报）。"
+      "markdown": "- X news：「GLM 5.3 Flash free on OpenCode」（10-16）；apidog 博客 10-16 实测：免费版只能在 OpenCode 里用，上下文 200K，不收 PDF。\n- Habr 10-16：OpenCode 里有两个免费版本，`glm-5.3-flash-free` 和 `deepseek-v4.1-flash-free`；免费是临时的，文档没写结束日期。\n- X：「glm 5.3 flash」10-15 501 → **10-16 1,149**；「deepseek v4.1 flash」874 → 927。"
      },
      {
-      "title": "B. 词族（`ac_batch1.jsonl`）",
-      "markdown": "- my 9 games：english / template / that shaped who i am / trend / list / **vercel**（有人在 vercel 上做了版本）\n- 9 games that shaped me：contest / as a person；9 games that made me template\n- 衍生：3x3 game grid maker、topster games、my 9 anime / movies / albums"
+      "title": "B. 词族（补全）",
+      "markdown": "- opencode free models：limits / usage limits / comparison / compared / reddit / best / ranking / api（15 条）。\n- glm 5.3 flash free：api / cline / github / chat / usage / reddit。\n- deepseek v4.1 flash free：api / use / token。"
      },
      {
-      "title": "C. 需求验证（`trends1–4.jsonl`、`trends_related.jsonl`）",
-      "markdown": "- 「my 9 games」÷GPTs：10-12 0.65 → 10-13 1.36 → 10-14 1.58 → 10-15 1.71 → 10-16 1.73 → **10-17 上午 2.36**。\n- 「9 games that shaped me」≈0.5×，「games that shaped me」≈0.55×。\n- 3 个月视角：10-04～10-11 基本是 1，10-13 起到 4–5（GPTs 是 2–3）。\n- 相关查询上升：nintendo ds games +650%、my 9 games template +300%、wii games +130%、my 9 animes +100%。\n- 粗估：约 8,000–12,000 次/天，而且还在涨。"
+      "title": "C. 需求验证（Trends 7 天）",
+      "markdown": "- 「opencode free models」24h **0.64×GPTs**，斜率 2.14×。\n- 「glm 5.3 flash free」0.25×，斜率 4.65×；「deepseek v4.1 flash free」0.23×，斜率 4.47×。\n- 对照：「glm 5.3」4.89×、「deepseek flash」4.56×（主词量大，但被官方和聚合站占着）。"
      },
      {
-      "title": "D. SERP（WebSearch 前 5，非原生）",
-      "markdown": "- 「my 9 games template」：my9gamestemplate.com、my9games.pro、sharegamegrid.com、my9games.com/en、nisu.io。\n- 「9 games that shaped me grid maker」：my9maker.com、my9games.io、nisu.io、my9games.com 分享页、my9games.com。\n- 判断：前 10 基本都是精确匹配首页，新站进前五的机会小。"
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- 「opencode free models」：opencode.ai/docs/models、opencode.ai、open-code.ai/en/docs/zen、**github.com/vava-nessa/free-coding-models**、两篇个人博客、explainx.ai 一篇。\n- 「glm 5.3 flash free」：前 8 全是 OpenCode 的 GitHub issues，**没有一篇正经的答案页**。\n- 「deepseek v4.1 flash free」：apidog、techpilot、mindstudio、ollama、HF；另外有一个 github.com/deepseekv41/DeepSeek-V4.1-Flash-Desktop（GitHub API 查不到这个仓库，可能已删除，**来路不明，别推荐**）。"
      },
      {
       "title": "E. 竞品拆解",
-      "markdown": "| 竞品 | 注册 | 功能 | 短板 |\n|---|---|---|---|\n| my9games.com | 2026-03-01 | 日英双语搜索、短评、剧透隐藏、分享页、排行 | 日文为主 |\n| my9gamestemplate.com | 2026-09-28 | 竖版高清 PNG，无账号 | 刷新就丢失 |\n| my9maker.com | 2026-09-28 | 9 games + 9 animes 等多格式 | 内容雷同 |\n| my9games.pro | 2026-09-29 | Steam 搜索 + 手动上传 + 分享链接 | 只搜 Steam |\n| sharegamegrid.com | 2026-09-30 | 每格可改提示语（Childhood 等），1200×1200 | — |\n| my9games.io / nisu.io | 未验证（.io 无 RDAP） | IGDB 30 万游戏、永久链接、社区排行 | — |"
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| vava-nessa/free-coding-models | GitHub 2026-02-20，最近推送 10-12 | CLI：15+ 平台、170+ 免费编程模型，实时测速 | 免费开源 | 只有命令行；不是网页，搜索拿不到 |\n| opencode.ai/docs/models | 官方 | 模型列表 | — | 只列 OpenCode 自己的 |\n| apidog / techpilot / explainx 博客 | 老站 | 单篇教程 | 免费 | 一次性文章，不更新 |"
      },
      {
       "title": "F. 可行性与经济账",
-      "markdown": "- MVP 半天（IGDB/Steam 搜索 + Canvas 导出），但差异化很难。\n- 变现：只有广告；用户用完就走。\n- 寿命：格式本身会反复出现（「私を構成する○○」是日文推特常见格式，持续时间未核实），但每波热点估计 2–4 周（经验判断）。\n- 风险：游戏封面版权（竞品都写了「仅用于识别」）。"
+      "markdown": "- **做什么**：一张每天更新的表——模型 × 平台（OpenCode、Kilo、Cline、OpenRouter free、Gemini CLI……）× 限额 × 上下文 × 开始 / 到期日 × 配置代码。每个模型一个详情页（「glm 5.3 flash free」「deepseek v4.1 flash free」这种长尾）。\n- **MVP（约 2–3 天）**：Next.js + 一个 JSON 数据文件；之后用定时脚本抓 OpenCode / OpenRouter 的模型 API（只读）来更新。\n- **成本**：托管几乎是 0；维护每天约 15 分钟。\n- **变现**：API 中转 / 编程工具的联盟链接、赞助位；邮件「新免费模型提醒」。\n- **ChatGPT 适配度**：高——「which coding models are free right now」这种问题，每周答案都在变，AI 训练数据跟不上。\n- **寿命**：长。免费活动会不停地出现。"
      },
      {
       "title": "G. 域名（RDAP）",
-      "markdown": "- 9gamesgrid.com、mynine.games、my9gamesgrid.com、nostalgiagrid.com 均 404。"
+      "markdown": "- 推荐：**freecodingmodels.com**（404，和 2,821★ 的 CLI 同名，可能有混淆或冲突，要考虑）\n- 备用：freecodingllm.com、freeaicodingmodels.com、freemodelstracker.com、opencodefree.com（均 404；opencode 打头有商标风险）"
      },
      {
-      "title": "H. 评分",
-      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 5 | 5 天稳定 1.4–2.4×GPTs，还在涨 |\n| 竞争 | 1 | 10+ 家精确匹配首页 |\n| 可行性 | 5 | 纯前端 |\n| 变现 | 2 | 只能广告 |\n| 寿命 | 3 | 格式会反复出现 |\n| 总分 | 16/25 | |\n\n**7 天计划（只建议老站执行）**：D1 在已有工具站加 `/my-9-games` 内页，做「按平台筛选」（DS / Wii / PS1 怀旧）；D2 加 `/my-9-anime`；D3 做「格子主题 prompt 库」（Childhood / Comfort game 等）；D4–7 看数据，没有曝光就停。**复盘要点**：日文格式出现（09-18 前后）→ 英文 EMD 集中注册（09-28～09-30）→ 英文搜索起量（10-13）。以后见到「私を構成する○○」类格式，当天就查英文 EMD。"
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 0.64×，补全 15 个；单个「free」长尾 0.2× 左右 |\n| 竞争 | 3 | 只有 CLI 和零散博客 |\n| 可行性 | 4 | 简单，但要每天维护 |\n| 变现 | 3 | 开发者人群，联盟 / 赞助可行 |\n| 寿命 | 3 | 持续有新的免费模型 |\n| 总分 | 16/25 | |\n\n**7 天计划**\n- 第 1 天：注册 freecodingllm.com 或 freecodingmodels.com；上线首页表格（先手工录约 20 个免费模型）。\n- 第 2 天：GLM 5.3 Flash free、DeepSeek V4.1 Flash free 两个详情页（限额、怎么配置、常见报错，引用 GitHub issues）。\n- 第 3 天：写只读抓取脚本，每天更新 OpenRouter `:free` 模型和 OpenCode 文档。\n- 第 4 天：对比页「glm 5.3 flash vs deepseek v4.1 flash」（只用公开基准，标注来源）。\n- 第 5 天：加「免费到期提醒」邮件订阅。\n- 第 6 天：在 OpenCode Discord / GitHub 讨论里回答问题（人工）。\n- 第 7 天：看 GSC 长尾，补「X free」详情页。"
      }
     ],
     "scores": [
      {
       "dim": "需求",
-      "score": 5.0,
-      "note": "5 天稳定 1.4–2.4×GPTs，还在涨"
+      "score": 3.0,
+      "note": "0.64×，补全 15 个；单个「free」长尾 0.2× 左右"
      },
      {
       "dim": "竞争",
-      "score": 1.0,
-      "note": "10+ 家精确匹配首页"
+      "score": 3.0,
+      "note": "只有 CLI 和零散博客"
      },
      {
       "dim": "可行性",
-      "score": 5.0,
-      "note": "纯前端"
+      "score": 4.0,
+      "note": "简单，但要每天维护"
      },
      {
       "dim": "变现",
-      "score": 2.0,
-      "note": "只能广告"
+      "score": 3.0,
+      "note": "开发者人群，联盟 / 赞助可行"
      },
      {
       "dim": "寿命",
       "score": 3.0,
-      "note": "格式会反复出现"
+      "note": "持续有新的免费模型"
      }
     ],
     "total": 16.0,
@@ -275,142 +275,2078 @@
   },
   {
    "rank": 4,
-   "keyword": "Deadlock Violet",
-   "keyword_note": "（abilities、build、kit、voice actor）",
-   "description": "Valve《Deadlock》City Never Sleeps 更新的新英雄（墨水画家）",
+   "keyword": "DeepSeek V4.1 Flash",
+   "keyword_note": "（1017、free api、vs glm 5.3 flash、price）",
+   "description": "DeepSeek 09-10 发 V4.1-Flash；**10-17 发 1017 小版本**（MIT 权重，API 名字不变）",
    "sources": [
-    "https://deadlock.wiki/Violet",
-    "https://x.com/i/trending/2111200049363296709"
+    "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "https://www.deepseek.com/en/news/deepseek-v4-1-flash/"
    ],
-   "sources_text": "https://deadlock.wiki/Violet · https://x.com/i/trending/2111200049363296709",
-   "first_seen": "2026-10-16 上线",
-   "trend_signal": "X 10-15 1,230 → **10-16 4,998**，10-17 前 70 分钟已 1,837。Trends 10-17 上午≈21×GPTs（失真）。补全：abilities / kit / build / voice actor / interactions",
-   "trends_verified": true,
-   "serp": "deadlock.wiki、mobalytics、blitz.gg（builds/items）、thegamehaus 当天就有",
-   "domain": "deadlockviolet.com、violetdeadlock.com、violetbuilds.com 404（含游戏名，商标风险）",
-   "idea": "构筑/出装页只适合已有 Deadlock 站的内页",
-   "rating": 2.5,
-   "rating_stars": "★★☆",
-   "reason": "爆发真实，大站当天覆盖，只能靠广告",
-   "extra": {}
+   "sources_text": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017 · https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+   "first_seen": "主模型 09-10；1017 版 10-17",
+   "trend_signal": "「deepseek v4.1 flash」**2.35×GPTs**、斜率 1.65×；「deepseek flash」4.56×；「…1017」0.29×、斜率 5.7×。X 10-14 445 → 10-16 927",
+   "trends_verified": null,
+   "serp": "主词前 8 全是 OpenRouter；free 词：apidog、techpilot、mindstudio、ollama；对比词：llm-stats、benchlm、artificialanalysis",
+   "domain": "deepseekv41flash.com、deepseek-v4-1-flash.com 404；deepseekv41.com 2026-05-22 已注册",
+   "idea": "只适合做对比 / 价格计算器的内页",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "量大，但聚合站已占",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "DeepSeek V4.1 Flash（1017 版）",
+    "intro": "> 评分 14/25。量大（2.35×GPTs），但主词前 8 都是 OpenRouter；只适合做对比 / 价格类内页，或者并进「免费编程模型榜」。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- HF `deepseek-ai/DeepSeek-V4.1-Flash-1017`。Vercel AI Gateway 10-17 changelog：1017 是小版本更新，推理、编程、agent、看图能力都有提升。\n- DeepSeek 官方 09-10 发布 V4.1-Flash（Reuters 同日报道）。同花顺 / IT 之家 10-17：MIT 权重，API 继续用 `deepseek-flash`，价格不变。\n- X：10-10 212 → 10-14 445 → 10-15 874 → 10-16 927 → 10-17 前 10 小时 1,215。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- deepseek v4.1 flash：1017 / benchmark / size / price / how to use / vs qwen 3.8 27b / vs glm 5.3 flash / vs kimi k3。\n- …api：price / key / free / pricing；deepseek flash：v4.1 / 1017 / 0731 / vision / pricing / vs pro。"
+     },
+     {
+      "title": "C. 需求验证（Trends 7 天）",
+      "markdown": "- 「deepseek v4.1 flash」**2.35×GPTs**，斜率 1.65×；「deepseek flash」4.56×。\n- 「…1017」0.29×，斜率 5.67×；「…free」0.23×；「…vs glm 5.3 flash」0.15×；「…api」0.05×。"
+     },
+     {
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- 主词：前 8 全是 openrouter.ai。\n- free：apidog、techpilot、mindstudio、ollama、HF。\n- vs glm：intelligentliving、llm-stats、benchlm、artificialanalysis ×2、yottalabs。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| OpenRouter 模型页 | 老站 | API、价格、基准 | 按量 | 首页级权重，抢不动 |\n| llm-stats / benchlm / artificialanalysis | 老站 | 对比页 | 免费 | 已经覆盖了对比词 |\n| deepseekv41.com | 2026-05-22 | 未抓取（**内容未验证**） | 未验证 | — |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 套壳聊天站要付 API 费用，而且官方网页本来就免费，用户没有理由来。能做的只有「价格计算器 / 峰谷时段省钱计算」（官方有峰谷价，谷时 5 折）这类内页。\n- ChatGPT 适配度：中；寿命：短（每 1–2 个月一个小版本）。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- deepseekv41flash.com、deepseek-v4-1-flash.com 404（带 DeepSeek 商标，不推荐）。deepseekflash.com 2025-01-30、deepseekv41.com 2026-05-22 已注册。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 4 | 2.35×，X 连续上升 |\n| 竞争 | 2 | OpenRouter + 对比站占满 |\n| 可行性 | 3 | 内页容易，主站没意义 |\n| 变现 | 3 | 开发者人群 |\n| 寿命 | 2 | 版本更新快 |\n| 总分 | 14/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "2.35×，X 连续上升"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "OpenRouter + 对比站占满"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "内页容易，主站没意义"
+     },
+     {
+      "dim": "变现",
+      "score": 3.0,
+      "note": "开发者人群"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "版本更新快"
+     }
+    ],
+    "total": 14.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 5,
-   "keyword": "Enshrouded 1.0",
-   "keyword_note": "（sparkworks、cinder's cradle）",
-   "description": "生存建造游戏两年 EA 后正式版，新地图 + 等级上限 50",
+   "keyword": "GLM 5.3 Flash",
+   "keyword_note": "（free、vs deepseek v4.1 flash、local、opencode）",
+   "description": "智谱 08-26 发布；10-16 起 OpenCode 免费",
    "sources": [
-    "https://store.steampowered.com/app/1203620/",
-    "https://x.com/i/trending/2110411772578648237"
+    "https://z.ai/blog/glm-5.3-flash",
+    "https://huggingface.co/zai-org/GLM-5.3-Flash"
    ],
-   "sources_text": "https://store.steampowered.com/app/1203620/ · https://x.com/i/trending/2110411772578648237",
-   "first_seen": "1.0 约 10-15",
-   "trend_signal": "Steam 在线 **53,224**；X 760 → 1,627 → 1,720；Trends 10-16≈71×GPTs（失真）",
-   "trends_verified": true,
-   "serp": "老游戏，已有 wiki 和攻略大站（未逐一核对）",
-   "domain": "未查",
-   "idea": "老站内页",
-   "rating": 2.0,
-   "rating_stars": "★★",
-   "reason": "量大但不是新词",
-   "extra": {}
+   "sources_text": "https://z.ai/blog/glm-5.3-flash · https://huggingface.co/zai-org/GLM-5.3-Flash",
+   "first_seen": "模型 08-26；免费 10-16",
+   "trend_signal": "「glm 5.3 flash」**2.63×GPTs**；「glm 5.3」4.89×；X 10-15 501 → **10-16 1,149**",
+   "trends_verified": null,
+   "serp": "HF ×2、z.ai、NVIDIA build、ollama、baseten；「free」词前 8 全是 OpenCode 的 GitHub issues",
+   "domain": "glm53flash.com、glm53.com、glm-5-3.com **404**；glmflash.com 2025-12-25 已注册",
+   "idea": "并进 #3 的免费模型表；单独开站不划算",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "模型不新，「免费」是新闻点",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "GLM 5.3 Flash（OpenCode 免费）",
+    "intro": "> 评分 13/25。模型是 08-26 发布的老模型，10-16「免费」才是新闻点；glm53.com 这种短 EMD 居然还能注册，但带智谱商标，而且「free」词的前 10 全是 GitHub issues，说明用户遇到的是「怎么用 / 报错」的问题。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- z.ai 博客；models.dev 写的发布日期是 2026-08-26。\n- apidog 10-16：`opencode/glm-5.3-flash-free` 价格 $0，上下文 200K / 输出 32K，只能在 OpenCode 里用；Z.ai API $0.15 / $0.50 每百万 token。\n- X：10-15 501 → **10-16 1,149**。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- glm 5.3 flash：free / vs deepseek v4.1 flash / local / pricing / size / vs glm 5.3 / reddit / opencode。\n- glm 5.3 flash free：api / cline / github / chat / usage / reddit。\n- 还有中文补全：glm 5.3 flash api 价格 / 调用。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- 「glm 5.3 flash」**2.63×**，斜率 1.4×；「glm 5.3」4.89×；「…free」0.25×，斜率 4.65×；「…api」0.04×。"
+     },
+     {
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- 主词：HF ×2、z.ai、NVIDIA build ×2、ollama、docs.z.ai、baseten。\n- 「glm 5.3 flash free」：前 8 全是 github.com/anomalyco/opencode/issues。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| z.ai / HF / NVIDIA build | 官方 | 模型页 | API 按量 | — |\n| OpenCode GitHub issues | — | 用户报错 | — | 没有整理好的答案页 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 单独开站：用户要的是「在 OpenCode / Cline 里怎么配置」，一页就讲完了。建议并进 #3 的免费模型榜，作为详情页。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- glm53flash.com、glm53.com、glm-5-3.com **404**（带智谱 GLM 商标）；glmflash.com 2025-12-25 已注册。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 主词量大；「free」长尾 0.25× |\n| 竞争 | 3 | free 词没有答案页 |\n| 可行性 | 3 | 一页内容 |\n| 变现 | 2 | 弱 |\n| 寿命 | 2 | 免费活动随时结束 |\n| 总分 | 13/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "主词量大；「free」长尾 0.25×"
+     },
+     {
+      "dim": "竞争",
+      "score": 3.0,
+      "note": "free 词没有答案页"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "一页内容"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "弱"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "免费活动随时结束"
+     }
+    ],
+    "total": 13.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 6,
-   "keyword": "Reflection Beam 1.0",
-   "keyword_note": "",
-   "description": "Reflection AI 开源 MoE（每 token 23B 激活，1M 上下文，Apache 2.0）",
+   "keyword": "Tenebris Somnia",
+   "keyword_note": "（walkthrough、endings、puzzle、ps5）",
+   "description": "阿根廷 2D 复古生存恐怖游戏 + 真人过场，New Blood 发行",
    "sources": [
-    "https://x.com/i/trending/2111084244533489807",
-    "https://x.com/_akhaliq/status/2111218996792234276"
+    "https://store.steampowered.com/app/2121510/",
+    "https://en.wikipedia.org/wiki/Tenebris_Somnia"
    ],
-   "sources_text": "https://x.com/i/trending/2111084244533489807 · https://x.com/_akhaliq/status/2111218996792234276",
-   "first_seen": "2026-10-16",
-   "trend_signal": "X 941 / 876；Trends「reflection beam」10-16≈0.08×，10-17 上午≈0.42×GPTs；补全全是噪音（beamng、beamforming）",
-   "trends_verified": true,
-   "serp": "未深挖",
-   "domain": "名字太通用，难做 EMD",
-   "idea": "模型新闻，不适合新站",
+   "sources_text": "https://store.steampowered.com/app/2121510/ · https://en.wikipedia.org/wiki/Tenebris_Somnia",
+   "first_seen": "**2026-10-16** 发售",
+   "trend_signal": "「tenebris somnia」**4.95×GPTs、斜率 15×**；walkthrough / endings / puzzle / guide 长尾 **≈0–0.04×**。X 10-15 209 → 10-16 643",
+   "trends_verified": null,
+   "serp": "Prima Games、IntoIndieGames 攻略合集、GamerSocialClub、**tenebrissomnia.wiki**（已有站）、Steam 指南、YouTube",
+   "domain": "tenebrissomniaguide.com、tenebrissomniawalkthrough.com 404；tenebrissomnia.com 是 2022 年注册（疑似官方）",
+   "idea": "只适合已有游戏站加内页",
    "rating": 2.0,
    "rating_stars": "★★",
-   "reason": "社交有、搜索词形不稳",
-   "extra": {}
+   "reason": "主词热，长尾搜索小，攻略位当天被占",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Tenebris Somnia（攻略）",
+    "intro": "> 评分 10/25。主词非常热（4.95×，斜率 15 倍），但攻略长尾在 Trends 里接近 0；Prima、IntoIndieGames 发售前一天就发了完整攻略，tenebrissomnia.wiki 也已经上线。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- X news（10-16 发售）→ agent 种子。Steam 2121510：10-16 发售，抓取时 97% 好评（123 条评测）。\n- 2D 复古生存恐怖 + 真人过场；New Blood 发行；有 2 个结局（Solve et Coagula / Magnum Opus）。\n- X：10-15 209 → **10-16 643** → 10-17 前 10 小时 358。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- tenebris somnia：review / walkthrough / guide / endings / switch 2 / ps5 / meaning / moonlight / all endings / deaths / translation / story explained。\n- walkthrough：puzzles / demo walkthrough；puzzle：floor puzzle。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- 主词 **4.95×GPTs**，斜率 15.1×。\n- walkthrough 0.00×、guide 0.00×、endings 0.03×、puzzle 0.04×。主词量大，但长尾很小——大部分人搜的是「这是什么游戏 / 评测」。"
+     },
+     {
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- walkthrough：primagames、gamersocialclub、YouTube ×2、intoindiegames 攻略合集、**tenebrissomnia.wiki**、Steam 指南、yekpeak。\n- endings：primagames、showgamer（俄语）、gamersocialclub、intoindiegames、YouTube。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| Prima Games | 老站 | 完整攻略（10-16） | 广告 | — |\n| IntoIndieGames | 老站 | 4 部分攻略合集（10-15） | 广告 | — |\n| tenebrissomnia.wiki | 未查（.wiki 没有 RDAP） | 关键道具攻略 | 广告 | — |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 游戏流程大约几个小时，2 个结局；攻略一次写完就没有新内容了。只能靠广告，寿命 1–2 周。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- tenebrissomniaguide.com、tenebrissomniawalkthrough.com 404；tenebrissomnia.com 2022 年注册（疑似官方）。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 主词热，长尾≈0 |\n| 竞争 | 2 | 大站和 wiki 已进场 |\n| 可行性 | 3 | 写攻略要通关 |\n| 变现 | 1 | 只有广告 |\n| 寿命 | 1 | 短篇游戏 |\n| 总分 | 10/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "主词热，长尾≈0"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "大站和 wiki 已进场"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "写攻略要通关"
+     },
+     {
+      "dim": "变现",
+      "score": 1.0,
+      "note": "只有广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 1.0,
+      "note": "短篇游戏"
+     }
+    ],
+    "total": 10.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 7,
-   "keyword": "Steam Frame verified games",
-   "keyword_note": "",
-   "description": "Valve VR 头显（$1,059，9-14 发售）的认证游戏清单",
+   "keyword": "Order of the Sinking Star",
+   "keyword_note": "（walkthrough、interactive map、mirror isles、skipping stones）",
+   "description": "Alan Hazelden 的 1,000+ 关解谜游戏",
    "sources": [
-    "https://vr.org/great-on-frame",
-    "https://store.steampowered.com/app/4165890/"
+    "https://store.steampowered.com/app/499170/",
+    "https://screenrant.com/order-of-the-sinking-star-review/"
    ],
-   "sources_text": "https://vr.org/great-on-frame · https://store.steampowered.com/app/4165890/",
-   "first_seen": "2026-09-14",
-   "trend_signal": "Trends「steam frame」稳定约 4–6×GPTs；「steam frame verified games」≈0；补全：verified games list / compatible games / vs quest 3",
-   "trends_verified": true,
-   "serp": "vr.org（204 款 @10-07）、sportskeeda、steamframelab.com（09-14）已覆盖",
-   "domain": "未查",
-   "idea": "不做",
+   "sources_text": "https://store.steampowered.com/app/499170/ · https://screenrant.com/order-of-the-sinking-star-review/",
+   "first_seen": "2026-10-08 发售",
+   "trend_signal": "「order of the sinking star」**2.58×GPTs**（7 天 3.0×），斜率 0.71（缓降）。补全有 interactive map / puzzle guide / solutions",
+   "trends_verified": null,
+   "serp": "gamerant、**sinkingstarguide.com（10-09 注册，已排第 2）**、sinkingstar.wikitactics.com、gamingally、gamer.org",
+   "domain": "sinkingstarwiki.com、orderofthesinkingstarwiki.com 404",
+   "idea": "关卡解法库工作量大（1,000+ 关），EMD 已有人做",
    "rating": 2.0,
    "rating_stars": "★★",
-   "reason": "一个月前的旧词，已满",
-   "extra": {}
+   "reason": "晚了约 1 周",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Order of the Sinking Star（关卡解法 / 互动地图）",
+    "intro": "> 评分 11/25。需求稳定（7 天 3.0×GPTs），补全里有「interactive map / puzzle guide / solutions」这些工具型词；但 sinkingstarguide.com 发售第二天就注册了，现在已经排第 2。这是一个「晚了约 1 周」的案例。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam 499170，10-08 发售（Gematsu 8 月就公布了日期）。Alan Hazelden 的解谜游戏，1,000+ 关（ScreenRant、KeenGamer 评测）。Polygon 有「先走哪个方向」攻略。\n- X：每天 81–160 条，缓慢下降。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- walkthrough：puzzles / demo / mirror isles / mirror。\n- map：interactive map / demo map / steam charts。\n- 还有 skipping stones / solutions / puzzle guide。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- 主词 24h **2.58×**，7 天 3.0×，斜率 0.71（缓降）。\n- guide 0.01×、walkthrough 0.00×、map 0.00×（峰值 31，有零星的点）。"
+     },
+     {
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- walkthrough：gamerant、**sinkingstarguide.com/walkthrough**、gamingally、YouTube、**sinkingstar.wikitactics.com**、gamer.org、xmodhub。\n- guide / wiki 这两个词 Bing 返回的是「order」的泛义结果（索引还不稳定）。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| sinkingstarguide.com | **2026-10-09** | 关卡攻略 | 广告（未验证） | 有没有互动地图未验证 |\n| sinkingstar.wikitactics.com | 子域名 | wiki | 广告 | — |\n| gamerant | 老站 | 攻略 | 广告 | — |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 1,000+ 关的解法库是很重的内容活；「互动地图」可以做，但已经有 EMD。只能靠广告。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- sinkingstarwiki.com、orderofthesinkingstarwiki.com 404；orderofthesinkingstar.com 2025-11-13、sinkingstarguide.com 2026-10-09 已注册。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 稳定约 2.6–3.0× |\n| 竞争 | 2 | EMD 发售第 2 天就有 |\n| 可行性 | 2 | 内容量大 |\n| 变现 | 1 | 广告 |\n| 寿命 | 3 | 解谜游戏的长尾比较长 |\n| 总分 | 11/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "稳定约 2.6–3.0×"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "EMD 发售第 2 天就有"
+     },
+     {
+      "dim": "可行性",
+      "score": 2.0,
+      "note": "内容量大"
+     },
+     {
+      "dim": "变现",
+      "score": 1.0,
+      "note": "广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "解谜游戏的长尾比较长"
+     }
+    ],
+    "total": 11.0,
+    "max": 25.0
+   }
   },
   {
    "rank": 8,
-   "keyword": "mecore",
-   "keyword_note": "（Pinterest 四图挑战）",
-   "description": "用偶像/动物/歌词/色板四张图拼「me core」",
+   "keyword": "Qwen Image 2.1",
+   "keyword_note": "（turbo、lora、transparent）",
+   "description": "通义 7B 文生图 + 编辑，09-20 开源，Turbo 8 步版 10-09",
    "sources": [
-    "https://x.com/i/trending/2110850862432108753"
+    "https://github.com/QwenLM/Qwen-Image-2.1",
+    "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo"
    ],
-   "sources_text": "https://x.com/i/trending/2110850862432108753",
-   "first_seen": "约 10-14",
-   "trend_signal": "X 287 → 696 → 923；**Trends「mecore」≈0**；补全有 mecore pinterest / template",
-   "trends_verified": true,
-   "serp": "未深挖",
-   "domain": "未查",
-   "idea": "社交有、搜索冷",
+   "sources_text": "https://github.com/QwenLM/Qwen-Image-2.1 · https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+   "first_seen": "09-20 / Turbo 10-09",
+   "trend_signal": "「qwen image 2.1」1.18×GPTs、**斜率 0.77（回落）**；turbo 0.07×。X 10-11 262 → 10-16 148",
+   "trends_verified": null,
+   "serp": "HF / GitHub / Comfy；在线站 ricebowl.ai、stablediffusion.fr；qwenimage21.com（09-19 注册）",
+   "domain": "qwen-image-2-1.com 404；qwenimage21.com、qwenimage2.com、qwenimageturbo.com 已注册",
+   "idea": "许可证**禁止商用**（Qwen Research License），只能走官方 API",
    "rating": 1.5,
    "rating_stars": "★☆",
-   "reason": "只在社交热",
-   "extra": {}
-  },
-  {
-   "rank": 9,
-   "keyword": "PS5 LLM",
-   "keyword_note": "（llama.cpp ps5）",
-   "description": "在越狱 PS5 上跑 GGUF 本地模型",
-   "sources": [
-    "https://github.com/cobanov/PS5LM"
-   ],
-   "sources_text": "https://github.com/cobanov/PS5LM",
-   "first_seen": "HN 10-16 185p",
-   "trend_signal": "补全：ps5 llm inference / run llm / local llm / linux llm / pro llm（多个真实变体）；Trends 未测",
-   "trends_verified": true,
-   "serp": "未深挖",
-   "domain": "未查",
-   "idea": "依赖越狱，法律/平台风险高",
-   "rating": 1.0,
-   "rating_stars": "★",
-   "reason": "降级：越狱相关不做",
-   "extra": {}
+   "reason": "回落 + 许可证限制",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Qwen Image 2.1（Turbo）",
+    "intro": "> 评分 11/25。9 月 20 日的模型，Turbo 版是 10-09；X 和 Trends 都在回落；许可证禁止商用，在线生成站只能接官方 API。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- HF `Qwen/Qwen-Image-2.1`（模型树 132 个衍生）；GitHub QwenLM/Qwen-Image-2.1（抓取时 1,962★）。\n- 09-20 开源，Turbo 8 步版 10-09；7B 视觉生成部分，原生透明图（RGBA），最多 10 张参考图。\n- 许可证：Qwen Research License，**仅限非商用**；不能用「Qwen」当产品主名。\n- X：10-11 262 → 10-16 148；Turbo 140 → 30。"
+     },
+     {
+      "title": "B. 词族",
+      "markdown": "- qwen image 2.1：turbo / lora / release date / open source / huggingface / minimum requirements / workflow / q4。\n- 在 Bing / Google 补全里，「…online」「…transparent」只返回老 qwen2 的噪音。"
+     },
+     {
+      "title": "C. 需求验证",
+      "markdown": "- 主词 **1.18×**，**斜率 0.77（回落）**；turbo 0.07×，斜率 0.21；online / transparent 0。"
+     },
+     {
+      "title": "D. SERP（Bing 前 10）",
+      "markdown": "- turbo：r/QwenAI、r/StableDiffusion ×6。\n- online free / transparent：qwen.ai、chat.qwen.ai、维基百科、HF、GitHub。\n- WebSearch 能看到在线站：ricebowl.ai/im/qwen-image-2-1、stablediffusion.fr/qwen-image、HF Space。"
+     },
+     {
+      "title": "E. 竞品",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| HF Space（Turbo） | — | 免费 8 步生成 | 免费（ZeroGPU） | 排队 |\n| qwenimage21.com | **2026-09-19**（发布前一天） | 未抓取 | 未验证 | — |\n| ricebowl.ai、stablediffusion.fr | 老站内页 | 在线试用 | 未验证 | — |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- 自己托管权重不能商用；只能接 Qwen 官方 Pro / Turbo API（价格未验证）。热度已经过了顶点。"
+     },
+     {
+      "title": "G. 域名",
+      "markdown": "- qwen-image-2-1.com 404；qwenimage21.com（09-19）、qwenimage2.com（2025-12-27）、qwenimageturbo.com（2026-01-20）已注册。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 1.18×，但在回落 |\n| 竞争 | 2 | EMD 发布前一天就被注册 |\n| 可行性 | 3 | 接 API |\n| 变现 | 1 | 许可证限制 |\n| 寿命 | 2 | 已过顶点 |\n| 总分 | 11/25 | |"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "1.18×，但在回落"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "EMD 发布前一天就被注册"
+     },
+     {
+      "dim": "可行性",
+      "score": 3.0,
+      "note": "接 API"
+     },
+     {
+      "dim": "变现",
+      "score": 1.0,
+      "note": "许可证限制"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "已过顶点"
+     }
+    ],
+    "total": 11.0,
+    "max": 25.0
+   }
   }
  ],
  "supplement": "",
- "top_picks": "1. **FLUX 3 Image Klein**（17/25）\n   - **事件**：BFL 10-13 放出 5.6B 开源权重（HF），API 同步上线；HN 105p；X 10-16 从个位数跳到 715。\n   - **搜索**：「flux 3 klein」发布后第一个完整日≈1.0×GPTs（粗估约 5,000 次/天），10-17 上午回落到≈0.63×。\n   - **竞争**：官方 HF Space + 2 个 10-16 当天注册的 EMD（flux3klein.com 每天免费 3 次；flux3klein.org 500 张 $19.90）。主词 EMD 竞赛已经结束。\n   - **切口**：官方文档要求框选编辑写成 0–1000 网格的 JSON，普通用户很难手写 → **可视化框选编辑器**，前 5 没看到专门的站。\n   - **成本**：BFL API 1K 每张 $0.009、2K $0.014；毛利空间大。\n   - **风险**：FLUX 是 BFL 商标（域名避开 flux）；Kommunity License 对自托管权重有营收门槛（走 API 不受影响）；需要做内容审核（NSFW / 真人换脸）。\n2. **Kling 4.0**（16/25）\n   - **事件**：快手 10-16 公告 Kling 4.0 已于 10-15 上线；单次最长 30 秒、最多 10 个关键帧、15 个参考素材；官方 API「coming soon」，fal 预告「coming soon」。\n   - **搜索**：「kling 4.0」≈0.70×GPTs（约 3,500 次/天量级），补全有 release date / vs seedance 2.5。\n   - **竞争**：主词前 5 被官方占满；8 个 kling4 EMD 早就被人囤了；对比和提示词长尾已有 5+ 篇。\n   - **切口**：30 秒长镜头最难的是「按秒拆分镜 + 关键帧顺序」，官方博客只写教程，没有交互工具 → **分镜提示词规划器**（LLM 生成，每次成本是分级的）。API 开放后加生成和订阅。\n   - **风险**：Kling 是快手商标（群里有收到律师函后转移域名的案例）；长尾 Trends 目前是 0。\n3. **My 9 Games**（16/25）\n   - **需求**：今天需求最实的词，「my 9 games」连续 5 天 1.4–2.4×GPTs，而且还在涨；related 里 template +300%。\n   - **竞争**：10+ 个英文站从 9-28 到 9-30 集中注册，日文主站显示 102 万次使用——**晚了约 3 周**。\n   - **价值**：主要是复盘案例——日文社交格式出现后约 2 周，英文搜索才起来，而 EMD 在英文搜索起来之前 2 周就被注册了。下次见到日文「私を構成する9つの○○」类格式，要立刻查英文 EMD。\n   - **能做的**：只适合已有工具站加一个内页，或者做「按平台筛选」（DS / Wii 怀旧格子，related 上升 +650% / +130%）。\n\n其他值得留意：Deadlock Violet（X 单日近 5,000，大站当天覆盖）、Enshrouded 1.0（在线 5.3 万，但不是新词）、Reflection Beam 1.0（搜索词形不稳）、Steam Frame verified games（9 月旧词，已满）。",
+ "top_picks": "1. **charisma style quiz**（17/25）\n   - **事件**：Trends 用宽词「quiz」拉 1 天上升，第一名就是 charisma style quiz（+950%），第二名是 …animals（+600%）。X 上几乎没有（每天 ≤6 条），说明它是在 TikTok / Instagram 传播（起源帖未验证）。\n   - **搜索**：「charisma quiz」最近 24h 平均 0.72×GPTs（粗估每天约 3,600 次），斜率 38 倍；「charisma style quiz」0.53×。\n   - **竞争**：前 10 是老牌性格测试（idrlabs、psychologytoday、scienceofpeople），专门的「charisma style / 魅力动物」页只有 2–3 个（animalpersonalityquiz.com 的内页、personalitycalculator.org 内页、buildyourcharisma.com 首页）。**没有 EMD 首页。**\n   - **切口**：EMD 首页 + 「魅力动物」结果卡（可分享）。纯前端，成本接近 0。\n   - **风险**：社交测验一般 1–3 周就过气；只能靠广告；不要碰心理 / 健康说法。\n2. **Nemotron 3.5 本地运行计算器**（16/25）\n   - **事件**：NVIDIA 10-15 发 Super VL 和 Bolt 74B；**Bolt E4B 10-23 发布**，第二波搜索可以预期。\n   - **搜索**：「nemotron 3.5」1.69×GPTs，斜率 13 倍；补全里已经出现「bolt 74b a9b 24gb」这种硬件型长尾。\n   - **竞争**：前 10 全是 NVIDIA 自家页面；第三方只有 Unsloth 文档一页和 PacketNebula 一篇。\n   - **切口**：「我的显卡 / Mac 能跑哪个 Nemotron 3.5？」按显存、量化（IQ2 / Q4 / NVFP4）、上下文长度算能不能跑，给出 llama.cpp / vLLM 命令。\n   - **风险**：Nemotron 是 NVIDIA 商标，域名不要用 nemotron 打头（用 canirun… 这类）；变现只能靠广告和 GPU 云联盟。\n3. **OpenCode free models / 免费编程模型榜**（16/25）\n   - **事件**：10-16 OpenCode 把 GLM 5.3 Flash、DeepSeek V4.1 Flash 设为限时免费，没有写结束日期。\n   - **搜索**：「opencode free models」0.64×GPTs，有 15 个补全变体（limits / comparison / ranking / best）；两个模型的「free」长尾斜率都超过 4 倍。\n   - **竞争**：GitHub 上的 CLI 工具 free-coding-models（2,821★）说明需求真实，但**没有网页版的实时榜**。\n   - **切口**：每天自动更新的表——哪个模型、在哪个平台免费、限额、上下文、开始和到期日期、怎么配置。以后每出一个免费模型就多一个长尾。\n   - **风险**：要每天维护；免费活动结束后流量会转移，需要持续追新。\n\n其他值得留意：DeepSeek V4.1 Flash（2.35×，但 OpenRouter 占满）、GLM 5.3 Flash（2.63×，「免费」词前 10 全是 GitHub issues）、Tenebris Somnia（主词 4.95×，长尾≈0）、**Elorian Glimpse**（10-16 新视觉推理模型，X 1 → 212，但 Trends 0.03×，补全 0 条，搜索还没起来，放进观察名单）。",
  "monitoring": "",
  "other_sections": [
   {
-   "title": "旧词跟进",
-   "markdown": "| 词 | 状态 | 证据 | 动作 |\n|---|---|---|---|\n| **Scam With Your Friends** | **继续上升** | X 10-15 29 → **10-16 266**；Trends 10-16≈8.0×、10-17 上午≈10.6×GPTs；在线 12,833；评测 **Mixed 582 → Mostly Positive 1,370**（+1,037/−333）；官方首发帖称 60 万愿望单；10-16 连发 Hotfix 2、3（版本不一致提示、备用登录、语音下载服务器）；wiki JSON 页仍写 schema 未公开（last verified 9/26）；json/workshop/mods 长尾 Trends≈0 | 继续等 schema；今天可以加「version mismatch / sign-in / voice download」排错页（来自官方 Hotfix 说明） |\n| **Castlevania: Belmont's Curse** | 仍在上升 | X 10,594 → 8,599；Trends 10-16≈23×、10-17 上午≈35×（失真）；在线 17,503；补全 checklist pdf/printable 仍在 | 地图位已满；checklist 切口同昨天 |\n| **Muse Spark Open** | 高位回落 | X 6,307 → 5,321；Trends「muse spark」10-16≈6.5×、10-17 上午≈5.5×；Apple ML Research 发了 Mac Studio MLX 文章（HN 263p） | 大站继续加码，维持昨天判断 |\n| **Planet Zoo 2** | 高位横盘 | 在线 18,033；补全 animals list / confirmed / tier list / hidden animals | 只做老站内页 |\n| **DayZ Badlands** | 横盘 | Trends 10-16≈7.7×、10-17 上午≈7.4×；补全多了 water locations / heat stroke / sickness | 地图位已满；生存机制长尾可当内页 |\n| **YouTube GIF comments** | 继续降温 | Trends 10-16≈0.64×、10-17 上午≈0.57×；X 847 → 238；GitHub 新开源扩展 rayytor/desktop_gifs 471★；补全 extension / github / not showing | 不开新站 |\n| **Krea 3 / OmniHuman V2 / Character.ai export / Mirelo** | 本日未复测 | — | 维持昨天的降级 |"
+   "title": "诊断：为什么以前每天找到的词太少",
+   "markdown": "1. **漏斗从入口就太窄。** 10-12 到 10-17 六天，原始种子分别是 110 / 65 / 103 / 88 / 81 / 102 条，第一层剩 40 / 28 / 31 / 28 / 26 / 22 个，决赛 6–9 个，深挖 3–6 个。网站候选表 6 天合计 58 行，去重后约 51 个词。种子约 34% 来自 X，21% GitHub，14% HN，9% HF，Steam / App 约 10%，PH 约 7%。全部是英文的「发布源」，**没有一个是「搜索行为源」**。\n2. **自动补全只用来验证，不用来发现。** 以前每天只跑 52 个左右补全查询，用来给已有候选查变体。今天跑字母汤 2,106 次，拿到 26,948 条建议，其中 11,075 条是基线（常青词表）里没有的。今天 150 个候选里，**46 个只有字母汤这一个来源**（例如 coralum ore palworld、tiktok trend 2026、yba tier list 一族）。\n3. **Trends 只看了美国 RSS，而且只做比较、不做发现。** 10-12 到 10-14 三天谷歌趋势被限流，那几天的趋势数据都没拿到。今天改成两种用法：① 用 20 个「工具型宽词」拉 1 天上升查询，直接出新词，得到 charisma style quiz +950%、pet pumpkin dog food maker +750%、yba skin tier list +350%、chatwait extension +150% 等；② 所有候选统一和 GPTs 比。最终 150 池里有 20 个来自 Trends 上升。\n4. **没有日韩源，没有新注册域名源。** My 9 Games 就是这样漏掉的：\n   - 日文站 my9games.net 在 **09-18** 注册（「私を構成する9つのゲーム」）。\n   - 英文 EMD 在 **09-28 到 09-30** 集中注册（my9gamestemplate.com、my9maker.com 09-28；my9games.pro 09-29；sharegamegrid.com 09-30）。\n   - Trends 在 10-12 是 0.65×GPTs，到 10-17 涨到 2.36×。\n   - 我们的种子直到 **10-17** 才第一次出现它，比日文站晚了约 4 周，比英文 EMD 晚了约 18 天。\n   \n   今天新增了 shindanmaker / Yahoo JP / 韩国实时检索 / 日文维基，以及「私を構成するN つの○○ → my N ○○」这类格式规则，今天命中 22 个日韩格式词。NRD 每天抓 whoisds 免费包。不过 NRD 今天出来的 167 个突增词全是批量注册的营销词（ether、shoptalk、chimney services……），**今天对候选池的贡献是 0**。\n5. **第二层过滤太严。**\n   - 要求「补全变体」和「Trends / 社交读数」两个条件同时满足。\n   - 品牌 / 商标词直接剔除。\n   - 「已被占」当成淘汰，而不是标注。\n   - 纯社交格式（mecore）、Roblox 游戏（Omurice）、不是工具的词也都剔除了。\n   \n   新管线第一轮只打分、不淘汰，状态（已被占 / 回落 / 旧词）写在表里由人判断。只硬排除两类：健康 / 医疗（16 个）和 NSFW / 赌博 / 破解（4 个）。**没有疗愈角度。**\n6. **漏掉的词集中在三类**：游戏攻略长尾（Palworld 1.0 的 coralum ore / xenolord / jetragon saddle 等）、学生 / 小工具型 Trends 上升词（blooket join、bijoy to unicode converter、crs score calculator、euromillions checker）、社交测验格式（charisma style quiz、how pinterest sees me、my 9 albums）。以前的源都看不到这三类，因为它们不是「发布」，而是「搜索行为」。\n7. **新管线的噪音也要说清楚。** 字母汤会带进大量印度 CapCut 模板词（template wala capcut、capcut template rajan editz……）和常青大游戏（call of duty、runescape……）。报告池用 `report_tables.py` 去掉了其中三类：常青老品牌 34 个、印地语 CapCut 字母汤 20 个、人工剔除 23 个。完整的 150 个都留在 `pool.json` 里。\n\n**筛选漏斗（今天 vs 以前）**\n\n| 阶段 | 以前（10-12～10-17 每天） | 今天 v2 |\n|---|---|---|\n| 原始信号 | 65–110 条种子 | **3,597** 条（25 个源）+ 26,948 条字母汤建议 |\n| 抽取出的候选词 | 未计 | 4,212 |\n| 做了补全探测 | 约 20–50 | 750 |\n| 有 ≥2 个真实补全变体 | 未计 | 590（其中 354 个带工具意图词） |\n| Trends 对比 GPTs | 17–25 组 | 100 个候选 + 8 个词族 |\n| 自动打分池 | 22–40（第一层） | **150**（报告池整理后 73） |\n| 深挖 | 3–6 | 8 |\n| 网站候选表行数 | 8–14 | 8 个深挖 + 73 行候选池 + 42 行观察名单 |\n\n**今日结论（如实）**\n- 新管线把每天能看的词从「约 10 个」放大到「150 个自动打分 + 73 个整理后的候选池」，**深挖 8 个**。\n- 「需求已起、竞争还空」最接近的是两个：\n  - **charisma style quiz**：社交测验格式。「charisma quiz」24h 达到 0.72×GPTs，斜率 38 倍；EMD 全部可注册。\n  - **Nemotron 3.5**（Super VL + Bolt 本地版）：主词 1.69×GPTs，前 10 结果全是 NVIDIA 自家页面，EMD 全部可注册；但有商标风险。\n- 第三个是一个由新闻派生出来的工具位：**OpenCode free models**。GLM 5.3 Flash 和 DeepSeek V4.1 Flash 10-16 起在 OpenCode 限时免费，「opencode free models」有 15 个补全变体（limits / comparison / ranking……），0.64×GPTs。\n- DeepSeek V4.1 Flash、GLM 5.3 Flash 本身量大（2.35× / 2.63×），但前 10 被 OpenRouter / 官方 / HF 占满。Tenebris Somnia、Order of the Sinking Star 是游戏攻略，大站和 EMD 已进场。Qwen Image 2.1 在回落，而且许可证不能商用。"
   },
   {
    "title": "不推荐但继续盯",
-   "markdown": "- **Deadlock Violet**：X 单日近 5,000，Trends 失真级高，但 deadlock.wiki / mobalytics / blitz 当天就有页面。\n- **Enshrouded 1.0**：在线 5.3 万，正式版流量大，但老游戏攻略站已经有了。\n- **Reflection Beam 1.0**：开源模型，名字太通用，补全全是噪音。\n- **Steam Frame verified games**：9 月旧词，vr.org / steamframelab 已覆盖。\n- **mecore / Pinterest 四词挑战 / 生日主机挑战**：只在社交热，Trends≈0。\n- **决策模型（pplx-decider、Liquid d1-ultra、Jev/Laya）**：补全出现 decision models jev / leaderboard，但是开发者向，不适合工具站。\n- **PS5 LLM / 各种 PS4→PC 移植仓库**：越狱和版权风险，不碰。"
+   "markdown": "- **Elorian Glimpse**（10-16 发布的视觉推理模型，$0.60 / $3 每百万 token）\n  - X：「elorian」10-15 1 条 → 10-16 212 条。\n  - 搜索还没起来：「elorian glimpse」0.03×GPTs，Google 补全 0 条。elorianglimpse.com 404。\n  - 等补全里出现 glimpse 长尾再看。\n- **Muse Spark Open**（10-16 已深挖）：今天 2.44×GPTs、X 2,748，仍然是大站的地盘。\n- **Krea 3**：0.64×，斜率 7.3×，但已有 11 个 EMD 结果，已被占。\n- **Seedance 2.5**：4.46×，X 10-15 2,274 → 10-16 1,698，已在回落；EMD 已注册。\n- **Palworld 1.0 攻略族**（coralum ore、xenolord、jetragon saddle……）\n  - 字母汤挖出了 6 个长尾。\n  - 但 1.0 是 **2026-07-10** 发售的（Game8 / paldb），不是新词。\n- **Control Resonant**：09-24 发售，10-15 宣布销量破百万，21.8×GPTs，属于老游戏的大词。\n- **bijoy to unicode converter**：1.31×GPTs，.com 404，补全 20 个（apk / app / online）。\n  - 这是孟加拉语老工具词（常青），不是新词。\n  - 但它是一个「有量、EMD 空」的工具位，可以单独评估。\n- **netmirror extension**：Trends 上升 +140%。疑似盗版流媒体相关，**不做**。\n- **pet pumpkin dog food maker**：+750%，是实物产品，不是工具。"
+  },
+  {
+   "title": "来源产出",
+   "markdown": "> 「原始信号」= 这个源今天抓到的条目数；「进入 150 池」= 150 个自动打分词里带这个来源标签的数量。\n>\n> 标「派生」的不是外部源，而是管线内部的发现步骤：\n> - autocomplete_soup：字母汤\n> - trends_rising：Trends 上升\n> - agent_x_seed：agent 从 X 新闻里手工提取的种子\n\n| 来源 | 状态 | 原始信号 | 进入 150 池 | 进入报告池 |\n|---|---|---|---|---|\n| gtrends_rss | ok | 130 | 0 | 0 |\n| hackernews | ok | 132 | 5 | 3 |\n| lobsters | ok | 50 | 0 | 0 |\n| github | ok | 313 | 4 | 1 |\n| huggingface | ok | 180 | 14 | 14 |\n| fal | ok | 34 | 1 | 1 |\n| replicate | ok | 125 | 4 | 4 |\n| together | ok | 24 | 6 | 6 |\n| steam | ok | 340 | 34 | 7 |\n| itch | ok | 108 | 0 | 0 |\n| webgames | ok | 211 | 0 | 0 |\n| appstore | ok | 57 | 0 | 0 |\n| chrome_webstore | ok | 82 | 0 | 0 |\n| producthunt | ok | 50 | 4 | 3 |\n| googlenews | ok | 604 | 9 | 4 |\n| devto | ok | 60 | 0 | 0 |\n| wikipedia | ok | 376 | 3 | 1 |\n| social_trends | ok | 50 | 0 | 0 |\n| shindanmaker | ok | 108 | 0 | 0 |\n| yahoo_jp | ok | 23 | 0 | 0 |\n| korea | ok | 10 | 0 | 0 |\n| nrd | ok | 167 | 0 | 0 |\n| reddit_probe | blocked (403) | 0 | 0 | 0 |\n| agent_x | ok | 325 | 10 | 10 |\n| agent_seeds | ok | 38 | 10 | 10 |\n| x_news | 派生 | — | 3 | 2 |\n| agent_x_seed | 派生 | — | 10 | 10 |\n| trends_rising | 派生 | — | 20 | 15 |\n| mastodon | 派生 | — | 4 | 1 |\n| autocomplete_soup | 派生 | — | 46 | 16 |\n| x_trends | 派生 | — | 15 | 4 |\n\n**读法（今天的实际产出）**\n- **产出最好的**：\n  - 字母汤：46 个进入 150 池。\n  - Trends 上升：20 个。\n  - Steam：34 个，但多数是常青老游戏，整理后剩 9 个。\n  - X（agent 种子 + 趋势 + 新闻）：28 个。\n  - HF / Together / Replicate：合计 24 个，都是 AI 模型。\n- **有信号、但今天对 150 池贡献是 0**：\n  - 日韩源：shindanmaker 108、Yahoo JP 23、韩国 10、日文维基。它们的作用是「格式提前量」：今天命中 22 个日韩格式词，但英文补全还没跟上，所以没进 150。\n  - itch.io 108、CrazyGames / Poki 211、App Store 57、Chrome 应用商店 82、NRD 167、Trends RSS 130。\n- **被挡的**：Reddit 403；PH 榜单、TikTok、Naver、crt.sh、Google Play、futurepedia、theresanaiforthat / toolify 都没拿到。"
+  },
+  {
+   "title": "还存在的盲区和下一步",
+   "markdown": "1. **Google 原生 SERP 拿不到**，用的是 Bing 前 10 代替。「首页胜内页」的判断要人工在 Google 上再看一眼。\n2. **Trends 每天的预算大约 150 次调用**：上升 40 次左右，对比 25 组 × 4 个词。超过就会 429。所以 150 池里只有前 100 个有 Trends 读数，深挖词族另外再查。\n3. **X 只查了 35 个词。** 每日额度是 1,000，可以放宽到 100 个，但每分钟最多 30 次，要分批查。\n4. **日韩格式词要等英文补全出现。** 建议每天把日韩命中词（`signals.json` 里 kind=jp_format）单独列出，连续 3 天查英文补全和 EMD 注册情况。My 9 Games 的教训是：**英文 EMD 往往在英文搜索起来之前约 2 周就被注册了。**\n5. **NRD 今天全是批量注册的噪音。** 下一步要过滤掉「同一个词配大量随机前缀」的模式，并且只看 .com / .ai / .io。\n6. **字母汤会带进印地语模板词和常青大游戏。** 现在是在报告阶段过滤（`overrides.json` + `report_tables.py`），以后可以把规则前移到打分阶段。"
   }
  ],
- "deep_dive_count": 3,
+ "deep_dive_count": 8,
+ "pool": {
+  "title": "候选池（自动初筛）",
+  "header": [
+   "#",
+   "关键词",
+   "类别",
+   "来源",
+   "补全变体/工具意图",
+   "补全示例",
+   "Trends 24h÷GPTs",
+   "Trends 斜率",
+   "X 昨日(斜率)",
+   ".com",
+   "SERP EMD/大站",
+   "分",
+   "状态"
+  ],
+  "rows": [
+   [
+    "1",
+    "muse spark open",
+    "AI 模型",
+    "googlenews、hackernews、producthunt https://machinelearning.apple.com/research/mlx-distributed-inference",
+    "22/6",
+    "meta muse spark open source；muse spark open abliterated；muse spark open api",
+    "2.44",
+    "61.7",
+    "2748(4.7×)",
+    "已注册 2026-09-23",
+    "0/0",
+    "94.2",
+    "复查（旧词）"
+   ],
+   [
+    "2",
+    "deepseek v4.1 flash",
+    "AI 模型",
+    "huggingface、together https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+    "21/8",
+    "deepseek v4.1 flash api；deepseek v4.1 flash architecture；deepseek v4.1 flash benchmark",
+    "2.12",
+    "1.6",
+    "927(1.62×)",
+    "404 可注册?",
+    "0/0",
+    "80.6",
+    "新"
+   ],
+   [
+    "3",
+    "tenebris somnia",
+    "游戏",
+    "agent_x_seed、x_news https://x.com/i/trending/2111078081842573739",
+    "20/8",
+    "tenebris somnia ai；tenebris somnia all endings；tenebris somnia deaths",
+    "5.01",
+    "15.13",
+    "643(5.1×)",
+    "已注册 2022-05-24",
+    "0/5",
+    "80.6",
+    "新"
+   ],
+   [
+    "4",
+    "seedance 2.0",
+    "AI 模型",
+    "replicate、together https://replicate.com/bytedance/seedance-2.0",
+    "26/14",
+    "seedance 2.0 4k；seedance 2.0 ai；seedance 2.0 ai video generator",
+    "1.98",
+    "0.94",
+    "183(1.08×)",
+    "已注册 2026-01-08",
+    "3/1",
+    "71.2",
+    "已被占"
+   ],
+   [
+    "5",
+    "seedance 2.5",
+    "AI 模型",
+    "googlenews、replicate、together https://replicate.com/bytedance/seedance-2.5",
+    "27/15",
+    "dreamina seedance 2.5；seedance 2.5 4k；seedance 2.5 ai",
+    "4.46",
+    "1",
+    "1698(0.99×)",
+    "已注册 2026-02-12",
+    "1/0",
+    "71.0",
+    "新"
+   ],
+   [
+    "6",
+    "krea 3",
+    "AI 模型",
+    "hackernews、replicate https://www.krea.ai/krea-3",
+    "23/8",
+    "krea 3 ai；krea 3 announcement；krea 3 bracelet",
+    "0.64",
+    "7.27",
+    "330(1.38×)",
+    "已注册 2009-04-21",
+    "11/0",
+    "70.2",
+    "已被占"
+   ],
+   [
+    "7",
+    "qwen image 2.1",
+    "AI 模型",
+    "huggingface https://huggingface.co/Qwen/Qwen-Image-2.1",
+    "12/3",
+    "qwen image 2.1 huggingface；qwen image 2.1 lora；qwen image 2.1 minimum requirements",
+    "1.21",
+    "0.75",
+    "148(1.05×)",
+    "已注册 2026-09-19",
+    "0/4",
+    "68.0",
+    "新"
+   ],
+   [
+    "8",
+    "nemotron 3.5 super vl",
+    "AI 模型",
+    "googlenews、producthunt https://www.producthunt.com/products/nvidia",
+    "7/2",
+    "nemotron 3.5 super vl benchmark；nemotron 3.5 super vl free；nemotron 3.5 super vl huggingface",
+    "0.93",
+    "10.92",
+    "1008(2.21×)",
+    "404 可注册?",
+    "0/0",
+    "66.3",
+    "新"
+   ],
+   [
+    "9",
+    "glm 5.3 flash",
+    "AI 模型",
+    "huggingface、together、x_news https://huggingface.co/zai-org/GLM-5.3-Flash",
+    "12/7",
+    "glm 5.3 flash api；glm 5.3 flash api price；glm 5.3 flash benchmark",
+    "2.72",
+    "1.34",
+    "1149(2.45×)",
+    "404 可注册?",
+    "0/2",
+    "63.1",
+    "新"
+   ],
+   [
+    "10",
+    "bijoy to unicode converter",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=converter",
+    "20/11",
+    "bijoy to unicode converter apk；bijoy to unicode converter app；bijoy to unicode converter app download",
+    "1.31",
+    "0.62",
+    "未验证",
+    "404 可注册?",
+    "0/0",
+    "62.1",
+    "新"
+   ],
+   [
+    "11",
+    "teslaroadster",
+    "新产品",
+    "hackernews、mastodon、producthunt https://www.tesla.com/roadster",
+    "26/5",
+    "tesla roadster 0-60；tesla roadster 2；tesla roadster 2008",
+    "0.5",
+    "2",
+    "未验证",
+    "已注册 2004-06-03",
+    "0/0",
+    "62.0",
+    "新"
+   ],
+   [
+    "12",
+    "qwen3 tts",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+    "28/11",
+    "qwen3 tts 1.7b；qwen3 tts api；qwen3 tts base",
+    "0.05",
+    "1.19",
+    "18(0.9×)",
+    "已注册 2025-09-23",
+    "1/3",
+    "59.8",
+    "新"
+   ],
+   [
+    "13",
+    "palworld breeding calculator",
+    "工具",
+    "agent_x_seed",
+    "24/6",
+    "palworld breeding calculator - palpedia；palworld breeding calculator 1 0；palworld breeding calculator 1.0",
+    "0.42",
+    "0.81",
+    "3(1.71×)",
+    "已注册 2026-07-02",
+    "0/0",
+    "59.5",
+    "新"
+   ],
+   [
+    "14",
+    "netmirror extension",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=extension",
+    "23/9",
+    "how to use netmirror extension；is netmirror extension safe；netmirror extension apk",
+    "1",
+    "1.4",
+    "20(1.24×)",
+    "404 可注册?",
+    "0/1",
+    "57.8",
+    "新"
+   ],
+   [
+    "15",
+    "trellis2",
+    "AI 模型",
+    "huggingface、replicate https://huggingface.co/spaces/microsoft/TRELLIS.2",
+    "26/9",
+    "http://trellis2.app；trellis 2 3d；trellis 2 arxiv",
+    "0",
+    "0.91",
+    "9(1.03×)",
+    "已注册 2025-12-17",
+    "0/0",
+    "56.8",
+    "新"
+   ],
+   [
+    "16",
+    "minimax h3 turbo lora",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/MiniMaxAI/MiniMax-H3-Turbo-Lora",
+    "19/4",
+    "minimax h3 turbo lora 8 step；minimax h3 turbo lora 8 steps；minimax h3 turbo lora civitai",
+    "0",
+    "1",
+    "未验证",
+    "404 可注册?",
+    "0/3",
+    "54.8",
+    "新"
+   ],
+   [
+    "17",
+    "yba tier list",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tier list",
+    "24/9",
+    "yba tier list 2024；yba tier list 2025；yba tier list 2025 pvp",
+    "0.61",
+    "1.56",
+    "0(1×)",
+    "404 可注册?",
+    "0/2",
+    "54.8",
+    "新"
+   ],
+   [
+    "18",
+    "clive barker's hellraiser",
+    "游戏",
+    "steam https://store.steampowered.com/app/1551980/",
+    "24/5",
+    "clive barker's hellraiser game；clive barker's hellraiser gameplay；clive barker's hellraiser revival",
+    "1.19",
+    "0.51",
+    "453(0.74×)",
+    "已注册 2025-09-19",
+    "0/5",
+    "54.7",
+    "新"
+   ],
+   [
+    "19",
+    "coralum ore palworld",
+    "游戏",
+    "autocomplete_soup",
+    "19/6",
+    "best way to get coralum ore palworld 1.0；coralum ore palworld 1.0；coralum ore palworld 1.0 farm",
+    "0.02",
+    "0.22",
+    "未验证",
+    "404 可注册?",
+    "0/4",
+    "54.5",
+    "新"
+   ],
+   [
+    "20",
+    "glm 5.3",
+    "AI 模型",
+    "huggingface、together https://huggingface.co/zai-org/GLM-5.3",
+    "25/11",
+    "glm 5.3 api；glm 5.3 benchmark；glm 5.3 chat",
+    "4.76",
+    "1.12",
+    "1768(1.82×)",
+    "404 可注册?",
+    "0/0",
+    "54.0",
+    "新"
+   ],
+   [
+    "21",
+    "tiktok trend 2026",
+    "社交格式",
+    "autocomplete_soup",
+    "17/0",
+    "tiktok trend 2026 april；tiktok trend 2026 august；tiktok trend 2026 clean",
+    "0.7",
+    "1.02",
+    "114(0.91×)",
+    "404 可注册?",
+    "0/9",
+    "53.3",
+    "新"
+   ],
+   [
+    "22",
+    "minimax h3 comfyui",
+    "AI 模型",
+    "huggingface https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI",
+    "19/4",
+    "minimax h3 comfyui gguf；minimax h3 comfyui github；minimax h3 comfyui google colab",
+    "0.47",
+    "1.06",
+    "未验证",
+    "404 可注册?",
+    "0/2",
+    "50.5",
+    "新"
+   ],
+   [
+    "23",
+    "claude opus 5.5",
+    "AI 模型",
+    "agent_x_seed https://x.com/i/trending/2111281045249396879",
+    "22/12",
+    "claude opus 5.5 animation；claude opus 5.5 anthropic；claude opus 5.5 benchmark",
+    "4.22",
+    "0.93",
+    "6074(0.8×)",
+    "404 可注册?",
+    "0/4",
+    "48.4",
+    "新"
+   ],
+   [
+    "24",
+    "minimax h3",
+    "AI 模型",
+    "huggingface https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "30/13",
+    "minimax h3 ai；minimax h3 api；minimax h3 character swap",
+    "4.16",
+    "0.9",
+    "478(0.96×)",
+    "已注册 2026-07-15",
+    "6/3",
+    "47.9",
+    "已被占"
+   ],
+   [
+    "25",
+    "emochi ai",
+    "App",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=ai",
+    "27/11",
+    "emochi ai ad；emochi ai ad tadc；emochi ai ads",
+    "未验证",
+    "—",
+    "198(7.02×)",
+    "已注册 2026-05-05",
+    "8/1",
+    "47.0",
+    "已被占"
+   ],
+   [
+    "26",
+    "qwen3.8 27b gguf",
+    "AI 模型",
+    "huggingface https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
+    "18/2",
+    "qwen3 8 27b gguf abliterated；qwen3 8 27b gguf heretic；qwen3 8 27b gguf iq4_xs",
+    "0",
+    "1",
+    "未验证",
+    "404 可注册?",
+    "0/11",
+    "45.9",
+    "新"
+   ],
+   [
+    "27",
+    "unbanned from wizz",
+    "App",
+    "autocomplete_soup",
+    "16/12",
+    "can i be unbanned from wizz；can you get unbanned from wizz；get unbanned from wizz",
+    "0.03",
+    "1.04",
+    "0(0.75×)",
+    "404 可注册?",
+    "0/1",
+    "45.5",
+    "新"
+   ],
+   [
+    "28",
+    "control resonant",
+    "游戏",
+    "agent_x_seed、steam https://store.steampowered.com/app/3669870/",
+    "34/10",
+    "control resonant collector's edition；control resonant deluxe edition；control resonant early access",
+    "21.76",
+    "0.91",
+    "1531(1.28×)",
+    "已注册 2025-10-06",
+    "0/7",
+    "45.3",
+    "新"
+   ],
+   [
+    "29",
+    "g3q quiz",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=quiz",
+    "15/4",
+    "g3q quiz 2025；g3q quiz 2026；g3q quiz 2026 gujarat",
+    "0.66",
+    "1",
+    "未验证",
+    "404 可注册?",
+    "0/10",
+    "45.1",
+    "新"
+   ],
+   [
+    "30",
+    "xenolord palworld",
+    "游戏",
+    "autocomplete_soup",
+    "24/5",
+    "xenolord palworld 1.0；xenolord palworld 1.0 level；xenolord palworld 1.0 location",
+    "0.02",
+    "0.91",
+    "未验证",
+    "404 可注册?",
+    "0/3",
+    "43.3",
+    "新"
+   ],
+   [
+    "31",
+    "moonshot",
+    "AI 模型",
+    "x_trends https://x.com/search?q=Moonshot",
+    "38/11",
+    "moonshot ai；moonshot ai kimi；moonshot ai kimi k2",
+    "3.84",
+    "1.76",
+    "未验证",
+    "已注册 1996-02-23",
+    "8/2",
+    "42.0",
+    "已被占"
+   ],
+   [
+    "32",
+    "ultrakill armor palworld",
+    "游戏",
+    "autocomplete_soup",
+    "13/5",
+    "how to get ultrakill armor palworld；legendary ultrakill armor palworld 1.0；ultrakill armor palworld 1.0",
+    "0",
+    "1",
+    "未验证",
+    "404 可注册?",
+    "0/2",
+    "41.4",
+    "新"
+   ],
+   [
+    "33",
+    "jormuntide ignis",
+    "工具",
+    "autocomplete_soup",
+    "23/2",
+    "jormuntide ignis 1.0；jormuntide ignis best passive；jormuntide ignis best passives",
+    "0",
+    "0.42",
+    "未验证",
+    "404 可注册?",
+    "0/0",
+    "41.4",
+    "新"
+   ],
+   [
+    "34",
+    "order of the sinking star",
+    "游戏",
+    "agent_x_seed https://x.com/i/trending/2110854461677527230",
+    "29/10",
+    "order of the sinking star beamcasters；order of the sinking star demo；order of the sinking star ending",
+    "2.76",
+    "0.72",
+    "81(0.78×)",
+    "已注册 2025-11-13",
+    "2/5",
+    "41.3",
+    "新"
+   ],
+   [
+    "35",
+    "kokoro tts",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
+    "17/4",
+    "kokoro tts api；kokoro tts custom voice；kokoro tts demo",
+    "0.15",
+    "1.19",
+    "未验证",
+    "已注册 2026-03-31",
+    "0/4",
+    "41.1",
+    "新"
+   ],
+   [
+    "36",
+    "hexolite palworld",
+    "游戏",
+    "autocomplete_soup",
+    "19/5",
+    "hexolite palworld 1.0；hexolite palworld 1.0 location；hexolite palworld armor",
+    "0",
+    "1",
+    "未验证",
+    "404 可注册?",
+    "0/1",
+    "41.0",
+    "新"
+   ],
+   [
+    "37",
+    "jetragon palworld 1.0",
+    "游戏",
+    "autocomplete_soup",
+    "17/4",
+    "jetragon palworld 1.0 best passives；jetragon palworld 1.0 breeding；jetragon palworld 1.0 breeding combos",
+    "0",
+    "1.42",
+    "未验证",
+    "404 可注册?",
+    "0/3",
+    "40.8",
+    "新"
+   ],
+   [
+    "38",
+    "hunyuan3d 2.1",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+    "23/7",
+    "comfyui hunyuan 3d 2.1；hunyuan 3d 2.1 comfyui；hunyuan 3d 2.1 install",
+    "0",
+    "1.06",
+    "未验证",
+    "404 可注册?",
+    "4/3",
+    "38.4",
+    "已被占"
+   ],
+   [
+    "39",
+    "jetragon saddle palworld 1.0",
+    "游戏",
+    "autocomplete_soup",
+    "12/4",
+    "how to get jetragon saddle palworld 1.0；how to make jetragon saddle palworld 1.0；how to unlock jetragon saddle palworld 1.0",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "0/3",
+    "38.4",
+    "新"
+   ],
+   [
+    "40",
+    "how pinterest sees me",
+    "社交格式",
+    "agent_x_seed https://x.com/i/trending/2110785231502336218",
+    "22/13",
+    "how pinterest sees me again；how pinterest sees me animal；how pinterest sees me as a character",
+    "未验证",
+    "—",
+    "108(1.2×)",
+    "404 可注册?",
+    "未查",
+    "38.1",
+    "新"
+   ],
+   [
+    "41",
+    "tier list granblue fantasy relink",
+    "社交格式",
+    "autocomplete_soup",
+    "14/3",
+    "ai tier list granblue fantasy relink；character tier list granblue fantasy relink endless ragnarok；character tier list granblue fantasy relink ragnarok",
+    "0",
+    "0.98",
+    "未验证",
+    "404 可注册?",
+    "0/2",
+    "37.8",
+    "新"
+   ],
+   [
+    "42",
+    "meme soundboard 2026",
+    "社交格式",
+    "autocomplete_soup",
+    "13/4",
+    "best meme soundboard 2026；funny meme soundboard 2026；funny meme soundboard 2026 ultimate",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "0/7",
+    "36.7",
+    "新"
+   ],
+   [
+    "43",
+    "kling ai 3.0",
+    "AI 模型",
+    "autocomplete_soup",
+    "20/13",
+    "kling ai 3.0 apk download；kling ai 3.0 app；kling ai 3.0 character consistency",
+    "0.02",
+    "0.63",
+    "未验证",
+    "404 可注册?",
+    "2/0",
+    "36.3",
+    "新"
+   ],
+   [
+    "44",
+    "railborn",
+    "游戏",
+    "steam https://store.steampowered.com/app/2340970/",
+    "12/7",
+    "railborn beta；railborn cuando sale；railborn demo",
+    "0",
+    "1.07",
+    "未验证",
+    "已注册 2025-03-13",
+    "未查",
+    "35.5",
+    "新"
+   ],
+   [
+    "45",
+    "ary plus app",
+    "其他",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=app",
+    "20/11",
+    "ary plus app cost；ary plus app download；ary plus app download apk",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "34.0",
+    "新"
+   ],
+   [
+    "46",
+    "npctalk",
+    "开源仓库",
+    "github https://github.com/christos-antono/NPCTalk",
+    "14/4",
+    "npc talk about amphoreus；npc talk about arthur；npc talk back lspdfr",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-09-28",
+    "未查",
+    "34.0",
+    "新"
+   ],
+   [
+    "47",
+    "zeverland",
+    "游戏",
+    "steam https://store.steampowered.com/app/3371050/",
+    "9/6",
+    "zeverland console；zeverland demo；zeverland discord",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-07-10",
+    "未查",
+    "33.9",
+    "新"
+   ],
+   [
+    "48",
+    "bonsai 2",
+    "AI 模型",
+    "agent_x_seed https://x.com/i/trending/2110833256950051023",
+    "43/11",
+    "bonsai 2 27b；bonsai 2 27b huggingface；bonsai 2 27b lmstudio",
+    "0.48",
+    "1.26",
+    "未验证",
+    "404 可注册?",
+    "7/2",
+    "33.8",
+    "已被占"
+   ],
+   [
+    "49",
+    "trend sidhu moose wala",
+    "社交格式",
+    "autocomplete_soup",
+    "16/2",
+    "capcut template new trend sidhu moose wala；trend sidhu moose wala bhangra；trend sidhu moose wala dance",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "33.4",
+    "新"
+   ],
+   [
+    "50",
+    "euromillions checker",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=checker",
+    "23/2",
+    "euromillions checker 180 days；euromillions checker and raffle；euromillions checker app",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "33.4",
+    "新"
+   ],
+   [
+    "51",
+    "balenciaga trend",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=trend",
+    "19/2",
+    "balenciaga trend 2025；balenciaga trend 2026；balenciaga trend dance",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "33.4",
+    "新"
+   ],
+   [
+    "52",
+    "tgif meme",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=meme",
+    "26/2",
+    "tgif meme black girl；tgif meme cat；tgif meme cute",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "33.4",
+    "新"
+   ],
+   [
+    "53",
+    "omnivoice",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/k2-fsa/OmniVoice",
+    "10/4",
+    "coheed omnivoice；omnivoice comfyui；omnivoice cubase",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2000-08-09",
+    "未查",
+    "32.8",
+    "新"
+   ],
+   [
+    "54",
+    "tiktok trend chatgpt",
+    "社交格式",
+    "autocomplete_soup",
+    "10/3",
+    "neuer tiktok trend chatgpt；tiktok trend chatgpt bild；tiktok trend chatgpt deutsch",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "32.6",
+    "新"
+   ],
+   [
+    "55",
+    "ironman tracker",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tracker",
+    "19/5",
+    "ironman tracker 70.3；ironman tracker app；ironman tracker app android",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-11-03",
+    "未查",
+    "32.5",
+    "新"
+   ],
+   [
+    "56",
+    "astd tier list",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tier list",
+    "27/1",
+    "astd tier list 2；astd tier list 2025；astd tier list 2026",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-07-21",
+    "未查",
+    "32.2",
+    "新"
+   ],
+   [
+    "57",
+    "5th gen it boy",
+    "其他",
+    "x_trends https://x.com/search?q=5TH GEN IT BOY",
+    "12/3",
+    "5th gen it boy and girl；5th gen it boy group；5th gen it boy jaehyun",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "32.2",
+    "—"
+   ],
+   [
+    "58",
+    "yba skin tier list",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tier list",
+    "24/3",
+    "yba skin tier list 2024；yba skin tier list 2025；yba skin tier list 2026",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "31.6",
+    "—"
+   ],
+   [
+    "59",
+    "archeage chronicles",
+    "游戏",
+    "steam https://store.steampowered.com/app/3218230/",
+    "9/4",
+    "archeage chronicles beta；archeage chronicles classes；archeage chronicles gameplay",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2024-08-26",
+    "未查",
+    "31.5",
+    "—"
+   ],
+   [
+    "60",
+    "paradee",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/sahilmahendrakar/paradee",
+    "26/6",
+    "paradee building dover de；paradee center dover de；paradee koh samet",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2005-08-08",
+    "未查",
+    "31.2",
+    "—"
+   ],
+   [
+    "61",
+    "meme jujutsu kaisen",
+    "社交格式",
+    "autocomplete_soup",
+    "18/0",
+    "meme jujutsu kaisen 2026；meme jujutsu kaisen 3；meme jujutsu kaisen abogado",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "31.0",
+    "—"
+   ],
+   [
+    "62",
+    "planet zoo 2",
+    "游戏",
+    "steam https://store.steampowered.com/app/3219030/",
+    "30/7",
+    "planet zoo 2 accreditation；planet zoo 2 animal list；planet zoo 2 animals",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-03-23",
+    "未查",
+    "30.9",
+    "—"
+   ],
+   [
+    "63",
+    "celebritytraitors",
+    "其他",
+    "googlenews、x_trends https://news.google.com/rss/articles/CBMipAFBVV95cUxQQmRpM2tVQ1BZYWxYY3o4czViVjlHcGVGTlpLck9WUkJtZ0RfbnRUbktCMWhiOXNDR3JPYjR2X0lWZ1AyVElFUFRaTXFnek15YXBxamJaLUVfWUszVlg0anBtbm9UME4ySDlVYzlyLVNoNm54dkg5MTA2ZDZFcWtGbWRsX2U4TGhoR1pRYUdySGZLMVdvZzdELTlkNmxVaGU1R1VlZQ?oc=5",
+    "37/1",
+    "#celebritytraitors twitter；#celebritytraitors x；are/celebrity traitors",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "30.7",
+    "—"
+   ],
+   [
+    "64",
+    "you can see everything",
+    "其他",
+    "x_trends https://x.com/search?q=You Can See Everything",
+    "28/3",
+    "you can see everything a24；you can see everything amc；you can see everything cast",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-08-04",
+    "未查",
+    "30.6",
+    "—"
+   ],
+   [
+    "65",
+    "watcher of realms tier list",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tier list",
+    "20/2",
+    "watcher of realms tier list 2025；watcher of realms tier list 2026；watcher of realms tier list 4 star",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "30.4",
+    "—"
+   ],
+   [
+    "66",
+    "loveisrespect quiz",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=quiz",
+    "7/4",
+    "love is respect quiz pdf；love is respect quiz reddit；love is respect quiz results",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "29.9",
+    "—"
+   ],
+   [
+    "67",
+    "valor mortis",
+    "维基飙升",
+    "steam、wikipedia https://store.steampowered.com/app/2828710/",
+    "30/8",
+    "valor mortis an unheard farewell；valor mortis demo；valor mortis fast travel",
+    "19.06",
+    "1.26",
+    "未验证",
+    "已注册 2025-04-08",
+    "未查",
+    "29.6",
+    "—"
+   ],
+   [
+    "68",
+    "hoppy dating app",
+    "其他",
+    "agent_x_seed",
+    "17/2",
+    "hoppy dating app age range；hoppy dating app australia；hoppy dating app college",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "29.4",
+    "—"
+   ],
+   [
+    "69",
+    "which jackbox has quiplash",
+    "其他",
+    "autocomplete_soup",
+    "13/0",
+    "which jackbox has quiplash 1；which jackbox has quiplash 2；which jackbox has quiplash 3",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "29.4",
+    "—"
+   ],
+   [
+    "70",
+    "2xko samira",
+    "其他",
+    "agent_x_seed https://x.com/i/trending/2110774260272714030",
+    "5/1",
+    "2xko samira combo；2xko samira release；2xko samira release date",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "29.2",
+    "—"
+   ],
+   [
+    "71",
+    "vidu q4",
+    "AI 模型",
+    "fal https://fal.ai/models/fal-ai/vidu/q4/image-to-video",
+    "5/1",
+    "vidu q4 release date；vidu q40；vidu q41",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-03-19",
+    "未查",
+    "29.2",
+    "—"
+   ],
+   [
+    "72",
+    "mm2 trade checker",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=checker",
+    "19/1",
+    "best mm2 trade checker；mm2 trade checker 2024；mm2 trade checker 2025",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-02-18",
+    "未查",
+    "28.7",
+    "—"
+   ],
+   [
+    "73",
+    "mecore",
+    "社交格式",
+    "agent_x_seed https://x.com/i/trending/2110850862432108753",
+    "17/2",
+    "me core edit；me core music；me core playlist",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2010-07-31",
+    "未查",
+    "28.4",
+    "—"
+   ]
+  ],
+  "note": "> 来自 `raw/2026-10-17/pipeline/pool.json`（150 个，按自动分数排序），用 `report_tables.py` 去掉了三类词：常青老品牌 34 个、印地语 CapCut 字母汤 20 个、人工剔除 23 个，剩 73 个。\n>\n> **分数只用来排序**，由这些部分组成：补全变体数、工具意图、来源数、新度、Trends 量级和斜率、X 斜率、.com 新注册，再扣掉成熟度、常青和 SERP 被占的分。\n>\n> 状态列：\n> - 「新」= 今天第一次进入观察名单。\n> - 「复查（旧词）」= 以前出现过。\n> - 「已被占」= SERP 里有 3 个以上 EMD 结果。\n>\n> 「未验证」表示今天没有查（Trends 只查了前 100 个，X 只查了 35 个）。SERP 是 Bing 前 10，不是 Google。"
+ },
+ "watchlist": {
+  "title": "观察名单 / 上升中",
+  "header": [
+   "类型",
+   "关键词",
+   "首次出现",
+   "当日评级",
+   "今日补全变体",
+   "今日 Trends 24h÷GPTs（斜率）",
+   "今日 X 昨日(斜率)",
+   "状态"
+  ],
+  "rows": [
+   [
+    "今日上升",
+    "muse spark open",
+    "2026-10-16",
+    "—",
+    "22",
+    "2.44（61.7×）",
+    "2748(4.7×)",
+    "复查（旧词）"
+   ],
+   [
+    "今日上升",
+    "tenebris somnia",
+    "2026-10-17",
+    "—",
+    "20",
+    "5.01（15.13×）",
+    "643(5.1×)",
+    "新"
+   ],
+   [
+    "今日上升",
+    "nemotron 3.5 super vl",
+    "2026-10-17",
+    "—",
+    "7",
+    "0.93（10.92×）",
+    "1008(2.21×)",
+    "新"
+   ],
+   [
+    "今日上升",
+    "krea 3",
+    "2026-10-16",
+    "—",
+    "23",
+    "0.64（7.27×）",
+    "330(1.38×)",
+    "已被占"
+   ],
+   [
+    "今日上升",
+    "emochi ai",
+    "2026-10-17",
+    "—",
+    "27",
+    "未验证",
+    "198(7.02×)",
+    "已被占"
+   ],
+   [
+    "今日上升",
+    "glm 5.3 flash",
+    "2026-10-17",
+    "—",
+    "12",
+    "2.72（1.34×）",
+    "1149(2.45×)",
+    "新"
+   ],
+   [
+    "旧词复查",
+    "ai school picture generator",
+    "2026-10-12",
+    "10-12:4.0★",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai shader generator",
+    "2026-10-13",
+    "10-13:4.0★",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "character.ai export",
+    "2026-10-14",
+    "10-14:4.0★",
+    "15",
+    "未验证",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "youtube gif comments",
+    "2026-10-15",
+    "10-15:4.0★、10-16:3.0★",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "scam with your friends",
+    "2026-10-15",
+    "10-15:3.5★、10-16:4.0★",
+    "27",
+    "291.67（2.77×）",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "ai video relight",
+    "2026-10-12",
+    "10-12:3.5★",
+    "6",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai product demo video",
+    "2026-10-13",
+    "10-13:3.5★",
+    "6",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai video reframe",
+    "2026-10-14",
+    "10-14:3.5★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "planet zoo 2",
+    "2026-10-15",
+    "10-15:3.5★、10-16:3.0★",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "castlevania: belmont's curse",
+    "2026-10-15",
+    "10-15:3.0★、10-16:3.5★",
+    "27",
+    "16.59（2.78×）",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "muse spark open",
+    "2026-10-16",
+    "10-16:3.5★",
+    "22",
+    "2.44（61.7×）",
+    "2748(4.7×)",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "vidu q4",
+    "2026-10-12",
+    "10-12:3.0★",
+    "5",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "odyssey-3",
+    "2026-10-13",
+    "10-13:3.0★",
+    "40",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "remove background with prompt",
+    "2026-10-14",
+    "10-14:3.0★",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mirelo sfx 2.0",
+    "2026-10-15",
+    "10-15:3.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen4-27b",
+    "2026-10-12",
+    "10-12:2.5★",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "oomfmap",
+    "2026-10-12",
+    "10-12:1.5★、10-13:2.5★",
+    "5",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "screen studio alternative",
+    "2026-10-13",
+    "10-13:2.5★",
+    "15",
+    "未验证",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "rea",
+    "2026-10-13",
+    "10-13:2.5★",
+    "55",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fill this room",
+    "2026-10-14",
+    "10-14:2.5★",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "virtual guitar keyboard",
+    "2026-10-14",
+    "10-14:2.5★",
+    "4",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "over the hill",
+    "2026-10-15",
+    "10-15:2.5★",
+    "40",
+    "未验证",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "krea 3",
+    "2026-10-16",
+    "10-16:2.5★",
+    "23",
+    "0.64（7.27×）",
+    "330(1.38×)",
+    "已被占"
+   ],
+   [
+    "旧词复查",
+    "how pinterest sees me generator",
+    "2026-10-12",
+    "10-12:2.0★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude anatomy skill",
+    "2026-10-12",
+    "10-12:2.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "stepfun step 5",
+    "2026-10-12",
+    "10-12:2.0★、10-13:2.0★",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vivix w1",
+    "2026-10-12",
+    "10-12:2.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "html explainer generator",
+    "2026-10-13",
+    "10-13:2.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fish audio drama 3",
+    "2026-10-14",
+    "10-14:2.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai game mod generator",
+    "2026-10-14",
+    "10-14:2.0★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sillytavern character card converter",
+    "2026-10-14",
+    "10-14:2.0★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hood warfare 2",
+    "2026-10-15",
+    "10-15:2.0★、10-16:2.0★",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omnihuman v2",
+    "2026-10-16",
+    "10-16:2.0★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "soulmate country quiz",
+    "2026-10-12",
+    "10-12:1.5★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "birth month horror villain",
+    "2026-10-12",
+    "10-12:1.5★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "google playground game maker",
+    "2026-10-12",
+    "10-12:1.5★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omurice simulator",
+    "2026-10-12",
+    "10-12:1.5★",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "artcraft",
+    "2026-10-12",
+    "10-12:1.5★",
+    "42",
+    "未验证",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "gemini 4 argon",
+    "2026-10-14",
+    "10-14:1.5★",
+    "22",
+    "9.3（0.85×）",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "google ai studio 私有 play store 应用",
+    "2026-10-15",
+    "10-15:1.5★",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unlimited ocr",
+    "2026-10-15",
+    "10-15:1.5★",
+    "21",
+    "0（1×）",
+    "未验证",
+    "复查（旧词）"
+   ],
+   [
+    "旧词复查",
+    "dayz badlands",
+    "2026-10-16",
+    "10-16:None★",
+    "29",
+    "7.89（2.47×）",
+    "未验证",
+    "复查（旧词）"
+   ]
+  ],
+  "note": "> 观察名单的文件是 `/workspace/gefei/pipeline/watchlist.json`，目前共 184 个词：\n> - 51 个来自 10-12～10-16 的旧报告，其中 42 个首次出现早于今天。\n> - 其余是今天进入的。\n>\n> 表里分两类：\n> - 「今日上升」：Trends 斜率 ≥3，或 X 斜率 ≥2 且昨日 ≥50。\n> - 「旧词复查」：今天重新查了补全，部分有 Trends / X。\n>\n> 深挖里另外测到 3 个上升词，因为不在自动池的 Trends 对比范围内，所以没进这张表：\n> - charisma quiz（0.72×，斜率 38×）\n> - nemotron 3.5（1.69×，斜率 13×）\n> - opencode free models（0.64×，斜率 2.1×）"
+ },
  "parse_ok": true
 }
