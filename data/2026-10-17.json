@@ -1,0 +1,416 @@
+{
+ "date": "2026-10-17",
+ "title": "每日新词监控 · 2026-10-17",
+ "collected_at": "2026-10-17 北京时间（UTC+8）约 09:09–09:20。这是第七轮每日新词监控，结构和 2026-10-16.md 一样（A–H 深挖）。全部原始数据在 raw/2026-10-17/",
+ "generated_at": "2026-10-17T09:22:30+08:00",
+ "trends_unverified": false,
+ "preface": "数据采集时间：2026-10-17 北京时间（UTC+8）约 09:09–09:20。这是第七轮每日新词监控，结构和 `2026-10-16.md` 一样（A–H 深挖）。全部原始数据在 `raw/2026-10-17/`。\n\n**数据来源情况（如实说明）**\n- **用到了**：\n  - X MCP：`get_posts_counts_recent` 12 组 7 天日量（`x_counts.tsv`）；`search_news` 3 次（共 75 条，`x_news1–3.txt`）；`get_trends_by_woeid`（美国，体育/娱乐为主）；`get_users_posts` 看了 9 个账号（@fal @_akhaliq @kimmonismus @levelsio @OpenAI @GoogleDeepMind @Alibaba_Qwen @deepseek_ai @huggingface，@deepseek_ai 10-10 后无新帖）；`search_posts_all` 4 次（3x3 网格、I built、Kling 4.0、Deadlock Violet）。今日共用约 35 次 X 读取。\n  - GitHub Search API（未登录调用）：30 天、7 天内新建高星仓库各 40 条（`gh30.json` / `gh7.json`）。\n  - Hugging Face API：热门模型 40 + Spaces 30。\n  - HN Algolia：front_page + 近 Show HN（≥15 分）。\n  - Steam：featuredcategories、appdetails 6 款、当前在线人数 12 款、评测汇总、SWYF 官方新闻（`steam_swyf_news.json`）。\n  - Google Trends RSS（美区，今日全是体育/政治）；new.web.cafe 首页（10-16 群总结正文需登录，没读到）。\n  - Google / Bing / DDG 自动补全：`ac.py` 跑了 52 个查询（`ac_batch1–3.jsonl`）。\n  - Google 趋势：explore + multiline，17 组 7 天对比（每组带 GPTs，日界 UTC+8，`trends1–4.jsonl`）+ 1 组 3 个月 + 4 个词的相关查询（`trends_related.jsonl`）。\n  - cursor WebSearch：约 10 组查询前 5（**不是 Google 原生第一页**），见 `serp_notes.md`。\n  - curl：flux3klein.com、flux3klein.org、my9games.com 首页；SWYF wiki JSON 页。\n  - RDAP：候选约 45 个域名 + 12 个竞品域名（`rdap_my9.txt` `rdap_cand.txt` `rdap_cand2.txt` `rdap_comp.txt`）。\n- **被挡、或只拿到一部分**：\n  - Reddit：4 个请求都是 403。\n  - Product Hunt 10-16 日榜：Cloudflare「Just a moment」，没拿到。\n  - Steam Workshop（SWYF）：302 跳转，条目数未验证。Deadlock 是 playtest，app 在线人数接口不返回（300k+ CCU 仅来自 X 新闻摘要，未独立核实）。\n  - Google 原生前十、intitle：未验证（只用 WebSearch 前 5 代替）。\n  - Kling 4.0 第三方 API 价格、fal 端点能否用：只来自 quantslant 文章（二手），未独立核实。\n  - .io 域名（my9games.io、nisu.io、nereo.io）没有 RDAP 服务，注册时间未验证。\n- **趋势数字的读法**：`X/GPTs` = 同组当天均值比。GPTs ≈ 每天 5,000 次（群经验值），粗估只能看量级。相差超过 10 倍会失真（今日 Belmont / Deadlock Violet / Enshrouded / Planet Zoo 2 都超过 10 倍）。10-17 只有北京时间 00:00–09:00 共 10 个点，是不完整日。\n- **X 计数口径**：UTC 自然日。10-17 只有约 00:00–01:11 UTC（北京约 08:00–09:11），是不完整日。\n- **相对昨天的变化**：\n  - **Kling 4.0 正式上线**（快手 10-16 公告，称 10-15 上线；X 1,036 → 3,164）。昨天还只是「fal 即将上线」的预告，今天可以评估了。\n  - **FLUX 3 Image Klein** 是今天的新候选：Trends「flux 3 klein」10-16 **≈1.0×GPTs**；**10-16 当天已有 2 个 EMD 新站注册上线**（flux3klein.com / .org）。\n  - **My 9 Games** 是今天的新候选：「my 9 games」连续 5 天 **≈1.4–2.4×GPTs**，但英文工具站已经 10 家以上。\n  - Scam With Your Friends：X **29 → 266**（10-16），评测从昨天 Mixed 582 变成 **Mostly Positive 1,370**；JSON schema **仍未公开**。\n  - YouTube GIF comments：继续降温（0.64× → 10-17 上午 0.57×；X 847 → 238），GitHub 又多了开源扩展 `rayytor/desktop_gifs`（471★）。\n\n**筛选漏斗**\n- **原始信号**：102 条种子（`raw/2026-10-17/seeds.txt`），构成大致如下：\n  - X 账号 / X 新闻 / X 搜索：约 57\n  - GitHub：15\n  - Hugging Face：7\n  - HN / Show HN：9\n  - Steam：9\n  - Trends RSS / web.cafe / 被挡记录：5\n- **不计入种子数的辅助数据**：12 条 X 日量、52 个补全查询、18 组趋势对比、4 组相关查询、约 10 组 SERP、约 57 个 RDAP。\n- **第一层**：保留能做成英文工具站或内容站的，剔除大厂纯模型新闻、NSFW（HF 热门里多个 uncensored 模型）、破解/移植游戏（PS5 越狱、d2r-mobile 等）、健康向，剩约 **22** 个。\n- **第二层**：要求补全里有真实需求变体，而且 Trends 相对 GPTs 有读数或社交明显跳升；再做 SERP/RDAP 后，剩 **9** 个决赛词：\n  - FLUX 3 Image Klein\n  - Kling 4.0\n  - My 9 Games\n  - Deadlock Violet\n  - Enshrouded 1.0\n  - Reflection Beam 1.0\n  - Steam Frame verified games\n  - mecore（Pinterest 四图挑战）\n  - PS5 LLM（降级观察）\n- **今日结论（如实）**：**今天仍没有找到「需求已起、竞争还空」的词。**\n  - 需求最实的是 **My 9 Games**（5 天稳定在 GPTs 的 1.4–2.4 倍），但英文工具站 9 月底就挤满了，**新站晚了约 3 周**。\n  - **FLUX 3 Image Klein** 和 **Kling 4.0** 是能收费的 AI 模型词，但主词 EMD 已被占（Klein 是发布当天被抢，Kling 4 是几个月前就被囤）。\n  - 能执行的切口只剩「差异化小工具」：Klein 的**框选编辑（bounding box）可视化编辑器**、Kling 4.0 的 **30 秒分镜提示词规划器**。这两个长尾在 Trends 里都还是 0，属于「先占位、靠 ChatGPT 引用」的赌注，不是已验证的需求。\n  - Top 3 按「今天能不能接住流量 / 有没有可执行切口 / 能不能收钱」排序。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "FLUX 3 Image Klein",
+   "keyword_note": "（online、comfyui、bounding box、vs qwen image edit）",
+   "description": "Black Forest Labs 5.6B 开源权重图像模型：文生图、编辑、多参考图（最多 10 张）、框选；RTX 3090 能跑",
+   "sources": [
+    "https://bfl.ai/blog/flux-3-image-klein",
+    "https://docs.bfl.ml/flux_3/flux3_image_klein",
+    "https://huggingface.co/black-forest-labs/flux-3-image-klein"
+   ],
+   "sources_text": "https://bfl.ai/blog/flux-3-image-klein · https://docs.bfl.ml/flux_3/flux3_image_klein · https://huggingface.co/black-forest-labs/flux-3-image-klein",
+   "first_seen": "HF 仓库 2026-10-13；HN 10-16 105p",
+   "trend_signal": "Trends「flux 3 klein」**10-16≈1.01×GPTs**，10-17 上午≈0.63×；「flux klein」10-16≈1.23×（混有 FLUX.2 klein）。X 10-15 9 → **10-16 715**。补全：reddit / comfyui / workflow / tools；flux klein 9b·4b / face swap / prompt guide / vs qwen image edit",
+   "trends_verified": true,
+   "serp": "官方 HF Space + bfl.ai 两页；**flux3klein.com（RDAP 10-16）**：每天 3 次免费；**flux3klein.org（10-16）**：500 张 $19.90；flux3-ai.com 老站内页。bbox 可视化编辑器前 5 未见",
+   "domain": "flux3klein.ai、flux3klein.net、kleinbbox.com、bboxprompt.com、bboxeditor.com RDAP 404",
+   "idea": "不做第 4 个 EMD 生图站；做 **bbox 可视化编辑器**（在图上画框 → 自动生成 0–1000 网格 JSON 提示词 → 可选直接调 API 出图）",
+   "rating": 3.5,
+   "rating_stars": "★★★☆",
+   "reason": "有量、API 便宜（1K $0.009/张）；主词已被 2 家新站当天抢；差异化切口明确",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "FLUX 3 Image Klein（bounding box 可视化编辑器）",
+    "intro": "> 评分 17/25。一句话：需求真实（发布首日≈GPTs），API 便宜，主词 EMD 已被两家抢，但「框选编辑」这一层交互还没人做成工具。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- HF：`black-forest-labs/flux-3-image-klein`（401 likes，2026-10-13 创建）+ `-comfy`（446）+ 官方 Space（2026-10-14）。\n- HN：「FLUX 3 Image Klein」10-16 105p（https://bfl.ai/blog/flux-3-image-klein）。\n- X：「flux 3 klein」日量 10-15 9 → 10-16 715 → 10-17 前 70 分钟 32。\n- BFL 文档：5.6B，蒸馏版 16 步 / Base 版 50 步，最高 4K，支持 bounding box，「Do not use it without its prompt upsampler」。"
+     },
+     {
+      "title": "B. 词族（`ac_batch2.jsonl`）",
+      "markdown": "- flux 3 klein：reddit / comfyui / workflow / tools\n- flux klein：3 / 9b / 4b / 4b vs 9b / face swap / prompt guide / vs qwen image edit / gguf / tutorial / setup\n- 注意：「flux klein」相关查询 top 是「flux klein 9b」（FLUX.2 [klein] 时代的词），说明这个词族一部分是旧模型的长尾。"
+     },
+     {
+      "title": "C. 需求验证（`trends3–4.jsonl`）",
+      "markdown": "- 「flux 3 klein」：10-15 0.5 → **10-16 31.2 vs GPTs 31.0（≈1.01×）** → 10-17 上午 15.6 vs 24.8（≈0.63×）。\n- 「flux klein」：10-16 72.5 vs 58.9（≈1.23×）。\n- 「flux klein prompt」「flux 3 klein comfyui」≈0（长尾量太小）。\n- 粗估：主词首日约 5,000 次/天，回落中；比较像 Krea / Qwen-Image 这类「开源图像模型」词的正常衰减。"
+     },
+     {
+      "title": "D. SERP（WebSearch 前 5，非原生）",
+      "markdown": "- 「flux 3 klein online free generator」：HF Space（官方）、bfl.ai 模型页、bfl.ai 博客、**flux3klein.com**、flux3-ai.com 内页。\n- 「bounding box / prompt guide / vs qwen」：前 5 全是 BFL 文档 + HF 博客；bbox 是 `[top, left, bottom, right]`、0–1000 网格、字段 `from / src_bbox / tgt_bbox / desc`。\n- 判断：主词按「首页胜内页」已有 2 个 EMD 首页；**交互式 bbox 编辑器还空着**（推断，Google 原生排名未验证）。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 定价 | 缺口 |\n|---|---|---|---|---|\n| HF 官方 Space | — | 官方 demo | 免费（排队） | 无框选可视化、无历史 |\n| flux3klein.com | 2026-10-16 | 生图/编辑、最多 10 张参考、1K/2K/4K；还挂了视频/音频 | 每天 3 次免费 + 站内积分（具体价格未抓到） | 泛生图站；bbox 仍需手写 |\n| flux3klein.org | 2026-10-16 | 「Klein Studio」，1K/2K，3 张/天免费 | **500 张 $19.90 一次性**；1K=1 积分、2K=2 积分；4K coming soon | 没有框选工具；只有一次性包 |\n| flux3-ai.com | 2026-07-23 | 老 FLUX 站加 Klein 内页 | 未验证 | 内页弱于首页 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **做什么**：上传图 → 在图上拖框、给每个框写描述/选「保留/移动/删除」→ 实时生成符合官方格式的 JSON 提示词 → 一键复制（免费）或直接调 API 出图（付费）。\n- **MVP（新手用 AI 编程约 2–3 天）**：Next.js + Canvas 框选组件；JSON 生成纯前端；生图走 BFL `api.bfl.ai/v1/flux-3-image-klein`（异步轮询）。\n- **成本**：1K $0.009 / 2K $0.014 / 4K $0.036 每张（BFL 文档）。若照搬 flux3klein.org 的 500 张 $19.90，1K 成本约 $4.5，毛利约 77%（未计支付手续费和免费额度）。\n- **变现**：免费 JSON 生成器拉流量 + 积分包（$9.9 / $19.9）+ 月订阅（$12–15/月）。\n- **ChatGPT 适配度**：高——「how to use bounding box in flux 3 klein」这类问题，训练数据里没有。\n- **寿命**：中。框选 JSON 是 FLUX 3 家族共用的格式（`flux3_image_layout` 文档同时适用于 FLUX 3 Image），换代后还能用。\n- **风险**：FLUX/BFL 商标（域名不要带 flux）；真人换脸/NSFW 要过滤（flux3klein.org 已经写了拒绝清单，可以参考）；长尾 Trends 目前是 0，需求是推断出来的。"
+     },
+     {
+      "title": "G. 域名（RDAP）",
+      "markdown": "- 推荐：**kleinbbox.com**、**bboxprompt.com**、**bboxeditor.com**（均 404，不带 FLUX 商标）\n- 备用 EMD：flux3klein.ai、flux3klein.net（404，但带 FLUX 商标，不推荐当主站）"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 4 | 首日≈1×GPTs，X 715，但已开始回落 |\n| 竞争 | 2 | 官方 + 2 个当天 EMD；bbox 工具位空 |\n| 可行性 | 5 | 前端 + 一个便宜 API |\n| 变现 | 4 | 积分/订阅已被竞品验证（$19.90/500 张） |\n| 寿命 | 2 | 经验判断：开源图像模型热度约 2–6 周；bbox 格式可延续到 FLUX 3 家族 |\n| 总分 | 17/25 | |\n\n**7 天计划**\n- 第 1 天：注册 bboxprompt.com 或 kleinbbox.com；上线纯前端「画框 → JSON」生成器（免费、不用登录）；提交 GSC。\n- 第 2 天：接 BFL API，1K 出图；加 Creem/PayPal 积分包。\n- 第 3 天：写 3 个说明页：bbox 字段解释、保留/移动/删除示例、和 Qwen Image Edit 对比（只用实测图）。\n- 第 4 天：多参考图（≤10）可视化排列；输出可复制到 ComfyUI 的版本。\n- 第 5 天：在 r/StableDiffusion、HF 讨论区、X 相关帖下发有用的回答（人工）。\n- 第 6 天：加历史记录 + 模板库（产品图换背景、移动物体等）。\n- 第 7 天：看 GSC 曝光；没有曝光就把工具并进老 AI 图片站当内页。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 4.0,
+      "note": "首日≈1×GPTs，X 715，但已开始回落"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "官方 + 2 个当天 EMD；bbox 工具位空"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "前端 + 一个便宜 API"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "积分/订阅已被竞品验证（$19.90/500 张）"
+     },
+     {
+      "dim": "寿命",
+      "score": 2.0,
+      "note": "经验判断：开源图像模型热度约 2–6 周；bbox 格式可延续到 FLUX 3 家族"
+     }
+    ],
+    "total": 17.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "Kling 4.0",
+   "keyword_note": "（release date、vs seedance 2.5、price、prompt、api）",
+   "description": "快手可灵新一代视频模型：单次 3–30 秒，最多 10 个关键帧 + 15 个参考素材，提示词 8,000 tokens，720p/1080p/4K",
+   "sources": [
+    "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/",
+    "https://kling.ai/quickstart/kling-4-model-user-guide",
+    "https://x.com/fal/status/2111171366548369776"
+   ],
+   "sources_text": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/ · https://kling.ai/quickstart/kling-4-model-user-guide · https://x.com/fal/status/2111171366548369776",
+   "first_seen": "官方称 2026-10-15 上线，10-16 公告",
+   "trend_signal": "Trends「kling 4.0」**10-16≈0.70×GPTs**，10-17 上午≈0.61×；「kling 4」≈0.25×。X 10-15 1,036 → **10-16 3,164**。补全：release date / vs seedance 2.5 / reddit / rumors / beta；长尾 prompt / vs seedance / price 在 Trends 里≈0",
+   "trends_verified": true,
+   "serp": "主词前 5 全是官方（kling.ai ×3、快手 IR、runtimewire）；对比词有 seedance.tv、kie.ai、wavespeed；提示词有 kling.ai 博客 ×3、nereo.io。官方 API「coming soon」",
+   "domain": "kling4.com/.ai/.net/.app、kling40.com 等 **8 个 EMD 全部早已注册**（2025-11～2026-04）；videoshotplanner.com、aivideoshotplanner.com、30secondvideoprompt.com 404",
+   "idea": "先做**30 秒分镜提示词规划器**（按秒拆镜头 + 关键帧清单 + 积分估算），API 开放后再加生成。域名避开 Kling 商标",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "变现最好的品类，但主词被官方占、EMD 被囤、API 还没开",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "Kling 4.0（30 秒分镜提示词规划器）",
+    "intro": "> 评分 16/25。一句话：这是变现最好的品类（AI 视频），但主词被官方占、EMD 被囤、API 还没开；今天能做的只有不带商标的提示词/分镜工具，先占位等 API。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 快手 IR 新闻稿（2026-10-16）：Kling 4.0 已于 10-15 上线；30 秒单次生成、Omni Reference 最多 15 个素材 + 10 个关键帧、8,000 tokens 提示词、接入 Kling MCP 和 CLI；API「即将开放」。\n- @fal 10-16 19:04 UTC（北京 10-17 03:04）：「Coming soon to fal: Kling 4.0」，4,694 次曝光、86 赞（https://x.com/fal/status/2111171366548369776）。\n- X 搜索：Pollo AI、Higgsfield、HitPaw 等聚合站当天发 Kling 4.0 vs Seedance 2.5 对比视频（`x_search_kling4.txt`）。"
+     },
+     {
+      "title": "B. 词族（`ac_batch3.jsonl`）",
+      "markdown": "- kling 4.0：release date / vs seedance 2.5 / reddit / rumors / ai / beta / release date reddit / motion control 4.0\n- kling 4：4.0 vs seedance 2.5 / 4k\n- 没出现：kling 4.0 free / api / price（Bing 补全只给到 kling 3.0 free trial）"
+     },
+     {
+      "title": "C. 需求验证（`trends3–4.jsonl`）",
+      "markdown": "- 「kling 4.0」：10-15 ≈0.07× → **10-16 ≈0.70×** → 10-17 上午≈0.61×GPTs。\n- 「kling 4」：10-16 ≈0.25×。\n- 「kling 4.0 prompt」「kling 4.0 vs seedance」「kling 4.0 price」≈0。\n- 粗估：主词约 3,000–3,500 次/天；长尾还没量。"
+     },
+     {
+      "title": "D. SERP（WebSearch 前 5，非原生）",
+      "markdown": "- 主词：kling.ai 用户指南、快手 IR、runtimewire、kling.ai 功能页、kling.ai 博客——**前 5 全是官方/新闻**。\n- vs seedance 2.5：seedance.tv、crimsonsparkagency、kie.ai、seeddance.io、wavespeed.ai。\n- prompt：kling.ai 博客 3 篇（camera control / prompt guide / multiple keyframes）、nereo.io「30 Copy-Ready Examples」。\n- 判断：内容型页面已满；**交互式分镜规划器**前 5 未见。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 做了什么 | 缺口 |\n|---|---|---|---|\n| kling.ai 官方 | — | 生成 + 3 篇提示词博客 | 教程不是工具；不按秒算积分 |\n| kling4.ai 等 8 个 EMD | 2025-11～2026-04 | 囤域名/包装站（内容未逐一核对） | 抢主词，API 未开前多半只能跳转或用旧模型 |\n| Pollo / Higgsfield / HitPaw | 老站 | 聚合多模型，Kling 4.0 coming soon | 大站内页；不做分镜规划 |\n| nereo.io | 未验证（.io 无 RDAP） | 30 条现成提示词 | 静态列表，不能按自己的故事生成 |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- **做什么**：输入故事/产品 → 输出 30 秒分段表（0–5s、5–12s…）+ 每段镜头运动 + 关键帧清单 + 参考素材槽位 + 积分估算（官方 1080p 每秒 15 积分、30 秒 450 积分，来自 quantslant 二手资料）→ 一键复制到 Kling / Seedance。\n- **MVP（约 2 天）**：前端表单 + 一个便宜的 LLM（单次成本取决于所选模型，今天未测算）。\n- **API 开放后**：接 Kling 官方 API 或 fal，做积分制生成（官方 Kling 3.0 API 1080p $0.112–0.168/秒作参考，4.0 价格未公布）。\n- **变现**：前期广告 + 「专业提示词包」；API 开放后订阅（参考官方 Pro $32.56/月，二手）。\n- **ChatGPT 适配度**：中高——「how to write a 30 second kling 4.0 prompt」类问题；但官方博客权威性强。\n- **寿命**：中（分镜工具可以跨模型，同时支持 Seedance 2.5；Kling 换代节奏未核实）。\n- **风险**：Kling 是快手商标，域名和站名都不要带；长尾 Trends 为 0；API 价格和开放时间未知。"
+     },
+     {
+      "title": "G. 域名（RDAP）",
+      "markdown": "- 推荐：**videoshotplanner.com**、**aivideoshotplanner.com**、**30secondvideoprompt.com**（均 404，不带商标）\n- 避开：kling4prompt.com / kling4prompts.com / klingpromptbuilder.com（虽然 404，但带商标）"
+     },
+     {
+      "title": "H. 评分与 7 天计划",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 3 | 主词≈0.7×GPTs；长尾还是 0 |\n| 竞争 | 2 | 主词被官方占，EMD 被囤，内容页已有 |\n| 可行性 | 4 | 规划器容易做；生成要等 API |\n| 变现 | 4 | AI 视频是群里验证过的赚钱品类 |\n| 寿命 | 3 | 跨模型分镜工具可延续 |\n| 总分 | 16/25 | |\n\n**7 天计划**：D1 注册 videoshotplanner.com，上「30 秒分镜规划器」（同时支持 Kling 4.0 / Seedance 2.5），提交 GSC；D2 加积分/成本计算器（只引用官方公开的数字，标注日期）；D3 写「10 个关键帧怎么排」「15 个参考素材怎么分配」两篇教程页；D4 盯 Kling 官方 API 和 fal 页面，开放当天接入生成；D5 做 Kling 4.0 vs Seedance 2.5 的同提示词实测页（自己生成，不搬运）；D6 X/Reddit 有用回复；D7 看 GSC，决定是否继续投积分制。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 3.0,
+      "note": "主词≈0.7×GPTs；长尾还是 0"
+     },
+     {
+      "dim": "竞争",
+      "score": 2.0,
+      "note": "主词被官方占，EMD 被囤，内容页已有"
+     },
+     {
+      "dim": "可行性",
+      "score": 4.0,
+      "note": "规划器容易做；生成要等 API"
+     },
+     {
+      "dim": "变现",
+      "score": 4.0,
+      "note": "AI 视频是群里验证过的赚钱品类"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "跨模型分镜工具可延续"
+     }
+    ],
+    "total": 16.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "My 9 Games",
+   "keyword_note": "（template、that shaped who i am、english、list）",
+   "description": "「私を構成する9つのゲーム」英文化：选 9 款游戏拼成 3×3 卡片分享",
+   "sources": [
+    "https://x.com/i/trending/2110770329765515326",
+    "https://my9games.com/en/about",
+    "https://my9maker.com/"
+   ],
+   "sources_text": "https://x.com/i/trending/2110770329765515326 · https://my9games.com/en/about · https://my9maker.com/",
+   "first_seen": "日文站 my9games.net 注册于 2026-09-18；英文搜索 10-12 起跳",
+   "trend_signal": "Trends「my 9 games」10-13≈1.36× → 10-14 1.58× → 10-15 1.71× → 10-16 1.73× → **10-17 上午≈2.36×GPTs**；「9 games that shaped me」≈0.5×。相关查询上升：my 9 games template +300%、nintendo ds games +650%、my 9 animes +100%。X 每天 160–335（稳定）",
+   "trends_verified": true,
+   "serp": "**红海**：my9games.com（日文主站，显示 1,021,682 次使用）、my9gamestemplate.com（09-28）、my9maker.com（09-28）、my9games.pro（09-29）、sharegamegrid.com（09-30）、my9games.io、nisu.io 等 10+ 家；my 9 anime 也已 5 家",
+   "domain": "9gamesgrid.com、mynine.games、my9gamesgrid.com、nostalgiagrid.com 404",
+   "idea": "只做老站内页或「按平台筛选」的差异化（DS/Wii 怀旧格子），不建议新开站",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "需求最实，但晚了约 3 周",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "My 9 Games（复盘型，不建议新开站）",
+    "intro": "> 评分 16/25。一句话：今天需求最实的新词，但英文工具站 9 月底就挤满了；最大的价值是当作「日文格式 → 英文搜索」的时间差案例。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- X 新闻（10-15）：人们用 my9games.net 晒「9 款塑造我的游戏」3×3 拼图。\n- my9games.net 首页是日文「私を構成する9つのゲーム」，最后更新 2026-10-12；RDAP 注册 2026-09-18。\n- my9games.com 首页显示 **1,021,682 次使用 / 358,914 款收录游戏**（站方自报）。"
+     },
+     {
+      "title": "B. 词族（`ac_batch1.jsonl`）",
+      "markdown": "- my 9 games：english / template / that shaped who i am / trend / list / **vercel**（有人在 vercel 上做了版本）\n- 9 games that shaped me：contest / as a person；9 games that made me template\n- 衍生：3x3 game grid maker、topster games、my 9 anime / movies / albums"
+     },
+     {
+      "title": "C. 需求验证（`trends1–4.jsonl`、`trends_related.jsonl`）",
+      "markdown": "- 「my 9 games」÷GPTs：10-12 0.65 → 10-13 1.36 → 10-14 1.58 → 10-15 1.71 → 10-16 1.73 → **10-17 上午 2.36**。\n- 「9 games that shaped me」≈0.5×，「games that shaped me」≈0.55×。\n- 3 个月视角：10-04～10-11 基本是 1，10-13 起到 4–5（GPTs 是 2–3）。\n- 相关查询上升：nintendo ds games +650%、my 9 games template +300%、wii games +130%、my 9 animes +100%。\n- 粗估：约 8,000–12,000 次/天，而且还在涨。"
+     },
+     {
+      "title": "D. SERP（WebSearch 前 5，非原生）",
+      "markdown": "- 「my 9 games template」：my9gamestemplate.com、my9games.pro、sharegamegrid.com、my9games.com/en、nisu.io。\n- 「9 games that shaped me grid maker」：my9maker.com、my9games.io、nisu.io、my9games.com 分享页、my9games.com。\n- 判断：前 10 基本都是精确匹配首页，新站进前五的机会小。"
+     },
+     {
+      "title": "E. 竞品拆解",
+      "markdown": "| 竞品 | 注册 | 功能 | 短板 |\n|---|---|---|---|\n| my9games.com | 2026-03-01 | 日英双语搜索、短评、剧透隐藏、分享页、排行 | 日文为主 |\n| my9gamestemplate.com | 2026-09-28 | 竖版高清 PNG，无账号 | 刷新就丢失 |\n| my9maker.com | 2026-09-28 | 9 games + 9 animes 等多格式 | 内容雷同 |\n| my9games.pro | 2026-09-29 | Steam 搜索 + 手动上传 + 分享链接 | 只搜 Steam |\n| sharegamegrid.com | 2026-09-30 | 每格可改提示语（Childhood 等），1200×1200 | — |\n| my9games.io / nisu.io | 未验证（.io 无 RDAP） | IGDB 30 万游戏、永久链接、社区排行 | — |"
+     },
+     {
+      "title": "F. 可行性与经济账",
+      "markdown": "- MVP 半天（IGDB/Steam 搜索 + Canvas 导出），但差异化很难。\n- 变现：只有广告；用户用完就走。\n- 寿命：格式本身会反复出现（「私を構成する○○」是日文推特常见格式，持续时间未核实），但每波热点估计 2–4 周（经验判断）。\n- 风险：游戏封面版权（竞品都写了「仅用于识别」）。"
+     },
+     {
+      "title": "G. 域名（RDAP）",
+      "markdown": "- 9gamesgrid.com、mynine.games、my9gamesgrid.com、nostalgiagrid.com 均 404。"
+     },
+     {
+      "title": "H. 评分",
+      "markdown": "| 维度 | 分 | 理由 |\n|---|---|---|\n| 需求 | 5 | 5 天稳定 1.4–2.4×GPTs，还在涨 |\n| 竞争 | 1 | 10+ 家精确匹配首页 |\n| 可行性 | 5 | 纯前端 |\n| 变现 | 2 | 只能广告 |\n| 寿命 | 3 | 格式会反复出现 |\n| 总分 | 16/25 | |\n\n**7 天计划（只建议老站执行）**：D1 在已有工具站加 `/my-9-games` 内页，做「按平台筛选」（DS / Wii / PS1 怀旧）；D2 加 `/my-9-anime`；D3 做「格子主题 prompt 库」（Childhood / Comfort game 等）；D4–7 看数据，没有曝光就停。**复盘要点**：日文格式出现（09-18 前后）→ 英文 EMD 集中注册（09-28～09-30）→ 英文搜索起量（10-13）。以后见到「私を構成する○○」类格式，当天就查英文 EMD。"
+     }
+    ],
+    "scores": [
+     {
+      "dim": "需求",
+      "score": 5.0,
+      "note": "5 天稳定 1.4–2.4×GPTs，还在涨"
+     },
+     {
+      "dim": "竞争",
+      "score": 1.0,
+      "note": "10+ 家精确匹配首页"
+     },
+     {
+      "dim": "可行性",
+      "score": 5.0,
+      "note": "纯前端"
+     },
+     {
+      "dim": "变现",
+      "score": 2.0,
+      "note": "只能广告"
+     },
+     {
+      "dim": "寿命",
+      "score": 3.0,
+      "note": "格式会反复出现"
+     }
+    ],
+    "total": 16.0,
+    "max": 25.0
+   }
+  },
+  {
+   "rank": 4,
+   "keyword": "Deadlock Violet",
+   "keyword_note": "（abilities、build、kit、voice actor）",
+   "description": "Valve《Deadlock》City Never Sleeps 更新的新英雄（墨水画家）",
+   "sources": [
+    "https://deadlock.wiki/Violet",
+    "https://x.com/i/trending/2111200049363296709"
+   ],
+   "sources_text": "https://deadlock.wiki/Violet · https://x.com/i/trending/2111200049363296709",
+   "first_seen": "2026-10-16 上线",
+   "trend_signal": "X 10-15 1,230 → **10-16 4,998**，10-17 前 70 分钟已 1,837。Trends 10-17 上午≈21×GPTs（失真）。补全：abilities / kit / build / voice actor / interactions",
+   "trends_verified": true,
+   "serp": "deadlock.wiki、mobalytics、blitz.gg（builds/items）、thegamehaus 当天就有",
+   "domain": "deadlockviolet.com、violetdeadlock.com、violetbuilds.com 404（含游戏名，商标风险）",
+   "idea": "构筑/出装页只适合已有 Deadlock 站的内页",
+   "rating": 2.5,
+   "rating_stars": "★★☆",
+   "reason": "爆发真实，大站当天覆盖，只能靠广告",
+   "extra": {}
+  },
+  {
+   "rank": 5,
+   "keyword": "Enshrouded 1.0",
+   "keyword_note": "（sparkworks、cinder's cradle）",
+   "description": "生存建造游戏两年 EA 后正式版，新地图 + 等级上限 50",
+   "sources": [
+    "https://store.steampowered.com/app/1203620/",
+    "https://x.com/i/trending/2110411772578648237"
+   ],
+   "sources_text": "https://store.steampowered.com/app/1203620/ · https://x.com/i/trending/2110411772578648237",
+   "first_seen": "1.0 约 10-15",
+   "trend_signal": "Steam 在线 **53,224**；X 760 → 1,627 → 1,720；Trends 10-16≈71×GPTs（失真）",
+   "trends_verified": true,
+   "serp": "老游戏，已有 wiki 和攻略大站（未逐一核对）",
+   "domain": "未查",
+   "idea": "老站内页",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "量大但不是新词",
+   "extra": {}
+  },
+  {
+   "rank": 6,
+   "keyword": "Reflection Beam 1.0",
+   "keyword_note": "",
+   "description": "Reflection AI 开源 MoE（每 token 23B 激活，1M 上下文，Apache 2.0）",
+   "sources": [
+    "https://x.com/i/trending/2111084244533489807",
+    "https://x.com/_akhaliq/status/2111218996792234276"
+   ],
+   "sources_text": "https://x.com/i/trending/2111084244533489807 · https://x.com/_akhaliq/status/2111218996792234276",
+   "first_seen": "2026-10-16",
+   "trend_signal": "X 941 / 876；Trends「reflection beam」10-16≈0.08×，10-17 上午≈0.42×GPTs；补全全是噪音（beamng、beamforming）",
+   "trends_verified": true,
+   "serp": "未深挖",
+   "domain": "名字太通用，难做 EMD",
+   "idea": "模型新闻，不适合新站",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "社交有、搜索词形不稳",
+   "extra": {}
+  },
+  {
+   "rank": 7,
+   "keyword": "Steam Frame verified games",
+   "keyword_note": "",
+   "description": "Valve VR 头显（$1,059，9-14 发售）的认证游戏清单",
+   "sources": [
+    "https://vr.org/great-on-frame",
+    "https://store.steampowered.com/app/4165890/"
+   ],
+   "sources_text": "https://vr.org/great-on-frame · https://store.steampowered.com/app/4165890/",
+   "first_seen": "2026-09-14",
+   "trend_signal": "Trends「steam frame」稳定约 4–6×GPTs；「steam frame verified games」≈0；补全：verified games list / compatible games / vs quest 3",
+   "trends_verified": true,
+   "serp": "vr.org（204 款 @10-07）、sportskeeda、steamframelab.com（09-14）已覆盖",
+   "domain": "未查",
+   "idea": "不做",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "一个月前的旧词，已满",
+   "extra": {}
+  },
+  {
+   "rank": 8,
+   "keyword": "mecore",
+   "keyword_note": "（Pinterest 四图挑战）",
+   "description": "用偶像/动物/歌词/色板四张图拼「me core」",
+   "sources": [
+    "https://x.com/i/trending/2110850862432108753"
+   ],
+   "sources_text": "https://x.com/i/trending/2110850862432108753",
+   "first_seen": "约 10-14",
+   "trend_signal": "X 287 → 696 → 923；**Trends「mecore」≈0**；补全有 mecore pinterest / template",
+   "trends_verified": true,
+   "serp": "未深挖",
+   "domain": "未查",
+   "idea": "社交有、搜索冷",
+   "rating": 1.5,
+   "rating_stars": "★☆",
+   "reason": "只在社交热",
+   "extra": {}
+  },
+  {
+   "rank": 9,
+   "keyword": "PS5 LLM",
+   "keyword_note": "（llama.cpp ps5）",
+   "description": "在越狱 PS5 上跑 GGUF 本地模型",
+   "sources": [
+    "https://github.com/cobanov/PS5LM"
+   ],
+   "sources_text": "https://github.com/cobanov/PS5LM",
+   "first_seen": "HN 10-16 185p",
+   "trend_signal": "补全：ps5 llm inference / run llm / local llm / linux llm / pro llm（多个真实变体）；Trends 未测",
+   "trends_verified": true,
+   "serp": "未深挖",
+   "domain": "未查",
+   "idea": "依赖越狱，法律/平台风险高",
+   "rating": 1.0,
+   "rating_stars": "★",
+   "reason": "降级：越狱相关不做",
+   "extra": {}
+  }
+ ],
+ "supplement": "",
+ "top_picks": "1. **FLUX 3 Image Klein**（17/25）\n   - **事件**：BFL 10-13 放出 5.6B 开源权重（HF），API 同步上线；HN 105p；X 10-16 从个位数跳到 715。\n   - **搜索**：「flux 3 klein」发布后第一个完整日≈1.0×GPTs（粗估约 5,000 次/天），10-17 上午回落到≈0.63×。\n   - **竞争**：官方 HF Space + 2 个 10-16 当天注册的 EMD（flux3klein.com 每天免费 3 次；flux3klein.org 500 张 $19.90）。主词 EMD 竞赛已经结束。\n   - **切口**：官方文档要求框选编辑写成 0–1000 网格的 JSON，普通用户很难手写 → **可视化框选编辑器**，前 5 没看到专门的站。\n   - **成本**：BFL API 1K 每张 $0.009、2K $0.014；毛利空间大。\n   - **风险**：FLUX 是 BFL 商标（域名避开 flux）；Kommunity License 对自托管权重有营收门槛（走 API 不受影响）；需要做内容审核（NSFW / 真人换脸）。\n2. **Kling 4.0**（16/25）\n   - **事件**：快手 10-16 公告 Kling 4.0 已于 10-15 上线；单次最长 30 秒、最多 10 个关键帧、15 个参考素材；官方 API「coming soon」，fal 预告「coming soon」。\n   - **搜索**：「kling 4.0」≈0.70×GPTs（约 3,500 次/天量级），补全有 release date / vs seedance 2.5。\n   - **竞争**：主词前 5 被官方占满；8 个 kling4 EMD 早就被人囤了；对比和提示词长尾已有 5+ 篇。\n   - **切口**：30 秒长镜头最难的是「按秒拆分镜 + 关键帧顺序」，官方博客只写教程，没有交互工具 → **分镜提示词规划器**（LLM 生成，每次成本是分级的）。API 开放后加生成和订阅。\n   - **风险**：Kling 是快手商标（群里有收到律师函后转移域名的案例）；长尾 Trends 目前是 0。\n3. **My 9 Games**（16/25）\n   - **需求**：今天需求最实的词，「my 9 games」连续 5 天 1.4–2.4×GPTs，而且还在涨；related 里 template +300%。\n   - **竞争**：10+ 个英文站从 9-28 到 9-30 集中注册，日文主站显示 102 万次使用——**晚了约 3 周**。\n   - **价值**：主要是复盘案例——日文社交格式出现后约 2 周，英文搜索才起来，而 EMD 在英文搜索起来之前 2 周就被注册了。下次见到日文「私を構成する9つの○○」类格式，要立刻查英文 EMD。\n   - **能做的**：只适合已有工具站加一个内页，或者做「按平台筛选」（DS / Wii 怀旧格子，related 上升 +650% / +130%）。\n\n其他值得留意：Deadlock Violet（X 单日近 5,000，大站当天覆盖）、Enshrouded 1.0（在线 5.3 万，但不是新词）、Reflection Beam 1.0（搜索词形不稳）、Steam Frame verified games（9 月旧词，已满）。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "旧词跟进",
+   "markdown": "| 词 | 状态 | 证据 | 动作 |\n|---|---|---|---|\n| **Scam With Your Friends** | **继续上升** | X 10-15 29 → **10-16 266**；Trends 10-16≈8.0×、10-17 上午≈10.6×GPTs；在线 12,833；评测 **Mixed 582 → Mostly Positive 1,370**（+1,037/−333）；官方首发帖称 60 万愿望单；10-16 连发 Hotfix 2、3（版本不一致提示、备用登录、语音下载服务器）；wiki JSON 页仍写 schema 未公开（last verified 9/26）；json/workshop/mods 长尾 Trends≈0 | 继续等 schema；今天可以加「version mismatch / sign-in / voice download」排错页（来自官方 Hotfix 说明） |\n| **Castlevania: Belmont's Curse** | 仍在上升 | X 10,594 → 8,599；Trends 10-16≈23×、10-17 上午≈35×（失真）；在线 17,503；补全 checklist pdf/printable 仍在 | 地图位已满；checklist 切口同昨天 |\n| **Muse Spark Open** | 高位回落 | X 6,307 → 5,321；Trends「muse spark」10-16≈6.5×、10-17 上午≈5.5×；Apple ML Research 发了 Mac Studio MLX 文章（HN 263p） | 大站继续加码，维持昨天判断 |\n| **Planet Zoo 2** | 高位横盘 | 在线 18,033；补全 animals list / confirmed / tier list / hidden animals | 只做老站内页 |\n| **DayZ Badlands** | 横盘 | Trends 10-16≈7.7×、10-17 上午≈7.4×；补全多了 water locations / heat stroke / sickness | 地图位已满；生存机制长尾可当内页 |\n| **YouTube GIF comments** | 继续降温 | Trends 10-16≈0.64×、10-17 上午≈0.57×；X 847 → 238；GitHub 新开源扩展 rayytor/desktop_gifs 471★；补全 extension / github / not showing | 不开新站 |\n| **Krea 3 / OmniHuman V2 / Character.ai export / Mirelo** | 本日未复测 | — | 维持昨天的降级 |"
+  },
+  {
+   "title": "不推荐但继续盯",
+   "markdown": "- **Deadlock Violet**：X 单日近 5,000，Trends 失真级高，但 deadlock.wiki / mobalytics / blitz 当天就有页面。\n- **Enshrouded 1.0**：在线 5.3 万，正式版流量大，但老游戏攻略站已经有了。\n- **Reflection Beam 1.0**：开源模型，名字太通用，补全全是噪音。\n- **Steam Frame verified games**：9 月旧词，vr.org / steamframelab 已覆盖。\n- **mecore / Pinterest 四词挑战 / 生日主机挑战**：只在社交热，Trends≈0。\n- **决策模型（pplx-decider、Liquid d1-ultra、Jev/Laya）**：补全出现 decision models jev / leaderboard，但是开发者向，不适合工具站。\n- **PS5 LLM / 各种 PS4→PC 移植仓库**：越狱和版权风险，不碰。"
+  }
+ ],
+ "deep_dive_count": 3,
+ "parse_ok": true
+}
