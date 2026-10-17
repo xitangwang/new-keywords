@@ -160,7 +160,7 @@
     }).catch(function (e) {
       $("cards").innerHTML = '<div class="empty">这一天的数据加载失败：' + esc(e.message) + "</div>";
       $("extraSections").innerHTML = "";
-      $("poolSection").hidden = true; $("watchSection").hidden = true;
+      $("poolSection").hidden = true; $("watchSection").hidden = true; $("effectsSection").hidden = true;
     });
   }
 
@@ -171,6 +171,7 @@
     $("meta").innerHTML = "<b>" + esc(d.date) + "</b> 共 <b>" + cs.length + "</b> 个候选，★★★★ 及以上 <b>" + n4 +
       "</b> 个，有深挖分析 <b>" + nDeep + "</b> 个" +
       (d.pool && d.pool.rows ? "，候选池 <b>" + d.pool.rows.length + "</b> 个" : "") +
+      (d.effects && d.effects.rows && d.effects.rows.length ? "，🎬 视频玩法词 <b>" + d.effects.rows.length + "</b> 个" : "") +
       (d.collected_at ? " · 数据采集：" + esc(d.collected_at) : "") +
       " · 页面数据更新：" + esc(fmtTime(d.generated_at));
     var tn = $("trendsNotice");
@@ -182,7 +183,9 @@
   }
 
   // ---------- 候选池 / 观察名单：可排序表格 ----------
-  var tblState = { pool: { col: -1, dir: 1, q: "", cat: "" }, watch: { col: -1, dir: 1, q: "", cat: "" } };
+  var tblState = { pool: { col: -1, dir: 1, q: "", cat: "" }, watch: { col: -1, dir: 1, q: "", cat: "" }, effects: { col: -1, dir: 1, q: "", cat: "" } };
+  var STAGE_RE = /起量|萌芽|拥挤|回落/;
+  function tblOf(which) { var d = state.day || {}; return which === "pool" ? d.pool : which === "watch" ? d.watchlist : d.effects; }
   function cellNum(v) {
     var t = String(v || "").replace(/\*\*/g, "").trim();
     if (!t || /^(—|-|未验证|未查|n\/a)/i.test(t)) return null;
@@ -191,11 +194,13 @@
   }
   function tableHTML(which, tb) {
     var st = tblState[which], h = tb.header, rows = tb.rows.slice();
-    var catIdx = h.findIndex(function (x) { return /类别|category/i.test(x); });
-    var cats = catIdx >= 0 ? Array.from(new Set(rows.map(function (r) { return r[catIdx] || ""; }))).filter(Boolean).sort() : [];
+    var catIdx = h.findIndex(function (x) { return /类别|category|阶段/i.test(x); });
+    // 视频玩法表的「阶段」单元格是「**起量**（新发现）：…」，筛选只取阶段名
+    var catOf = function (r) { var v = r[catIdx] || ""; if (which === "effects") { var m = v.match(STAGE_RE); return m ? m[0] : ""; } return v; };
+    var cats = catIdx >= 0 ? Array.from(new Set(rows.map(catOf))).filter(Boolean).sort() : [];
     var q = st.q.trim().toLowerCase();
     rows = rows.filter(function (r) {
-      if (st.cat && r[catIdx] !== st.cat) return false;
+      if (st.cat && catOf(r) !== st.cat) return false;
       return !q || r.join(" ").toLowerCase().indexOf(q) >= 0;
     });
     if (st.col >= 0) {
@@ -210,7 +215,7 @@
       });
     }
     var tools = '<div class="pool-tools"><input type="search" class="pool-q" data-t="' + which + '" placeholder="筛选这张表…" value="' + esc(st.q) + '">' +
-      (cats.length ? '<select class="pool-cat" data-t="' + which + '"><option value="">全部类别</option>' + cats.map(function (c) {
+      (cats.length ? '<select class="pool-cat" data-t="' + which + '"><option value="">' + (which === "effects" ? "全部阶段" : "全部类别") + "</option>" + cats.map(function (c) {
         return '<option' + (c === st.cat ? " selected" : "") + ">" + esc(c) + "</option>"; }).join("") + "</select>" : "") +
       '<span class="count">' + rows.length + " / " + tb.rows.length + " 行 · 点表头排序</span></div>";
     return tools + '<div class="tbl-wrap pool-wrap"><table class="sortable"><thead><tr>' + h.map(function (x, i) {
@@ -222,16 +227,18 @@
   }
   function renderTables() {
     var d = state.day;
-    [["pool", "poolSection", "🧺 候选池（自动初筛，全部候选）"], ["watch", "watchSection", "📈 观察名单 / 上升中"]].forEach(function (x) {
-      var tb = x[0] === "pool" ? d.pool : d.watchlist, el = $(x[1]);
-      if (!tb || !(tb.rows || []).length) { el.hidden = true; el.innerHTML = ""; return; }
+    [["effects", "effectsSection", "🎬 视频玩法词"], ["pool", "poolSection", "🧺 候选池（自动初筛，全部候选）"], ["watch", "watchSection", "📈 观察名单 / 上升中"]].forEach(function (x) {
+      var tb = tblOf(x[0]), el = $(x[1]);
+      var hasRows = tb && (tb.rows || []).length;
+      if (!tb || (!hasRows && !(x[0] === "effects" && (tb.note || tb.rest)))) { el.hidden = true; el.innerHTML = ""; return; }
       el.hidden = false;
       el.innerHTML = "<h2>" + esc(tb.title || x[2]) + "</h2>" + (tb.note ? '<div class="md">' + md(tb.note) + "</div>" : "") +
-        '<div class="tblbox" id="' + x[0] + 'Box">' + tableHTML(x[0], tb) + "</div>";
+        (hasRows ? '<div class="tblbox" id="' + x[0] + 'Box">' + tableHTML(x[0], tb) + "</div>" : "") +
+        (tb.rest ? '<div class="md">' + md(tb.rest) + "</div>" : "");
     });
   }
   function rerenderTable(which) {
-    var tb = which === "pool" ? state.day.pool : state.day.watchlist;
+    var tb = tblOf(which);
     var box = $(which + "Box"); if (box) box.innerHTML = tableHTML(which, tb);
   }
   document.addEventListener("click", function (e) {

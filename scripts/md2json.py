@@ -216,8 +216,21 @@ def parse_report(md_text, date_hint=None):
     # 候选池 / 观察名单 章节单独解析（大表），不参与候选表选择
     POOL_RE = re.compile(r"候选池|candidate pool", re.I)
     WATCH_RE = re.compile(r"观察名单|watchlist", re.I)
-    pool_tbl, watch_tbl, cand_lines = None, None, []
+    EFFECTS_RE = re.compile(r"视频玩法|video effects?", re.I)
+    pool_tbl, watch_tbl, effects_tbl, cand_lines = None, None, None, []
     for title_s, body in sections:
+        if title_s and EFFECTS_RE.search(title_s):
+            # 🎬 视频玩法词：第一张表 = 主表（可排序/按阶段筛选），其余内容（回落表、域名突增等）原样保留为 markdown
+            tbls = parse_tables(body)
+            if effects_tbl is None:
+                if tbls:
+                    h, rws, s0, e0 = tbls[0]
+                    effects_tbl = {"title": title_s, "header": [strip_md(x) for x in h], "rows": rws,
+                                   "note": clean_block(body[:s0]), "rest": clean_block(body[e0:])}
+                else:
+                    effects_tbl = {"title": title_s, "header": [], "rows": [], "note": clean_block(body), "rest": ""}
+            cand_lines += [""] * (len(body) + 1)
+            continue
         if title_s and (POOL_RE.search(title_s) or WATCH_RE.search(title_s)):
             tbls = parse_tables(body)
             if tbls:
@@ -295,7 +308,7 @@ def parse_report(md_text, date_hint=None):
     supplement, top_picks, monitoring, other_sections, deep_dives = "", "", "", [], []
     for title_s, body in sections[1:]:
         text = clean_block(body)
-        if POOL_RE.search(title_s) or WATCH_RE.search(title_s):
+        if POOL_RE.search(title_s) or WATCH_RE.search(title_s) or EFFECTS_RE.search(title_s):
             continue
         if "疗愈" in title_s:
             continue  # 不再展示疗愈相关内容
@@ -349,6 +362,7 @@ def parse_report(md_text, date_hint=None):
         "deep_dive_count": sum(1 for c in candidates if c.get("deep_dive")),
         "pool": pool_tbl,
         "watchlist": watch_tbl,
+        "effects": effects_tbl,
         "parse_ok": bool(candidates),
     }
 
