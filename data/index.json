@@ -1,6 +1,7 @@
 {
- "updated_at": "2026-10-20T08:20:47+08:00",
+ "updated_at": "2026-10-22T08:29:19+08:00",
  "dates": [
+  "2026-10-22",
   "2026-10-20",
   "2026-10-19",
   "2026-10-18",
@@ -12,6 +13,17 @@
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-10-22",
+   "count": 8,
+   "deep_dives": 8,
+   "top": [
+    "maplestory classic",
+    "escape from playtime",
+    "we were here tomorrow"
+   ],
+   "generated_at": "2026-10-22T08:29:19+08:00"
+  },
   {
    "date": "2026-10-20",
    "count": 8,
