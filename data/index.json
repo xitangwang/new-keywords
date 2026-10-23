@@ -1,6 +1,7 @@
 {
- "updated_at": "2026-10-22T08:29:19+08:00",
+ "updated_at": "2026-10-23T17:17:44+08:00",
  "dates": [
+  "2026-10-23",
   "2026-10-22",
   "2026-10-20",
   "2026-10-19",
@@ -13,6 +14,17 @@
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-10-23",
+   "count": 8,
+   "deep_dives": 8,
+   "top": [
+    "claude duet",
+    "final fantasy resonance",
+    "one piece grand gourmet"
+   ],
+   "generated_at": "2026-10-23T17:17:44+08:00"
+  },
   {
    "date": "2026-10-22",
    "count": 8,
