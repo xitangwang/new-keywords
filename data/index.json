@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-26T08:20:19+08:00",
+ "updated_at": "2026-10-26T08:20:42+08:00",
  "dates": [
   "2026-10-26",
   "2026-10-25",
@@ -19,13 +19,13 @@
   {
    "date": "2026-10-26",
    "count": 8,
-   "deep_dives": 7,
+   "deep_dives": 8,
    "top": [
     "clover rpg",
     "azeroth survivors",
     "mw4 dmz"
    ],
-   "generated_at": "2026-10-26T08:20:19+08:00"
+   "generated_at": "2026-10-26T08:20:42+08:00"
   },
   {
    "date": "2026-10-25",

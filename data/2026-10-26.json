@@ -2,7 +2,7 @@
  "date": "2026-10-26",
  "title": "每日新词监控 · 2026-10-26",
  "collected_at": "2026-10-26 北京时间（UTC+8）约 07:44–08:10。原始数据在 raw/2026-10-26/pipeline/，哥飞的原始 JSON 在 raw/2026-10-26/webcafe_*.json",
- "generated_at": "2026-10-26T08:20:19+08:00",
+ "generated_at": "2026-10-26T08:20:42+08:00",
  "trends_unverified": true,
  "preface": "数据采集时间：2026-10-26 北京时间（UTC+8）约 07:44–08:10。原始数据在 `raw/2026-10-26/pipeline/`，哥飞的原始 JSON 在 `raw/2026-10-26/webcafe_*.json`。\n\n**数据来源情况（如实说明）**\n- **用到了（全部免登录，脚本自动采集，带缓存）**：Google Trends 热搜 RSS、Google News RSS、HN、Lobsters、dev.to、Product Hunt feed、Bluesky / Mastodon、Hugging Face、fal、Replicate、Together、GitHub、Steam、itch.io、CrazyGames / Poki、App Store、Chrome 应用商店、维基百科浏览量、Yahoo! JAPAN 实时、韩国实时检索词、whoisds 新注册域名、shindanmaker。\n- **哥飞 web.cafe（免费，不扣积分）**：新词发现窗口内 8 批（6 批之前已入库，新入库约 2 批 → 385 个英文词）、新站发现 0 个新批次、网站发现 1 批（已在更早入库，仍过滤得到 150 个托管站关键词）。付费工具没有调用：账户 API 积分余额仍是 0，脚本按设计跳过。\n- 自动补全「字母汤」2,106 次查询，1,304 次成功，得到 15,732 条不重复建议、7,046 条是基线里没有的；另外对 966 个候选逐个查 Google / YouTube / Bing（其中哥飞必探 610 个、哥飞额外探测 156 个）。\n- 谷歌趋势：20 个宽种子词的 1 天「上升」查询 20 个成功；自动池对比阶段在约 42 次调用后被限流停用，因此自动池里多数词没有拿到 24h÷GPTs 读数（表里标「未验证」）。深挖阶段第一组起同样被限流。\n- X MCP：`get_trends_by_woeid` 4 次、`search_news` 5 次、`get_posts_counts_recent` 33 次成功入库，`x_counts.json` 共 33 个 key。今天 X 读取合计约 42 次（不含失败重试）。\n- RDAP（.com 等）：自动池前 200 个 + 深挖词约 64 个域名。SERP：Bing 前 10；自动池 `serp_checked=80`；深挖 8 组均有 Bing 结果。\n- **被挡、或没拿到**：Reddit 状态 403；Product Hunt 榜单（Cloudflare，仅 feed）；Google Play；TikTok Creative Center；web.cafe 付费工具（余额 0）；Google 原生 SERP 没有验证；webcafe_launches 今天窗口内无新批次；自动池 Trends 对比与深挖 Trends 被限流。\n- **10-24 没有报告**：那天的采集脚本跑完了（pool / effects 已写出），但 X 计数、深挖和发布没有完成，所以看板上缺 10-24。今天的观察名单已经把更早采到的词算进去。\n- **数字读法**：`Trends 24h÷GPTs` 是同组最近 24 小时均值比（GPTs ≈ 每天 5,000 次，只看量级；不同组之间会有出入）；`斜率` = 最近 48 小时 ÷ 之前 5 天；`X` 是 UTC 自然日帖子数，10-26 是不完整日。今天自动池 Trends 对比大多没有读数，排序更依赖补全变体、X 斜率和哥飞证据。\n\n**今日漏斗**\n\n| 阶段 | 数量 |\n|---|---|\n| 原始信号 | **4,072** 条（25 个源 + 哥飞 3 个服务）+ 15,732 条字母汤建议 |\n| 抽取出的候选词 | 4,173（加字母汤 / 趋势上升 / 观察名单后 5,016） |\n| 做了补全探测 | 966（其中哥飞必探 610） |\n| 有 ≥2 个补全变体 | 698（其中 528 个带工具意图词） |\n| 自动打分池 | **200**（150 常规 + 50 哥飞独有；视频玩法代表词另占名额后池内约 215；其中带哥飞标签 71 个） |\n| 报告池（去掉常青老品牌 79、人工剔除 5、印地语 CapCut 1） | **130**（带哥飞标签 20 个），表里列前 80 |\n| 深挖 | 8 |\n\n**今日结论（如实）**\n- 今天**没有特别硬的空白新站机会**。最大的新事件窗口是：**Clover RPG**（Roblox，10-23 正式发售）、**Azeroth Survivors**（10-08 浏览器粉丝作，10-25 加入 co-op）、**MW4 DMZ**（10-20 Early Access / 10-23 随 Modern Warfare 4 上线）。核查下来大站或镜像站已经铺了一层，或 IP / 商标风险很高。\n- 相对最值得跟的是 **Clover RPG**：哥飞判「值得做（新站首页）」、补全已有 codes / tier list / grimoire；`cloverrpgguide.com` / `cloverrpgcodes.com` / `cloverrpgtierlist.com` 等一批仍 404。但 Pro Game Guides、Destructoid、MrGuider 已经把「目前无 codes」和 tier list 写了，新站只能做 **Grimoire / Race 组合计算器** 或「无 codes 时也更新」的差异化页，不适合再抄一篇空 codes 列表。\n- 第二是 **Azeroth Survivors**：X「azeroth survivors」10-24 10 → **10-25 31**（约 3.4×），哥飞 +49%、上升中。`azerothsurvivorsguide.com` / `playazerothsurvivors.com` 仍 404；但主词 SERP 同名域名 **8 个**（镜像 / 广告站挤占），真正官网是 **wow.aethus.pl**。切口应是「官方入口核对 + co-op 大厅 FAQ」，不要再做一个假下载站。\n- 第三是 **MW4 DMZ**：哥飞 GPTs×23.9、+1218%；X 发售后每天仍约 200–260。多个 `mw4dmzguide.com` 等 404，但 callofduty.com、CODMunity、WZStats、IGN 已占主意图。只适合做 Hajin POI / 某枪配装长尾内页，不建议新品牌站硬刚 CoD 生态。\n- AI 方向：DeepSeek V4 Pro（GA **08-13**）、Claude Opus 5.5（**09-22**）、Qwen3.8-27B（**08-14**）、Qwen3-TTS（**01-22**）都偏旧；Grok Bot App（约 08 月上线）搜索量被「grok」噪声抬高，官网 / docs 已占主词。\n- 视频玩法词今天**没有「起量」**：展示的 ray edits / ray edit capcut template / ai rapper video trend 都在萌芽；rumpelstiltskin 等持续跟踪萌芽；25 个簇回落。不需要同日开内页。",
  "candidates": [
@@ -275,7 +275,15 @@
    "rating": 1.0,
    "rating_stars": "★",
    "reason": "哥飞看好但 X 与 SERP 都弱",
-   "extra": {}
+   "extra": {},
+   "deep_dive": {
+    "keyword": "rumpelstiltskin ai（AI 特效梗；萌芽）",
+    "intro": "> 评分 8/25。哥飞 +261%、判值得做新站，专门页 17；effects 阶段仍是 **萌芽**（非起量）。X 查询几乎为 0；Bing 仍被童话百科占据。`rumpelstiltskinai.com` 10-08 已注册；generator / trend 域 404。按视频玩法规则：先 how-to 占位，**等起量再上内页**；今天不新开站。",
+    "sections": [],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
   },
   {
    "rank": 8,
@@ -325,7 +333,7 @@
    "markdown": "| 来源 | 状态 | 原始信号 | 进入自动池 | 进入报告池 |\n|---|---|---|---|---|\n| gtrends_rss | ok | 130 | 0 | 0 |\n| hackernews | ok | 113 | 1 | 0 |\n| lobsters | ok | 50 | 1 | 0 |\n| github | ok | 311 | 5 | 1 |\n| huggingface | ok | 180 | 6 | 6 |\n| fal | ok | 42 | 0 | 0 |\n| replicate | ok | 126 | 7 | 7 |\n| together | ok | 24 | 5 | 5 |\n| steam | ok | 340 | 22 | 4 |\n| itch | ok | 108 | 0 | 0 |\n| webgames | ok | 210 | 1 | 0 |\n| appstore | ok | 68 | 1 | 0 |\n| chrome_webstore | ok | 77 | 0 | 0 |\n| producthunt | ok | 50 | 0 | 0 |\n| googlenews | ok | 607 | 11 | 4 |\n| devto | ok | 60 | 0 | 0 |\n| wikipedia | ok | 395 | 1 | 0 |\n| social_trends | ok | 50 | 0 | 0 |\n| shindanmaker | ok | 100 | 0 | 0 |\n| yahoo_jp | ok | 23 | 0 | 0 |\n| korea | ok | 10 | 0 | 0 |\n| nrd | ok | 216 | 5 | 5 |\n| reddit_probe | blocked (403) | 0 | 0 | 0 |\n| agent_x | ok | 225 | 7 | 6 |\n| agent_seeds | ok | 22 | 7 | 6 |\n| webcafe_newwords | ok | 385 | 52 | 19 |\n| webcafe_launches | blocked/empty | 0 | 0 | 0 |\n| webcafe_hosted | ok | 150 | 19 | 1 |\n| trends_rising | 派生 | — | 10 | 4 |\n| effects_watch | 派生 | — | 15 | 9 |\n| nrd_whoisds | 派生 | — | 5 | 5 |\n| agent_x_seed | 派生 | — | 7 | 6 |\n| x_news | 派生 | — | 2 | 2 |\n| autocomplete_soup | 派生 | — | 2 | 0 |"
   }
  ],
- "deep_dive_count": 7,
+ "deep_dive_count": 8,
  "pool": {
   "title": "候选池（自动初筛）",
   "header": [
@@ -6914,11 +6922,67 @@
   "note": ""
  },
  "effects": {
-  "title": "深挖：rumpelstiltskin ai（视频玩法；萌芽）",
-  "header": [],
-  "rows": [],
-  "note": "> 评分 8/25。哥飞 +261%、判值得做新站，专门页 17；effects 阶段仍是 **萌芽**（非起量）。X 查询几乎为 0；Bing 仍被童话百科占据。`rumpelstiltskinai.com` 10-08 已注册；generator / trend 域 404。按视频玩法规则：先 how-to 占位，**等起量再上内页**；今天不新开站。",
-  "rest": ""
+  "title": "🎬 视频玩法词",
+  "header": [
+   "阶段",
+   "玩法簇",
+   "代表词（池排名）",
+   "说法变体",
+   "哥飞热度（GPTs×）",
+   "工具类补全",
+   "新域名 近4天（旧→新）",
+   "竞品 / 拥挤度",
+   "首次发现",
+   "风险",
+   "建议动作",
+   "底层模型 / 单条成本"
+  ],
+  "rows": [
+   [
+    "**萌芽**（新发现）：哥飞上升中、工具类补全 0",
+    "ray edits",
+    "ray edits capcut（#194）",
+    "ray edits capcut、ray edits capcut template",
+    "最高 0.406；最新推送 上升中",
+    "0",
+    "0（0/0/0/0）",
+    "哥飞专门页 2；SERP 同名域名 0",
+    "2026-10-25 10:47（哥飞首推）；出现 2026-10-24 / 爆发 2026-10-24",
+    "商标（capcut）",
+    "观察；可先写 how-to / 模板内页占位",
+    "未验证"
+   ],
+   [
+    "**萌芽**（新发现）：哥飞上升中、工具类补全 0",
+    "ray edit capcut template",
+    "ray edit capcut template（#214）",
+    "ray edit capcut template",
+    "最高 0.018；最新推送 上升中",
+    "0",
+    "0（0/0/0/0）",
+    "哥飞专门页 4；SERP 同名域名 0",
+    "2026-10-25 16:24（哥飞首推）；出现 2026-10-24 / 爆发 2026-10-24",
+    "商标（capcut）",
+    "观察；可先写 how-to / 模板内页占位",
+    "未验证"
+   ],
+   [
+    "**萌芽**（阶段变化 回落→萌芽）：工具类补全 0、新域名突增",
+    "ai rapper video trend",
+    "ai rapper video trend（#213）",
+    "ai rapper video trend",
+    "最高 0；最新推送 已明显回落",
+    "0",
+    "0（0/0/0/0）",
+    "哥飞专门页 0；SERP 同名域名 0",
+    "2026-10-04 21:58（哥飞首推）；出现 2026-09-20 / 爆发 2026-09-28",
+    "—",
+    "观察；可先写 how-to / 模板内页占位",
+    "未验证"
+   ]
+  ],
+  "note": "> 自动生成（effects_watch）：今天跟踪 **34** 个玩法簇 —— 起量 0 / 萌芽 9 / 拥挤 0 / 回落 25。本节展示 **5** 个（萌芽 3 / 回落 2），只展示新发现、阶段变化、起量中、哥飞今天推为上升中的簇。\n> 来源：哥飞新词批次 165 批（近 21 天）里筛出 100 个玩法词；新注册域名突增 1 个；自动补全 9 个种子 243 次查询（新出现玩法名 0 个），逐簇探测 38 个；平台目录 15 个、共 3875 条（新增 gnews_fx 27）。候选池新增 15 个代表词（预留名额，不会再被挤掉）。\n> 阶段规则：回落 = 哥飞趋势回落 / 曲线低于峰值 30%，且近 3 天没有上升、没有新域名突增；拥挤 = SERP 同名域名 ≥3，或近 4 天新域名 ≥20，或哥飞专门页 ≥15 且新域名 ≥10；起量 = （哥飞上升中，或工具类补全 ≥5）且（新域名 ≥3，或两者都满足）；其余是萌芽。",
+  "rest": "**回落 / 不做**（只在阶段变化当天出现一次）：\n\n| 玩法簇 | 代表词 | 哥飞最高热度（最新趋势） | 原因 | 首次发现 | 风险 | 动作 |\n|---|---|---|---|---|---|---|\n| rai edit capcut template | rai edit capcut template | 0.014（已明显回落） | 哥飞最新：已明显回落；曲线为峰值 100% | 2026-10-25 19:25 | 商标（capcut） | 不再投入 |\n| party dance | ai party dance video | 0.004（已明显回落） | 哥飞最新：已明显回落；曲线为峰值 0% | 2026-10-25 10:47 | — | 不再投入 |\n\n**新注册域名突增**（whoisds 免费样本，昨天 vs 前几天基线；数字是下限）：airap 11 个（基线 0.0，如 ai-rap-video-generator.org、ai-rap-video.pro、ai-rap-video.xyz）\n\n**平台目录新增**（对比基线快照）：gnews_fx：'You Can See Everything' is climbing the ratings and fueling Oscar speculation、AI-Powered Business Banking: Stripe Lets AI Agents Manage Startup Finances、AI-Powered Financial Auditing: Vantage FP&A Launches Vann for Automated Financial Reviews、AI-Powered Maintenance Auditing: Property Meld Automates Repair Cost Verification、All aboard the TrainTok trend: spotters and staff boost rail content online、Artificial Intelligence: AI boom brings new wealth to Bay Area, and new worries about growing affordability crisis、Bengals-Titans Look Ahead; 49ers-Falcons Draw Survivor Picks、CM Himanta Biswa Sarma's Gangnam Style Dance Video Goes Viral; AI Clip Takes Social Media By Storm | WATCH\n\n持续跟踪（阶段没变，不展开）：rumpelstiltskin（萌芽）、verity meme（萌芽）、burning bridges（萌芽）、ai steroids filter（萌芽）、anijam ai video maker（萌芽）、that clones（萌芽）"
  },
  "parse_ok": true
 }
