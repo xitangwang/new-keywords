@@ -1,6 +1,7 @@
 {
- "updated_at": "2026-10-29T11:12:31+08:00",
+ "updated_at": "2026-10-30T08:28:29+08:00",
  "dates": [
+  "2026-10-30",
   "2026-10-29",
   "2026-10-28",
   "2026-10-27",
@@ -19,6 +20,17 @@
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-10-30",
+   "count": 8,
+   "deep_dives": 8,
+   "top": [
+    "monster hunter outlanders",
+    "football manager 27",
+    "mistral large 4"
+   ],
+   "generated_at": "2026-10-30T08:28:29+08:00"
+  },
   {
    "date": "2026-10-29",
    "count": 8,
