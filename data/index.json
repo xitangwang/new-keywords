@@ -1,6 +1,7 @@
 {
- "updated_at": "2026-11-05T08:52:26+08:00",
+ "updated_at": "2026-11-06T08:27:38+08:00",
  "dates": [
+  "2026-11-06",
   "2026-11-05",
   "2026-11-03",
   "2026-11-02",
@@ -24,6 +25,17 @@
   "2026-10-12"
  ],
  "days": [
+  {
+   "date": "2026-11-06",
+   "count": 8,
+   "deep_dives": 8,
+   "top": [
+    "ocarina of time remake",
+    "airframe ultra",
+    "fragmentary order"
+   ],
+   "generated_at": "2026-11-06T08:27:38+08:00"
+  },
   {
    "date": "2026-11-05",
    "count": 8,
