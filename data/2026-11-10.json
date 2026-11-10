@@ -1,0 +1,9371 @@
+{
+ "date": "2026-11-10",
+ "title": "每日新词监控 · 2026-11-10",
+ "collected_at": "2026-11-10 北京时间（UTC+8）约 07:47–08:21（主采集 1573 秒，随后 X 计数入库、finalize 与深挖）。原始数据在 raw/2026-11-10/pipeline/，哥飞的原始 JSON 在 raw/2026-11-10/webcafe_*.json",
+ "generated_at": "2026-11-10T08:28:57+08:00",
+ "trends_unverified": false,
+ "preface": "数据采集时间：2026-11-10 北京时间（UTC+8）约 07:47–08:21（主采集 1573 秒，随后 X 计数入库、finalize 与深挖）。原始数据在 `raw/2026-11-10/pipeline/`，哥飞的原始 JSON 在 `raw/2026-11-10/webcafe_*.json`。\n\n**数据来源情况（如实说明）**\n- **用到了（全部免登录，脚本自动采集，带缓存）**：Google Trends 热搜 RSS、HN、Lobsters、dev.to、Product Hunt feed、Bluesky / Mastodon、Hugging Face、fal、Replicate、Together、GitHub、Steam、itch.io、CrazyGames / Poki、App Store、Chrome 应用商店、Google News RSS、Yahoo! JAPAN 实时、韩国实时检索词、whoisds 新注册域名、shindanmaker；agent 侧 X trends（US/GB/JP/KR）+ X news 5 次 + 手工种子 24 条。\n- **哥飞 web.cafe（免费，不扣积分）**：新词发现窗口内 8 批（4 批此前已入库，新入库约 4 批 → **481** 个英文词）、新站发现 **5** 批（2 批此前已入库，信号 **77** 条）、网站发现 1 批（此前已入库，过滤后保留 **150** 个托管站关键词）。付费工具没有调用：账户 API 积分余额为 0（`apiAvailable=0`），脚本按设计跳过。\n- 自动补全「字母汤」2,106 次查询，1,218 次成功，得到 15,154 条不重复建议、6,480 条是基线里没有的；另外对 895 个候选逐个查 Google / YouTube / Bing（其中哥飞必探约 548、哥飞额外探测 145）。\n- 谷歌趋势：20 个宽种子词的 1 天「上升」查询 18/20 成功（calls=40，上升接口可用）；自动池对比约 **58** 次调用后对比接口停用。停用之后的自动池词，对比读数一律写「未验证」。深挖词族同样：对比读数写「未验证」。深挖阶段对比接口随后也停用了。\n- X MCP：`get_trends_by_woeid` 4 次、`search_news` 5 次（采集前已写入）、`get_posts_counts_recent` **30** 次成功入库（跳过 Wattpad、Poshan Tracker 健康向、Betway 博彩、TNPSC / group 4 考试、Cyberpunk 2077 常青大词、Desmos / OANDA / PDF 转换 / Merge PDF / WhatsApp Web 等常青工具品牌、Evenicle 成人游戏），`x_counts.json` 共 **30** 个 key。另有 10 次因 `start_time` 早于接口允许的约 7 天窗口而失败，未入库。\n- RDAP（.com 等）：自动池前 200 个 + 深挖词域名。SERP：Bing 前 10；自动池 `serp_checked=80`；深挖 8 组均有 Bing 探测。\n- **被挡或缺失**：Reddit 状态 403；Product Hunt 榜单（Cloudflare，仅 feed）；Google Play；TikTok Creative Center；维基浏览量本次空返回（0 条）；web.cafe 付费工具（余额 0）；Google 原生 SERP 没有验证；自动池谷歌趋势对比后半程不可用；深挖词族对比读数不可用；部分 `.ai` RDAP 返回 err。\n- **数字读法**：`Trends 24h÷GPTs` 是同组最近 24 小时均值比（GPTs ≈ 每天 5,000 次，只看量级；不同组之间会有出入）；`斜率` = 最近 48 小时 ÷ 之前 5 天；`X` 是 UTC 自然日帖子数，11-10 是不完整日。\n\n**今日漏斗**\n\n| 阶段 | 数量 |\n|---|---|\n| 原始信号 | **3,376** 条（25 个源 + 哥飞 3 个服务；其中维基本次 0 条，Google News 325 条）+ 15,154 条字母汤建议 |\n| 抽取出的候选词 | 3,340（加字母汤 / 趋势上升 / 观察名单后 4,156） |\n| 做了补全探测 | 895（其中哥飞必探约 548） |\n| 有 ≥2 个补全变体 | 614（其中 505 个带工具意图词） |\n| 自动打分池 | **200**（150 常规 + 50 哥飞独有；视频玩法代表词另占名额后池内约 212；其中带哥飞标签 68 个） |\n| 报告池（去掉常青老品牌 78、人工剔除 5、印地语 CapCut 2） | **127**（带哥飞标签 15 个），表里列前 80 |\n| 深挖 | 8 |\n\n**今日结论（如实）**\n- 今天**没有特别硬的「空地抢注、一做就能吃满」机会**。真正「昨天刚发生」的两件事是 **Muse Ember** 和 **Casualties: Unknown**，窗口在，但新闻墙 / 百科已经到位。\n- 讨论最热、又确实是新品的是 **Muse Ember**：Meta Superintelligence Labs 于 **11-09** 发布（官方博客写明当日推出）。模型 ID 为 `muse-ember-1.0`，在 Muse Code 与 Meta Model API 上线；官方标价为每百万 token **\\$0.10 输入 / \\$0.004 缓存输入 / \\$0.50 输出**（prompt ≤200K；更长请求为 \\$0.30 / \\$0.012 / \\$1.50），上下文 **1M**、输出最长 **512K**。官方把它定位成「Muse Wonder 做规划，Muse Ember 扛量」。补全已出现 pricing / api / benchmarks / artificial analysis / gguf。问题是 Bing「muse ember」前排已是官网博客、文档、TechCrunch、Artificial Analysis、The Next Web 等——适合做一张**只引用官方标价与官方对比表**的对照页，不要编评测。`museember.com` 已于 **2026-07-26** 注册，`museemberapi.com` 已于 **2026-11-05** 注册；`trymuseember.com` / `museemberpricing.com` / `ismuseemberout.com` / `getmuseember.com` 等探测为 **404**。\n- 发售窗口最实的是 **Casualties: Unknown**（Orsoniks 开发、Oro Interactive 发行）。Steam 页写明发售日 **Nov 9, 2026**，标题带 15% 折扣；发行商 11-09 通稿写定价 **\\$22.99 / €22.99**、另有 15% 发售折扣，并称试玩上线以来（今年 4 月）已有超过 **50 万**名试玩玩家、愿望单超过 **40 万**。Steam 页此刻显示 Overwhelmingly Positive（767 条里 97% 好评）。通稿写试玩覆盖前 5 层，正式版为 10 个主层 + 较短的第 11 层 + 可选奖励结局，3 名可玩角色。补全已出现 wiki / endings / layers / walkthrough / steam deck。问题是 Miraheze 与 wiki.gg 百科已经存在，主查询前排是 Steam、itch、发行商与百科——只适合做「官方规格 × 分层/角色对照」内页，不要另起一座百科。`casualtiesunknown.com` 已于 **2026-06-13** 注册；guide / wiki / map / endings 等探测域为 **404**。「casualties unknown guide」本次 Bing 打偏到字典与战争伤亡页，**不能当成「没有攻略页」**。\n- 第三是 **Farflung**：哥飞判「值得做 / 新站首页」，热度约 GPTs×**5.301**、爆发 **10-18**、首现 **10-16**。官网 [farflung.game](https://farflung.game/) 写明这是 Farflung LLC 的每日地理问答：每天 5 道提示，在地图上钉一个国家，更冷门的答案走得更远；新一局在当地午夜刷新；暂无 Unlimited 模式。X 日约 **57**（1.08×）。但 Bing「farflung game」前 10 里同名域名极多（本次 EMD=**6**）：farflunggame.net / farflung.cloud / farflunggame.com / farflunggame.app / dailyfarflung.com / farflung.dev 等，外加 farflung.run 的答案/规则页——**克隆墙已经很厚**，不要再做「Unlimited 免费版」。只适合做「官方入口 vs 同名站」对照，且 farflung.run 已经占了规则/答案这个切口。`playfarflung.com` 与 `dailyfarflung.com` 已于 **2026-10-20** 注册；`farflungguide.com` / `farflungtoday.com` / `farflunganswers.com` 等探测为 **404**。\n- 自动池顶端的 **loamy**（Trends 约 GPTs×105.77、X 11-09 约 **62** / 3.15×）和 **flimflam**（约 GPTs×40.54）哥飞都判 skip：补全分别是土壤释义（loamy clay soil / definition）和老 YouTuber 周边（flim flam merch / minecraft），不是可做的新产品词。\n- 其余：Krillion Unlimited（官方 Endless Dive 一次 \\$5，克隆站已经占满「unlimited / free」查询）；DELTARUNE Fight Simulator 已于 **09-30** 在 deltarunesim.com 上线，11-06 刚出 v0.9.19，官网自己主导下载与更新；Fortnite chest tracker 爆发 **11-06**，但 chesttracker.xyz / fnchesttracker.com 等追踪器已经排在前排，且 `chesttrackerfortnite.com` / `fortnitechesttracker.com` / `piratetokentracker.com` 均于 **11-09** 被注册；GloryBound 兑换码页已被 PGG / Destructoid / IGN / Eurogamer / Game Rant 占满；Deadlock Mod Manager 官方站 deadlockmods.app 已经主导下载查询，GitHub 稳定版 **v2.3.0** 发布于 **2026-11-01**（UTC）。\n- 视频玩法：**今天 1 个起量 = bicep heart**（11-06 已深挖；哥飞判 skip，近 4 天新域名 6）——老站可再盯 48–72h，不建议新站。新展示：halloween 由回落回到萌芽（近 4 天新域名 9，节日已过，观察即可）；diwali 仍是萌芽（商标 capcut、低付费 diwali）；vidu ai hug free 今天标回落，不再投入。\n- 观察：OpenAI Codex 的 X 从约 125 升到 11-09 的 **319**（约 2.37×，11-07 已深挖）；与 Muse Ember 相关的 muse spark 1.3 从约 45 升到 **143**（约 3.09×，模型本身 09-02 发布、哥飞已明显回落）；Qwen 4 从峰值回落到 11-09 的 **1,431**（约 0.88×，11-09 已深挖）；DeepSeek Harness 约 **884**（1.3×）；watchlist 里 farflung、cyberpunk 2077、graphify claude、glm 5.1、group 4 apply 今日标上升。",
+ "candidates": [
+  {
+   "rank": 1,
+   "keyword": "muse ember",
+   "keyword_note": "（pricing、api、vs spark）",
+   "description": "Meta 最小、最便宜的 Muse 执行模型",
+   "sources": [
+    "https://research.meta.ai/blog/muse-ember",
+    "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/"
+   ],
+   "sources_text": "https://research.meta.ai/blog/muse-ember · https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+   "first_seen": "官方发布 **11-09**",
+   "trend_signal": "相关词 muse spark 1.3 的 X 11-09 **143**（约 3.09×）",
+   "trends_verified": null,
+   "serp": "官网、文档、TechCrunch、AA、TNW；pricing 查询已有 freeanswers.io",
+   "domain": ".com **2026-07-26**；api **11-05**；pricing/try/isout **404**",
+   "idea": "官方标价 × 官方对比表",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "窗口在；新闻墙厚",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "muse ember（11-09 发布；只做官方标价与官方对比，不编评测）",
+    "intro": "> 评分 18/25。一句话：Meta 于 **11-09** 推出最小、最便宜的 Muse 执行模型，官方标价每百万 token **\\$0.10 / \\$0.50**（≤200K）——需求在，但官网、TechCrunch 和 Artificial Analysis 已经占满前排，且 freeanswers.io 已经做了定价说明页。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官方博客（2026-11-09）：https://research.meta.ai/blog/muse-ember —— 原文写明当日推出 Muse Ember，「smallest and most efficient model」，用于 tool calls、coding subtasks、routing、extraction 与长文档解析。可用渠道为 Muse Code 与 Meta Model API，模型 ID **`muse-ember-1.0`**。标价：\\$0.10 / 百万输入、\\$0.004 / 百万缓存输入、\\$0.50 / 百万输出；prompt 超过 200K 时为 \\$0.30 / \\$0.012 / \\$1.50。上下文 **1M**，输出最长 **512K**。官方对比表（Artificial Analysis，2026-11-09）：Ember Intelligence Index 36 vs Spark 1.3 的 37；单次任务成本约 **\\$0.14** vs **\\$2.39**；Spark 1.3 标价 \\$1.25 / \\$4.25。文内口号：「Muse Wonder plans, Muse Ember handles the volume。」并写现已在 Google Cloud 与 Oracle Cloud 提供。\n- 文档：https://dev.meta.ai/docs/muse-ember · https://dev.meta.ai/docs/pricing-rate-limits\n- TechCrunch（2026-11-09，10:00 AM PST）：https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/ —— 同样强调 10 cents / 百万输入，以及与 Haiku、Luna、DeepSeek V4.1 Flash、GLM 5.3 Flash 的成本定位。文中回顾 Muse 系列：Spark（4 月）、Glimmer（8 月，Spark 的开源双子）、Wonder（10 月），消费级 Muse Agent 于 9 月发布。\n- 主池相关词 muse spark 1.3：哥飞判 maybe / 已明显回落，爆发 09-02；其 X 从约 45 升到 11-09 的 **143**（约 3.09×），更像是 Ember 发布带来的连带讨论，不是 Spark 1.3 本身再爆发。\n- 深挖补全：muse ember pricing / api / benchmarks / artificial analysis / open source / gguf / size。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- muse ember pricing / api / release date\n- muse ember vs spark / vs haiku / vs luna\n- muse ember benchmarks / artificial analysis / openrouter / contributor\n- muse-ember-1.0（官方模型 ID）"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「muse ember」：research.meta.ai 博客、dev.meta.ai 文档、TechCrunch、Artificial Analysis、officechai、Economic Times、Unite.ai、The Next Web、Technobezz、The Decoder——**官网 + 科技媒体**，没有独立 EMD 新站首页。\n- 「muse ember pricing」：freeanswers.io 的「Pricing, API Setup and Benchmarks Explained」排第 1，随后是官方文档、官方博客、定价页、Unite.ai、CryptoBriefing、Technobezz、The Defiant、Vercel AI Gateway 更新、Artificial Analysis 模型页。说明定价查询已经被一篇第三方说明文和官方页拿走。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 官方 | research.meta.ai 博客、dev.meta.ai 文档与价目 | 标价、模型 ID、对比表以它为准 |\n| 新闻 | TechCrunch、TNW、Unite.ai、The Decoder | 11-09 当天已出稿 |\n| 评测聚合 | Artificial Analysis | 官方博客引用的同一天数据 |\n| 第三方说明页 | freeanswers.io/muse-ember | 已经占住 pricing 查询 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 对照页 0.5–1 人天；发布后要跟着官方价目改。\n- 变现弱（信息页）；不要链来路不明的「免费额度」或非官方权重（补全里出现了 gguf，官方博客写的是闭源 API 模型，没有核到官方 GGUF）。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- RDAP：`museember.com` **已注册 2026-07-26**；`museemberapi.com` **已注册 2026-11-05**；`trymuseember.com` / `museemberpricing.com` / `ismuseemberout.com` / `getmuseember.com` / `museemberspark.com` → **404**；`museember.ai` 本次返回 err。\n- 域空不等于能打过官网和已经排上的说明页。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 5 / 需求 4 / 竞争 2 / 可变现 3 / 可执行 4 → **18**。"
+     },
+     {
+      "title": "H. 7 天计划",
+      "markdown": "1. 标题写成 “Muse Ember: official pricing (November 2026)”，正文第一句写模型 ID `muse-ember-1.0` 以及「以 Meta 11-09 博客与文档为准」。\n2. 只引用官方标价（含 200K 分界）和官方博客里对 Spark 1.3 的对比表；Haiku 5.5 / Luna 的数字也只标注「来自该博客引用的 Artificial Analysis，日期 11-09」。\n3. 单独一行写清 Muse Ember ≠ Muse Spark 1.3（09-02）≠ Muse Wonder（10 月），避免搜索词漂到旧模型。\n4. 不写自测延迟、不编「比某某便宜多少倍」，除非数字直接来自官方页。\n5–7. 每天复核 https://dev.meta.ai/docs/muse-ember 与 pricing 页是否改价或改模型 ID；Vercel / OpenRouter / 云厂商上线只在官方或厂商 changelog 能核到时追加一行。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 2,
+   "keyword": "casualties unknown",
+   "keyword_note": "（layers、endings）",
+   "description": "2D 洞穴生存；11-09 发售",
+   "sources": [
+    "https://store.steampowered.com/app/4576490/Casualties_Unknown/",
+    "https://www.gamespress.com/Casualties-Unknown-is-OUT-NOW-with-500000-demo-players-Cave-exploratio"
+   ],
+   "sources_text": "https://store.steampowered.com/app/4576490/Casualties_Unknown/ · https://www.gamespress.com/Casualties-Unknown-is-OUT-NOW-with-500000-demo-players-Cave-exploratio",
+   "first_seen": "Steam **11-09**；试玩约 4 月",
+   "trend_signal": "补全 wiki / endings / layers / walkthrough",
+   "trends_verified": null,
+   "serp": "Steam、itch、发行商、Miraheze、wiki.gg",
+   "domain": ".com **2026-06-13**；guide/wiki/map **404**",
+   "idea": "官方规格 × 分层/角色对照",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "发售周；百科已在",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "casualties unknown（11-09 发售周；只做官方规格对照，不另起百科）",
+    "intro": "> 评分 18/25。一句话：Steam **11-09** 发售，发行商通稿写 **\\$22.99**、15% 折扣、试玩超过 **50 万**人——窗口在，但 Steam / 发行商 / 两座百科已经占住主查询。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Steam 商店页：https://store.steampowered.com/app/4576490/Casualties_Unknown/ —— 发售日 **Nov 9, 2026**；开发 Orsoniks，发行 Oro Interactive；类型 Action / Adventure / Simulation；页面标题为 Save 15%；评分为 Overwhelmingly Positive（767 条里 97% 好评）。商店文案写 11 层外星洞穴、3 名角色、300 件物品、可调节战利品与危险度，并提供试玩下载。Steam Mature Content 提示含暴力等内容，写作时按官方分级说明即可。\n- 发行商通稿（Games Press，2026-11-09）：https://www.gamespress.com/Casualties-Unknown-is-OUT-NOW-with-500000-demo-players-Cave-exploratio —— “out now on Steam for \\$22.99 / €22.99, with a 15% launch discount”；试玩自今年 4 月上线以来「ranked among Steam’s top 10 most played demos daily」，超过 **500,000** 名试玩玩家、愿望单超过 **400,000**。试玩覆盖前 5 层；正式版「doubles the descent and adds multiple endings」；具体写成 10 个主层、较短的第 11 层、可选奖励结局；3 名可玩角色；义肢 3 档。\n- 发行商页：https://www.orointeractive.com/games/casualties-unknown\n- itch（早期原型/试玩入口）：https://orsonik.itch.io/scav-prototype\n- 深挖补全：wiki / endings / layers / walkthrough / steam / price / multiplayer / steam deck。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- casualties unknown steam / price / release date\n- casualties unknown endings / all endings / wiki\n- casualties unknown layers / layer 5 / layer 6\n- casualties unknown walkthrough / beginner guide / crafting guide"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「casualties unknown」：Steam 本品、itch、casualtiesunknown.miraheze.org 百科、Wikipedia、发行商页、Nexus Mods、scavprototype.wiki.gg、Steam 试玩页——**官方店 + 两座百科**，没有明显的独立攻略新站首页。\n- 「casualties unknown guide」：本次打偏到 Merriam-Webster、Cambridge、Wikipedia 的 casualty 释义，以及国防伤亡统计站，只有第 5 条回到 Steam 页——**探测失败，不能当成「没有攻略页」**。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 官方 | Steam、Oro Interactive、Games Press 通稿 | 价格、层数、试玩数据以它们为准 |\n| 百科 | miraheze、wiki.gg（仍带 Scav Prototype 旧名） | 已经覆盖设定与层数 |\n| 模组 | Nexus Mods | 不要和模组站抢下载 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 对照页半天到 1 人天；可链 Steam（注意地区定价与折扣结束日以商店为准）。\n- 不要编结局剧情或「最佳角色」tier，除非开发者自己公布。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `casualtiesunknown.com` **已注册 2026-06-13**；`casualtiesunknownguide.com` / `casualtiesunknownwiki.com` / `casualtiesunknownmap.com` / `casualtiesunknownendings.com` / `playcasualtiesunknown.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 5 / 需求 4 / 竞争 2 / 可变现 3 / 可执行 4 → **18**。"
+     },
+     {
+      "title": "H. 7 天计划",
+      "markdown": "1. 标题写成 “Casualties: Unknown: what’s in the full game (November 2026)”，第一句写清 11-09 发售、\\$22.99 与 15% 发售折扣来自发行商通稿。\n2. 用表格并列：试玩 5 层 vs 正式版 10 主层 + 较短第 11 层 + 可选奖励结局；3 名角色；300+ 物品——每条链回 Games Press 或 Steam。\n3. 不写具体结局内容和医疗/自残玩法细节；Steam 的 Mature Content 提示用一句话指向商店页。\n4. 在文末链到已有百科，而不是复制它们的条目。\n5–7. 跟踪 Steam 更新说明与开发者动态；一旦官方公布角色名或结局条件，再补一行，不扩成全攻略站。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 3,
+   "keyword": "farflung",
+   "keyword_note": "（geography game、official）",
+   "description": "每日地理钉地图问答",
+   "sources": [
+    "https://farflung.game/",
+    "https://new.web.cafe/keywords/farflung"
+   ],
+   "sources_text": "https://farflung.game/ · https://new.web.cafe/keywords/farflung",
+   "first_seen": "哥飞首现 **10-16** / 爆发 **10-18**",
+   "trend_signal": "哥飞 GPTs×5.301、高位、worth；X≈57（1.08×）",
+   "trends_verified": null,
+   "serp": "官网 + 大量同名克隆（EMD=6）",
+   "domain": "play/daily 已于 **10-20** 注册；guide/today/answers **404**",
+   "idea": "只做官方 vs 同名站对照",
+   "rating": 3.0,
+   "rating_stars": "★★★",
+   "reason": "热度真；克隆墙",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "farflung（每日地理问答；克隆墙已厚，只做官方 vs 同名站对照）",
+    "intro": "> 评分 14/25。一句话：哥飞爆发日 **10-18**、判「新站首页」，热度约 GPTs×5.301；官网规则清楚，但「farflung game」前排已经排满同名克隆（本次 EMD=6），再做一个 Unlimited 站已经晚了。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官网：https://farflung.game/ —— 「Five prompts. Pin a country. Rarer answers travel further.」免费每日地理问答，浏览器即可玩，可游客登录。稀有度分为 Common / Uncommon / Rare / Elusive / Farflung。新一局在**当地午夜**刷新；可选 60 秒计时。FAQ 写明 farflung.game 才是 Farflung LLC 的官方站，其他用这个名字的站「is not this game」；官方账号 @playfarflung（Instagram / TikTok / X）和 r/farflung。FAQ 还写：「Is there a Farflung unlimited mode? Not yet. There will be one eventually, and themed packs come first.」\n- 哥飞：热度约 GPTs×5.301、增长 1%、高位，首现 **2026-10-16** / 爆发 **2026-10-18**，判 **worth / 新站首页**（专门页约 17）。理由包括「#1 是 2026-10 注册的新站首页（farflung.game），证明新站可竞争」。https://new.web.cafe/keywords/farflung\n- X 计数（`(\"far flung\" OR farflung) -is:retweet`）：11-03 约 44，11-05 约 76，11-09 约 **57**（约 1.08×；11-10 不完整）。\n- 深挖补全：farflung game / geography game / unlimited / endless / archive / meaning。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- farflung game / geography game / how to play\n- farflung unlimited / endless / infinite / archive\n- farflung.game vs farflunggame.net 等同名站\n- farflung answers today（已有 farflung.run，不要再做答案搬运）"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「farflung game」：farflung.game（官网）、farflunggame.net、farflung.cloud、farflunggame.com、farflunggame.app、dailyfarflung.com/game.html、dailyfarflung.com、farflung.dev、官网 About、farflunggame.net/about——**官网之外至少 6 个同名域名**（本次 `emd_n=6`）。\n- 「farflung geography game」：同样是官网 + 上述克隆，外加 https://farflung.run/（「Farflung Answers Today (#35), Rules & Rarity」）。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 官方 | farflung.game、Farflung LLC | 规则与是否有 Unlimited 以它为准 |\n| 同名克隆 | farflunggame.net / .cloud / .com / .app、farflung.dev、dailyfarflung.com | 多自称 Daily & Unlimited |\n| 规则/答案站 | farflung.run | 已经做今日答案与规则 |\n| 名字碰撞 | farflung.ai 消息应用、farflung.com 户外公司、乐队与桌面游戏 | 官网自己也在做区隔 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 对照页半天；变现弱。\n- 不要做「免费 Unlimited」克隆，也不要刮官网每日题目。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `playfarflung.com` / `dailyfarflung.com` **已注册 2026-10-20**；`farflungguide.com` / `farflungtoday.com` / `farflunganswers.com` / `farflunggeo.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 3 / 需求 4 / 竞争 1 / 可变现 3 / 可执行 3 → **14**。"
+     },
+     {
+      "title": "H. 7 天计划",
+      "markdown": "1. 标题写成 “Farflung: the official game vs sites with the same name”，第一句放官网 URL。\n2. 只引用官网 FAQ：5 提示、当地午夜、尚无 Unlimited、官方账号名单。\n3. 用表格列出本次看到的同名站，并注明「规则与答案以 farflung.game 为准」。\n4. 不提供今日答案，不嵌入第三方游戏 iframe。\n5–7. 若官网宣布 Unlimited 或主题包，再补一行日期与出处，不抢先做盗版模式。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 4,
+   "keyword": "krillion unlimited",
+   "keyword_note": "（endless dive、\\$5）",
+   "description": "Krillion 的 Endless Dive 模式",
+   "sources": [
+    "https://krillion.io/unlimited/classic",
+    "https://new.web.cafe/keywords/krillion-unlimited"
+   ],
+   "sources_text": "https://krillion.io/unlimited/classic · https://new.web.cafe/keywords/krillion-unlimited",
+   "first_seen": "爆发 **10-18**",
+   "trend_signal": "哥飞 GPTs×6.916、+44%、maybe",
+   "trends_verified": null,
+   "serp": "playdaily、krillion.games、krillion.me 等克隆站",
+   "domain": "unlimited.com **09-20**；endless **10-17**；archive **10-28**；free **404**",
+   "idea": "只做官方定价口径，不做免费克隆",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "需求在；红海",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "krillion unlimited（官方 Endless Dive 一次 \\$5；免费克隆站已经很多）",
+    "intro": "> 评分 13/25。一句话：哥飞热度约 GPTs×6.916、+44%、判「做内页」，但「krillion unlimited」前排几乎全是第三方免费站，官方模式是一次 **\\$5** 的 Endless Dive。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官方：https://krillion.io/unlimited/classic —— 游戏内称为 The Endless Dive。多家在 10 月下旬实际打开过官网的说明页（browsergamehub 10-23、krilliontools 10-21、guideannex 10-30）写：第 1 次 Endless Dive 免费，之后解锁为一次 **\\$5**，并同时打开 Archive、去广告。\n- 哥飞：热度约 GPTs×6.916、增长 44%、上升中，首现 **2026-08-24** / 爆发 **2026-10-18**，判 **maybe / 做内页**（专门页约 11）。https://new.web.cafe/keywords/krillion-unlimited\n- X 日约 1，几乎没有讨论声量。\n- 深挖补全：unlimited game / answers / link / free / endless dive answers。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- krillion unlimited free / official / archive\n- krillion endless dive / is it free\n- krillion unlimited vs daily dive"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「krillion unlimited」：krillion.games、playdaily.org、krillion.org、**krillion.io/unlimited**（官方第 4）、krillion-game.com、unlimited-krillion.com、krillion-unlimited.app、krillion.me、krillionzone.com——**克隆站为主**。\n- 「krillion unlimited free」：官方 packs 页、krillion.org、playdaily.org、krillion.to、krillion.live、openkrillion.com 等，官方模式的 \\$5 口径并不在前排被说清楚。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 官方 | krillion.io Unlimited / The Endless Dive | \\$5 一次解锁（以官网当前标价为准） |\n| 免费克隆 | playdaily.org、krillion.me、krillion.games 等 | 规则和题库不是官方的 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 对照页半天。不要自己托管一套「免费 Unlimited」。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `krillionunlimited.com` **已注册 2026-09-20**；`krillionendless.com` **2026-10-17**；`krillionarchive.com` **2026-10-28**；`krillionunlimitedfree.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 2 / 需求 4 / 竞争 1 / 可变现 3 / 可执行 3 → **13**。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 5,
+   "keyword": "deltarune fight simulator",
+   "keyword_note": "（download、v0.9.19）",
+   "description": "粉丝战斗模拟器；09-30 上线",
+   "sources": [
+    "https://deltarunesim.com/",
+    "https://deltarunesim.com/updates"
+   ],
+   "sources_text": "https://deltarunesim.com/ · https://deltarunesim.com/updates",
+   "first_seen": "官网启动 **09-30**；v0.9.19 于 **11-06**",
+   "trend_signal": "主池「新」；X≈0",
+   "trends_verified": null,
+   "serp": "官网自己占前排",
+   "domain": "deltarunesim.com **09-26**；fightsimulator.com **10-14**",
+   "idea": "已有粉丝站加更新日志内页",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "晚了；官网完整",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "deltarune fight simulator（09-30 上线；官网已经很完整）",
+    "intro": "> 评分 11/25。一句话：粉丝项目于 **09-30** 把家安到 deltarunesim.com，宣称 300 场以上战斗；**11-06** 的 v0.9.19 还在更新——需求在，但官网自己就把下载、更新和 About 写全了。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官网 About：https://deltarunesim.com/about —— 「A free fan-made battle simulator」、作者 puskevi、不隶属 Toby Fox、无广告无账号、浏览器可玩并提供桌面应用。\n- 更新日志：https://deltarunesim.com/updates —— **v0.9.0 Launch（2026-09-30）**：站点上线，超过 300 场 DELTARUNE 各章 + UNDERTALE 战斗，含 boss rush、每日战斗、autoplay / replay / rewind。**v0.9.19（2026-11-06）**：新菜单（Fight / Daily / Modes / Party / Settings / Tools）、14 种 twists、评分系统。v0.9.12（2026-10-03）发布 Windows 桌面应用 1.1.0；v0.9.18（2026-10-16）写明 Android 应用已上线。\n- 主池状态为「新」，`.com` 关键词域 `deltarunefightsimulator.com` 注册于 **2026-10-14**；官网域 `deltarunesim.com` 注册于 **2026-09-26**。X 近 7 日几乎为 0。\n- 深挖补全：online / mobile / app / github / roaring knight / jevil / boss rush。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- deltarune fight simulator download / online / app\n- deltarune fight simulator jevil / roaring knight\n- deltarune boss rush / deltarunesim"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「deltarune fight simulator」：deltarunesim.com 首页与 fights 页、radiantoptimizer.app 的导引页、osrel.github.io 的 Jevil 模拟器、TurboWarp、deltaduel.com、shadowcrystal.dev、deltarunefight.com、YouTube 官方频道——**官网占前两名**，其余是其他粉丝模拟器。\n- 「deltarune fight simulator download」：官网 home / fights，随后是正版 DELTARUNE 官网、Wiki、Steam、itch——下载意图容易漂到正版游戏。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 本项目官网 | deltarunesim.com | 更新日志、下载、About 都在 |\n| 其他粉丝模拟器 | deltaduel、Jevil 单场站、TurboWarp | 不要和它们抢「盗版游戏」下载 |\n| 正版 | deltarune.com、Steam、itch | 官网自己也提醒去买正版 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 更新日志对照页半天。变现弱，且版权在 Toby Fox 一侧，不要镜像资源。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `deltarunesim.com` **已注册 2026-09-26**；`deltarunefightsimulator.com` **已注册 2026-10-14**；`deltarunebossrush.com` / `deltarunefightsim.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 2 / 需求 3 / 竞争 1 / 可变现 2 / 可执行 3 → **11**。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 6,
+   "keyword": "chest tracker fortnite",
+   "keyword_note": "（chests opened）",
+   "description": "宝藏猎人宝箱计数查询",
+   "sources": [
+    "https://new.web.cafe/keywords/chest-tracker-fortnite",
+    "https://fnchesttracker.com/"
+   ],
+   "sources_text": "https://new.web.cafe/keywords/chest-tracker-fortnite · https://fnchesttracker.com/",
+   "first_seen": "哥飞首现 **11-01** / 爆发 **11-06**",
+   "trend_signal": "哥飞 GPTs×0.685、+19500%、worth",
+   "trends_verified": null,
+   "serp": "chesttracker.xyz、fnchesttracker.com、chest.cousincz.com",
+   "domain": "fnchesttracker **11-03**；三个主词域 **11-09** 被注册",
+   "idea": "已有 FN 站加官方怎么查的说明",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "窗口近；追踪器已挤",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "chest tracker fortnite（宝藏猎人计数器；追踪器站已经很多）",
+    "intro": "> 评分 14/25。一句话：哥飞爆发 **11-06**、增长约 **19500%**、判「新站首页」，但 chesttracker.xyz 与 fnchesttracker.com 已经排在前排，且多个主词域名在 **11-09** 被注册。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 哥飞：热度约 GPTs×0.685、增长 19500%、上升中，首现 **2026-11-01** / 爆发 **2026-11-06**，判 **worth / 新站首页**（专门页约 7）。说明里写的是宝藏狩猎活动的宝箱计数与奖励。https://new.web.cafe/keywords/chest-tracker-fortnite\n- 这和昨天深挖的 Fortnite Treasure Hour 是同一迷你季的不同长尾：那边是周末掉率时段，这边是「开了多少箱」。\n- 深挖补全：fortnite chests opened / chest count tracker / pirate token / treasure hunt chest counter。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- chest tracker fortnite / fortnite chest tracker\n- fortnite chests opened / how to check\n- pirate token tracker / treasure hunt rewards"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「chest tracker fortnite」：chesttracker.xyz、fnchesttracker.com 及其 /tracker、chest.cousincz.com、Fortnite Tracker、GitHub 计数器、Fortnite.GG 与 Treasure Hunt 页、Pocket Tactics 的 Treasure Tracker 文。\n- 「fortnite chest tracker」：fnchesttracker.com（首页 / tracker / stats / rewards / help）与 chesttracker.xyz 交替占前排。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 独立追踪器 | fnchesttracker.com（注册 11-03）、chesttracker.xyz、chest.cousincz.com | 已经覆盖计数与奖励 |\n| 大站 | Fortnite.GG、Pocket Tactics | 活动页与新闻 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 若已有 Fortnite 站，加一页「游戏内在哪里看箱子总数 + 官方掉率口径」即可，不要再做第三个计数器前端。\n- 海盗商店代币基础掉率不要编，昨天引过的媒体口径需写明抓取日。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `fnchesttracker.com` **已注册 2026-11-03**；`chesttrackerfortnite.com` / `fortnitechesttracker.com` / `piratetokentracker.com` **已注册 2026-11-09**；`fortnitechestsopened.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 4 / 需求 3 / 竞争 1 / 可变现 3 / 可执行 3 → **14**。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 7,
+   "keyword": "glorybound codes",
+   "keyword_note": "（roblox、ABILITY）",
+   "description": "Roblox 角斗士游戏兑换码",
+   "sources": [
+    "https://www.destructoid.com/glorybound-codes/",
+    "https://new.web.cafe/keywords/glorybound-codes"
+   ],
+   "sources_text": "https://www.destructoid.com/glorybound-codes/ · https://new.web.cafe/keywords/glorybound-codes",
+   "first_seen": "首现 **11-03** / 爆发 **11-06**",
+   "trend_signal": "哥飞 GPTs×0.441、maybe",
+   "trends_verified": null,
+   "serp": "PGG、Destructoid、IGN、Eurogamer、Game Rant",
+   "domain": "codes.com / .net 等 **404**",
+   "idea": "已有码站加当日码内页",
+   "rating": 2.0,
+   "rating_stars": "★★",
+   "reason": "码页红海",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "glorybound codes（兑换码窗口在，但码页已被媒体占满）",
+    "intro": "> 评分 14/25。一句话：哥飞爆发 **11-06**、判「做内页」；Destructoid 于 **11-09** 更新了码表——但 PGG、IGN、Eurogamer、Game Rant 已经全部在场。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- Destructoid（发布并更新于 2026-11-09）：https://www.destructoid.com/glorybound-codes/ —— 当时列出的有效码为 **ABILITY**（5 Lucky Spins，标注 New）；过期码 BERSERKER、BOSS、UPDATE。兑换步骤：打开游戏 → 按 **J** 进入 Rewards → Codes → 输入并 Redeem。配图来源写 SphereX Studio。\n- 哥飞：热度约 GPTs×0.441、上升中，首现 **2026-11-03** / 爆发 **2026-11-06**，判 **maybe / 做内页**（专门页约 13）。https://new.web.cafe/keywords/glorybound-codes\n- 深挖补全对「glorybound」容易漂到无关的 glory bound / glory days，说明品牌检索还不稳定。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- glorybound codes / roblox codes / november 2026\n- glorybound redeem / how to redeem"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「glorybound codes」：Pro Game Guides、Try Hard Guides、Super Cheats、Destructoid、urgametips、IGN wiki、Game Rant、RallyCodes、The Code Flare、GameStrat Wiki。\n- 「glorybound codes november 2026」：同样是 Try Hard Guides、IGN、PGG、Super Cheats，并加上 **Eurogamer**、Destructoid、Game Rant。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 大站码页 | Destructoid、IGN、Eurogamer、Game Rant、PGG | 发售/更新当天就会改 |\n| 中小码站 | RallyCodes、The Code Flare 等 | 同质化严重 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 已有 Roblox 码站可加当日码内页；独立新站很难打过 IGN / Eurogamer。\n- 码会失效，必须写核验日期，不要编未出现在可靠来源上的码。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `gloryboundcodes.com` / `gloryboundcodes.net` / `robloxgloryboundcodes.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 4 / 需求 3 / 竞争 1 / 可变现 3 / 可执行 3 → **14**。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  },
+  {
+   "rank": 8,
+   "keyword": "deadlock mod manager",
+   "keyword_note": "（download、os error 5）",
+   "description": "Deadlock 模组管理器",
+   "sources": [
+    "https://deadlockmods.app/",
+    "https://github.com/deadlock-mod-manager/deadlock-mod-manager/releases"
+   ],
+   "sources_text": "https://deadlockmods.app/ · https://github.com/deadlock-mod-manager/deadlock-mod-manager/releases",
+   "first_seen": "爆发 **10-03**；v2.3.0 于 **11-01**（UTC）",
+   "trend_signal": "哥飞 GPTs×1.104、高位、maybe；X 日约 7",
+   "trends_verified": null,
+   "serp": "官网、GitHub、GameBanana、docs",
+   "domain": ".app **2024-12-27**；.com **02-20**；.io **404**",
+   "idea": "官方下载 + 常见报错对照",
+   "rating": 1.0,
+   "rating_stars": "★",
+   "reason": "官网已主导",
+   "extra": {},
+   "deep_dive": {
+    "keyword": "deadlock mod manager（官方站已经主导下载查询）",
+    "intro": "> 评分 12/25。一句话：哥飞判「做内页」、热度约 GPTs×1.104；补全里全是报错词，说明真有使用问题——但官网 deadlockmods.app 与官方文档已经占住下载查询。",
+    "sections": [
+     {
+      "title": "A. 信号来源",
+      "markdown": "- 官网：https://deadlockmods.app/ · 下载页 https://deadlockmods.app/download · 文档 https://docs.deadlockmods.app/using-mod-manager/installation\n- GitHub 组织与仓库：https://github.com/deadlock-mod-manager/deadlock-mod-manager —— 最新稳定版 **v2.3.0**，GitHub 发布时间为 **2026-11-01T18:28:37Z**（北京时间 2026-11-02 02:28）。\n- 哥飞：热度约 GPTs×1.104、增长 -1%、高位，首现 **2026-01-25** / 爆发 **2026-10-03**，判 **maybe / 做内页**（专门页约 10），并写明 deadlockmods.app 已排第一。https://new.web.cafe/keywords/deadlock-mod-manager\n- X 日约 7，没有明显爬升。\n- 深挖补全：os error 5 / not working / failed to parse game configuration / access is denied / slow download / linux。"
+     },
+     {
+      "title": "B. 长尾词族",
+      "markdown": "- deadlock mod manager download / install / github\n- deadlock mod manager os error 5 / not working / linux\n- deadlockmods.app legit / safe（已有人在验证是不是官网）"
+     },
+     {
+      "title": "C. SERP 前 10（Bing 探测）",
+      "markdown": "- 「deadlock mod manager」：deadlockmods.app、GameBanana 工具页、GitHub 组织、官网下载页、**deadlockmodmanager.com**（另一个下载域名）、GitHub 仓库、YouTube 教程、官方文档、官网 mods 目录、Grimoire（另一个管理器）。\n- 「deadlock mod manager download」：官网首页与下载页再次占据前两名，随后是 GameBanana、deadlockmodmanager.com、GitHub Releases，以及另一个 GitHub 仓库 Tylevo/DeadlockModManager。"
+     },
+     {
+      "title": "D. 竞品拆解",
+      "markdown": "| 类型 | 例子 | 备注 |\n|---|---|---|\n| 官方 | deadlockmods.app、docs.deadlockmods.app、GitHub 组织 deadlock-mod-manager | 只链这三处 |\n| 镜像/看名站 | deadlockmodmanager.com、第三方 GitHub 仓库 | 不要推荐来路不明的安装包 |\n| 替代工具 | Grimoire | 可作一行「还有别的管理器」 |"
+     },
+     {
+      "title": "E. 成本 / 变现",
+      "markdown": "- 排错对照页半天。变现弱。\n- 只写「去官网或官方 GitHub Releases 下载」，常见报错链回官方文档；不要提供破解或绕过。"
+     },
+     {
+      "title": "F. 域名",
+      "markdown": "- `deadlockmods.app` **已注册 2024-12-27**；`deadlockmodmanager.com` **已注册 2026-02-20**；`deadlockmodmanager.io` / `getdeadlockmods.com` → **404**。"
+     },
+     {
+      "title": "G. 五维打分（/25）",
+      "markdown": "时效 2 / 需求 3 / 竞争 1 / 可变现 2 / 可执行 4 → **12**。"
+     }
+    ],
+    "scores": [],
+    "total": null,
+    "max": null
+   }
+  }
+ ],
+ "supplement": "",
+ "top_picks": "1. **Muse Ember：官方标价 × 官方对比表**（18/25）\n   - **事件**：Meta 官方博客 **11-09** 写明当日推出 Muse Ember，定位是「agents 整天重复的工作：tool calls、编码子任务、routing、extraction、长文档解析」。标价 \\$0.10 / \\$0.50（≤200K），更长请求 \\$0.30 / \\$1.50；模型 ID `muse-ember-1.0`。官方对比表写 Spark 1.3 为 \\$1.25 / \\$4.25，单次 AA 任务成本约 \\$0.14 vs \\$2.39。TechCrunch 同日 10:00 AM PST 报道。\n   - **搜索**：补全 pricing / api / benchmarks / artificial analysis / open source / gguf。\n   - **竞争**：「muse ember」前 10 是官网 + 科技媒体；「pricing」查询第 1 已是 freeanswers.io 的定价说明页。\n   - **切口**：一张表只放官方标价、模型 ID、上下文长度，以及官方博客里对 Spark 1.3 / Haiku 5.5 / Luna 的对比数字，每条链回 11-09 原文。\n   - **风险**：第三方评测数字可能更新；不要把听众转述或截图当成官方规格。\n2. **Casualties: Unknown：官方规格 × 分层/角色对照**（18/25）\n   - **事件**：Steam 发售日 **11-09**；发行商通稿写 \\$22.99、15% 发售折扣、50 万试玩、40 万愿望单；试玩前 5 层，正式版 10 主层 + 较短第 11 层 + 可选奖励结局，3 名角色。Steam 页 767 条评价里 97% 好评。\n   - **搜索**：补全 wiki / endings / layers / walkthrough / steam / price。\n   - **竞争**：Steam、itch、发行商、两座已有百科。guide 查询本次打偏。\n   - **切口**：把通稿里的层数、角色数、试玩范围做成表，链回 Steam 与 Games Press；不编结局内容和「怎么活下去」攻略大全。\n   - **风险**：发售周攻略站会很快补齐；Steam 标了成熟内容分级，页面需按官方说明来写。\n3. **Farflung：官方入口 vs 同名克隆对照**（14/25）\n   - **事件**：官网写明 farflung.game 才是 Farflung LLC 的每日地理游戏：5 提示、钉国家、稀有度决定距离；当地午夜刷新；Unlimited「还没有」。哥飞爆发 10-18、判 worth。\n   - **搜索**：unlimited / endless / archive / geography game。\n   - **竞争**：同名域名至少 6 个已经排在「farflung game」前 10，farflung.run 已做答案与规则页。\n   - **切口**：只列官方 URL、官方账号（@playfarflung）和「其他站不是官方规则来源」；不要再做 Unlimited 克隆，也不要搬运每日答案。\n   - **风险**：继续做克隆站既打不过现有 EMD，也可能和官方作对。",
+ "monitoring": "",
+ "other_sections": [
+  {
+   "title": "哥飞数据（web.cafe）",
+   "markdown": "今天三个免费服务：新词发现窗口内 8 批（4 批此前已入库，新入库约 4 批 → **481** 个英文词）、新站发现 **5** 批（2 批此前已入库，信号 **77** 条，进入自动池 0）、网站发现 1 批（此前已入库，过滤后保留 **150** 个托管站关键词，进入自动池 28、报告池 1）。带哥飞标签进入自动池 **68** 个、进入报告池 **15** 个。和我们自己源有重合的包括 loamy / flimflam（autocomplete_soup）、krillion unlimited（trends_rising）、minimax m3（together）、tiptoeing in my jordans / bicep heart / ray edits capcut / chatgpt halloween prompt（effects_watch）、ltx 2.5（huggingface）等。\n\n| 报告池排名 | 关键词 | 哥飞来源 | 哥飞证据 | 哥飞判断 | 其他来源 | 补全变体 | Trends 24h÷GPTs | 分 |\n|---|---|---|---|---|---|---|---|---|\n| 1 | loamy | newwords | 热度 GPTs×14.689，增长 —%，上升中，首现 2026-01-18 / 爆发 2026-11-08，专门页 0 | 不建议（不建议做） | autocomplete_soup | 21 | 105.77 | 70.4 |\n| 4 | flimflam | newwords | 热度 GPTs×2.858，增长 —%，上升中，首现 2026-01-04 / 爆发 2026-11-08，专门页 14 | 不建议（不建议做） | autocomplete_soup、trends_rising | 17 | 40.54 | 64.2 |\n| 7 | qwen 4 | newwords | 热度 GPTs×2.037，增长 97%，上升中，首现 — / 爆发 2026-11-06，专门页 12 | 可做（做内页） | — | 21 | 3.9 | 57.8 |\n| 15 | deepseek harness | newwords | 热度 GPTs×4.99，增长 37%，回落中，首现 2026-04-26 / 爆发 2026-08-13，专门页 19 | 可做（做内页） | — | 17 | 4.38 | 48.7 |\n| 17 | tiptoeing in my jordans | newwords | 热度 GPTs×0.664，增长 34%，上升中，首现 — / 爆发 2026-10-04，专门页 6 | 可做（做内页） | effects_watch | 15 | 未验证 | 45.6 |\n| 18 | muse spark 1.3 | newwords | 热度 GPTs×0.074，增长 -18%，已明显回落，首现 2026-09-02 / 爆发 2026-09-02，专门页 19 | 可做（做内页） | — | 19 | 未验证 | 44.9 |\n| 22 | krillion unlimited | newwords | 热度 GPTs×6.916，增长 44%，上升中，首现 2026-08-24 / 爆发 2026-10-18，专门页 11 | 可做（做内页） | 谷歌上升源 | 13 | 8.12 | 43.2 |\n| 23 | minimax m3 | newwords | 热度 GPTs×0.55，增长 325%，已明显回落，首现 2026-05-24 / 爆发 2026-06-01，专门页 18 | 不建议（不建议做） | together | 20 | 0.28 | 42.8 |\n| 27 | saimo tv | hosted | 托管站 28 天点击 274610，首现 2026-10，2 个站（saimo-tv.pages.dev, saimo-tv-f2w.pages.dev） | — | — | 9 | 未验证 | 39.3 |\n| 33 | ltx 2.5 | newwords | 热度 GPTs×0.007，增长 -6%，已明显回落，首现 — / 爆发 2026-08-11，专门页 18 | 可做（做内页） | huggingface | 17 | 未验证 | 38.2 |\n| 40 | fun sponge | newwords | 热度 GPTs×1.74，增长 —%，上升中，首现 2026-01-11 / 爆发 2026-11-08，专门页 18 | 不建议（不建议做） | 谷歌上升源 | 20 | 未验证 | 37.6 |\n| 63 | bicep heart trend | newwords | 热度 GPTs×0.26，增长 23300%，上升中，首现 — / 爆发 2026-11-02，专门页 16 | 不建议（不建议做） | effects_watch、nrd_whoisds | 1 | 未验证 | 35.7 |\n| 65 | deadlock mod manager | newwords | 热度 GPTs×1.104，增长 -1%，高位，首现 2026-01-25 / 爆发 2026-10-03，专门页 10 | 可做（做内页） | — | 10 | 未验证 | 35.2 |\n| 72 | chatgpt halloween prompt | newwords | 热度 GPTs×0.04，增长 270%，回落中，首现 — / 爆发 2026-10-30，专门页 13 | 可做（做内页） | effects_watch、nrd_whoisds | 1 | 未验证 | 34.8 |\n| 80 | ray edits capcut | newwords | 热度 GPTs×0.406，增长 —%，上升中，首现 2026-10-24 / 爆发 2026-10-24，专门页 1 | 可做（做内页） | effects_watch | 0 | 未验证 | 34.4 |\n| — | farflung | newwords | 热度 GPTs×5.301，增长 1%，高位，首现 2026-10-16 / 爆发 2026-10-18，专门页 17 | 值得做（新站首页） | — | 21 | 4.98 | 41.0 |\n| — | learn arduino | hosted | 托管站 28 天点击 37450，首现 2026-10，1 个站（learn-arduino-red.vercel.app） | — | — | 18 | 未验证 | 36.9 |\n| — | atletico | hosted | 托管站 28 天点击 6710，首现 2026-10，1 个站（saimo-tv.pages.dev） | — | — | 23 | 未验证 | 32.7 |\n| — | concat | hosted | 托管站 28 天点击 20240，首现 2026-10，1 个站（concatenate.pages.dev） | — | — | 31 | 未验证 | 32.6 |\n| — | black 2 nuzlocke | hosted | 托管站 28 天点击 8650，首现 2026-10，1 个站（nuzlocke-redux.vercel.app） | — | — | 9 | 未验证 | 31.8 |\n| — | higgsfield genjutsu | newwords | 热度 GPTs×0.607，增长 -20%，回落中，首现 2026-09-02 / 爆发 2026-09-13，专门页 19 | 可做（做内页） | effects_watch | 17 | 未验证 | 31.6 |\n| — | krea 2 | newwords | 热度 GPTs×0.463，增长 -7%，已明显回落，首现 — / 爆发 2026-06-24，专门页 19 | 可做（做内页） | — | 17 | 未验证 | 31.3 |\n| — | brainworks | hosted | 托管站 28 天点击 9980，首现 2026-10，1 个站（brainworxedu.github.io） | — | — | 24 | 未验证 | 30.7 |\n| — | mega filmes hd | hosted | 托管站 28 天点击 8640，首现 2026-10，1 个站（megafilmeshd.pages.dev） | — | — | 9 | 未验证 | 30.6 |\n| — | ragdoll boxing 3d codes | newwords | 热度 GPTs×0.281，增长 380%，上升中，首现 2026-10-27 / 爆发 2026-10-31，专门页 1 | 可做（做内页） | — | 0 | 未验证 | 29.6 |\n| — | loamy meaning | newwords | 热度 GPTs×2.456，增长 —%，上升中，首现 2026-11-08 / 爆发 2026-11-08，专门页 7 | 不建议（不建议做） | — | 5 | 未验证 | 28.5 |\n| — | jjs sound id | hosted | 托管站 28 天点击 11260，首现 2026-10，1 个站（ossaamm.github.io） | — | — | 10 | 未验证 | 28.2 |\n| — | cork7 | newwords | 热度 GPTs×2.669，增长 31%，上升中，首现 2026-10-07 / 爆发 2026-11-02，专门页 12 | 可做（做内页） | — | 7 | 未验证 | 26.9 |\n| — | windock | hosted | 托管站 28 天点击 7400，首现 2026-10，1 个站（windock.vercel.app） | — | — | 6 | 未验证 | 26.4 |\n| — | money printer turbo | newwords | 热度 GPTs×0.209，增长 40%，回落中，首现 — / 爆发 2026-10-14，专门页 14 | 可做（做内页） | — | 8 | 未验证 | 25.9 |\n| — | grok 4.8 | newwords | 热度 GPTs×0.093，增长 -6%，回落中，首现 2026-04-12 / 爆发 2026-07-08，专门页 20 | 可做（做内页） | — | 3 | 未验证 | 25.8 |\n| — | super mario 64 browser | hosted | 托管站 28 天点击 22860，首现 2026-10，1 个站（notan127.github.io/SM64-PC-Port-WebGL） | — | — | 11 | 未验证 | 25.6 |\n| — | almostott | hosted | 托管站 28 天点击 10730，首现 2026-10，1 个站（almostott.vercel.app） | — | — | 3 | 未验证 | 25.2 |\n| — | rerac | hosted | 托管站 28 天点击 19310，首现 2026-10，1 个站（re-rac.github.io） | — | — | 11 | 未验证 | 24.6 |\n| — | inazuma rogue | hosted | 托管站 28 天点击 59430，首现 2026-10，1 个站（franmndezzzz.github.io/Inazuma-Rogue） | — | — | 2 | 未验证 | 24.6 |\n| — | sortie gta 6 | newwords | 热度 GPTs×2.282，增长 53%，上升中，首现 — / 爆发 2026-08-27，专门页 1 | 可做（做内页） | — | 13 | 未验证 | 24.1 |\n| — | coucou | hosted | 托管站 28 天点击 7110，首现 2026-10，1 个站（louis-cfm.github.io/coucou） | — | — | 22 | 未验证 | 23.6 |\n| — | glorybound codes | newwords | 热度 GPTs×0.441，增长 —%，上升中，首现 2026-11-03 / 爆发 2026-11-06，专门页 13 | 可做（做内页） | — | 0 | 未验证 | 23.6 |\n| — | destroy all monsters | newwords | 热度 GPTs×3.958，增长 645%，上升中，首现 — / 爆发 2026-11-02，专门页 18 | 可做（做内页） | — | 12 | 未验证 | 23.3 |\n| — | lil uzi fortnite | newwords | 热度 GPTs×1.47，增长 414%，上升中，首现 2026-11-01 / 爆发 2026-11-07，专门页 14 | 可做（做内页） | — | 2 | 未验证 | 23.0 |"
+  },
+  {
+   "title": "来源产出",
+   "markdown": "| 来源 | 状态 | 原始信号 | 进入自动池 | 进入报告池 |\n|---|---|---|---|---|\n| gtrends_rss | ok | 130 | 0 | 0 |\n| hackernews | ok | 122 | 2 | 0 |\n| lobsters | ok | 50 | 0 | 0 |\n| github | ok | 311 | 1 | 1 |\n| huggingface | ok | 180 | 6 | 5 |\n| fal | ok | 29 | 0 | 0 |\n| replicate | ok | 123 | 4 | 4 |\n| together | ok | 24 | 6 | 6 |\n| steam | ok | 340 | 17 | 3 |\n| itch | ok | 108 | 0 | 0 |\n| webgames | ok | 236 | 1 | 0 |\n| appstore | ok | 81 | 0 | 0 |\n| chrome_webstore | ok | 86 | 0 | 0 |\n| producthunt | ok | 50 | 0 | 0 |\n| googlenews | ok | 325 | 4 | 0 |\n| devto | ok | 60 | 0 | 0 |\n| wikipedia | blocked/empty | 0 | 0 | 0 |\n| social_trends | ok | 50 | 0 | 0 |\n| shindanmaker | ok | 98 | 0 | 0 |\n| yahoo_jp | ok | 23 | 0 | 0 |\n| korea | ok | 10 | 0 | 0 |\n| nrd | ok | 62 | 2 | 2 |\n| reddit_probe | blocked (403) | 0 | 0 | 0 |\n| agent_x | ok | 146 | 3 | 1 |\n| agent_seeds | ok | 24 | 3 | 1 |\n| webcafe_newwords | ok | 481 | 40 | 14 |\n| webcafe_launches | ok | 77 | 0 | 0 |\n| webcafe_hosted | ok | 150 | 28 | 1 |\n| autocomplete_soup | 派生 | — | 11 | 5 |\n| 谷歌上升源 | 派生 | — | 42 | 14 |\n| effects_watch | 派生 | — | 12 | 4 |\n| nrd_whoisds | 派生 | — | 2 | 2 |\n| agent_x_seed | 派生 | — | 3 | 1 |\n| x_trends | 派生 | — | 1 | 1 |"
+  }
+ ],
+ "deep_dive_count": 8,
+ "pool": {
+  "title": "候选池（自动初筛）",
+  "header": [
+   "#",
+   "关键词",
+   "类别",
+   "来源",
+   "补全变体/工具意图",
+   "补全示例",
+   "Trends 24h÷GPTs",
+   "Trends 斜率",
+   "X 昨日(斜率)",
+   ".com",
+   "SERP EMD/大站",
+   "分",
+   "状态"
+  ],
+  "rows": [
+   [
+    "1",
+    "loamy",
+    "其他",
+    "autocomplete_soup、webcafe_newwords https://new.web.cafe/keywords/loamy",
+    "21/1",
+    "loamy clay soil；loamy definition；loamy dias",
+    "105.77",
+    "62.18",
+    "62(3.15×)",
+    "已注册 2004-02-19",
+    "1/1",
+    "70.4",
+    "新"
+   ],
+   [
+    "2",
+    "minimax h3",
+    "AI 模型",
+    "huggingface、together https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "29/10",
+    "minimax h3 ai；minimax h3 anime；minimax h3 api",
+    "1.97",
+    "0.97",
+    "679(1.45×)",
+    "已注册 2026-07-15",
+    "7/3",
+    "66.2",
+    "已被占"
+   ],
+   [
+    "3",
+    "deepseek v4 pro",
+    "AI 模型",
+    "together https://www.together.ai/models/deepseek-v4-pro",
+    "20/10",
+    "deepseek v4 pro 0813；deepseek v4 pro 1m；deepseek v4 pro api",
+    "0.33",
+    "0.96",
+    "125(0.8×)",
+    "已注册 2026-03-12",
+    "0/6",
+    "64.8",
+    "持平"
+   ],
+   [
+    "4",
+    "flimflam",
+    "游戏",
+    "autocomplete_soup、trends_rising、webcafe_newwords https://new.web.cafe/keywords/flimflam",
+    "17/1",
+    "flim flam man；flim flam merch；flim flam minecraft",
+    "40.54",
+    "25.46",
+    "20(1.19×)",
+    "已注册 1998-06-03",
+    "1/2",
+    "64.2",
+    "新"
+   ],
+   [
+    "5",
+    "openai codex",
+    "其他",
+    "",
+    "27/12",
+    "openai codex api；openai codex app；openai codex app windows",
+    "1.06",
+    "0.63",
+    "319(2.37×)",
+    "已注册 2021-06-28",
+    "0/3",
+    "60.9",
+    "上升"
+   ],
+   [
+    "6",
+    "claude opus 5.5",
+    "AI 模型",
+    "replicate https://replicate.com/anthropic/claude-opus-5.5",
+    "23/14",
+    "claude opus 5.5 animation；claude opus 5.5 anthropic；claude opus 5.5 api",
+    "2.18",
+    "0.92",
+    "1141(1.2×)",
+    "404 可注册?",
+    "0/0",
+    "58.6",
+    "持平"
+   ],
+   [
+    "7",
+    "qwen 4",
+    "AI 模型",
+    "webcafe_newwords https://new.web.cafe/keywords/qwen-4",
+    "21/1",
+    "qwen 4 27b；qwen 4 35b；qwen 4 coder",
+    "3.9",
+    "1.83",
+    "1431(0.88×)",
+    "已注册 2025-01-28",
+    "0/1",
+    "57.8",
+    "持平"
+   ],
+   [
+    "8",
+    "glm 5.3 flash",
+    "AI 模型",
+    "huggingface、together https://huggingface.co/zai-org/GLM-5.3-Flash",
+    "18/11",
+    "glm 5.3 flash api；glm 5.3 flash benchmark；glm 5.3 flash dgx spark",
+    "0.62",
+    "0.85",
+    "323(0.83×)",
+    "404 可注册?",
+    "0/2",
+    "56.5",
+    "持平"
+   ],
+   [
+    "9",
+    "seedance 2.5",
+    "AI 模型",
+    "replicate、together https://replicate.com/bytedance/seedance-2.5",
+    "18/7",
+    "dreamina seedance 2.5；seedance 2.5 4k；seedance 2.5 ai",
+    "1.69",
+    "0.91",
+    "1328(1.02×)",
+    "已注册 2026-02-12",
+    "5/0",
+    "53.5",
+    "已被占"
+   ],
+   [
+    "10",
+    "poshan tracker",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=tracker",
+    "21/11",
+    "poshan tracker admin；poshan tracker admin login；poshan tracker anganwadi log in",
+    "0.38",
+    "0.55",
+    "未验证",
+    "已注册 2024-04-19",
+    "0/10",
+    "52.9",
+    "持平"
+   ],
+   [
+    "11",
+    "desmos scientific calculator",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=calculator",
+    "21/5",
+    "desmos scientific calculator app；desmos scientific calculator download pc；desmos scientific calculator florida",
+    "1.33",
+    "0.77",
+    "未验证",
+    "已注册 2026-01-05",
+    "1/0",
+    "52.2",
+    "持平"
+   ],
+   [
+    "12",
+    "qwen3 tts",
+    "AI 模型",
+    "huggingface https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+    "17/9",
+    "qwen3 tts api；qwen3 tts comfyui；qwen3 tts comfyui install",
+    "0.01",
+    "0.92",
+    "16(1.19×)",
+    "已注册 2025-09-23",
+    "0/4",
+    "52.0",
+    "持平"
+   ],
+   [
+    "13",
+    "seedance 2.0",
+    "AI 模型",
+    "replicate、together https://replicate.com/bytedance/seedance-2.0",
+    "20/8",
+    "seedance 2.0 4k；seedance 2.0 ai video generator；seedance 2.0 ai video tool",
+    "0.69",
+    "0.87",
+    "208(1.22×)",
+    "已注册 2026-01-08",
+    "3/1",
+    "51.7",
+    "已被占"
+   ],
+   [
+    "14",
+    "qwen3.8 27b",
+    "AI 模型",
+    "huggingface https://huggingface.co/Qwen/Qwen3.8-27B",
+    "26/7",
+    "qwen3.8 27b 16g；qwen3.8 27b 5090；qwen3.8 27b api",
+    "0",
+    "1",
+    "499(1.04×)",
+    "404 可注册?",
+    "0/11",
+    "51.5",
+    "持平"
+   ],
+   [
+    "15",
+    "deepseek harness",
+    "AI 工具",
+    "webcafe_newwords https://new.web.cafe/keywords/deepseek-harness",
+    "17/7",
+    "deepseek harness agent；deepseek harness android；deepseek harness api",
+    "4.38",
+    "0.83",
+    "884(1.3×)",
+    "已注册 2026-05-19",
+    "2/2",
+    "48.7",
+    "持平"
+   ],
+   [
+    "16",
+    "dressmaker game",
+    "游戏",
+    "",
+    "22/10",
+    "dressmaker game asmr；dressmaker game characters；dressmaker game demo",
+    "0.33",
+    "0.77",
+    "5(0.64×)",
+    "已注册 2025-09-11",
+    "0/2",
+    "46.4",
+    "回落"
+   ],
+   [
+    "17",
+    "tiptoeing in my jordans",
+    "社交格式",
+    "effects_watch、webcafe_newwords https://new.web.cafe/keywords/tiptoeing-in-my-jordans",
+    "15/6",
+    "tip toeing in my jordans ai；tip toeing in my jordans creepy kid；tip toeing in my jordans elf",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-10-08",
+    "未查",
+    "45.6",
+    "持平"
+   ],
+   [
+    "18",
+    "muse spark 1.3",
+    "AI 工具",
+    "webcafe_newwords https://new.web.cafe/keywords/muse-spark-1-3-251ef0",
+    "19/9",
+    "muse spark 1.3 api；muse spark 1.3 benchmark；muse spark 1.3 blender",
+    "未验证",
+    "—",
+    "143(3.09×)",
+    "已注册 2026-09-17",
+    "未查",
+    "44.9",
+    "持平"
+   ],
+   [
+    "19",
+    "oanda currency converter",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=converter",
+    "18/6",
+    "oanda currency converter 2025；oanda currency converter 2026；oanda currency converter api",
+    "0.53",
+    "0.75",
+    "未验证",
+    "已注册 2026-05-22",
+    "1/0",
+    "44.5",
+    "持平"
+   ],
+   [
+    "20",
+    "poshan tracker app",
+    "工具",
+    "",
+    "16/8",
+    "poshan tracker app apk；poshan tracker app download；poshan tracker app download free",
+    "0.05",
+    "0.73",
+    "未验证",
+    "404 可注册?",
+    "0/0",
+    "44.4",
+    "持平"
+   ],
+   [
+    "21",
+    "deltarune fight simulator",
+    "游戏",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=simulator",
+    "14/5",
+    "deltarune fight simulator download；deltarune fight simulator github；deltarune fight simulator jevil",
+    "0.17",
+    "0.88",
+    "0(1×)",
+    "已注册 2026-10-14",
+    "0/2",
+    "43.7",
+    "新"
+   ],
+   [
+    "22",
+    "krillion unlimited",
+    "游戏",
+    "trends_rising、webcafe_newwords https://new.web.cafe/keywords/krillion-unlimited",
+    "13/4",
+    "krillion unlimited 1v1；krillion unlimited alldle；krillion unlimited archive",
+    "8.12",
+    "0.95",
+    "1(0.75×)",
+    "已注册 2026-09-20",
+    "1/0",
+    "43.2",
+    "持平"
+   ],
+   [
+    "23",
+    "minimax m3",
+    "AI 模型",
+    "together、webcafe_newwords https://www.together.ai/models/minimax-m3",
+    "20/10",
+    "minimax m3 ai；minimax m3 api；minimax m3 benchmark",
+    "0.28",
+    "0.27",
+    "19(1.03×)",
+    "已注册 2026-06-01",
+    "11/0",
+    "42.8",
+    "已被占"
+   ],
+   [
+    "24",
+    "pdf to excel converter free",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=converter",
+    "18/6",
+    "best pdf to excel converter free；pdf to excel converter free adobe；pdf to excel converter free download",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-10-22",
+    "0/0",
+    "40.2",
+    "持平"
+   ],
+   [
+    "25",
+    "galaxyswapper",
+    "游戏",
+    "",
+    "20/12",
+    "galaxy swapper 2025；galaxy swapper 2026；galaxy swapper discord",
+    "未验证",
+    "—",
+    "0(1×)",
+    "已注册 2024-12-07",
+    "0/2",
+    "40.0",
+    "持平"
+   ],
+   [
+    "26",
+    "chromite palworld",
+    "工具",
+    "autocomplete_soup",
+    "15/3",
+    "chromite palworld 1.0；chromite palworld 1.0 cave；chromite palworld 1.0 farm",
+    "未验证",
+    "—",
+    "0(1×)",
+    "404 可注册?",
+    "0/4",
+    "39.6",
+    "持平"
+   ],
+   [
+    "27",
+    "saimo tv",
+    "其他",
+    "webcafe_hosted https://saimo-tv.pages.dev",
+    "9/3",
+    "saimo tv app；saimo tv box；saimo tv dev",
+    "未验证",
+    "—",
+    "1(0.86×)",
+    "已注册 2026-10-25",
+    "0/6",
+    "39.3",
+    "持平"
+   ],
+   [
+    "28",
+    "whatsapp web app",
+    "其他",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=app",
+    "30/12",
+    "whatsapp web app business；whatsapp web app business login；whatsapp web app desktop",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-10-22",
+    "0/1",
+    "39.0",
+    "持平"
+   ],
+   [
+    "29",
+    "xenolord palworld",
+    "游戏",
+    "autocomplete_soup",
+    "16/4",
+    "xenolord palworld 1.0；xenolord palworld 1.0 build；xenolord palworld 1.0 location",
+    "未验证",
+    "—",
+    "0(1×)",
+    "404 可注册?",
+    "0/3",
+    "38.8",
+    "持平"
+   ],
+   [
+    "30",
+    "z image turbo",
+    "AI 工具",
+    "replicate https://replicate.com/prunaai/z-image-turbo",
+    "25/8",
+    "z image turbo ai；z image turbo bf16；z image turbo bf16 safetensors",
+    "未验证",
+    "—",
+    "21(0.62×)",
+    "已注册 2025-11-26",
+    "0/5",
+    "38.6",
+    "回落"
+   ],
+   [
+    "31",
+    "quenq vice city",
+    "游戏",
+    "",
+    "23/7",
+    "quenq vice city 3；quenq vice city apk；quenq vice city game",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-04-21",
+    "0/0",
+    "38.4",
+    "持平"
+   ],
+   [
+    "32",
+    "sportybet app",
+    "其他",
+    "",
+    "15/7",
+    "sportybet app download；sportybet app download for windows 10；sportybet app download for windows 11",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-05-06",
+    "0/0",
+    "38.4",
+    "持平"
+   ],
+   [
+    "33",
+    "ltx 2.5",
+    "AI 模型",
+    "huggingface、webcafe_newwords https://huggingface.co/Lightricks/LTX-2.5",
+    "17/6",
+    "ltx 2.5 anime；ltx 2.5 comfyui；ltx 2.5 director",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-01-10",
+    "0/3",
+    "38.2",
+    "持平"
+   ],
+   [
+    "34",
+    "genshin impact",
+    "社交格式",
+    "",
+    "32/14",
+    "genshin impact 7.0；genshin impact character tier list；genshin impact characters",
+    "16.15",
+    "0.88",
+    "未验证",
+    "已注册 2019-06-07",
+    "2/5",
+    "38.0",
+    "持平"
+   ],
+   [
+    "35",
+    "umamusume tier list",
+    "社交格式",
+    "",
+    "16/10",
+    "uma musume tier list 2026；uma musume tier list card；uma musume tier list characters",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-08-05",
+    "0/1",
+    "38.0",
+    "持平"
+   ],
+   [
+    "36",
+    "glm 5.1",
+    "AI 工具",
+    "",
+    "25/10",
+    "glm 5.1 ai；glm 5.1 api；glm 5.1 benchmark",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-04-07",
+    "0/11",
+    "38.0",
+    "上升"
+   ],
+   [
+    "37",
+    "unblocked browser",
+    "游戏",
+    "",
+    "20/5",
+    "unblocked browser for school；unblocked browser for school chromebook；unblocked browser for school no download",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-10-04",
+    "0/0",
+    "38.0",
+    "持平"
+   ],
+   [
+    "38",
+    "aomei backupper",
+    "开源仓库",
+    "",
+    "25/9",
+    "aomei backupper bootable usb；aomei backupper clone；aomei backupper download",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "1/1",
+    "37.8",
+    "持平"
+   ],
+   [
+    "39",
+    "cscs card checker",
+    "工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=checker",
+    "12/5",
+    "cscs card checker api；cscs card checker app；cscs card checker citb",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "0/1",
+    "37.6",
+    "持平"
+   ],
+   [
+    "40",
+    "fun sponge",
+    "社交格式",
+    "trends_rising、webcafe_newwords https://new.web.cafe/keywords/fun-sponge",
+    "20/3",
+    "fun sponge gif；fun sponge meaning；fun sponge meme",
+    "未验证",
+    "—",
+    "9(1.58×)",
+    "已注册 2004-11-17",
+    "0/0",
+    "37.6",
+    "新"
+   ],
+   [
+    "41",
+    "arduino simulator",
+    "游戏",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=simulator",
+    "17/7",
+    "arduino simulator ai；arduino simulator app；arduino simulator download",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-07-25",
+    "0/1",
+    "37.4",
+    "新"
+   ],
+   [
+    "42",
+    "graphify claude",
+    "工具",
+    "",
+    "17/6",
+    "graphify claude code；graphify claude code github；graphify claude code install",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "0/1",
+    "37.2",
+    "上升"
+   ],
+   [
+    "43",
+    "jpg to excel converter",
+    "工具",
+    "",
+    "19/13",
+    "jpg to excel converter ai；jpg to excel converter free；jpg to excel converter free download",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-02-27",
+    "未查",
+    "37.0",
+    "持平"
+   ],
+   [
+    "44",
+    "english to hindi converter",
+    "工具",
+    "",
+    "21/10",
+    "english to hindi converter - search；english to hindi converter app；english to hindi converter changathi",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "37.0",
+    "持平"
+   ],
+   [
+    "45",
+    "pdf to word converter free",
+    "工具",
+    "",
+    "25/13",
+    "best pdf to word converter free；pdf to word converter free adobe；pdf to word converter free app",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "37.0",
+    "持平"
+   ],
+   [
+    "46",
+    "image to excel converter",
+    "工具",
+    "",
+    "19/10",
+    "image to excel converter ai；image to excel converter app；image to excel converter free",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-06-18",
+    "未查",
+    "37.0",
+    "持平"
+   ],
+   [
+    "47",
+    "ppt template",
+    "社交格式",
+    "",
+    "28/11",
+    "ppt template aesthetic；ppt template ai；ppt template animation",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2005-07-02",
+    "未查",
+    "37.0",
+    "持平"
+   ],
+   [
+    "48",
+    "tenorshare 4ukey",
+    "开源仓库",
+    "",
+    "21/7",
+    "tenorshare 4ukey download for pc；tenorshare 4ukey for android；tenorshare 4ukey for android download",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "1/2",
+    "36.9",
+    "持平"
+   ],
+   [
+    "49",
+    "phantom blade zero",
+    "游戏",
+    "steam https://store.steampowered.com/app/4115450/",
+    "29/9",
+    "phantom blade zero bastion；phantom blade zero best phantom edge；phantom blade zero collector's edition",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-04-24",
+    "1/5",
+    "36.8",
+    "持平"
+   ],
+   [
+    "50",
+    "avery 5160 template",
+    "社交格式",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=template",
+    "12/6",
+    "avery 5160 template blank fillable；avery 5160 template download；avery 5160 template download free",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.8",
+    "持平"
+   ],
+   [
+    "51",
+    "stranger than heaven",
+    "游戏",
+    "steam https://store.steampowered.com/app/4260840/",
+    "25/8",
+    "stranger than heaven ado；stranger than heaven cast；stranger than heaven collector's edition",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.6",
+    "持平"
+   ],
+   [
+    "52",
+    "airllm",
+    "AI 模型",
+    "",
+    "17/7",
+    "airllm 70b inference with single 4gb gpu；airllm demo；airllm docker",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-06-01",
+    "未查",
+    "36.4",
+    "持平"
+   ],
+   [
+    "53",
+    "wokwi simulator",
+    "游戏",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=simulator",
+    "13/5",
+    "wokwi simulator alternatives；wokwi simulator arduino；wokwi simulator arduino uno",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.4",
+    "新"
+   ],
+   [
+    "54",
+    "hunyuan3d 2.1",
+    "AI 模型",
+    "",
+    "13/4",
+    "hunyuan 3d 2.1 multi view；hunyuan 3d 2.1 texture；hunyuan3d 2.1 arxiv",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.2",
+    "持平"
+   ],
+   [
+    "55",
+    "i love pdf to word converter",
+    "工具",
+    "",
+    "14/10",
+    "i love pdf to word converter apk；i love pdf to word converter app；i love pdf to word converter for ios",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-11-24",
+    "未查",
+    "36.2",
+    "持平"
+   ],
+   [
+    "56",
+    "tensura light novel",
+    "其他",
+    "",
+    "20/5",
+    "tensura light novel 17；tensura light novel 23；tensura light novel download",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.0",
+    "持平"
+   ],
+   [
+    "57",
+    "claude opus 4.7",
+    "AI 模型",
+    "",
+    "19/10",
+    "claude opus 4.7 anthropic；claude opus 4.7 api；claude opus 4.7 coding",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.0",
+    "持平"
+   ],
+   [
+    "58",
+    "claude fable 5.1",
+    "AI 工具",
+    "",
+    "19/11",
+    "claude fable 5.1 and claude mythos 5.1；claude fable 5.1 and mythos 5.1；claude fable 5.1 anthropic",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.0",
+    "持平"
+   ],
+   [
+    "59",
+    "cellebrite ufed",
+    "开源仓库",
+    "",
+    "22/5",
+    "cellebrite ufed 4pc；cellebrite ufed 4pc download；cellebrite ufed applications",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "36.0",
+    "持平"
+   ],
+   [
+    "60",
+    "007 first light",
+    "游戏",
+    "steam https://store.steampowered.com/app/3768760/",
+    "29/9",
+    "007 first light before you buy；007 first light cast；007 first light collectibles",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-05-30",
+    "未查",
+    "35.8",
+    "持平"
+   ],
+   [
+    "61",
+    "god of war 3 remastered pc",
+    "游戏",
+    "",
+    "21/9",
+    "god of war 3 remastered pc 4k；god of war 3 remastered pc cheats；god of war 3 remastered pc dlss",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "35.8",
+    "持平"
+   ],
+   [
+    "62",
+    "group 4 apply",
+    "工具",
+    "",
+    "17/9",
+    "group 4 apply 2026；group 4 apply date；group 4 apply date 2026",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "35.8",
+    "上升"
+   ],
+   [
+    "63",
+    "bicep heart trend",
+    "社交格式",
+    "effects_watch、nrd_whoisds、webcafe_newwords https://new.web.cafe/keywords/bicep-heart-trend",
+    "1/0",
+    "bicep heart trend tiktok",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-11-03",
+    "0/0",
+    "35.7",
+    "持平"
+   ],
+   [
+    "64",
+    "indian truck simulator",
+    "游戏",
+    "",
+    "18/13",
+    "indian truck simulator 2；indian truck simulator 3d；indian truck simulator 3d download for pc",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-09-09",
+    "未查",
+    "35.5",
+    "持平"
+   ],
+   [
+    "65",
+    "deadlock mod manager",
+    "游戏",
+    "webcafe_newwords https://new.web.cafe/keywords/deadlock-mod-manager",
+    "10/5",
+    "deadlock mod manager discord；deadlock mod manager download；deadlock mod manager guide",
+    "未验证",
+    "—",
+    "7(1.04×)",
+    "已注册 2026-02-20",
+    "1/3",
+    "35.2",
+    "新"
+   ],
+   [
+    "66",
+    "gemini omni",
+    "AI 工具",
+    "",
+    "21/10",
+    "gemini omni 1.1；gemini omni ai；gemini omni api",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-05-02",
+    "未查",
+    "35.0",
+    "持平"
+   ],
+   [
+    "67",
+    "a bizarre run",
+    "游戏",
+    "",
+    "17/12",
+    "a bizarre run codes；a bizarre run codes 2025；a bizarre run d4c combo",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-10-05",
+    "未查",
+    "35.0",
+    "持平"
+   ],
+   [
+    "68",
+    "abbyy finereader pdf",
+    "开源仓库",
+    "github https://github.com/radim-hossain94/abbyy-finereader-pdf",
+    "20/4",
+    "abbyy finereader pdf 15；abbyy finereader pdf 15 download；abbyy finereader pdf 16",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "34.8",
+    "持平"
+   ],
+   [
+    "69",
+    "onetouch verio flex",
+    "其他",
+    "autocomplete_soup",
+    "21/4",
+    "onetouch verio flex battery；onetouch verio flex bluetooth pairing；onetouch verio flex coupon",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "34.8",
+    "持平"
+   ],
+   [
+    "70",
+    "usagi shima",
+    "游戏",
+    "",
+    "20/9",
+    "usagi shima blossom the bunny；usagi shima bunnies；usagi shima bunny game",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2024-11-26",
+    "未查",
+    "34.8",
+    "持平"
+   ],
+   [
+    "71",
+    "kokoro tts",
+    "AI 模型",
+    "",
+    "18/4",
+    "kokoro tts api；kokoro tts custom voice；kokoro tts demo",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-03-31",
+    "未查",
+    "34.8",
+    "持平"
+   ],
+   [
+    "72",
+    "chatgpt halloween prompt",
+    "社交格式",
+    "effects_watch、nrd_whoisds、webcafe_newwords https://new.web.cafe/keywords/chatgpt-halloween-prompt",
+    "1/0",
+    "chatgpt halloween prompts",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "0/0",
+    "34.8",
+    "持平"
+   ],
+   [
+    "73",
+    "mw4 early access",
+    "游戏",
+    "",
+    "17/8",
+    "mw 4 early access gameplay；mw4 early access beta；mw4 early access beta code",
+    "未验证",
+    "—",
+    "未验证",
+    "404 可注册?",
+    "未查",
+    "34.6",
+    "持平"
+   ],
+   [
+    "74",
+    "free pdf to word converter",
+    "工具",
+    "",
+    "20/8",
+    "best free pdf to word converter；best free pdf to word converter online；free pdf to word converter adobe",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-01-06",
+    "未查",
+    "34.6",
+    "—"
+   ],
+   [
+    "75",
+    "whatsapp app",
+    "其他",
+    "",
+    "26/8",
+    "whatsapp app apk；whatsapp app desktop download；whatsapp app download",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-09-27",
+    "未查",
+    "34.6",
+    "—"
+   ],
+   [
+    "76",
+    "universitychallenge",
+    "社交格式",
+    "x_trends https://x.com/search?q=UniversityChallenge",
+    "20/20",
+    "university challenge 2025；university challenge 2026；university challenge 2026/27",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2004-02-06",
+    "未查",
+    "34.5",
+    "—"
+   ],
+   [
+    "77",
+    "escape from playtime",
+    "游戏",
+    "agent_x_seed https://x.com/i/trending/2119219679239500283",
+    "20/7",
+    "escape from playtime all jumpscares；escape from playtime beta；escape from playtime catnap",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-06-22",
+    "1/6",
+    "34.4",
+    "—"
+   ],
+   [
+    "78",
+    "abhyas ai",
+    "AI 工具",
+    "trends_rising https://trends.google.com/trends/explore?date=now%201-d&q=ai",
+    "14/6",
+    "abhyas ai aditya；abhyas ai app；abhyas ai attendance",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2025-12-31",
+    "未查",
+    "34.4",
+    "—"
+   ],
+   [
+    "79",
+    "frickbears 3",
+    "游戏",
+    "",
+    "29/7",
+    "frickbear's 3 all animatronics；frickbear's 3 fritz；frickbear's 3 lolbit",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-07-27",
+    "未查",
+    "34.4",
+    "—"
+   ],
+   [
+    "80",
+    "ray edits capcut",
+    "社交格式",
+    "effects_watch、webcafe_newwords https://new.web.cafe/keywords/ray-edits-capcut",
+    "0/0",
+    "",
+    "未验证",
+    "—",
+    "未验证",
+    "已注册 2026-10-26",
+    "0/0",
+    "34.4",
+    "持平"
+   ]
+  ],
+  "note": ""
+ },
+ "watchlist": {
+  "title": "观察名单 / 上升中",
+  "header": [
+   "类型",
+   "关键词",
+   "首次出现",
+   "当日评级",
+   "今日补全变体",
+   "今日 Trends 24h÷GPTs（斜率）",
+   "今日 X 昨日(斜率)",
+   "状态"
+  ],
+  "rows": [
+   [
+    "今日上升",
+    "loamy",
+    "2026-11-10",
+    "—",
+    "21",
+    "105.77（62.18×）",
+    "62(3.15×)",
+    "新"
+   ],
+   [
+    "今日上升",
+    "flimflam",
+    "2026-11-10",
+    "—",
+    "17",
+    "40.54（25.46×）",
+    "20(1.19×)",
+    "新"
+   ],
+   [
+    "今日上升",
+    "muse spark 1.3",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "143(3.09×)",
+    "持平"
+   ],
+   [
+    "今日上升",
+    "openai codex",
+    "2026-11-07",
+    "—",
+    "27",
+    "1.06（0.63×）",
+    "319(2.37×)",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "ai school picture generator",
+    "2026-10-12",
+    "10-12:4.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai shader generator",
+    "2026-10-13",
+    "10-13:4.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "character.ai export",
+    "2026-10-14",
+    "10-14:4.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "youtube gif comments",
+    "2026-10-15",
+    "10-15:4.0★、10-16:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "scam with your friends",
+    "2026-10-15",
+    "10-15:3.5★、10-16:4.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai video relight",
+    "2026-10-12",
+    "10-12:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai product demo video",
+    "2026-10-13",
+    "10-13:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai video reframe",
+    "2026-10-14",
+    "10-14:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "planet zoo 2",
+    "2026-10-15",
+    "10-15:3.5★、10-16:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "castlevania: belmont's curse",
+    "2026-10-15",
+    "10-15:3.0★、10-16:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "muse spark open",
+    "2026-10-16",
+    "10-16:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "flux 3 image klein",
+    "2026-10-17",
+    "10-17:3.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vidu q4",
+    "2026-10-12",
+    "10-12:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "odyssey-3",
+    "2026-10-13",
+    "10-13:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "remove background with prompt",
+    "2026-10-14",
+    "10-14:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mirelo sfx 2.0",
+    "2026-10-15",
+    "10-15:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kling 4.0",
+    "2026-10-17",
+    "10-17:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "my 9 games",
+    "2026-10-17",
+    "10-17:3.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen4-27b",
+    "2026-10-12",
+    "10-12:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "oomfmap",
+    "2026-10-12",
+    "10-12:1.5★、10-13:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "screen studio alternative",
+    "2026-10-13",
+    "10-13:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rea",
+    "2026-10-13",
+    "10-13:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fill this room",
+    "2026-10-14",
+    "10-14:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "virtual guitar keyboard",
+    "2026-10-14",
+    "10-14:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "over the hill",
+    "2026-10-15",
+    "10-15:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krea 3",
+    "2026-10-16",
+    "10-16:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deadlock violet",
+    "2026-10-17",
+    "10-17:2.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "how pinterest sees me generator",
+    "2026-10-12",
+    "10-12:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude anatomy skill",
+    "2026-10-12",
+    "10-12:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "stepfun step 5",
+    "2026-10-12",
+    "10-12:2.0★、10-13:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vivix w1",
+    "2026-10-12",
+    "10-12:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "html explainer generator",
+    "2026-10-13",
+    "10-13:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fish audio drama 3",
+    "2026-10-14",
+    "10-14:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai game mod generator",
+    "2026-10-14",
+    "10-14:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sillytavern character card converter",
+    "2026-10-14",
+    "10-14:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hood warfare 2",
+    "2026-10-15",
+    "10-15:2.0★、10-16:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omnihuman v2",
+    "2026-10-16",
+    "10-16:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "enshrouded 1.0",
+    "2026-10-17",
+    "10-17:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "reflection beam 1.0",
+    "2026-10-17",
+    "10-17:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "steam frame verified games",
+    "2026-10-17",
+    "10-17:2.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "soulmate country quiz",
+    "2026-10-12",
+    "10-12:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "birth month horror villain",
+    "2026-10-12",
+    "10-12:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "google playground game maker",
+    "2026-10-12",
+    "10-12:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omurice simulator",
+    "2026-10-12",
+    "10-12:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "artcraft",
+    "2026-10-12",
+    "10-12:1.5★",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gemini 4 argon",
+    "2026-10-14",
+    "10-14:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "google ai studio 私有 play store 应用",
+    "2026-10-15",
+    "10-15:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unlimited ocr",
+    "2026-10-15",
+    "10-15:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mecore",
+    "2026-10-17",
+    "10-17:1.5★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ps5 llm",
+    "2026-10-17",
+    "10-17:1.0★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dayz badlands",
+    "2026-10-16",
+    "10-16:None★",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek v4.1 flash",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bijoy to unicode converter",
+    "2026-10-17",
+    "—",
+    "10",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "teslaroadster",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "seedance 2.0",
+    "2026-10-17",
+    "—",
+    "20",
+    "0.69（0.87×）",
+    "208(1.22×)",
+    "已被占"
+   ],
+   [
+    "旧词复查",
+    "seedance 2.5",
+    "2026-10-17",
+    "—",
+    "18",
+    "1.69（0.91×）",
+    "1328(1.02×)",
+    "已被占"
+   ],
+   [
+    "旧词复查",
+    "enshrouded",
+    "2026-10-17",
+    "—",
+    "29",
+    "17.77（1×）",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "netmirror extension",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "trellis2",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "glm 5.3 flash",
+    "2026-10-17",
+    "—",
+    "18",
+    "0.62（0.85×）",
+    "323(0.83×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "qwen image 2.1",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "blooket join",
+    "2026-10-17",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen3 tts",
+    "2026-10-17",
+    "—",
+    "17",
+    "0.01（0.92×）",
+    "16(1.19×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "clive barker's hellraiser",
+    "2026-10-17",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minimax h3 comfyui",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dreadmoor",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "template wala capcut",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "glm 5.3",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "quizlet flashcards",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "minimax h3 turbo lora",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "coralum ore palworld",
+    "2026-10-17",
+    "—",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "call of duty",
+    "2026-10-17",
+    "—",
+    "26",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "unbanned from wizz",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "g3q quiz",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zepbound kwikpen video",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai video generator",
+    "2026-10-17",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "bombanana",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "xenolord palworld",
+    "2026-10-17",
+    "—",
+    "16",
+    "未验证",
+    "0(1×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "netherite upgrade smithing template",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "0(1×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "netherite ingot",
+    "2026-10-17",
+    "—",
+    "20",
+    "未验证",
+    "0(1×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "orserk palworld",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ultrakill armor palworld",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jormuntide ignis",
+    "2026-10-17",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kokoro tts",
+    "2026-10-17",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "hexolite palworld",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tom clancy's rainbow six siege",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template trending 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "incantations elden ring",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "soulframe",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template new trend 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jetragon palworld 1.0",
+    "2026-10-17",
+    "—",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jumpstart 3d",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unrecord",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hunyuan3d 2.1",
+    "2026-10-17",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "capcut template ghaus editz",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "shadowofthecolossus pc",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen3.8 27b gguf",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tier list granblue fantasy relink",
+    "2026-10-17",
+    "—",
+    "4",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template rajan editz",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template by cbpng 2026",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai photo editing ghaus editz",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "meme soundboard 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unfenced",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "caturday",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template bhojpuri song",
+    "2026-10-17",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jetragon saddle palworld 1.0",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kling ai 3.0",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minimax h3",
+    "2026-10-17",
+    "—",
+    "29",
+    "1.97（0.97×）",
+    "679(1.45×)",
+    "已被占"
+   ],
+   [
+    "旧词复查",
+    "crowsworn",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "phasmophobia",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nakwon",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "railborn",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template badmashi",
+    "2026-10-17",
+    "—",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "keracolor clenditioner",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template rajasthani",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "paperchecker",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template new 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "disney dreamlight valley",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "totp",
+    "2026-10-17",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "template undangan tahlil",
+    "2026-10-17",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "runescape",
+    "2026-10-17",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "torchlight",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "witchbrook",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "maplestory",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "karlson",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tom clancy's the division 2",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "project zomboid",
+    "2026-10-17",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ardem",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template krishna editz",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "warframe",
+    "2026-10-17",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bodycam",
+    "2026-10-17",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "valheim",
+    "2026-10-17",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "quizlet into blooket",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tiktok trend 2026",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tier list palworld 1.0",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "challenge tiktok 2025",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "drakantos",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "stardew valley",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zeverland",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "template undangan pernikahan",
+    "2026-10-17",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nemotron 3.5 super vl",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "trend sidhu moose wala",
+    "2026-10-17",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "balenciaga trend",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tgif meme",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template rangdari",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omnivoice",
+    "2026-10-17",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "emberville",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "template kaise banaye",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "helldivers 2",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zenless zone zero",
+    "2026-10-17",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template bgmi",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tesla",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "astd tier list",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template urdu shayari",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "palworld",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai voice kaise banaye",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vrchat",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "neverway",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "archeage chronicles",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "paradee",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "emochi ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "solvely ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "euromillions checker",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template shayari",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "npctalk",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tiktok trend chatgpt",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tenebris somnia",
+    "2026-10-17",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "palworld breeding calculator",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yba tier list",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "street fighter",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude opus 5.5",
+    "2026-10-17",
+    "—",
+    "23",
+    "2.18（0.92×）",
+    "1141(1.2×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "moonshot",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "control resonant",
+    "2026-10-17",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "talkie ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "order of the sinking star",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ary plus app",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bonsai 2",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "how pinterest sees me",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokémon trading card game pocket",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sally rooney",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ironman tracker",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "x money",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "crelly",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 early access",
+    "2026-10-17",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "geode update",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 campaign",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 campaign early access",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "enshrouded best builds",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "modern warfare 4",
+    "2026-10-17",
+    "—",
+    "26",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "eclipse animator",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "avatar seven havens episode",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "muse spark 1.3",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "143(3.09×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "omniroute claude",
+    "2026-10-17",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gemini 3.8 flash",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "god of war 3 remastered pc",
+    "2026-10-17",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "huss valley",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ragdoll football",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "avatar seven havens episodes",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "opencode deepseek",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "codebase memory mcp",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude opus 4.6",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aion 2 cube",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokemon survivor burst",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude rea",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "firefly wedding manga",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokemon survivors",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "klerp",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen3-coder-next",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude opus 4.7",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "claude fable 5.1",
+    "2026-10-17",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "bloop pop",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "navratri prompt",
+    "2026-10-17",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "virtual steering controller",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "quenq vice city",
+    "2026-10-17",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "avatar 7 havens",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "phantom blade zero",
+    "2026-10-17",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "datapack maker",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek 4.1",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minimax m3",
+    "2026-10-17",
+    "—",
+    "20",
+    "0.28（0.27×）",
+    "19(1.03×)",
+    "已被占"
+   ],
+   [
+    "旧词复查",
+    "airllm",
+    "2026-10-17",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "wordpress ai website builder",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "valheim trader",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anyps5 games",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sonnet 5.5",
+    "2026-10-17",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aerial screensaver mac",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pinecone mc",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unbound dex",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yue2",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "depth of field simulator",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yeat fortnite skin",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "huss valley codes",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cs 1.6 browser",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "heightmap",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aircard",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rstudio",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openspeedy",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wsjt-x",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rumpelstiltskin 1987",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "burning bridges ai",
+    "2026-10-17",
+    "—",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "verity meme",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bulin 47 ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai steroids filter",
+    "2026-10-17",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fotor baby ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "baby couple ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "genjutsu ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "navratri ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zombie ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "raindance ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "suraj space prompt",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tip toeing in my jordans meme",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hotel lobby ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ayesha ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zombie trend",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rumpelstiltskin ai",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "migos trend",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hotel lobby video",
+    "2026-10-17",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sportybet app",
+    "2026-10-18",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "final fantasy resonance",
+    "2026-10-18",
+    "—",
+    "26",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unicode to bijoy converter",
+    "2026-10-18",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tamasha app",
+    "2026-10-18",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "betway app",
+    "2026-10-18",
+    "—",
+    "21",
+    "3.7（0.77×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "galaxyswapper",
+    "2026-10-18",
+    "—",
+    "20",
+    "未验证",
+    "0(1×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "tiktok",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unblocked sites",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cellebrite ufed",
+    "2026-10-18",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "hellraiser revival",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "instagram unblocked",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "betika app",
+    "2026-10-18",
+    "—",
+    "10",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nespresso milk frother",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "enshrouded map",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gears of war e-day",
+    "2026-10-18",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "satisfactory calculator",
+    "2026-10-18",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minecraft map",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "inav",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut template",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "turbo c online compiler",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "capcut",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "steal an egg",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "precure",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openai",
+    "2026-10-18",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "valkyries",
+    "2026-10-18",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "autodesk revit",
+    "2026-10-18",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hwid spoofer",
+    "2026-10-18",
+    "—",
+    "24",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openui",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai la triệu phú",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "black 2 nuzlocke",
+    "2026-10-18",
+    "—",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "neyland",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jormuntide ignis palworld",
+    "2026-10-18",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "parlay calculator",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "usyk",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fram oil filter",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pet simulator 99",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "roblox",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pumpkin hallow",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hyperdrive",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokemon skateboard",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rea reverse engineer anything",
+    "2026-10-18",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "feetle",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "abyssal escape",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "chromite palworld",
+    "2026-10-19",
+    "—",
+    "15",
+    "未验证",
+    "0(1×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "jitsi",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "uscis case tracker",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aomei backupper",
+    "2026-10-19",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "onetouch verio flex",
+    "2026-10-19",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "sketchup pro",
+    "2026-10-19",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kullervo warframe",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ebike flow",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dmz mw4",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "eontimer",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "soundpad",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hearts",
+    "2026-10-19",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokemon survivor",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "whowantstobeamillionaire",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "french fry",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek-v4.1-flash-1017",
+    "2026-10-19",
+    "—",
+    "8",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai photo editor anup sagar",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kyty ps5",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tarpapel maker",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "heatless curlers",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fire emblem fortune's weave",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "movavi screen recorder",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "star wars galactic racer",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "valorant new agent",
+    "2026-10-19",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gpt image 2",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bigbrotheruk",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "winxp",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "coreldraw",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "stand out roblox",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sha1 hash",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krillion game",
+    "2026-10-19",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "toeic",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "json formatter",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gemini omni",
+    "2026-10-19",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "movavi converter",
+    "2026-10-19",
+    "—",
+    "10",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "allgemeinwissen quiz",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vaporetto meaning",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "harvard referencing generator",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "muse spark",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krillion unlimited",
+    "2026-10-19",
+    "—",
+    "13",
+    "8.12（0.95×）",
+    "1(0.75×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "mobland",
+    "2026-10-19",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "omniroute",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "poshan tracker",
+    "2026-10-20",
+    "—",
+    "21",
+    "0.38（0.55×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "desmos graphing calculator",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "loftia",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "concorsando quiz",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jpg to excel converter",
+    "2026-10-20",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "jpg converter",
+    "2026-10-20",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to word",
+    "2026-10-20",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "merge pdf",
+    "2026-10-20",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "excel to pdf converter",
+    "2026-10-20",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "whatsapp app",
+    "2026-10-20",
+    "—",
+    "26",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cscs card checker",
+    "2026-10-20",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "jpg to pdf",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "app inventor",
+    "2026-10-20",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "ovo game",
+    "2026-10-20",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "steamnextfest",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "crossword puzzle maker",
+    "2026-10-20",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "graphing calculator",
+    "2026-10-20",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "filee",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "day trading simulator free",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "email tracker",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "time zone converter",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "trading simulator",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krea 2",
+    "2026-10-20",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "oanda currency converter",
+    "2026-10-20",
+    "—",
+    "18",
+    "0.53（0.75×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "football bros",
+    "2026-10-20",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "converter pdf to word",
+    "2026-10-20",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "diff checker",
+    "2026-10-20",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mit app inventor",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "t3 code",
+    "2026-10-20",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "converter pdf",
+    "2026-10-20",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "blackjack simulator",
+    "2026-10-20",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "subnet calculator",
+    "2026-10-20",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "authenticator app",
+    "2026-10-20",
+    "—",
+    "26",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "juntar pdf",
+    "2026-10-20",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "retro bowl",
+    "2026-10-20",
+    "—",
+    "26",
+    "4.73（0.67×）",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "math solver",
+    "2026-10-20",
+    "—",
+    "24",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "slope game",
+    "2026-10-20",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "avery label template",
+    "2026-10-20",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "risk assessment template",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "whats app web",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "common app",
+    "2026-10-20",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "snake game google",
+    "2026-10-20",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "signature maker",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "google snake",
+    "2026-10-20",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "concat",
+    "2026-10-20",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "fable 5.5",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "contrast checker",
+    "2026-10-20",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "math calculator",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "clayface",
+    "2026-10-20",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nhs app",
+    "2026-10-20",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "hotel lobby trend",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "we were here tomorrow",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yalla shoot live football app",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sinhala ai",
+    "2026-10-21",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek harness",
+    "2026-10-21",
+    "—",
+    "17",
+    "4.38（0.83×）",
+    "884(1.3×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "seedance 2.0 free",
+    "2026-10-21",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 dmz",
+    "2026-10-21",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bolly game",
+    "2026-10-21",
+    "—",
+    "4",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "koora live app",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kazumi coffee maker",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "video.maker ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "migos hotel lobby ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 multiplayer",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "denshattack",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "graphify",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "codependency test",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anthropic",
+    "2026-10-21",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen 3.8",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "skribbl io",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openclaw",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "burritobison",
+    "2026-10-21",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "vibecode",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "futbollibre app",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "chatgpt",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gas station ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openbsd",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jujutsu kaisen movie",
+    "2026-10-21",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "provision map",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "quavo ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "url shortener",
+    "2026-10-21",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "tamasha app live",
+    "2026-10-21",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "migos ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rapping ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kya hota hai ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mercedes car ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gas station dance ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "human resources ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "quavo takeoff ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "products ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nangis ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yung lean storm ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "endpoint security ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "artificial ai",
+    "2026-10-21",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "maplestory classic",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "escape from playtime",
+    "2026-10-22",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cyberpunk 2077",
+    "2026-10-22",
+    "—",
+    "29",
+    "35.45（0.96×）",
+    "未验证",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "minimax m3.1 flash",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "moss image",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "stranger than heaven",
+    "2026-10-22",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "super mario maker 2",
+    "2026-10-22",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "english to hindi converter",
+    "2026-10-22",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "poshan tracker app",
+    "2026-10-22",
+    "—",
+    "16",
+    "0.05（0.73×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "dlss 5",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "word to pdf converter",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gitlab",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "image to pdf converter",
+    "2026-10-22",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "political map of india",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ornith 1.5",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "2shell",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yomiyasu",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "castlevania",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bioware",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mudhra",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jade empire",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "codmw4",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "masseffect",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unicode to krutidev converter",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "patch 12.1",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokebonk",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "freellmapi",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anijam ai video maker",
+    "2026-10-22",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai that clones trend",
+    "2026-10-22",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "star sports app",
+    "2026-10-23",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "php2shell",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude duet",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek v4 pro",
+    "2026-10-23",
+    "—",
+    "20",
+    "0.33（0.96×）",
+    "125(0.8×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "baldur's gate 3",
+    "2026-10-23",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aion 2 pet",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude howto",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jetragon palworld",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "opencode go",
+    "2026-10-23",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "9router",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "five nights at frickbear",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cartesia ai",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "solidcraft",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "playgta5",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "one piece grand gourmet",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wuwa tracker",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qwen3.6",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "poke survivor",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "md5 file checksum",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hit the road dude",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nord lys",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pavo ai video generator",
+    "2026-10-23",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mw4 steam",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "genshin character tier list",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gta vice city browser",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "opus 5.5",
+    "2026-10-24",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "warrior cats game",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai image enhancer",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "celebrity look alike ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "othello game",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sword of convallaria tier list",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mascot ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minion ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "business card mockup ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mother daughter ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "knitted ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "slimming ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "crying face ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "basketball poster ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "school logo ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "church flyer ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "soccer logo ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "real estate flyer ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "business ai",
+    "2026-10-24",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aion 2",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tiptoeing in my jordans",
+    "2026-10-25",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "qwen3.8 27b",
+    "2026-10-25",
+    "—",
+    "26",
+    "0（1×）",
+    "499(1.04×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "anyps5",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sportzfy app",
+    "2026-10-25",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cork7",
+    "2026-10-25",
+    "—",
+    "7",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unblocked browser",
+    "2026-10-25",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "python",
+    "2026-10-25",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "castle app",
+    "2026-10-25",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "crazy games",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "project ignis",
+    "2026-10-25",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "web dasher",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "uriel warframe",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "deepseek harness desktop",
+    "2026-10-25",
+    "—",
+    "8",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "frickbears 3",
+    "2026-10-25",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "poki games",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kimi k3",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "opendots",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yama blox fruits",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "elden ring",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cameraman tower defense",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rorra water filter",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gamepadtest",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "strawpage",
+    "2026-10-25",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "noillirk",
+    "2026-10-25",
+    "—",
+    "5",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "a bizarre run",
+    "2026-10-25",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "grok bot",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "azeroth survivors",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "graphify claude",
+    "2026-10-26",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "nfsu2",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "need for speed underground 2",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "clover rpg",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "chess unblocked",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "higgsfield genjutsu",
+    "2026-10-26",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "typesafe ai",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "upscaler",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "photocraft",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nyt wordle",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "security audit skill",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ray edits capcut",
+    "2026-10-26",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "ai rapper video trend",
+    "2026-10-26",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ray edit capcut template",
+    "2026-10-26",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "jawn",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "psychs",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "azeroth survivors game",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "moon sweepers",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to word converter free",
+    "2026-10-27",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "i love pdf to word converter",
+    "2026-10-27",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "wattpad app",
+    "2026-10-27",
+    "—",
+    "23",
+    "1.4（0.5×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "oanda converter",
+    "2026-10-27",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to excel converter free",
+    "2026-10-27",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "image to excel converter",
+    "2026-10-27",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "vyapar app",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openbot",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wuthering waves",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "whatsapp web app",
+    "2026-10-27",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "stamp maker",
+    "2026-10-27",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qrcode generator",
+    "2026-10-27",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qr code generator free",
+    "2026-10-27",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to pdf converter",
+    "2026-10-27",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "canva ai image generator",
+    "2026-10-27",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kahoot quiz",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dazn app",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ircc tracker",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to word converter online",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "calcsolver",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "qr code maker",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mavenco",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "adobe qr code generator",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "uuid generator",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "flashcard maker",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "rapai",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mavenhq",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "maven labs",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "maven",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ozil goal ai video trend",
+    "2026-10-27",
+    "—",
+    "2",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "attitude emoji trend",
+    "2026-10-27",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "maven ads",
+    "2026-10-27",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "giggleland",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cyberpunk multiplayer",
+    "2026-10-28",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anomalith",
+    "2026-10-28",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "eraly",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "games like krillion",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "koreader",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "micro duck",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "grok 4.7",
+    "2026-10-28",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bleach mirrors high",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gpu unlock",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "zeus75",
+    "2026-10-29",
+    "—",
+    "7",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vectorcraft",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "c. ai",
+    "2026-10-29",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "blackwall quickhack",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "lfm3",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "antigravity ide",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "usagi shima",
+    "2026-10-29",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "pokemon unite game",
+    "2026-10-29",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anime expeditions",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "character ai",
+    "2026-10-29",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "bleach mirror high",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dealer ien",
+    "2026-10-29",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "monster hunter outlanders",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mh outlanders",
+    "2026-10-30",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "karwa chauth",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "mistral large 4",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wardogs game",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gemini 4 carbon",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "filmcraft",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "startrek",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "binance",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gears of war",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "the map that leads to you",
+    "2026-10-30",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "adscr",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "football manager 27",
+    "2026-10-30",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "herdr",
+    "2026-10-30",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nfs underground 2",
+    "2026-10-31",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "azeroth survivor",
+    "2026-10-31",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "terrible lizards",
+    "2026-10-31",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tensura light novel",
+    "2026-10-31",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "hocus pocus 3",
+    "2026-10-31",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "blooket join game",
+    "2026-10-31",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "practical basketball",
+    "2026-10-31",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "abhyas ai",
+    "2026-10-31",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "epic seven steam",
+    "2026-10-31",
+    "—",
+    "10",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "karwa chauth prompt for chatgpt",
+    "2026-10-31",
+    "—",
+    "0",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "julian erosa",
+    "2026-11-01",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "queens domain",
+    "2026-11-01",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "silver palace",
+    "2026-11-01",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "1v1.lol unblocked",
+    "2026-11-01",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "learnharness",
+    "2026-11-01",
+    "—",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "free games",
+    "2026-11-01",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "keyboard checker",
+    "2026-11-01",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "anime salt app",
+    "2026-11-01",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "drawquarium",
+    "2026-11-01",
+    "—",
+    "7",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "car games online",
+    "2026-11-01",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "attack on titan 3",
+    "2026-11-01",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "learn arduino",
+    "2026-11-01",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "site checker",
+    "2026-11-01",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hocus pocus 2",
+    "2026-11-02",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ppt template",
+    "2026-11-02",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "anime adventures",
+    "2026-11-02",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "good horror movies",
+    "2026-11-02",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "aa codes",
+    "2026-11-02",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "unslop",
+    "2026-11-02",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "business plan template",
+    "2026-11-02",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "janitor ai",
+    "2026-11-02",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "farflung",
+    "2026-11-02",
+    "—",
+    "21",
+    "4.98（0.92×）",
+    "57(1.08×)",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "ponytail skill",
+    "2026-11-02",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "drift boss",
+    "2026-11-02",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "github vibha ramprakash video effect",
+    "2026-11-02",
+    "—",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "toscano signal",
+    "2026-11-02",
+    "—",
+    "3",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "free pdf to word converter",
+    "2026-11-03",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "desmos scientific calculator",
+    "2026-11-03",
+    "—",
+    "21",
+    "1.33（0.77×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "pokemon 30th upc",
+    "2026-11-03",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krutidev to unicode converter",
+    "2026-11-03",
+    "—",
+    "11",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tenorshare 4ukey",
+    "2026-11-03",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "pokemon upc",
+    "2026-11-03",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "desmos",
+    "2026-11-03",
+    "—",
+    "26",
+    "28.11（0.74×）",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "passport size photo maker",
+    "2026-11-03",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf to word converter",
+    "2026-11-03",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "minecraft 1.26.60",
+    "2026-11-03",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "jpg to pdf converter",
+    "2026-11-03",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "trend micro",
+    "2026-11-03",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "claude mem",
+    "2026-11-03",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wordle unlimited",
+    "2026-11-03",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "online pdf converter",
+    "2026-11-03",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "krillion",
+    "2026-11-03",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "avery 5160 template",
+    "2026-11-03",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "web dashers",
+    "2026-11-03",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gantt chart template",
+    "2026-11-03",
+    "—",
+    "13",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "hailuo ai",
+    "2026-11-03",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ti 84 calculator",
+    "2026-11-03",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "wow forever",
+    "2026-11-03",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf converter",
+    "2026-11-03",
+    "—",
+    "28",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "qr code",
+    "2026-11-03",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wow forever tier list",
+    "2026-11-03",
+    "—",
+    "12",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tnpsc group 4 apply",
+    "2026-11-04",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "genshin mitya",
+    "2026-11-04",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "meowdoku",
+    "2026-11-04",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gta 5 online",
+    "2026-11-04",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ashampoo winoptimizer",
+    "2026-11-04",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "seedream 5.0",
+    "2026-11-04",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "printable 2027 calendar",
+    "2026-11-04",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "kalshi",
+    "2026-11-04",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "vote tracker",
+    "2026-11-04",
+    "—",
+    "22",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nullypto",
+    "2026-11-04",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tnpsc group 4",
+    "2026-11-05",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "opay app",
+    "2026-11-05",
+    "—",
+    "21",
+    "未验证",
+    "37(0.84×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "minimax h3 turbo",
+    "2026-11-05",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ltx 2.5",
+    "2026-11-05",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "genshin impact",
+    "2026-11-05",
+    "—",
+    "32",
+    "16.15（0.88×）",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "google snake game",
+    "2026-11-05",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "yono games app",
+    "2026-11-05",
+    "—",
+    "9",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "burning bridges ai video",
+    "2026-11-05",
+    "—",
+    "7",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ocarina of time remake",
+    "2026-11-06",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wow forever addons",
+    "2026-11-06",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "airframe ultra",
+    "2026-11-06",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "007 first light",
+    "2026-11-06",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "fragmentary order",
+    "2026-11-06",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ashampoo uninstaller",
+    "2026-11-06",
+    "—",
+    "14",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "wifi map",
+    "2026-11-06",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pixelfx",
+    "2026-11-06",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "abbyy finereader pdf",
+    "2026-11-06",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "warcraft forever",
+    "2026-11-06",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "dragraceuk",
+    "2026-11-06",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pokemon 30th anniversary upc",
+    "2026-11-07",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "openai codex",
+    "2026-11-07",
+    "—",
+    "27",
+    "1.06（0.63×）",
+    "319(2.37×)",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "ai image upscaler",
+    "2026-11-07",
+    "—",
+    "20",
+    "0.3（0.89×）",
+    "2(0.9×)",
+    "回落"
+   ],
+   [
+    "旧词复查",
+    "choicer voicer",
+    "2026-11-07",
+    "—",
+    "未查",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "umamusume tier list",
+    "2026-11-07",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "fable",
+    "2026-11-07",
+    "—",
+    "29",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "saimo tv",
+    "2026-11-07",
+    "—",
+    "9",
+    "未验证",
+    "1(0.86×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "im game",
+    "2026-11-07",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "ai image generator",
+    "2026-11-07",
+    "—",
+    "27",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "ai avatar video",
+    "2026-11-07",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bchydro outage map",
+    "2026-11-07",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "nomad drive",
+    "2026-11-07",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cybertruck",
+    "2026-11-07",
+    "—",
+    "31",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "bicep heart trend",
+    "2026-11-07",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "i am game",
+    "2026-11-07",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "z image turbo",
+    "2026-11-07",
+    "—",
+    "25",
+    "未验证",
+    "21(0.62×)",
+    "回落"
+   ],
+   [
+    "旧词复查",
+    "codes for aotr",
+    "2026-11-07",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "minecraft horizon",
+    "2026-11-07",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "im game movie",
+    "2026-11-07",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "chatgpt halloween prompt",
+    "2026-11-07",
+    "—",
+    "1",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "dressmaker game",
+    "2026-11-08",
+    "—",
+    "22",
+    "0.33（0.77×）",
+    "5(0.64×)",
+    "回落"
+   ],
+   [
+    "旧词复查",
+    "nordvpn app",
+    "2026-11-08",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "ai girlfriend simulator",
+    "2026-11-08",
+    "—",
+    "19",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "gta 6 release date",
+    "2026-11-08",
+    "—",
+    "20",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "sunrise on the reaping",
+    "2026-11-08",
+    "—",
+    "23",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "group 4 apply",
+    "2026-11-09",
+    "—",
+    "17",
+    "未验证",
+    "未验证",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "qwen 4",
+    "2026-11-09",
+    "—",
+    "21",
+    "3.9（1.83×）",
+    "1431(0.88×)",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "indian truck simulator",
+    "2026-11-09",
+    "—",
+    "18",
+    "未验证",
+    "未验证",
+    "持平"
+   ],
+   [
+    "旧词复查",
+    "ragdoll boxing",
+    "2026-11-09",
+    "—",
+    "8",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "open roberta lab",
+    "2026-11-09",
+    "—",
+    "15",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "glm 5.1",
+    "2026-11-09",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "vpn",
+    "2026-11-09",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "tnpsc apply online 2026",
+    "2026-11-09",
+    "—",
+    "2",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "pdf trend lab",
+    "2026-11-09",
+    "—",
+    "16",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "prate",
+    "2026-11-09",
+    "—",
+    "32",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "autodesk 3ds max",
+    "2026-11-09",
+    "—",
+    "25",
+    "未验证",
+    "未验证",
+    "上升"
+   ],
+   [
+    "旧词复查",
+    "vibe coding",
+    "2026-11-09",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "chest tracker",
+    "2026-11-09",
+    "—",
+    "21",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "cat in the hat",
+    "2026-11-09",
+    "—",
+    "30",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ],
+   [
+    "旧词复查",
+    "happy diwali ai photo",
+    "2026-11-09",
+    "—",
+    "4",
+    "未验证",
+    "未验证",
+    "今日未复查"
+   ]
+  ],
+  "note": ""
+ },
+ "effects": {
+  "title": "🎬 视频玩法词",
+  "header": [
+   "阶段",
+   "玩法簇",
+   "代表词（池排名）",
+   "说法变体",
+   "哥飞热度（GPTs×）",
+   "工具类补全",
+   "新域名 近4天（旧→新）",
+   "竞品 / 拥挤度",
+   "首次发现",
+   "风险",
+   "建议动作",
+   "底层模型 / 单条成本"
+  ],
+  "rows": [
+   [
+    "**起量**（起量中）：哥飞上升中、近4天新域名 6",
+    "bicep heart",
+    "bicep heart trend（#95）",
+    "bicep heart trend",
+    "最高 0.26；最新推送 上升中",
+    "0",
+    "6（3/1/1/1） bicep-heart.video、bicepheart.co",
+    "哥飞专门页 16；SERP 同名域名 0",
+    "2026-11-06 10:44（哥飞首推）；出现 — / 爆发 2026-11-02",
+    "—",
+    "今天上内页（老站），48–72h 看展现/出单；满足 2 条再开新域名",
+    "未验证"
+   ],
+   [
+    "**萌芽**（阶段变化 回落→萌芽）：工具类补全 0、近4天新域名 9",
+    "halloween",
+    "chatgpt halloween prompt（#115）",
+    "paper bag trend halloween、chatgpt halloween prompt、brown paper bag halloween trend",
+    "最高 0.252；最新推送 回落中",
+    "0",
+    "9（4/2/0/3） besthalloween.de、customerhalloween.com",
+    "哥飞专门页 13；SERP 同名域名 0；平台目录已有：fal_kling_effects、fal_pixverse_effects、pollo_effects",
+    "2026-11-01 11:06（哥飞首推）；出现 2026-10-30 / 爆发 2026-10-29",
+    "商标（chatgpt）",
+    "观察；可先写 how-to / 模板内页占位",
+    "PixVerse effects 5 秒 $0.15–0.40 / Vidu 模板 $0.20–0.50"
+   ],
+   [
+    "**萌芽**（新发现）：哥飞上升中、工具类补全 0",
+    "diwali",
+    "capcut template diwali trend（#211）",
+    "diwali prompt couple、happy diwali ai photo、capcut template diwali trend、diwali wishes ai prompt、diwali prompt for boy",
+    "最高 0.104；最新推送 上升中",
+    "0",
+    "0（0/0/0/0）",
+    "哥飞专门页 12；SERP 同名域名 0；平台目录已有：pollo_app",
+    "2026-10-30 01:21（哥飞首推）；出现 2026-08-16 / 爆发 2026-11-05",
+    "商标（capcut）、低付费（diwali）",
+    "观察；可先写 how-to / 模板内页占位",
+    "PixVerse effects 5 秒 $0.15–0.40 / Vidu 模板 $0.20–0.50"
+   ]
+  ],
+  "note": "> 自动生成（effects_watch）：今天跟踪 **31** 个玩法簇 —— 起量 1 / 萌芽 8 / 拥挤 0 / 回落 22。本节展示 **4** 个（起量 1 / 萌芽 2 / 回落 1），只展示新发现、阶段变化、起量中、哥飞今天推为上升中的簇。\n> 来源：哥飞新词批次 171 批（近 21 天）里筛出 55 个玩法词；新注册域名突增 0 个；自动补全 9 个种子 243 次查询（新出现玩法名 0 个），逐簇探测 60 个；平台目录 14 个、共 3818 条（新增 pollo_effects 9、pollo_app 24、pollo_hub 25、hailuo_tools 2、gnews_fx 16）。候选池新增 12 个代表词（预留名额，不会再被挤掉）。\n> 阶段规则：回落 = 哥飞趋势回落 / 曲线低于峰值 30%，且近 3 天没有上升、没有新域名突增；拥挤 = SERP 同名域名 ≥3，或近 4 天新域名 ≥20，或哥飞专门页 ≥15 且新域名 ≥10；起量 = （哥飞上升中，或工具类补全 ≥5）且（新域名 ≥3，或两者都满足）；其余是萌芽。",
+  "rest": "**回落 / 不做**（只在阶段变化当天出现一次）：\n\n| 玩法簇 | 代表词 | 哥飞最高热度（最新趋势） | 原因 | 首次发现 | 风险 | 动作 |\n|---|---|---|---|---|---|---|\n| vidu ai hug free | vidu ai hug free | 0.001（已明显回落） | 哥飞最新：已明显回落 | 2026-11-09 10:45 | 商标（vidu） | 不再投入 |\n\n**平台目录新增**（对比基线快照）：pollo_effects：ai-3d-face-emoji-generator、ai-air-kiss-video-generator、ai-bikini、ai-cheek-kiss-video-generator、ai-french-kiss-video-generator、ai-kissing、ai-pixel-art-video-effect、kiss-me-ai；pollo_app：ai-amazon-sponsored-brand-video、ai-discord-emoji-maker、ai-event-program-maker、ai-fruit-love-island、ai-girlfriend-video-generator、ai-party-flyer-generator、ai-photo-postcard-maker、ai-temu-product-video-maker；pollo_hub：10-best-ai-text-to-image-for-professional-use、28、a-week-of-faceless-social-videos-from-one-chatgpt-workflow、ai-videos-from-chatgpt、best-ai-influencer-generators、best-ai-kiss-video-generators、best-free-ai-video-generator-unlimited、best-free-unlimited-ai-video-generators-with-no-watermarks；hailuo_tools：gpt-image-2.6、h3-image；gnews_fx：AI-generated ICE videos target Latino communities on Facebook、Archive of Our Own, one of the world's biggest fan fiction sites, got hacked. AI is just making it worse、Cision Report Reveals the Consumer Trends Hidden Between Search, Social, and AI、Dealership AI Agents: IDP Connects Agents to CRM and Scheduling Tools for Auto Retailers、From TikTok Effects to Holiday Campaigns: What Reeldo.ai Reveals About the Changing Role of Short-Form Video、Holiday 100: Your guide to this year’s top trending gifts、Is Emily Hart Real? The Truth Behind the Viral AI-Linked 'MAGA Babe' Nurse、Kocca launches AI Content Festival in Seoul to showcase and spur investment\n\n目录抓取失败：remaker_templates（empty/blocked）\n\n持续跟踪（阶段没变，不展开）：ray edits（萌芽）、ray edit capcut template（萌芽）、attitude emoji（萌芽）、karwa chauth（萌芽）、that clones（萌芽）、ozil goal（萌芽）"
+ },
+ "parse_ok": true
+}
